@@ -7,7 +7,7 @@
 #ifndef GAMECOMPONENT_H
 #define GAMECOMPONENT_H
 
-#include "Game.h"
+class Game;
 
 namespace Game_Framework
 {

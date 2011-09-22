@@ -8,12 +8,20 @@
 #define GAME_H
 
 #include <stdlib.h>
+#include <list>
+#include "GameComponent.h"
+#include "RenderEngine.h"
+
+using namespace std;
 
 namespace Game_Framework
 {
 	class Game
 	{
 		public:
+			list<GameComponent> Components;
+			RenderEngine* Render;
+
 			Game();
 
 			void Run();
@@ -21,6 +29,8 @@ namespace Game_Framework
 			void Exit();
 		
 		protected:
+			list<GameComponent> iterator;
+
 			void BeginDraw();
 			void Draw();
 			void EndDraw();
