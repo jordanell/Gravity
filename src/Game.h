@@ -10,7 +10,9 @@
 #include <stdlib.h>
 #include <list>
 #include "GameComponent.h"
+#include "DrawableGameComponent.h"
 #include "RenderEngine.h"
+#include "ContentManager.h"
 
 using namespace std;
 
@@ -21,6 +23,7 @@ namespace Game_Framework
 		public:
 			list<GameComponent> Components;
 			RenderEngine* Render;
+			ContentManager* Content;
 
 			Game();
 
@@ -30,6 +33,8 @@ namespace Game_Framework
 		
 		protected:
 			list<GameComponent> iterator;
+
+			void Initialize();
 
 			void BeginDraw();
 			void Draw();

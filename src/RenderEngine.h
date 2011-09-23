@@ -11,6 +11,11 @@
 #include "SDL/SDL_opengl.h"
 #include "SDL/SDL_image.h"
 
+#include "Texture2D.h"
+#include "Rectangle.h"
+#include "Color.h"
+#include "Vector2.h"
+
 namespace Game_Framework
 {
 	class RenderEngine
@@ -20,15 +25,18 @@ namespace Game_Framework
 			RenderEngine(char* windowName, int width, int height, bool fullScreen);
 
 			void PreDraw();
-			void Draw();
+			//Destination rectangle
+			void Draw(Texture2D* tex, Rectangle* rec, Color* color);
+			//Destination vector
+			void Draw(Texture2D* tex, Vector2* vec, Color* color);
 			void PostDraw();
 			
 
 		protected:
-			int width;
-			int height;
+			int Width;
+			int Height;
 
-			void Init(char* windowName, int width, int height, bool fullScreen);
+			void Init(char* windowName, bool fullScreen);
 			
 	};
 }

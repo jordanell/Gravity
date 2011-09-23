@@ -10,12 +10,12 @@ namespace Game_Framework
 {
 	RenderEngine::RenderEngine(char* windowName, int width, int height, bool fullScreen)
 	{
-		Init(windowName, width, height, fullScreen);
-		this->width = width;
-		this->height = height;
+		Init(windowName, fullScreen);
+		this->Width = width;
+		this->Height = height;
 	}
 
-	void RenderEngine::Init(char* windowName, int width, int height, bool fullScreen)
+	void RenderEngine::Init(char* windowName, bool fullScreen)
 	{
 		SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -28,11 +28,11 @@ namespace Game_Framework
 		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 8);
 
 		SDL_WM_SetCaption(windowName, NULL);
-		SDL_SetVideoMode(width,height,32, SDL_OPENGL);	//Set the last parameter to FULLSCREEN
+		SDL_SetVideoMode(Width,Height,32, SDL_OPENGL);	//Set the last parameter to FULLSCREEN
 
 		glClearColor(1,1,1,1); 				//RGB Alpha
 	
-		glViewport(0,0,width,height);			//Set the viewport for the screen size
+		glViewport(0,0,Width,Height);			//Set the viewport for the screen size
 
 		glShadeModel(GL_SMOOTH);
 
@@ -50,12 +50,35 @@ namespace Game_Framework
 
 		glPushMatrix();	//Start phase for rendering
 
-		glOrtho(0,width,height,0,-1,1);	//Reseting the coordinates to be top left
+		glOrtho(0,Width,Height,0,-1,1);	//Reseting the coordinates to be top left
 	}
 
-	void RenderEngine::Draw()
+	void RenderEngine::Draw(Texture2D* tex, Rectangle* rec, Color* color)
 	{
+		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
+		glBegin(GL_QUADS);
+		glTexCoord2d(0,0);glVertex2f(rec->X, rec->Y);
+		glTexCoord2d(1,0);glVertex2f(rec->X+rec->Width, rec->Y);
+		glTexCoord2d(1,1);glVertex2f(rec->X+rec->Width, rec->Y+rec->Height);
+		glTexCoord2d(0,1);glVertex2f(rec->X, rec->Y+rec->Height);			
+		glEnd();
+	}
+
+	void RenderEngine::Draw(Texture2D* tex, Vector2* vec, Color* color)
+	{
+		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, tex->Texture);
+
+		glBegin(GL_QUADS);
+		glTexCoord2d(0,0);glVertex2f(vec->X, vec->Y);
+		glTexCoord2d(1,0);glVertex2f(vec->X+tex->Width, vec->Y);
+		glTexCoord2d(1,1);glVertex2f(vec->X+tex->Width, vec->Y+tex->Height);
+		glTexCoord2d(0,1);glVertex2f(vec->X, vec->Y+tex->Height);			
+		glEnd();
 	}
 
 	void RenderEngine::PostDraw()
