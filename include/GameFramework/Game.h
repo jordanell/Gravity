@@ -9,10 +9,15 @@
 
 #include <stdlib.h>
 #include <list>
+
+#include "SDL/SDL.h"
+
 #include "GameComponent.h"
 #include "DrawableGameComponent.h"
 #include "RenderEngine.h"
 #include "ContentManager.h"
+#include "Timer.h"
+#include "Defines.h"
 
 using namespace std;
 

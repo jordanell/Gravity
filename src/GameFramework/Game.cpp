@@ -15,14 +15,20 @@ namespace Game_Framework
 
 	void Game::Run()
 	{
+		Timer FPS;
+
 		for(;;)
 		{
-			//Add in frame rate stuff here
+			FPS.Start();
+
 			Update();
 		
 			BeginDraw();
 			Draw();
 			EndDraw();
+
+			if(FPS.GetTicks() < MILLISECONDS / FRAMES_PER_SECOND)
+				SDL_Delay((MILLISECONDS / FRAMES_PER_SECOND) - FPS.GetTicks());
 		}
 	}
 
