@@ -11,6 +11,7 @@
 #include "Game.h"
 #include "GameComponent.h"
 #include "DrawableGameComponent.h"
+#include "GameComponentCollection.h"
 #include "Point.h"
 #include "Vector2.h"
 #include "Rectangle.h"

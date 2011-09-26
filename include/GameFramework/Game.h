@@ -13,6 +13,7 @@
 #include "SDL/SDL.h"
 
 #include "GameComponent.h"
+#include "GameComponentCollection.h"
 #include "DrawableGameComponent.h"
 #include "RenderEngine.h"
 #include "ContentManager.h"
@@ -26,7 +27,7 @@ namespace Game_Framework
 	class Game
 	{
 		public:
-			list<GameComponent> Components;
+			GameComponentCollection* Components;
 			RenderEngine* Render;
 			ContentManager* Content;
 

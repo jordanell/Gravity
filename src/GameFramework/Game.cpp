@@ -44,13 +44,13 @@ namespace Game_Framework
 
 	void Game::Draw()
 	{
-		list<GameComponent>::iterator it;
+		Node* iterator;
 		GameComponent* component;
 		DrawableGameComponent* drawable;
 
-		for(it = Components.begin(); it != Components.end(); it++)
+		for(iterator = Components->Head; iterator != NULL; iterator = iterator->Next)
 		{
-			component = &(*it);
+			component = iterator->Component;
 			drawable = dynamic_cast<DrawableGameComponent*>(component);
 			if(drawable)
 				drawable->Draw();
@@ -64,10 +64,10 @@ namespace Game_Framework
 
 	void Game::Update()
 	{
-		list<GameComponent>::iterator it;
+		Node* iterator;
 
-		for(it = Components.begin(); it != Components.end(); it++)
-			it->Update();
+		for(iterator = Components->Head; iterator != NULL; iterator = iterator->Next)
+			iterator->Component->Update();
 	}
 }
 
