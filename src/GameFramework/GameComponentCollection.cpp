@@ -81,7 +81,7 @@ namespace Game_Framework
 			}
 		}
 
-		throw Exception("Element does not exist", 1, __FILE__, __LINE__);
+		throw Exception("Element does not exist", 100, __FILE__, __LINE__);
 	}
 
 	void GameComponentCollection::Insert(GameComponent* Component, int Index)
