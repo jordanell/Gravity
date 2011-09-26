@@ -8,14 +8,14 @@
 
 namespace Game_Framework
 {
-	RenderEngine::RenderEngine(char* windowName, int width, int height, bool fullScreen)
+	RenderEngine::RenderEngine(const char* windowName, int width, int height, bool fullScreen)
 	{
 		Init(windowName, fullScreen);
 		this->Width = width;
 		this->Height = height;
 	}
 
-	void RenderEngine::Init(char* windowName, bool fullScreen)
+	void RenderEngine::Init(const char* windowName, bool fullScreen)
 	{
 		SDL_Init(SDL_INIT_EVERYTHING);
 

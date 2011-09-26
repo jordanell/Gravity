@@ -41,10 +41,10 @@ namespace Game_Framework
 			void Initialize();
 
 			void BeginDraw();
-			void Draw();
+			virtual void Draw();
 			void EndDraw();
 
-			void Update();
+			virtual void Update();
 	};
 }
 

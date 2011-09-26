@@ -21,5 +21,6 @@
 #include "RenderEngine.h"
 #include "Texture2D.h"
 #include "Timer.h"
+#include "Exception.h"
 
 #endif

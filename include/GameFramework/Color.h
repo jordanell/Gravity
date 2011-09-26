@@ -10,7 +10,6 @@
 namespace Game_Framework
 {
 	class Color
-
 	{
 		public:
 			int Red;

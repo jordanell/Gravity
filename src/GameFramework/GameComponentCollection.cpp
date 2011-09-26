@@ -79,14 +79,15 @@ namespace Game_Framework
 					return;
 				}
 			}
-			return;
 		}
+
+		throw Exception("Element does not exist", 1, __FILE__, __LINE__);
 	}
 
 	void GameComponentCollection::Insert(GameComponent* Component, int Index)
 	{
-		if(Index > this->Count)
-			return;
+		if(Index > this->Count || Index < 0)
+			throw Exception("Array out of bounds", 2, __FILE__, __LINE__);
 
 		Node* node = new Node(Component);
 		Count++;

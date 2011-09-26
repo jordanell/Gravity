@@ -8,6 +8,7 @@
 #define GAMECOMPONENTCOLLECTION_H
 
 #include "GameComponent.h"
+#include "Exception.h"
 #include <cstddef>
 
 namespace Game_Framework

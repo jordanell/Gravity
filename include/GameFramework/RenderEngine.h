@@ -22,7 +22,7 @@ namespace Game_Framework
 
 	{
 		public:
-			RenderEngine(char* windowName, int width, int height, bool fullScreen);
+			RenderEngine(const char* windowName, int width, int height, bool fullScreen);
 
 			void PreDraw();
 			//Destination rectangle
@@ -40,7 +40,7 @@ namespace Game_Framework
 			int Width;
 			int Height;
 
-			void Init(char* windowName, bool fullScreen);
+			void Init(const char* windowName, bool fullScreen);
 			
 	};
 }
