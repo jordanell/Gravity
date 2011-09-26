@@ -38,8 +38,6 @@ namespace Game_Framework
 			void Exit();
 		
 		protected:
-			list<GameComponent> iterator;
-
 			void Initialize();
 
 			void BeginDraw();

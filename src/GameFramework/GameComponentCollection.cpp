@@ -41,7 +41,6 @@ namespace Game_Framework
 
 	bool GameComponentCollection::Contains(GameComponent* Component)
 	{
-		int i;
 		Node* iterator;
 		for(iterator = Head; iterator != NULL; iterator = iterator->Next)
 		{

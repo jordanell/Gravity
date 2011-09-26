@@ -9,5 +9,7 @@
 
 const int FRAMES_PER_SECOND = 30;
 const int MILLISECONDS = 1000;
+const int DEFAULT_WIDTH = 600;
+const int DEFAULT_HEIGHT = 400;
 
 #endif

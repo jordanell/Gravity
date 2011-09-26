@@ -10,11 +10,23 @@ namespace Game_Framework
 {
 	Game::Game()
 	{
-		//Add properties here
+	}
+
+	void Game::Initialize()
+	{
+		//Create RenderEngine
+		Render = new RenderEngine("Game", DEFAULT_WIDTH, DEFAULT_HEIGHT, false);
+		//Create ContentManager
+		Content = new ContentManager();
+		//Create Component Collection
+		Components = new GameComponentCollection();
 	}
 
 	void Game::Run()
 	{
+		//Before game runs call the initializer
+		Initialize();
+
 		Timer FPS;
 
 		for(;;)
