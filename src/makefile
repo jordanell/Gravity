@@ -2,9 +2,9 @@ CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=-lSDLmain -lSDL -lGL -lSDL_image
 INCLUDES=-I../include/GameFramework/ -I../include/
-SOURCES=$(wildcard *.cpp)
+SOURCES=$(wildcard *.cpp) $(wildcard ./GameFramework/*.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
-EXECUTABLE=Manhattan_Project
+EXECUTABLE=Game
 
 all: $(SOURCES) $(EXECUTABLE)
 	

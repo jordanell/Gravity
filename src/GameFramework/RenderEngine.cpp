@@ -10,9 +10,9 @@ namespace GameFramework
 {
 	RenderEngine::RenderEngine(const char* windowName, int width, int height, bool fullScreen)
 	{
-		Init(windowName, fullScreen);
 		this->Width = width;
 		this->Height = height;
+		Init(windowName, fullScreen);
 	}
 
 	void RenderEngine::Init(const char* windowName, bool fullScreen)

@@ -1,11 +1,11 @@
 #include "GameFramework.h"
-#include "Game1.h"
 
-using namespace Game_Framework;
+using namespace GameFramework;
 
 int main(int argc, char* args[])
 {
-
+	Game* game = new Game();
+	game->Run();
 
 	return 0;
 }

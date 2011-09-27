@@ -7,10 +7,11 @@
 #ifndef GAMECOMPONENT_H
 #define GAMECOMPONENT_H
 
-class Game;
-
 namespace GameFramework
 {
+	//Forward dependancy
+	class Game;
+
 	class GameComponent
 	{
 		public:
