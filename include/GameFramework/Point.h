@@ -7,7 +7,7 @@
 #ifndef POINT_H
 #define POINT_H
 
-namespace Game_Framework
+namespace GameFramework
 {
 	class Point
 	{

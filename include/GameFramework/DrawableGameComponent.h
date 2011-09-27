@@ -9,7 +9,7 @@
 
 #include "GameComponent.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	class DrawableGameComponent: public GameComponent
 	{

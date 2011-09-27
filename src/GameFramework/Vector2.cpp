@@ -8,7 +8,7 @@
 #include "Vector2.h"
 
 
-namespace Game_Framework
+namespace GameFramework
 {	
 	// An initialized Vector2 without arguments creates a zero vector
 	Vector2::Vector2()

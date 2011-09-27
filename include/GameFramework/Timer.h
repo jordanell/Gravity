@@ -9,7 +9,7 @@
 
 #include "SDL/SDL.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	class Timer
 	{

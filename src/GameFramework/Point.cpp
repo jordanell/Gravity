@@ -6,7 +6,7 @@
 
 #include "Point.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	Point::Point()
 	{

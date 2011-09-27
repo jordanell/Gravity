@@ -6,7 +6,7 @@
 
 #include "Color.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	Color::Color()
 	{

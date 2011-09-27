@@ -6,7 +6,7 @@
 
 #include "GameComponent.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	GameComponent::GameComponent(Game* game)
 	{

@@ -6,7 +6,7 @@
 
 #include "Exception.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	Exception::Exception(const char* Msg, int n, const char* File, int nLine)
 	{

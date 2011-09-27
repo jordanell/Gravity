@@ -6,7 +6,7 @@
 
 #include "Game.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	Game::Game()
 	{

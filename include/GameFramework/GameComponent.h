@@ -9,7 +9,7 @@
 
 class Game;
 
-namespace Game_Framework
+namespace GameFramework
 {
 	class GameComponent
 	{

@@ -6,7 +6,7 @@
 
 #include "GameComponentCollection.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 
 	Node::Node(GameComponent* Component)

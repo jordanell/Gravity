@@ -7,7 +7,7 @@
 #ifndef VECTOR2_H
 #define VECTOR2_H
 
-namespace Game_Framework
+namespace GameFramework
 {
 	class Vector2
 	{

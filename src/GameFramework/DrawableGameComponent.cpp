@@ -6,7 +6,7 @@
 
 #include "DrawableGameComponent.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	DrawableGameComponent::DrawableGameComponent(Game* game)
 		: GameComponent(game)

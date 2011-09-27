@@ -23,7 +23,7 @@
  #endif
 
 
-namespace Game_Framework
+namespace GameFramework
 {
 	class ContentManager
 

@@ -11,7 +11,7 @@
 #include "Exception.h"
 #include <cstddef>
 
-namespace Game_Framework
+namespace GameFramework
 {
 	class Node
 	{

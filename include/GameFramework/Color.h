@@ -7,7 +7,7 @@
 #ifndef COLOR_H
 #define COLOR_H
 
-namespace Game_Framework
+namespace GameFramework
 {
 	class Color
 	{

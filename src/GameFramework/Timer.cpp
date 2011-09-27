@@ -6,7 +6,7 @@
 
 #include "Timer.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	Timer::Timer()
 	{

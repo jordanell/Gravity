@@ -6,7 +6,7 @@
 
 #include "Rectangle.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	Rectangle::Rectangle()
 	{

@@ -7,7 +7,7 @@
 #ifndef TEXTURE2D_H
 #define TEXTURE2D_H
 
-namespace Game_Framework
+namespace GameFramework
 {
 	class Texture2D
 

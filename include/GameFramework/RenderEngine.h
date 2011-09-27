@@ -16,7 +16,7 @@
 #include "Color.h"
 #include "Vector2.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	class RenderEngine
 

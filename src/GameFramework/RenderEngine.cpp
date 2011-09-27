@@ -6,7 +6,7 @@
 
 #include "RenderEngine.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	RenderEngine::RenderEngine(const char* windowName, int width, int height, bool fullScreen)
 	{

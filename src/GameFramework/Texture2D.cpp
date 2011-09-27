@@ -6,7 +6,7 @@
 
 #include "Texture2D.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 
 	Texture2D::Texture2D()

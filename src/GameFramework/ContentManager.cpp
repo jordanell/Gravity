@@ -6,7 +6,7 @@
 
 #include "ContentManager.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	ContentManager::ContentManager()
 	{

@@ -14,7 +14,7 @@
 
 using namespace std;
 
-namespace Game_Framework
+namespace GameFramework
 {
 	class Exception
 	{

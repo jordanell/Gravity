@@ -9,7 +9,7 @@
 
 #include "Point.h"
 
-namespace Game_Framework
+namespace GameFramework
 {
 	class Rectangle
 	{
