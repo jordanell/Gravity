@@ -1,7 +1,15 @@
 CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=-lSDLmain -lSDL -lGL -lSDL_image
+
+UNAME:= $(shell uname)
+ifeq ($(UNAME), Linux)
 INCLUDES=-I../../include/GameFramework/
+endif
+ifeq ($(UNAME), Darwin)
+INCLUDES=-I../../include/GameFramework/ -I../../include/ -F/Library/Frameworks/ -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/SDL_image.framework/Headers
+endif
+
 SOURCES=$(wildcard *.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
 OUTPUT=libGameFramework.a
@@ -14,3 +22,4 @@ $(OUTPUT): $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS)
+

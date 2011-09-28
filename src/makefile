@@ -6,10 +6,16 @@ ifeq ($(UNAME), Linux)
 LDFLAGS=-lSDLmain -lSDL -lGL -lSDL_image -L./GameFramework -lGameFramework
 endif
 ifeq ($(UNAME), Darwin)
-LDFLAGS=`sdl-config -libs -cflags` -L./GameFramework -lGameFramework -framework Cocoa
+LDFLAGS=-framework OpenGL -framework SDL -framework SDL_image -framework cocoa -lSDLmain -L./GameFramework -lGameFramework
 endif
 
-INCLUDES=-I../include/GameFramework/ -I../include/
+ifeq ($(UNAME), Linux)
+INCLUDES=-I../../include/GameFramework/
+endif
+ifeq ($(UNAME), Darwin)
+INCLUDES=-I../../include/GameFramework/ -I../../include/ -F/Library/Frameworks/ -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/SDL_image.framework/Headers
+endif
+
 SOURCES=$(wildcard *.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=Game
@@ -24,3 +30,4 @@ $(EXECUTABLE): $(OBJECTS)
 
 clean:
 	rm -f $(OBJECTS)
+
