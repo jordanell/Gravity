@@ -7,7 +7,11 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-#include "SDL/SDL.h"
+#ifdef __linux__
+	#include "SDL/SDL.h"
+#else
+	#include "SDL.h"
+#endif
 
 namespace GameFramework
 {

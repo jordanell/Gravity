@@ -10,7 +10,11 @@
 #include <stdlib.h>
 #include <list>
 
-#include "SDL/SDL.h"
+#ifdef __linux__
+	#include "SDL/SDL.h"
+#else
+	#include "SDL.h"
+#endif
 
 #include "GameComponent.h"
 #include "GameComponentCollection.h"

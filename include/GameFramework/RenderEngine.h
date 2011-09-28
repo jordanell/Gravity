@@ -7,9 +7,15 @@
 #ifndef RENDERENGINE_H
 #define RENDERENGINE_H
 
-#include "SDL/SDL.h"
-#include "SDL/SDL_opengl.h"
-#include "SDL/SDL_image.h"
+#ifdef __linux__
+	#include "SDL/SDL.h"
+	#include "SDL/SDL_opengl.h"
+	#include "SDL/SDL_image.h"
+#else
+	#include "SDL.h"
+	#include "SDL_opengl.h"
+	#include "SDL_image.h"
+#endif
 
 #include "Texture2D.h"
 #include "Rectangle.h"
