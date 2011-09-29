@@ -10,10 +10,10 @@ LDFLAGS=-framework OpenGL -framework SDL -framework SDL_image -framework cocoa -
 endif
 
 ifeq ($(UNAME), Linux)
-INCLUDES=-I../../include/GameFramework/
+INCLUDES=-I../include/GameFramework/
 endif
 ifeq ($(UNAME), Darwin)
-INCLUDES=-I../../include/GameFramework/ -I../../include/ -F/Library/Frameworks/ -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/SDL_image.framework/Headers
+INCLUDES=-I../include/GameFramework/ -I../include/ -F/Library/Frameworks/ -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/SDL_image.framework/Headers
 endif
 
 SOURCES=$(wildcard *.cpp)
