@@ -5,7 +5,6 @@
  */
 
 #include "RenderEngine.h"
-#include <iostream>
 
 namespace GameFramework
 {
