@@ -14,7 +14,7 @@ namespace GameFramework
 		this->game = game;
 	}
 
-	void GameComponent::Init()
+	void GameComponent::Initialize()
 	{
 	}
 

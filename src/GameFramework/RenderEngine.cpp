@@ -12,6 +12,7 @@ namespace GameFramework
 	{
 		this->Width = width;
 		this->Height = height;
+		this->FullScreen = fullScreen;
 		Init(windowName, fullScreen);
 	}
 
@@ -28,9 +29,13 @@ namespace GameFramework
 		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 8);
 
 		SDL_WM_SetCaption(windowName, NULL);
-		SDL_SetVideoMode(Width,Height,32, SDL_OPENGL);	//Set the last parameter to FULLSCREEN
+		if(!fullScreen)
+			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL);
+		else
+			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL | SDL_FULLSCREEN);
 
-		glClearColor(1,1,1,1); 				//RGB Alpha
+
+		glClearColor(0,0,0,1); 				//RGB Alpha
 	
 		glViewport(0,0,Width,Height);			//Set the viewport for the screen size
 
@@ -57,8 +62,11 @@ namespace GameFramework
 	void RenderEngine::Draw(Texture2D* tex, Rectangle* rec, Color* color)
 	{
 		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
-		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, tex->Texture);
+		if(tex != NULL)
+		{
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D, tex->Texture);
+		}
 
 		glBegin(GL_QUADS);
 		glTexCoord2d(0,0);glVertex2f(rec->X, rec->Y);
@@ -204,5 +212,40 @@ namespace GameFramework
 		glPopMatrix();	//End phase for rendering
 
 		SDL_GL_SwapBuffers();
+	}
+	
+	bool RenderEngine::GetFullScreen()
+	{
+		return this->FullScreen;
+	}
+	
+	void RenderEngine::SetCaption(const char* windowName)
+	{
+		SDL_WM_SetCaption(windowName, NULL);
+	}
+	
+	void RenderEngine::SetResolution(int width, int height)
+	{
+		this->Width = width;
+		this->Height = height;
+		
+		if(!FullScreen)
+			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL);
+		else
+			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL | SDL_FULLSCREEN);
+		
+		glClearColor(0,0,0,1);
+		
+		glViewport(0,0,Width,Height);
+	}
+	
+	void RenderEngine::SetFullScreen(bool fullScreen)
+	{
+		this->FullScreen = fullScreen;
+		
+		if(!FullScreen)
+			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL);
+		else
+			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL | SDL_FULLSCREEN);
 	}
 }

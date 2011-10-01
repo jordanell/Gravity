@@ -16,7 +16,7 @@ namespace GameFramework
 		this->game = game;
 	}
 
-	void DrawableGameComponent::Init()
+	void DrawableGameComponent::Initialize()
 	{
 	}
 

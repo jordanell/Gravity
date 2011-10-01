@@ -42,7 +42,7 @@ namespace GameFramework
 			void Exit();
 		
 		protected:
-			void Initialize();
+			virtual void Initialize();
 
 			void BeginDraw();
 			virtual void Draw();

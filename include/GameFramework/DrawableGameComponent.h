@@ -18,7 +18,7 @@ namespace GameFramework
 
 			DrawableGameComponent(Game* game);
 
-			virtual void Init();
+			virtual void Initialize();
 			virtual void Update();	
 			virtual void Draw();	
 	};

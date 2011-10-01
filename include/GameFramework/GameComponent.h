@@ -20,7 +20,7 @@ namespace GameFramework
 
 			GameComponent(Game* game);
 
-			virtual void Init();
+			virtual void Initialize();
 			virtual void Update();		
 	};
 }

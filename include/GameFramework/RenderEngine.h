@@ -41,10 +41,17 @@ namespace GameFramework
 			void Draw(Texture2D* tex, Vector2* vec, Rectangle* source, Color* color, float rotation);
 			void PostDraw();
 			
+			bool GetFullScreen();
+			
+			void SetCaption(const char* windowName);
+			void SetResolution(int width, int height);
+			void SetFullScreen(bool fullScreen);
+			
 
 		protected:
 			int Width;
 			int Height;
+			bool FullScreen;
 
 			void Init(const char* windowName, bool fullScreen);
 			
