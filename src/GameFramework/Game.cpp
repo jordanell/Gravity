@@ -39,8 +39,8 @@ namespace GameFramework
 			Draw();
 			EndDraw();
 
-			if(FPS.GetTicks() < MILLISECONDS / FRAMES_PER_SECOND)
-				SDL_Delay((MILLISECONDS / FRAMES_PER_SECOND) - FPS.GetTicks());
+			//if(FPS.GetTicks() < MILLISECONDS / FRAMES_PER_SECOND)
+			//	SDL_Delay((MILLISECONDS / FRAMES_PER_SECOND) - FPS.GetTicks());
 		}
 	}
 

@@ -10,6 +10,9 @@ using namespace GameFramework;
  
 namespace ManhattanProject
 {
+	Rectangle* rec = new Rectangle(0,0,100,100);
+	Color* col = new Color(255, 0, 0, 255);
+	
 	Manager::Manager():
 		Game()
 	{
@@ -24,6 +27,7 @@ namespace ManhattanProject
 	
 	void Manager::Draw()
 	{
+		Render->Draw(NULL, rec, col);
 		Game::Draw();
 	}
 	

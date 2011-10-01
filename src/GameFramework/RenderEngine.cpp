@@ -5,6 +5,7 @@
  */
 
 #include "RenderEngine.h"
+#include <iostream>
 
 namespace GameFramework
 {
@@ -66,14 +67,22 @@ namespace GameFramework
 		{
 			glEnable(GL_TEXTURE_2D);
 			glBindTexture(GL_TEXTURE_2D, tex->Texture);
+			glBegin(GL_QUADS);
+			glTexCoord2d(0,0);glVertex2f(rec->X, rec->Y);
+			glTexCoord2d(1,0);glVertex2f(rec->X+rec->Width, rec->Y);
+			glTexCoord2d(1,1);glVertex2f(rec->X+rec->Width, rec->Y+rec->Height);
+			glTexCoord2d(0,1);glVertex2f(rec->X, rec->Y+rec->Height);			
+			glEnd();
 		}
-
-		glBegin(GL_QUADS);
-		glTexCoord2d(0,0);glVertex2f(rec->X, rec->Y);
-		glTexCoord2d(1,0);glVertex2f(rec->X+rec->Width, rec->Y);
-		glTexCoord2d(1,1);glVertex2f(rec->X+rec->Width, rec->Y+rec->Height);
-		glTexCoord2d(0,1);glVertex2f(rec->X, rec->Y+rec->Height);			
-		glEnd();
+		else
+		{
+			glBegin(GL_QUADS);
+			glVertex2f(rec->X, rec->Y);
+			glVertex2f(rec->X+rec->Width, rec->Y);
+			glVertex2f(rec->X+rec->Width, rec->Y+rec->Height);
+			glVertex2f(rec->X, rec->Y+rec->Height);
+			glEnd();
+		}
 	}
 
 	void RenderEngine::Draw(Texture2D* tex, Rectangle* rec, Rectangle* source, Color* color)
@@ -212,6 +221,8 @@ namespace GameFramework
 		glPopMatrix();	//End phase for rendering
 
 		SDL_GL_SwapBuffers();
+		
+		SDL_Delay(1);
 	}
 	
 	bool RenderEngine::GetFullScreen()

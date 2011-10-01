@@ -21,7 +21,6 @@
 			Scene(Game* game);
 			
 			GameComponentCollection* Components;
-			Game* game;
 			
 			virtual void Initialize();
 			virtual void Update();	
