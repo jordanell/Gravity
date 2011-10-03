@@ -5,7 +5,6 @@
  */
 
 #include "Game.h"
-#include <iostream>
 
 namespace GameFramework
 {

@@ -5,6 +5,7 @@
  */
 
 #include "ContentManager.h"
+#include <iostream>
 
 namespace GameFramework
 {
@@ -14,12 +15,20 @@ namespace GameFramework
 		RootDirectory[sizeof(RootDirectory) -1] = '\0';
 	}
 
-	unsigned int ContentManager::LoadTexture(const std::string &fileName)
+	GLuint ContentManager::LoadTexture(const std::string &fileName)
 	{
-		SDL_Surface *image = IMG_Load(fileName.c_str());
-
+		std::string file = GetCurrentDir(RootDirectory, sizeof(RootDirectory));
+		file += "/../content/";
+		file += fileName;
+		
+		SDL_Surface *image = IMG_Load(file.c_str());
+		
+		if(!image)
+		{
+			throw Exception("File does not exist", 200, __FILE__, __LINE__);
+		}
+		
 		SDL_DisplayFormatAlpha(image);
-	
 		unsigned object(0);
 
 		glGenTextures(1, &object);

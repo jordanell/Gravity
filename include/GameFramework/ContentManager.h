@@ -27,6 +27,8 @@
     #include <unistd.h>
     #define GetCurrentDir getcwd
  #endif
+ 
+ #include "Exception.h"
 
 
 namespace GameFramework
@@ -39,7 +41,7 @@ namespace GameFramework
 
 			ContentManager();
 
-			unsigned int LoadTexture(const std::string &fileName);	
+			GLuint LoadTexture(const std::string &fileName);	
 	};
 }
 

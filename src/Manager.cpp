@@ -19,12 +19,10 @@ namespace ManhattanProject
 	void Manager::Initialize()
 	{
 		Game::Initialize();
-		
 	}
 	
 	void Manager::Draw()
 	{
-		
 		Game::Draw();
 	}
 	
