@@ -11,6 +11,7 @@ using namespace GameFramework;
  
 namespace ManhattanProject
 {
+	Texture2D tex;
 	Manager::Manager():
 		Game()
 	{
@@ -20,10 +21,12 @@ namespace ManhattanProject
 	void Manager::Initialize()
 	{
 		Game::Initialize();
+		tex.Texture = Content->LoadTexture("Launcher/Wall.jpg");
 	}
 	
 	void Manager::Draw()
 	{
+		Render->Draw(&tex, &Rectangle(0,0,300,400), &Color(255,255,255,255));
 		Game::Draw();
 	}
 	

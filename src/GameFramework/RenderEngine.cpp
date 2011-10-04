@@ -72,6 +72,7 @@ namespace GameFramework
 			glTexCoord2d(1,1);glVertex2f(rec->X+rec->Width, rec->Y+rec->Height);
 			glTexCoord2d(0,1);glVertex2f(rec->X, rec->Y+rec->Height);			
 			glEnd();
+			glDisable(GL_TEXTURE_2D);
 		}
 		else
 		{
@@ -105,6 +106,7 @@ namespace GameFramework
 			glTexCoord2d(botRight.X,botRight.Y);glVertex2f(rec->X+rec->Width, rec->Y+rec->Height);
 			glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(rec->X, rec->Y+rec->Height);			
 			glEnd();
+			glDisable(GL_TEXTURE_2D);
 		}
 	}
 
@@ -140,6 +142,7 @@ namespace GameFramework
 		glTexCoord2d(botRight.X,botRight.Y);glVertex2f(rec->X+rec->Width, rec->Y+rec->Height);
 		glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(rec->X, rec->Y+rec->Height);			
 		glEnd();
+		glDisable(GL_TEXTURE_2D);
 	}
 
 	//Destination vector
@@ -155,6 +158,7 @@ namespace GameFramework
 		glTexCoord2d(1,1);glVertex2f(vec->X+tex->Width, vec->Y+tex->Height);
 		glTexCoord2d(0,1);glVertex2f(vec->X, vec->Y+tex->Height);			
 		glEnd();
+		glDisable(GL_TEXTURE_2D);
 	}
 
 	void RenderEngine::Draw(Texture2D* tex, Vector2* vec, Rectangle* source, Color* color)
@@ -178,6 +182,7 @@ namespace GameFramework
 			glTexCoord2d(botRight.X,botRight.Y);glVertex2f(vec->X+tex->Width, vec->Y+tex->Height);
 			glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(vec->X, vec->Y+tex->Height);			
 			glEnd();
+			glDisable(GL_TEXTURE_2D);
 		}
 	}
 
@@ -213,6 +218,7 @@ namespace GameFramework
 		glTexCoord2d(botRight.X,botRight.Y);glVertex2f(vec->X+tex->Width, vec->Y+tex->Height);
 		glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(vec->X, vec->Y+tex->Height);			
 		glEnd();
+		glDisable(GL_TEXTURE_2D);
 	}
 
 	void RenderEngine::PostDraw()
