@@ -11,7 +11,7 @@ namespace GameFramework
 
 	Texture2D::Texture2D()
 	{
-		Texture = 0;
+		Texture = NULL;
 		Width = 0;
 		Height = 0;
 	}

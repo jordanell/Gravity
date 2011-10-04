@@ -26,9 +26,10 @@
 #else
     #include <unistd.h>
     #define GetCurrentDir getcwd
- #endif
+#endif
  
- #include "Exception.h"
+#include "Exception.h"
+#include <map> 
 
 
 namespace GameFramework
@@ -41,7 +42,15 @@ namespace GameFramework
 
 			ContentManager();
 
-			GLuint LoadTexture(const std::string &fileName);	
+			GLuint* LoadTexture(const std::string &fileName);
+			void ClearTextureMap();	
+			
+		protected:
+			map<const std::string, GLuint> Textures;
+			map<const std::string, GLuint>::iterator iterator;
+			
+			GLuint* InsertTexture(const std::string &fileName, GLuint texture);
+			GLuint* TextureMapContains(const std::string &fileName);
 	};
 }
 

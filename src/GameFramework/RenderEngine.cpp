@@ -65,7 +65,7 @@ namespace GameFramework
 		if(tex != NULL)
 		{
 			glEnable(GL_TEXTURE_2D);
-			glBindTexture(GL_TEXTURE_2D, tex->Texture);
+			glBindTexture(GL_TEXTURE_2D, *tex->Texture);
 			glBegin(GL_QUADS);
 			glTexCoord2d(0,0);glVertex2f(rec->X, rec->Y);
 			glTexCoord2d(1,0);glVertex2f(rec->X+rec->Width, rec->Y);
@@ -97,7 +97,7 @@ namespace GameFramework
 
 			glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
 			glEnable(GL_TEXTURE_2D);
-			glBindTexture(GL_TEXTURE_2D, tex->Texture);
+			glBindTexture(GL_TEXTURE_2D, *tex->Texture);
 
 			glBegin(GL_QUADS);
 			glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(rec->X, rec->Y);
@@ -132,7 +132,7 @@ namespace GameFramework
 
 		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, tex->Texture);
+		glBindTexture(GL_TEXTURE_2D, *tex->Texture);
 
 		glBegin(GL_QUADS);
 		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(rec->X, rec->Y);
@@ -147,7 +147,7 @@ namespace GameFramework
 	{
 		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, tex->Texture);
+		glBindTexture(GL_TEXTURE_2D, *tex->Texture);
 
 		glBegin(GL_QUADS);
 		glTexCoord2d(0,0);glVertex2f(vec->X, vec->Y);
@@ -170,7 +170,7 @@ namespace GameFramework
 
 			glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
 			glEnable(GL_TEXTURE_2D);
-			glBindTexture(GL_TEXTURE_2D, tex->Texture);
+			glBindTexture(GL_TEXTURE_2D, *tex->Texture);
 
 			glBegin(GL_QUADS);
 			glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(vec->X, vec->Y);
@@ -205,7 +205,7 @@ namespace GameFramework
 
 		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, tex->Texture);
+		glBindTexture(GL_TEXTURE_2D, *tex->Texture);
 
 		glBegin(GL_QUADS);
 		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(vec->X, vec->Y);

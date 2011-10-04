@@ -5,11 +5,12 @@
  */
  
 #include "Manager.h"
+#include <iostream>
  
 using namespace GameFramework;
  
 namespace ManhattanProject
-{	
+{
 	Manager::Manager():
 		Game()
 	{
