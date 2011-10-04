@@ -26,7 +26,7 @@ namespace ManhattanProject
 	
 	void Manager::Draw()
 	{
-		Render->Draw(&tex, &Rectangle(0,0,300,400), &Color(255,255,255,255));
+		Render->Draw(&tex, &Rectangle(0,0,400,600), &Color(255,255,255,255));
 		Game::Draw();
 	}
 	

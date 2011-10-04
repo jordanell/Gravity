@@ -36,7 +36,7 @@ namespace GameFramework
 			throw Exception("File does not exist", 200, __FILE__, __LINE__);
 		}
 		
-		SDL_DisplayFormatAlpha(image);
+		image = SDL_DisplayFormatAlpha(image);
 		unsigned object(0);
 
 		glGenTextures(1, &object);
