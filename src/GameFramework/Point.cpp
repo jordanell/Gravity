@@ -14,7 +14,7 @@ namespace GameFramework
 		Y = 0;
 	}
 
-	Point::Point(int X, int Y)
+	Point::Point(float X, float Y)
 	{
 		this->X = X;
 		this->Y = Y;

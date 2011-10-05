@@ -17,7 +17,7 @@ namespace GameFramework
 		public:
 			Texture2D();
 
-			unsigned int* Texture;
+			unsigned int Texture;
 			int Width;
 			int Height;
 			

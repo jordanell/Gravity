@@ -12,11 +12,11 @@ namespace GameFramework
 	class Point
 	{
 		public:
-			int X;
-			int Y;
+			float X;
+			float Y;
 
 			Point();
-			Point(int X, int Y);
+			Point(float X, float Y);
 	};
 }
 

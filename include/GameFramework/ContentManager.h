@@ -29,6 +29,7 @@
 #endif
  
 #include "Exception.h"
+#include "Texture2D.h"
 #include <map> 
 
 
@@ -42,15 +43,15 @@ namespace GameFramework
 
 			ContentManager();
 
-			GLuint* LoadTexture(const std::string &fileName);
+			Texture2D* LoadTexture(const std::string &fileName);
 			void ClearTextureMap();	
 			
 		protected:
-			map<const std::string, GLuint> Textures;
-			map<const std::string, GLuint>::iterator iterator;
+			map<const std::string, Texture2D> Textures;
+			map<const std::string, Texture2D>::iterator iterator;
 			
-			GLuint* InsertTexture(const std::string &fileName, GLuint texture);
-			GLuint* TextureMapContains(const std::string &fileName);
+			Texture2D* InsertTexture(const std::string &fileName, Texture2D texture);
+			Texture2D* TextureMapContains(const std::string &fileName);
 	};
 }
 

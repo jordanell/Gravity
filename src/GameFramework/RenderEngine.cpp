@@ -5,6 +5,7 @@
  */
 
 #include "RenderEngine.h"
+#include <iostream>
 
 namespace GameFramework
 {
@@ -65,7 +66,7 @@ namespace GameFramework
 		if(tex != NULL)
 		{
 			glEnable(GL_TEXTURE_2D);
-			glBindTexture(GL_TEXTURE_2D, *tex->Texture);
+			glBindTexture(GL_TEXTURE_2D, tex->Texture);
 			glBegin(GL_QUADS);
 			glTexCoord2d(0,0);glVertex2f(rec->X, rec->Y);
 			glTexCoord2d(1,0);glVertex2f(rec->X+rec->Width, rec->Y);
@@ -91,14 +92,14 @@ namespace GameFramework
 			Draw(tex, rec, color);
 		else
 		{
-			Point topLeft(source->X / tex->Width, source->Y / tex->Height);
-			Point topRight((source->X + source->Width) / tex->Width, source->Y / tex->Height);
-			Point botLeft(source->X / tex->Width, (source->Y + source->Height) / tex->Height);
-			Point botRight((source->X + source->Width) / tex->Width, (source->Y + source->Height) / tex->Height);
+			Point topLeft((float)source->X / (float)tex->Width, (float)source->Y / (float)tex->Height);
+			Point topRight(((float)source->X + (float)source->Width) / (float)tex->Width, (float)source->Y / (float)tex->Height);
+			Point botLeft((float)source->X / (float)tex->Width, ((float)source->Y + (float)source->Height) / (float)tex->Height);
+			Point botRight(((float)source->X + (float)source->Width) / (float)tex->Width, ((float)source->Y + (float)source->Height) / (float)tex->Height);
 
 			glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
 			glEnable(GL_TEXTURE_2D);
-			glBindTexture(GL_TEXTURE_2D, *tex->Texture);
+			glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
 			glBegin(GL_QUADS);
 			glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(rec->X, rec->Y);
@@ -126,15 +127,15 @@ namespace GameFramework
 		}
 		else
 		{
-			topLeft.X=source->X / tex->Width; topLeft.Y=source->Y / tex->Height;
-			topRight.X=(source->X + source->Width) / tex->Width; topRight.Y=source->Y / tex->Height;
-			botLeft.X=source->X / tex->Width; botLeft.Y=(source->Y + source->Height) / tex->Height;
-			botRight.X=(source->X + source->Width) / tex->Width; botRight.Y=(source->Y + source->Height) / tex->Height;
+			topLeft.X=(float)source->X / (float)tex->Width; topLeft.Y=(float)source->Y / (float)tex->Height;
+			topRight.X=((float)source->X + (float)source->Width) / (float)tex->Width; topRight.Y=(float)source->Y / (float)tex->Height;
+			botLeft.X=(float)source->X / (float)tex->Width; botLeft.Y=((float)source->Y + (float)source->Height) / (float)tex->Height;
+			botRight.X=((float)source->X + (float)source->Width) / (float)tex->Width; botRight.Y=((float)source->Y + (float)source->Height) / (float)tex->Height;
 		}
 
 		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, *tex->Texture);
+		glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
 		glBegin(GL_QUADS);
 		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(rec->X, rec->Y);
@@ -150,7 +151,7 @@ namespace GameFramework
 	{
 		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, *tex->Texture);
+		glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
 		glBegin(GL_QUADS);
 		glTexCoord2d(0,0);glVertex2f(vec->X, vec->Y);
@@ -167,14 +168,15 @@ namespace GameFramework
 			Draw(tex, vec, color);
 		else
 		{
-			Point topLeft(source->X / tex->Width, source->Y / tex->Height);
-			Point topRight((source->X + source->Width) / tex->Width, source->Y / tex->Height);
-			Point botLeft(source->X / tex->Width, (source->Y + source->Height) / tex->Height);
-			Point botRight((source->X + source->Width) / tex->Width, (source->Y + source->Height) / tex->Height);
+			
+			Point topLeft((float)source->X / (float)tex->Width, (float)source->Y / (float)tex->Height);
+			Point topRight(((float)source->X + (float)source->Width) / (float)tex->Width, (float)source->Y / (float)tex->Height);
+			Point botLeft((float)source->X / (float)tex->Width, ((float)source->Y + (float)source->Height) / (float)tex->Height);
+			Point botRight(((float)source->X + (float)source->Width) / (float)tex->Width, ((float)source->Y + (float)source->Height) / (float)tex->Height);
 
 			glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
 			glEnable(GL_TEXTURE_2D);
-			glBindTexture(GL_TEXTURE_2D, *tex->Texture);
+			glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
 			glBegin(GL_QUADS);
 			glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(vec->X, vec->Y);
@@ -202,15 +204,15 @@ namespace GameFramework
 		}
 		else
 		{
-			topLeft.X=source->X / tex->Width; topLeft.Y=source->Y / tex->Height;
-			topRight.X=(source->X + source->Width) / tex->Width; topRight.Y=source->Y / tex->Height;
-			botLeft.X=source->X / tex->Width; botLeft.Y=(source->Y + source->Height) / tex->Height;
-			botRight.X=(source->X + source->Width) / tex->Width; botRight.Y=(source->Y + source->Height) / tex->Height;
+			topLeft.X=(float)source->X / (float)tex->Width; topLeft.Y=(float)source->Y / (float)tex->Height;
+			topRight.X=((float)source->X + (float)source->Width) / (float)tex->Width; topRight.Y=(float)source->Y / (float)tex->Height;
+			botLeft.X=(float)source->X / (float)tex->Width; botLeft.Y=((float)source->Y + (float)source->Height) / (float)tex->Height;
+			botRight.X=((float)source->X + (float)source->Width) / (float)tex->Width; botRight.Y=((float)source->Y + (float)source->Height) / (float)tex->Height;
 		}
 
 		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, *tex->Texture);
+		glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
 		glBegin(GL_QUADS);
 		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(vec->X, vec->Y);
