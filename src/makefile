@@ -22,7 +22,10 @@ SOURCES=$(wildcard *.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=Game
 
-all: $(SOURCES) $(EXECUTABLE)
+all: Library $(SOURCES) $(EXECUTABLE)
+
+Library:
+	cd GameFramework/; make; cd ..;
 	
 $(EXECUTABLE): $(OBJECTS) 
 	$(CC) $(INCLUDES) $(OBJECTS) -o ../bin/$@ $(LDFLAGS)
