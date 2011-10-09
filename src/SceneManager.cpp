@@ -14,10 +14,15 @@ namespace ManhattanProject
 		DrawableGameComponent(game)
 	{
 		this->game = game;
+		
+		this->Initialize();
 	}
 	
 	void SceneManager::Initialize()
 	{
+		//Always initialize to the launcher scene
+		launcher = new LauncherScene(game);
+		ActiveScene = launcher;
 	
 		DrawableGameComponent::Initialize();
 	}
@@ -25,12 +30,16 @@ namespace ManhattanProject
 	void SceneManager::Draw()
 	{
 	
+		if(ActiveScene != NULL)
+			ActiveScene->Draw();
 		DrawableGameComponent::Draw();
 	}
 	
 	void SceneManager::Update()
 	{
 	
+		if(ActiveScene != NULL)
+			ActiveScene->Update();
 		DrawableGameComponent::Update();
 	}
 }

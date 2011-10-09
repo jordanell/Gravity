@@ -10,6 +10,7 @@
 #define MANAGER_H
 
 #include "GameFramework.h"
+#include "SceneManager.h"
 
 using namespace GameFramework;
 
@@ -23,6 +24,8 @@ namespace ManhattanProject
 			Manager();
 		
 		protected:
+			SceneManager* sceneManager;
+			
 			void Initialize();
 		
 			void Draw();

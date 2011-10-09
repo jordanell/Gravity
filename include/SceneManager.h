@@ -10,6 +10,7 @@
  
 #include "GameFramework.h"
 #include "Scene.h"
+#include "LauncherScene.h"
 
 using namespace GameFramework; 
 
@@ -23,6 +24,10 @@ namespace ManhattanProject
 			void Initialize();
 			void Draw();
 			void Update();
+			
+		protected:
+			Scene* ActiveScene;
+			LauncherScene* launcher;
 	};
 }
 
