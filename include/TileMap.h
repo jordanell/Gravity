@@ -10,6 +10,7 @@
 
 #include "GameFramework.h"
 #include "TileLayer.h"
+#include "Camera.h"
 #include <list>
 
 using namespace GameFramework;
@@ -29,6 +30,8 @@ namespace ManhattanProject
 		
 		protected:
 			list<TileLayer> layers;
+			Camera camera;
+			Rectangle Size;
 	};
 }
 

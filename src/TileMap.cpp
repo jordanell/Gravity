@@ -23,7 +23,7 @@ namespace ManhattanProject
 	
 	void TileMap::AddLayer()
 	{
-		TileLayer newTileLayer(game);
+		TileLayer newTileLayer(game, camera, Size);
 		layers.push_back(newTileLayer);
 	}
 	

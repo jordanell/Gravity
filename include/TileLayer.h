@@ -10,6 +10,8 @@
 
 #include "GameFramework.h"
 #include "Tile.h"
+#include "QuadTree.h"
+#include "Camera.h"
 #include <list>
 
 using namespace GameFramework;
@@ -19,7 +21,7 @@ namespace ManhattanProject
 	class TileLayer
 	{
 		public:
-			TileLayer(Game* game);
+			TileLayer(Game* game, Camera camera, Rectangle rec);
 		
 			void Update();	
 			void Draw();
@@ -28,8 +30,13 @@ namespace ManhattanProject
 		
 		protected:
 			Game* game;
-		
-			list<Tile> tiles;
+			
+			Rectangle Size;
+			QuadTree<Tile> TileTree;
+			list<Tile*> DrawingTiles;
+			Camera camera;
+			
+			
 	};
 }
 
