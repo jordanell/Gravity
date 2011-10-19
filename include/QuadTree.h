@@ -43,7 +43,7 @@ namespace ManhattanProject
 			QuadTree(int height, int width, int x, int y, int size);
 			
 			void InsertElement(T element, int x, int y);
-			list<T*> GetElements(Camera camera);
+			list<T*> GetElements(Rectangle rec);
 		
 		protected:
 			QuadNode<T> Root;
@@ -52,7 +52,7 @@ namespace ManhattanProject
 			
 			QuadNode<T>* RecursiveInsert(QuadNode<T>* root, int x, int y);
 			
-			list<T*> RecursiveGetElements(Camera camera, QuadNode<T>* root);
+			list<T*> RecursiveGetElements(Rectangle rec, QuadNode<T>* root);
 			list<T*> AddElements(QuadNode<T>* root);
 			
 			bool PointInNode(int x, int y, QuadNode<T> node);
@@ -162,18 +162,19 @@ namespace ManhattanProject
 			return false;
 	}
 	
-	template <class T> list<T*> QuadTree<T>::GetElements(Camera camera)
+	template <class T> list<T*> QuadTree<T>::GetElements(Rectangle rec)
 	{
-		list<T*> components;
+		list<T*> components = RecursiveGetElements(rec, &this->Root);
 		
 		return components;
 	}
 	
-	template <class T> list<T*> QuadTree<T>::RecursiveGetElements(Camera camera, QuadNode<T>* root)
+	template <class T> list<T*> QuadTree<T>::RecursiveGetElements(Rectangle rec, QuadNode<T>* root)
 	{
 		list<T*> components;
+		list<T*> recursiveComponents;
 		
-		if(camera.GetRectangle().Intersects(root->Position))
+		if(rec.Intersects(&root->Position))
 		{
 			if(root->TopLeft == NULL)
 			{
@@ -181,28 +182,28 @@ namespace ManhattanProject
 				return components;
 			}
 			
-			else if(camera.GetRectangle().Intersects(root->TopLeft->Position))
+			if(rec.Intersects(&root->TopLeft->Position))
 			{
-				components += RecursiveGetElements(camera, root->TopLeft);
-				return components;
+				recursiveComponents = RecursiveGetElements(rec, root->TopLeft);
+				components.merge(recursiveComponents);
 			}
 			
-			else if(camera.GetRectangle().Intersects(root->TopRight->Position))
+			if(rec.Intersects(&root->TopRight->Position))
 			{
-				components += RecursiveGetElements(camera, root->TopRight);
-				return components;
+				recursiveComponents = RecursiveGetElements(rec, root->TopRight);
+				components.merge(recursiveComponents);
 			}
 			
-			else if(camera.GetRectangle().Intersects(root->BottomRight->Position))
+			if(rec.Intersects(&root->BottomRight->Position))
 			{
-				components += RecursiveGetElements(camera, root->BottomRight);
-				return components;
+				recursiveComponents = RecursiveGetElements(rec, root->BottomRight);
+				components.merge(recursiveComponents);
 			}
 			
-			else if(camera.GetRectangle().Intersects(root->BottomLeft->Position))
+			if(rec.Intersects(&root->BottomLeft->Position))
 			{
-				components += RecursiveGetElements(camera, root->BottomLeft);
-				return components;
+				recursiveComponents = RecursiveGetElements(rec, root->BottomLeft);
+				components.merge(recursiveComponents);
 			}
 		}
 		
@@ -213,10 +214,10 @@ namespace ManhattanProject
 	{
 		list<T*> components;
 		
-		typename list<T>::const_iterator it = root->Collection.begin();
+		typename list<T>::iterator it;
 		
-		for(it; it != root->Collection.end(); it++)
-			components.push_back(&it);
+		for(it = root->Collection.begin(); it != root->Collection.end(); it++)
+			components.push_back(&(*it));
 			
 		return components;
 	}

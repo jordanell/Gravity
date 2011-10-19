@@ -35,8 +35,6 @@ namespace ManhattanProject
 			QuadTree<Tile> TileTree;
 			list<Tile*> DrawingTiles;
 			Camera camera;
-			
-			
 	};
 }
 

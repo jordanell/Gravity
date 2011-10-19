@@ -10,11 +10,11 @@ using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	TileLayer::TileLayer(Game* game, Camera camera, Rectangle rec)
+	TileLayer::TileLayer(Game* game, Camera camera, Rectangle size)
 	{
 		this->game = game;
 		this->camera = camera;
-		this->Size = rec;
+		this->Size = size;
 		
 		//Instantiate the QuadTree
 		TileTree = QuadTree<Tile>(Size.Height, Size.Width, Size.X, Size.Y, DEFAULT_QUADTREE_RECT);
@@ -30,7 +30,7 @@ namespace ManhattanProject
 	void TileLayer::Draw()
 	{
 		//Get List of tiles to draw
-		DrawingTiles = TileTree.GetElements(camera);
+		DrawingTiles = TileTree.GetElements(camera.GetRectangle());
 		
 		//Iterate over list and draw tiles
 		for(list<Tile*>::iterator it = DrawingTiles.begin(); it != DrawingTiles.end(); it++)
