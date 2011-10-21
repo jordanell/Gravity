@@ -9,6 +9,8 @@
 #define COLLISIONLAYER_H
 
 #include "GameFramework.h"
+#include "QuadTree.h"
+#include "CollisionRectangle.h"
 #include <list>
 
 using namespace GameFramework;
@@ -18,16 +20,18 @@ namespace ManhattanProject
 	class CollisionLayer
 	{
 		public:
-			CollisionLayer(Game* game);
+			CollisionLayer(Game* game, Camera camera);
 		
 			bool CheckCollision(Rectangle* rec);
 		
-			void AddCollision(int x, int y, int height, int width);
+			void AddCollision(Rectangle position, float Rotation);
 		
 		protected:
 			Game* game;
 		
-			list<Rectangle> collisions;
+			QuadTree<Rectangle> CollisionTree;
+			list<Rectangle*> ActiveCollisions;
+			Camera camera;
 	};
 }
 

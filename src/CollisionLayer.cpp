@@ -10,9 +10,10 @@ using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	CollisionLayer::CollisionLayer(Game* game)
+	CollisionLayer::CollisionLayer(Game* game, Camera camera)
 	{
 		this->game = game;
+		this->camera = camera;
 	}
 	
 	bool CollisionLayer::CheckCollision(Rectangle* rec)
@@ -20,9 +21,9 @@ namespace ManhattanProject
 	
 	}
 	
-	void CollisionLayer::AddCollision(int x, int y, int height, int width)
+	void CollisionLayer::AddCollision(Rectangle position, float Rotation)
 	{
-		Rectangle newRec(x, y, height, width);
-		collisions.push_back(newRec);
+		CollisionRectangle newRec(position.X, position.Y, position.Height, position.Width, Rotation);
+		CollisionTree.InsertElement(newRec, position.X, position.Y);
 	}
 }
