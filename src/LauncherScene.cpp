@@ -28,7 +28,7 @@ namespace ManhattanProject
 	void LauncherScene::Draw()
 	{
 		//Draw the background texture
-		game->Render->Draw(background, &Rectangle(0,0,400,600), &Color(255,255,255,255));
+		game->Render->Draw(background, Rectangle(0,0,400,600), Color(255,255,255,255));
 		
 		Scene::Draw();
 	}

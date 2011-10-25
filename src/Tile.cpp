@@ -29,7 +29,7 @@ namespace ManhattanProject
 	void Tile::Draw(Camera camera)
 	{
 		//Draw this tile
-		game->Render->Draw(texture, &position, NULL, &color, rotation);
+		game->Render->Draw(texture, Vector2(position.X+camera.Position.X, position.Y+camera.Position.Y), color);
 	}
 	
 	void Tile::Update()

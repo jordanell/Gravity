@@ -60,165 +60,134 @@ namespace GameFramework
 	}
 
 	//Destination rectangle
-	void RenderEngine::Draw(Texture2D* tex, Rectangle* rec, Color* color)
+	void RenderEngine::Draw(Texture2D* tex, Rectangle rec, Color color)
 	{
-		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
+		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
 		if(tex != NULL)
 		{
 			glEnable(GL_TEXTURE_2D);
 			glBindTexture(GL_TEXTURE_2D, tex->Texture);
 			glBegin(GL_QUADS);
-			glTexCoord2d(0,0);glVertex2f(rec->X, rec->Y);
-			glTexCoord2d(1,0);glVertex2f(rec->X+rec->Width, rec->Y);
-			glTexCoord2d(1,1);glVertex2f(rec->X+rec->Width, rec->Y+rec->Height);
-			glTexCoord2d(0,1);glVertex2f(rec->X, rec->Y+rec->Height);			
+			glTexCoord2d(0,0);glVertex2f(rec.X, rec.Y);
+			glTexCoord2d(1,0);glVertex2f(rec.X+rec.Width, rec.Y);
+			glTexCoord2d(1,1);glVertex2f(rec.X+rec.Width, rec.Y+rec.Height);
+			glTexCoord2d(0,1);glVertex2f(rec.X, rec.Y+rec.Height);			
 			glEnd();
 			glDisable(GL_TEXTURE_2D);
 		}
 		else
 		{
 			glBegin(GL_QUADS);
-			glVertex2f(rec->X, rec->Y);
-			glVertex2f(rec->X+rec->Width, rec->Y);
-			glVertex2f(rec->X+rec->Width, rec->Y+rec->Height);
-			glVertex2f(rec->X, rec->Y+rec->Height);
+			glVertex2f(rec.X, rec.Y);
+			glVertex2f(rec.X+rec.Width, rec.Y);
+			glVertex2f(rec.X+rec.Width, rec.Y+rec.Height);
+			glVertex2f(rec.X, rec.Y+rec.Height);
 			glEnd();
 		}
 	}
 
-	void RenderEngine::Draw(Texture2D* tex, Rectangle* rec, Rectangle* source, Color* color)
+	void RenderEngine::Draw(Texture2D* tex, Rectangle rec, Rectangle source, Color color)
 	{
-		if(source == NULL)
-			Draw(tex, rec, color);
-		else
-		{
-			Point topLeft((float)source->X / (float)tex->Width, (float)source->Y / (float)tex->Height);
-			Point topRight(((float)source->X + (float)source->Width) / (float)tex->Width, (float)source->Y / (float)tex->Height);
-			Point botLeft((float)source->X / (float)tex->Width, ((float)source->Y + (float)source->Height) / (float)tex->Height);
-			Point botRight(((float)source->X + (float)source->Width) / (float)tex->Width, ((float)source->Y + (float)source->Height) / (float)tex->Height);
+		Point topLeft((float)source.X / (float)tex->Width, (float)source.Y / (float)tex->Height);
+		Point topRight(((float)source.X + (float)source.Width) / (float)tex->Width, (float)source.Y / (float)tex->Height);
+		Point botLeft((float)source.X / (float)tex->Width, ((float)source.Y + (float)source.Height) / (float)tex->Height);
+		Point botRight(((float)source.X + (float)source.Width) / (float)tex->Width, ((float)source.Y + (float)source.Height) / (float)tex->Height);
 
-			glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
-			glEnable(GL_TEXTURE_2D);
-			glBindTexture(GL_TEXTURE_2D, tex->Texture);
+		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
-			glBegin(GL_QUADS);
-			glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(rec->X, rec->Y);
-			glTexCoord2d(topRight.X,topRight.Y);glVertex2f(rec->X+rec->Width, rec->Y);
-			glTexCoord2d(botRight.X,botRight.Y);glVertex2f(rec->X+rec->Width, rec->Y+rec->Height);
-			glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(rec->X, rec->Y+rec->Height);			
-			glEnd();
-			glDisable(GL_TEXTURE_2D);
-		}
+		glBegin(GL_QUADS);
+		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(rec.X, rec.Y);
+		glTexCoord2d(topRight.X,topRight.Y);glVertex2f(rec.X+rec.Width, rec.Y);
+		glTexCoord2d(botRight.X,botRight.Y);glVertex2f(rec.X+rec.Width, rec.Y+rec.Height);
+		glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(rec.X, rec.Y+rec.Height);			
+		glEnd();
+		glDisable(GL_TEXTURE_2D);
 	}
 
-	void Draw(Texture2D* tex, Rectangle* rec, Rectangle* source, Color* color, float rotation)
+	void Draw(Texture2D* tex, Rectangle rec, Rectangle source, Color color, float rotation)
 	{
 		Point topLeft;
 		Point topRight;
 		Point botLeft;
 		Point botRight;
+		
+		topLeft.X=(float)source.X / (float)tex->Width; topLeft.Y=(float)source.Y / (float)tex->Height;
+		topRight.X=((float)source.X + (float)source.Width) / (float)tex->Width; topRight.Y=(float)source.Y / (float)tex->Height;
+		botLeft.X=(float)source.X / (float)tex->Width; botLeft.Y=((float)source.Y + (float)source.Height) / (float)tex->Height;
+		botRight.X=((float)source.X + (float)source.Width) / (float)tex->Width; botRight.Y=((float)source.Y + (float)source.Height) / (float)tex->Height;
 
-		if(source == NULL)
-		{
-			topLeft.X=0; topLeft.Y=0;
-			topRight.X=1; topRight.Y=0;
-			botLeft.X=0; botLeft.Y=1;
-			botRight.X=1; botRight.Y=1;
-		}
-		else
-		{
-			topLeft.X=(float)source->X / (float)tex->Width; topLeft.Y=(float)source->Y / (float)tex->Height;
-			topRight.X=((float)source->X + (float)source->Width) / (float)tex->Width; topRight.Y=(float)source->Y / (float)tex->Height;
-			botLeft.X=(float)source->X / (float)tex->Width; botLeft.Y=((float)source->Y + (float)source->Height) / (float)tex->Height;
-			botRight.X=((float)source->X + (float)source->Width) / (float)tex->Width; botRight.Y=((float)source->Y + (float)source->Height) / (float)tex->Height;
-		}
-
-		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
+		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
 		glBegin(GL_QUADS);
-		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(rec->X, rec->Y);
-		glTexCoord2d(topRight.X,topRight.Y);glVertex2f(rec->X+rec->Width, rec->Y);
-		glTexCoord2d(botRight.X,botRight.Y);glVertex2f(rec->X+rec->Width, rec->Y+rec->Height);
-		glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(rec->X, rec->Y+rec->Height);			
+		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(rec.X, rec.Y);
+		glTexCoord2d(topRight.X,topRight.Y);glVertex2f(rec.X+rec.Width, rec.Y);
+		glTexCoord2d(botRight.X,botRight.Y);glVertex2f(rec.X+rec.Width, rec.Y+rec.Height);
+		glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(rec.X, rec.Y+rec.Height);			
 		glEnd();
 		glDisable(GL_TEXTURE_2D);
 	}
 
 	//Destination vector
-	void RenderEngine::Draw(Texture2D* tex, Vector2* vec, Color* color)
+	void RenderEngine::Draw(Texture2D* tex, Vector2 vec, Color color)
 	{
-		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
+		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
 		glBegin(GL_QUADS);
-		glTexCoord2d(0,0);glVertex2f(vec->X, vec->Y);
-		glTexCoord2d(1,0);glVertex2f(vec->X+tex->Width, vec->Y);
-		glTexCoord2d(1,1);glVertex2f(vec->X+tex->Width, vec->Y+tex->Height);
-		glTexCoord2d(0,1);glVertex2f(vec->X, vec->Y+tex->Height);			
+		glTexCoord2d(0,0);glVertex2f(vec.X, vec.Y);
+		glTexCoord2d(1,0);glVertex2f(vec.X+tex->Width, vec.Y);
+		glTexCoord2d(1,1);glVertex2f(vec.X+tex->Width, vec.Y+tex->Height);
+		glTexCoord2d(0,1);glVertex2f(vec.X, vec.Y+tex->Height);			
 		glEnd();
 		glDisable(GL_TEXTURE_2D);
 	}
 
-	void RenderEngine::Draw(Texture2D* tex, Vector2* vec, Rectangle* source, Color* color)
-	{
-		if(source == NULL)
-			Draw(tex, vec, color);
-		else
-		{
-			
-			Point topLeft((float)source->X / (float)tex->Width, (float)source->Y / (float)tex->Height);
-			Point topRight(((float)source->X + (float)source->Width) / (float)tex->Width, (float)source->Y / (float)tex->Height);
-			Point botLeft((float)source->X / (float)tex->Width, ((float)source->Y + (float)source->Height) / (float)tex->Height);
-			Point botRight(((float)source->X + (float)source->Width) / (float)tex->Width, ((float)source->Y + (float)source->Height) / (float)tex->Height);
+	void RenderEngine::Draw(Texture2D* tex, Vector2 vec, Rectangle source, Color color)
+	{	
+		Point topLeft((float)source.X / (float)tex->Width, (float)source.Y / (float)tex->Height);
+		Point topRight(((float)source.X + (float)source.Width) / (float)tex->Width, (float)source.Y / (float)tex->Height);
+		Point botLeft((float)source.X / (float)tex->Width, ((float)source.Y + (float)source.Height) / (float)tex->Height);
+		Point botRight(((float)source.X + (float)source.Width) / (float)tex->Width, ((float)source.Y + (float)source.Height) / (float)tex->Height);
 
-			glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
-			glEnable(GL_TEXTURE_2D);
-			glBindTexture(GL_TEXTURE_2D, tex->Texture);
+		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
-			glBegin(GL_QUADS);
-			glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(vec->X, vec->Y);
-			glTexCoord2d(topRight.X,topRight.Y);glVertex2f(vec->X+tex->Width, vec->Y);
-			glTexCoord2d(botRight.X,botRight.Y);glVertex2f(vec->X+tex->Width, vec->Y+tex->Height);
-			glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(vec->X, vec->Y+tex->Height);			
-			glEnd();
-			glDisable(GL_TEXTURE_2D);
-		}
+		glBegin(GL_QUADS);
+		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(vec.X, vec.Y);
+		glTexCoord2d(topRight.X,topRight.Y);glVertex2f(vec.X+tex->Width, vec.Y);
+		glTexCoord2d(botRight.X,botRight.Y);glVertex2f(vec.X+tex->Width, vec.Y+tex->Height);
+		glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(vec.X, vec.Y+tex->Height);			
+		glEnd();
+		glDisable(GL_TEXTURE_2D);
 	}
 
-	void RenderEngine::Draw(Texture2D* tex, Vector2* vec, Rectangle* source, Color* color, float rotation)
+	void RenderEngine::Draw(Texture2D* tex, Vector2 vec, Rectangle source, Color color, float rotation)
 	{
 		Point topLeft;
 		Point topRight;
 		Point botLeft;
 		Point botRight;
+		
+		topLeft.X=(float)source.X / (float)tex->Width; topLeft.Y=(float)source.Y / (float)tex->Height;
+		topRight.X=((float)source.X + (float)source.Width) / (float)tex->Width; topRight.Y=(float)source.Y / (float)tex->Height;
+		botLeft.X=(float)source.X / (float)tex->Width; botLeft.Y=((float)source.Y + (float)source.Height) / (float)tex->Height;
+		botRight.X=((float)source.X + (float)source.Width) / (float)tex->Width; botRight.Y=((float)source.Y + (float)source.Height) / (float)tex->Height;
 
-		if(source == NULL)
-		{
-			topLeft.X=0; topLeft.Y=0;
-			topRight.X=1; topRight.Y=0;
-			botLeft.X=0; botLeft.Y=1;
-			botRight.X=1; botRight.Y=1;
-		}
-		else
-		{
-			topLeft.X=(float)source->X / (float)tex->Width; topLeft.Y=(float)source->Y / (float)tex->Height;
-			topRight.X=((float)source->X + (float)source->Width) / (float)tex->Width; topRight.Y=(float)source->Y / (float)tex->Height;
-			botLeft.X=(float)source->X / (float)tex->Width; botLeft.Y=((float)source->Y + (float)source->Height) / (float)tex->Height;
-			botRight.X=((float)source->X + (float)source->Width) / (float)tex->Width; botRight.Y=((float)source->Y + (float)source->Height) / (float)tex->Height;
-		}
-
-		glColor4ub(color->Red,color->Green,color->Blue,color->Alpha);
+		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
 		glEnable(GL_TEXTURE_2D);
 		glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
 		glBegin(GL_QUADS);
-		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(vec->X, vec->Y);
-		glTexCoord2d(topRight.X,topRight.Y);glVertex2f(vec->X+tex->Width, vec->Y);
-		glTexCoord2d(botRight.X,botRight.Y);glVertex2f(vec->X+tex->Width, vec->Y+tex->Height);
-		glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(vec->X, vec->Y+tex->Height);			
+		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(vec.X, vec.Y);
+		glTexCoord2d(topRight.X,topRight.Y);glVertex2f(vec.X+tex->Width, vec.Y);
+		glTexCoord2d(botRight.X,botRight.Y);glVertex2f(vec.X+tex->Width, vec.Y+tex->Height);
+		glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(vec.X, vec.Y+tex->Height);			
 		glEnd();
 		glDisable(GL_TEXTURE_2D);
 	}

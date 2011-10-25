@@ -32,13 +32,13 @@ namespace GameFramework
 
 			void PreDraw();
 			//Destination rectangle
-			void Draw(Texture2D* tex, Rectangle* rec, Color* color);
-			void Draw(Texture2D* tex, Rectangle* rec, Rectangle* source, Color* color);
-			void Draw(Texture2D* tex, Rectangle* rec, Rectangle* source, Color* color, float rotation);
+			void Draw(Texture2D* tex, Rectangle rec, Color color);
+			void Draw(Texture2D* tex, Rectangle rec, Rectangle source, Color color);
+			void Draw(Texture2D* tex, Rectangle rec, Rectangle source, Color color, float rotation);
 			//Destination vector
-			void Draw(Texture2D* tex, Vector2* vec, Color* color);
-			void Draw(Texture2D* tex, Vector2* vec, Rectangle* source, Color* color);
-			void Draw(Texture2D* tex, Vector2* vec, Rectangle* source, Color* color, float rotation);
+			void Draw(Texture2D* tex, Vector2 vec, Color color);
+			void Draw(Texture2D* tex, Vector2 vec, Rectangle source, Color color);
+			void Draw(Texture2D* tex, Vector2 vec, Rectangle source, Color color, float rotation);
 			void PostDraw();
 			
 			bool GetFullScreen();
