@@ -5,15 +5,15 @@
  */
 
 #include "TileLayer.h"
+#include <list>
 
 using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	TileLayer::TileLayer(Game* game, Camera camera, Rectangle size)
+	TileLayer::TileLayer(Game* game, Rectangle size)
 	{
 		this->game = game;
-		this->camera = camera;
 		this->Size = size;
 		
 		//Instantiate the QuadTree
@@ -27,7 +27,12 @@ namespace ManhattanProject
 		TileTree.InsertElement(newTile, position.X, position.Y);
 	}
 	
-	void TileLayer::Draw()
+	void TileLayer::Print()
+	{
+		TileTree.PrintTree();
+	}
+	
+	void TileLayer::Draw(Camera camera)
 	{
 		//Get List of tiles to draw
 		DrawingTiles = TileTree.GetElements(camera.GetRectangle());
@@ -36,7 +41,7 @@ namespace ManhattanProject
 		for(list<Tile*>::iterator it = DrawingTiles.begin(); it != DrawingTiles.end(); it++)
 		{
 			Tile* ptr = *it;
-			ptr->Draw();
+			ptr->Draw(camera);
 		}
 	}
 	

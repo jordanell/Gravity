@@ -10,10 +10,10 @@ using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	CollisionLayer::CollisionLayer(Game* game, Camera camera)
+	CollisionLayer::CollisionLayer(Game* game, Rectangle Size)
 	{
 		this->game = game;
-		this->camera = camera;
+		this->Size = Size;
 	}
 	
 	bool CollisionLayer::CheckCollision(Rectangle* rec)

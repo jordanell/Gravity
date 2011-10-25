@@ -21,8 +21,8 @@ namespace ManhattanProject
 	void SceneManager::Initialize()
 	{
 		//Always initialize to the launcher scene
-		launcher = new LauncherScene(game);
-		ActiveScene = launcher;
+		testScene = new GameScene(game);
+		ActiveScene = testScene;
 	
 		DrawableGameComponent::Initialize();
 	}

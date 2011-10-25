@@ -21,12 +21,13 @@ namespace ManhattanProject
 	class TileLayer
 	{
 		public:
-			TileLayer(Game* game, Camera camera, Rectangle rec);
+			TileLayer(Game* game, Rectangle rec);
 		
 			void Update();	
-			void Draw();
+			void Draw(Camera camera);
 		
 			void AddTile(Texture2D* tex, float alpha, float scale, float rotation, Vector2 position, Color color);
+			void Print();
 		
 		protected:
 			Game* game;
@@ -34,7 +35,6 @@ namespace ManhattanProject
 			Rectangle Size;
 			QuadTree<Tile> TileTree;
 			list<Tile*> DrawingTiles;
-			Camera camera;
 	};
 }
 

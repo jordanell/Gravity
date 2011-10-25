@@ -20,7 +20,7 @@ namespace ManhattanProject
 	class CollisionLayer
 	{
 		public:
-			CollisionLayer(Game* game, Camera camera);
+			CollisionLayer(Game* game, Rectangle Size);
 		
 			bool CheckCollision(Rectangle* rec);
 		
@@ -28,10 +28,10 @@ namespace ManhattanProject
 		
 		protected:
 			Game* game;
+			Rectangle Size;
 		
 			QuadTree<Rectangle> CollisionTree;
 			list<Rectangle*> ActiveCollisions;
-			Camera camera;
 	};
 }
 

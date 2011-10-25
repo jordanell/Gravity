@@ -11,6 +11,7 @@
 #include "GameFramework.h"
 #include "Scene.h"
 #include "LauncherScene.h"
+#include "GameScene.h"
 
 using namespace GameFramework; 
 
@@ -27,7 +28,7 @@ namespace ManhattanProject
 			
 		protected:
 			Scene* ActiveScene;
-			LauncherScene* launcher;
+			GameScene* testScene;
 	};
 }
 

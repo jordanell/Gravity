@@ -26,7 +26,7 @@ namespace ManhattanProject
 		color = col;
 	}
 	
-	void Tile::Draw()
+	void Tile::Draw(Camera camera)
 	{
 		//Draw this tile
 		game->Render->Draw(texture, &position, NULL, &color, rotation);

@@ -10,6 +10,7 @@
 
 #include "GameFramework.h"
 #include "TileLayer.h"
+#include "CollisionLayer.h"
 #include "Camera.h"
 #include <list>
 
@@ -20,17 +21,26 @@ namespace ManhattanProject
 	class TileMap: public DrawableGameComponent
 	{
 		public:
+			Camera camera;
+			
 			TileMap(Game* game);
+			TileMap(Game* game, Camera camera, Rectangle Size);
 		
 			void Initialize();
 			void Update();	
 			void Draw();
 		
-			void AddLayer();
+			void AddTileLayer();
+			void AddTileLayer(TileLayer layer);
+			
+			void AddCollisionLayer();
+			void AddCollisionLayer(CollisionLayer layer);
+			
+			void PrintLayers();
 		
 		protected:
 			list<TileLayer> layers;
-			Camera camera;
+			list<CollisionLayer> collision;
 			Rectangle Size;
 	};
 }

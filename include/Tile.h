@@ -10,6 +10,7 @@
 #define TILE_H
 
 #include "GameFramework.h"
+#include "Camera.h"
 
 using namespace GameFramework;
 
@@ -22,7 +23,7 @@ namespace ManhattanProject
 		Tile(Game* game, Texture2D* tex, float a, float s, float rot, Vector2 pos, Color col);
 		
 		void Update();	
-		void Draw();
+		void Draw(Camera camera);
 		
 		Texture2D* texture;
 		float alpha;

@@ -14,6 +14,6 @@ const int DEFAULT_WIDTH = 600;
 const int DEFAULT_HEIGHT = 400;
 
 //Gane Constants
-const int DEFAULT_QUADTREE_RECT = 2500;
+const int DEFAULT_QUADTREE_RECT = 200000;
 
 #endif
