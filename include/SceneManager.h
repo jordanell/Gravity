@@ -28,7 +28,7 @@ namespace ManhattanProject
 			
 		protected:
 			Scene* ActiveScene;
-			GameScene* testScene;
+			LauncherScene* testScene;
 	};
 }
 

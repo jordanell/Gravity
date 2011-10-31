@@ -50,6 +50,6 @@ namespace ManhattanProject
 	
 	void Animation::Draw()
 	{
-		game->Render->Draw(Texture, Position, Source, Color(255,255,255,255));
+		game->Render->Draw(Texture, Position, Source, Color(255,255,255,255), 0, 1);
 	}
 }
