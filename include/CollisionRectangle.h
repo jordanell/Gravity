@@ -9,19 +9,24 @@
 #define COLLISIONRECTANGLE_H
 
 #include "GameFramework.h"
+#include "Object.h"
 
 using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	class CollisionRectangle: public Rectangle
+	class CollisionRectangle: public Object
 	{
 	public:
-		CollisionRectangle();
+		CollisionRectangle(Game* game);
 		CollisionRectangle(int X, int Y, int Height, int Width);
 		CollisionRectangle(int X, int Y, int Height, int Width, float Rotation);
 		
 		float Rotation;
+		int X;
+		int Y;
+		int Height;
+		int Width;
 	};
 }
 

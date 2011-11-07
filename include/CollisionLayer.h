@@ -30,8 +30,8 @@ namespace ManhattanProject
 			Game* game;
 			Rectangle Size;
 		
-			QuadTree<Rectangle> CollisionTree;
-			list<Rectangle*> ActiveCollisions;
+			QuadTree<CollisionRectangle> CollisionTree;
+			list<CollisionRectangle*> ActiveCollisions;
 	};
 }
 

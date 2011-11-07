@@ -10,19 +10,22 @@ using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	Container::Container(Game* game)
+	Container::Container(Game* game):
+		Object(game)
 	{
 		this->game = game;
 	}
 	
-	Container::Container(Game* game, Texture2D* Tile, Vector2 Position)
+	Container::Container(Game* game, Texture2D* Tile, Vector2 Position):
+		Object(game)
 	{
 		this->game = game;
 		this->Tile = Tile;
 		this->Position = Position;
 	}
 	
-	Container::Container(Game* game, Texture2D* Tile, Vector2 Position, list<Item> Items, string Name, string Description)
+	Container::Container(Game* game, Texture2D* Tile, Vector2 Position, list<Item> Items, string Name, string Description):
+		Object(game)
 	{
 		this->game = game;
 		this->Tile = Tile;

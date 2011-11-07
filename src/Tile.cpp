@@ -10,12 +10,14 @@ using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	Tile::Tile(Game* game)
+	Tile::Tile(Game* game):
+		Object(game)
 	{
 		this->game = game;
 	}
 	
-	Tile::Tile(Game* game, Texture2D* tex, float a, float s, float rot, Vector2 pos, Color col)
+	Tile::Tile(Game* game, Texture2D* tex, float a, float s, float rot, Vector2 pos, Color col):
+		Object(game)
 	{
 		this->game = game;
 		texture = tex;

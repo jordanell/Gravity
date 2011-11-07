@@ -10,8 +10,8 @@ using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	CollisionRectangle::CollisionRectangle():
-		Rectangle()
+	CollisionRectangle::CollisionRectangle(Game* game):
+		Object(game)
 	{
 		this->X = 0;
 		this->Y = 0;
@@ -21,7 +21,7 @@ namespace ManhattanProject
 	}
 	
 	CollisionRectangle::CollisionRectangle(int X, int Y, int Height, int Width):
-		Rectangle(X, Y, Height, Width)
+		Object(game)
 	{
 		this->X = X;
 		this->Y = Y;
@@ -30,7 +30,8 @@ namespace ManhattanProject
 		this->Rotation = 0;
 	}
 	
-	CollisionRectangle::CollisionRectangle(int X, int Y, int Height, int Width, float Rotation)
+	CollisionRectangle::CollisionRectangle(int X, int Y, int Height, int Width, float Rotation):
+		Object(game)
 	{
 		this->X = X;
 		this->Y = Y;

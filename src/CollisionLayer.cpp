@@ -18,7 +18,7 @@ namespace ManhattanProject
 	
 	bool CollisionLayer::CheckCollision(Rectangle* rec)
 	{
-	
+		return false;
 	}
 	
 	void CollisionLayer::AddCollision(Rectangle position, float Rotation)

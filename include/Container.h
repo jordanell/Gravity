@@ -11,6 +11,7 @@
 #include "GameFramework.h"
 #include "Camera.h"
 #include "Item.h"
+#include "Object.h"
 #include <list>
 #include <string>
 
@@ -18,7 +19,7 @@ using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	class Container
+	class Container: public Object
 	{
 		public:
 			Container(Game* game);

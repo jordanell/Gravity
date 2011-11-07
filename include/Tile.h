@@ -11,12 +11,13 @@
 
 #include "GameFramework.h"
 #include "Camera.h"
+#include "Object.h"
 
 using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	class Tile
+	class Tile: public Object
 	{
 	public:
 		Tile(Game* game);
