@@ -11,13 +11,13 @@ using namespace GameFramework;
 namespace ManhattanProject
 {
 	Container::Container(Game* game):
-		Object(game)
+		MapObject(game)
 	{
 		this->game = game;
 	}
 	
 	Container::Container(Game* game, Texture2D* Tile, Vector2 Position):
-		Object(game)
+		MapObject(game)
 	{
 		this->game = game;
 		this->Tile = Tile;
@@ -25,7 +25,7 @@ namespace ManhattanProject
 	}
 	
 	Container::Container(Game* game, Texture2D* Tile, Vector2 Position, list<Item> Items, string Name, string Description):
-		Object(game)
+		MapObject(game)
 	{
 		this->game = game;
 		this->Tile = Tile;

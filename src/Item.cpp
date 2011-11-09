@@ -11,13 +11,13 @@ using namespace GameFramework;
 namespace ManhattanProject
 {
 	Item::Item(Game* game):
-		Object(game)
+		MapObject(game)
 	{
 		this->game = game;
 	}
 	
 	Item::Item(Game* game, Texture2D* Icon, Texture2D* Tile, float hp, float ep, float sp, float ap, float dp):
-		Object(game)
+		MapObject(game)
 	{
 		this->game = game;
 		
@@ -32,7 +32,7 @@ namespace ManhattanProject
 	
 	Item::Item(Game* game, Texture2D* Icon, Texture2D* Tile, Vector2 Position,
 			   float hp, float ep, float sp, float ap, float dp, string Name, string Description):
-		Object(game)
+		MapObject(game)
 	{
 		this->game = game;
 		

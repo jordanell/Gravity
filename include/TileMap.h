@@ -37,11 +37,15 @@ namespace ManhattanProject
 			void AddCollisionLayer(CollisionLayer layer);
 			
 			void PrintLayers();
+			
+			void Debugging();
 		
 		protected:
 			list<TileLayer> layers;
 			list<CollisionLayer> collision;
 			Rectangle Size;
+			
+			bool debugging;
 	};
 }
 

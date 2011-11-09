@@ -59,6 +59,13 @@ namespace ManhattanProject
 			it->Print();
 	}
 	
+	void TileMap::Debugging()
+	{
+		debugging = !debugging;
+		for(list<TileLayer>::iterator it = layers.begin(); it != layers.end(); it++)
+			it->Debugging();
+	}
+	
 	void TileMap::Draw()
 	{
 		//Iterator over list of tiles and draw them

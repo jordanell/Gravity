@@ -9,13 +9,13 @@
 #define COLLISIONRECTANGLE_H
 
 #include "GameFramework.h"
-#include "Object.h"
+#include "MapObject.h"
 
 using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	class CollisionRectangle: public Object
+	class CollisionRectangle: public MapObject
 	{
 	public:
 		CollisionRectangle(Game* game);

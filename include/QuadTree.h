@@ -29,6 +29,8 @@ namespace ManhattanProject
 			
 			QuadNode();
 			QuadNode(Rectangle rec);
+			
+			~QuadNode();
 	};
 			
 	template <class T> class QuadTree
@@ -69,7 +71,10 @@ namespace ManhattanProject
 	
 	template <class T> QuadNode<T>::QuadNode()
 	{
-		
+		TopLeft = NULL;
+		TopRight = NULL;
+		BottomRight = NULL;
+		BottomLeft = NULL;
 	}
 	
 	template <class T> QuadNode<T>::QuadNode(Rectangle rec)
@@ -78,6 +83,23 @@ namespace ManhattanProject
 		this->Position.Width = rec.Width;
 		this->Position.X = rec.X;
 		this->Position.Y = rec.Y;
+		
+		TopLeft = NULL;
+		TopRight = NULL;
+		BottomRight = NULL;
+		BottomLeft = NULL;
+	}
+	
+	template <class T> QuadNode<T>::~QuadNode()
+	{
+		if(TopLeft != NULL)
+			delete TopLeft;
+		if(TopRight != NULL)
+			delete TopRight;
+		if(BottomRight != NULL)
+			delete BottomRight;
+		if(BottomLeft != NULL)
+			delete BottomLeft;
 	}
 	
 	/*

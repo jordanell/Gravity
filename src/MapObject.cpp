@@ -4,30 +4,30 @@
  * Date: 06/11/11
  */
 
-#include "Object.h"
+#include "MapObject.h"
 
 using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	Object::Object(Game* game):
+	MapObject::MapObject(Game* game):
 		DrawableGameComponent(game)
 	{
 		this->game = game;
 	}
 	
-	void Object::Initialize()
+	void MapObject::Initialize()
 	{
 		
 	}
 	
-	void Object::Draw(Camera camera)
+	void MapObject::Draw(Camera camera)
 	{
 		
 		DrawableGameComponent::Draw();
 	}
 	
-	void Object::Update()
+	void MapObject::Update()
 	{
 		
 		DrawableGameComponent::Update();

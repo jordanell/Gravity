@@ -11,7 +11,7 @@ using namespace GameFramework;
 namespace ManhattanProject
 {
 	CollisionRectangle::CollisionRectangle(Game* game):
-		Object(game)
+		MapObject(game)
 	{
 		this->X = 0;
 		this->Y = 0;
@@ -21,7 +21,7 @@ namespace ManhattanProject
 	}
 	
 	CollisionRectangle::CollisionRectangle(int X, int Y, int Height, int Width):
-		Object(game)
+		MapObject(game)
 	{
 		this->X = X;
 		this->Y = Y;
@@ -31,7 +31,7 @@ namespace ManhattanProject
 	}
 	
 	CollisionRectangle::CollisionRectangle(int X, int Y, int Height, int Width, float Rotation):
-		Object(game)
+		MapObject(game)
 	{
 		this->X = X;
 		this->Y = Y;
