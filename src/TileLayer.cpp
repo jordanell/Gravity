@@ -69,7 +69,7 @@ namespace ManhattanProject
 		DrawingTiles = TileTree.GetElements(camera.GetRectangle());
 		
 		//Sort the list based on zindex
-		
+		DrawingTiles.sort();
 		
 		//Iterate over list and draw tiles
 		for(list<MapObject*>::iterator it = DrawingTiles.begin(); it != DrawingTiles.end(); it++)

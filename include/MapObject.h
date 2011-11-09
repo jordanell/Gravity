@@ -25,6 +25,8 @@ namespace ManhattanProject
 			virtual void Update();	
 			virtual void Draw(Camera camera);
 			
+			inline bool operator<(const MapObject &) const;
+			
 		private:
 			int zindex;
 	};

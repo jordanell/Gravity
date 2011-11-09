@@ -21,6 +21,11 @@ namespace ManhattanProject
 		
 	}
 	
+	inline bool MapObject::operator<(const MapObject & rhs) const
+	{
+		return zindex < rhs.zindex;
+	}
+	
 	void MapObject::Draw(Camera camera)
 	{
 		
