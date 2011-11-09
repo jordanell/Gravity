@@ -9,6 +9,7 @@
 #define TILELAYER_H
 
 #include "GameFramework.h"
+#include "GameDefines.h"
 #include "MapObject.h"
 #include "QuadTree.h"
 #include "Tile.h"

@@ -9,6 +9,7 @@
 #define COLLISIONRECTANGLE_H
 
 #include "GameFramework.h"
+#include "GameDefines.h"
 #include "MapObject.h"
 
 using namespace GameFramework;

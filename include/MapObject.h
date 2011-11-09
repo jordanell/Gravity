@@ -10,6 +10,7 @@
 #define MAPOBJECT_H
 
 #include "GameFramework.h"
+#include "GameDefines.h"
 #include "Camera.h"
 
 using namespace GameFramework;

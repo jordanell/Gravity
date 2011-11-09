@@ -16,4 +16,9 @@ const int ITEM_DESCRIPTION = 100;
 const int CONTAINER_NAME = 30;
 const int CONTAINER_DESCRIPTION = 75;
 
+// Fix the Windows Rectangle issue
+#ifdef _WIN32 || _WIN64
+	#define Rectangle GameFramework::Rectangle
+#endif
+
 #endif

@@ -9,6 +9,7 @@
 #define COLLISIONLAYER_H
 
 #include "GameFramework.h"
+#include "GameDefines.h"
 #include "QuadTree.h"
 #include "CollisionRectangle.h"
 #include <list>

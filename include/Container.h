@@ -9,6 +9,7 @@
 #define CONTAINER_H
 
 #include "GameFramework.h"
+#include "GameDefines.h"
 #include "Camera.h"
 #include "Item.h"
 #include "MapObject.h"

@@ -9,6 +9,7 @@
 #define ITEM_H
 
 #include "GameFramework.h"
+#include "GameDefines.h"
 #include "Camera.h"
 #include "MapObject.h"
 #include <string>

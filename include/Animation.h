@@ -9,6 +9,7 @@
 #define ANIMATION_H
 
 #include "GameFramework.h"
+#include "GameDefines.h"
 
 using namespace GameFramework;
 

@@ -9,6 +9,7 @@
 #define GAMESCENE_H
 
 #include "GameFramework.h"
+#include "GameDefines.h"
 #include "Scene.h"
 #include "TileMap.h"
 

@@ -10,6 +10,7 @@
 #define TILE_H
 
 #include "GameFramework.h"
+#include "GameDefines.h"
 #include "Camera.h"
 #include "MapObject.h"
 

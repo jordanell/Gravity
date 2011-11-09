@@ -9,6 +9,7 @@
 #define SCENEMANAGER_H
  
 #include "GameFramework.h"
+#include "GameDefines.h"
 #include "Scene.h"
 #include "LauncherScene.h"
 #include "GameScene.h"

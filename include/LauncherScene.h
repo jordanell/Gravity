@@ -9,6 +9,7 @@
 #define LAUNCHERSCENE_H
 
 #include "GameFramework.h"
+#include "GameDefines.h"
 #include "Scene.h"
 
 using namespace GameFramework;

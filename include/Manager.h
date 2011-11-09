@@ -10,6 +10,7 @@
 #define MANAGER_H
 
 #include "GameFramework.h"
+#include "GameDefines.h"
 #include "SceneManager.h"
 
 using namespace GameFramework;

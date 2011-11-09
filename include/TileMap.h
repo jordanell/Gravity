@@ -9,6 +9,7 @@
 #define TILEMAP_H
 
 #include "GameFramework.h"
+#include "GameDefines.h"
 #include "TileLayer.h"
 #include "CollisionLayer.h"
 #include "Camera.h"
