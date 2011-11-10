@@ -9,7 +9,6 @@
 #define ANIMATION_H
 
 #include "GameFramework.h"
-#include "GameDefines.h"
 
 using namespace GameFramework;
 
@@ -20,24 +19,24 @@ namespace ManhattanProject
 		public:
 			Animation(Game* game);
 			Animation(Game* game, Vector2 Position, Texture2D* Texture, int Rows, int Columns, int FramesPerSecond);
-		
+
 			Vector2 Position;
-		
+
 			void Update(int Ticks);
 			void Draw();
-			
+
 		private:
 			Game* game;
 			Texture2D* Texture;
 			int Rows;
 			int Columns;
-			
+
 			// Keep track of the current frame
 			int CurrentRow;
 			int CurrentColumn;
 			int FramesPerSecond;
 			int OldTicks;
-			Rectangle Source;
+			GameFramework::Rectangle Source;
 	};
 }
 

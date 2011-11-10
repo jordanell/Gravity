@@ -9,7 +9,6 @@
 #define TILELAYER_H
 
 #include "GameFramework.h"
-#include "GameDefines.h"
 #include "MapObject.h"
 #include "QuadTree.h"
 #include "Tile.h"
@@ -26,24 +25,24 @@ namespace ManhattanProject
 	class TileLayer
 	{
 		public:
-			TileLayer(Game* game, Rectangle rec);
-		
-			void Update();	
+			TileLayer(Game* game, GameFramework::Rectangle rec);
+
+			void Update();
 			void Draw(Camera camera);
-		
+
 			void AddTile(Texture2D* tex, float alpha, float scale, float rotation, Vector2 position, Color color);
 			void AddContainer(Game* game, Texture2D* Tile, Vector2 Position, list<Item> Items, string Name, string Description);
 			void AddItem(Game* game, Texture2D* Icon, Texture2D* Tile, Vector2 Position, float hp, float ep, float sp,
 						 float ap, float dp, string Name, string Description);
 			void AddCollisionRect(int X, int Y, int Height, int Width, float Rotation);
 			void Print();
-			
+
 			void Debugging();
-		
+
 		protected:
 			Game* game;
-			
-			Rectangle Size;
+
+			GameFramework::Rectangle Size;
 			QuadTree<MapObject> TileTree;
 			list<MapObject*> DrawingTiles;
 			bool debugging;

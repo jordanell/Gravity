@@ -10,7 +10,6 @@
 #define TILE_H
 
 #include "GameFramework.h"
-#include "GameDefines.h"
 #include "Camera.h"
 #include "MapObject.h"
 
@@ -23,17 +22,17 @@ namespace ManhattanProject
 	public:
 		Tile(Game* game);
 		Tile(Game* game, Texture2D* tex, float a, float s, float rot, Vector2 pos, Color col);
-		
-		void Update();	
+
+		void Update();
 		void Draw(Camera camera);
-		
+
 		Texture2D* texture;
 		float alpha;
 		float scale;
 		float rotation;
 		Vector2 position;
 		Color color;
-		
+
 	protected:
 		Game* game;
 	};

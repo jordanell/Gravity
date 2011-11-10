@@ -9,7 +9,6 @@
 #define CAMERA_H
 
 #include "GameFramework.h"
-#include "GameDefines.h"
 
 using namespace GameFramework;
 
@@ -20,11 +19,11 @@ namespace ManhattanProject
 	public:
 		Camera();
 		Camera(Vector2 position, Vector2 size);
-		
+
 		Vector2 Position;
 		Vector2 Size;
-		
-		Rectangle GetRectangle();
+
+		GameFramework::Rectangle GetRectangle();
 	};
 }
 

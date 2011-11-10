@@ -9,7 +9,6 @@
 #define GAMESCENE_H
 
 #include "GameFramework.h"
-#include "GameDefines.h"
 #include "Scene.h"
 #include "TileMap.h"
 
@@ -21,11 +20,11 @@ namespace ManhattanProject
 	{
 		public:
 			GameScene(Game* game);
-		
+
 			void Initialize();
-			void Update();	
+			void Update();
 			void Draw();
-		
+
 		protected:
 	};
 }

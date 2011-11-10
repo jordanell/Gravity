@@ -7,14 +7,13 @@
 
 #ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
- 
+
 #include "GameFramework.h"
-#include "GameDefines.h"
 #include "Scene.h"
 #include "LauncherScene.h"
 #include "GameScene.h"
 
-using namespace GameFramework; 
+using namespace GameFramework;
 
 namespace ManhattanProject
 {
@@ -22,11 +21,11 @@ namespace ManhattanProject
 	{
 		public:
 			SceneManager(Game* game);
-			
+
 			void Initialize();
 			void Draw();
 			void Update();
-			
+
 		protected:
 			Scene* ActiveScene;
 			Scene* testScene;

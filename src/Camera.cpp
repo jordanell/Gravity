@@ -14,20 +14,20 @@ namespace ManhattanProject
 	{
 		Position.X = 0;
 		Position.Y = 0;
-		
+
 		Size.X = DEFAULT_WIDTH;
 		Size.Y = DEFAULT_HEIGHT;
 	}
-	
+
 	Camera::Camera(Vector2 position, Vector2 size)
 	{
 		Position = position;
 		Size = size;
 	}
-	
-	Rectangle Camera::GetRectangle()
+
+	GameFramework::Rectangle Camera::GetRectangle()
 	{
-		Rectangle rectangle(Position.X, Position.Y, Size.Y, Size.X);
+		GameFramework::Rectangle rectangle(Position.X, Position.Y, Size.Y, Size.X);
 		return rectangle;
 	}
 }

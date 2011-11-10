@@ -10,7 +10,6 @@
 #define MAPOBJECT_H
 
 #include "GameFramework.h"
-#include "GameDefines.h"
 #include "Camera.h"
 
 using namespace GameFramework;
@@ -21,13 +20,13 @@ namespace ManhattanProject
 	{
 		public:
 			MapObject(Game* game);
-		
+
 			virtual void Initialize();
-			virtual void Update();	
+			virtual void Update();
 			virtual void Draw(Camera camera);
-			
+
 			inline bool operator<(const MapObject &) const;
-			
+
 		private:
 			int zindex;
 	};

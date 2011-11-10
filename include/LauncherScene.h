@@ -4,12 +4,11 @@
  * Author: Jordan Ell
  * Date: 09/10/11
  */
- 
+
 #ifndef LAUNCHERSCENE_H
 #define LAUNCHERSCENE_H
 
 #include "GameFramework.h"
-#include "GameDefines.h"
 #include "Scene.h"
 
 using namespace GameFramework;
@@ -20,11 +19,11 @@ namespace ManhattanProject
 	{
 		public:
 			LauncherScene(Game* game);
-		
+
 			void Initialize();
-			void Update();	
+			void Update();
 			void Draw();
-		
+
 		protected:
 			Texture2D* background;
 	};

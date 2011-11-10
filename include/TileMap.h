@@ -9,7 +9,6 @@
 #define TILEMAP_H
 
 #include "GameFramework.h"
-#include "GameDefines.h"
 #include "TileLayer.h"
 #include "CollisionLayer.h"
 #include "Camera.h"
@@ -23,29 +22,29 @@ namespace ManhattanProject
 	{
 		public:
 			Camera camera;
-			
+
 			TileMap(Game* game);
-			TileMap(Game* game, Camera camera, Rectangle Size);
-		
+			TileMap(Game* game, Camera camera, GameFramework::Rectangle Size);
+
 			void Initialize();
-			void Update();	
+			void Update();
 			void Draw();
-		
+
 			void AddTileLayer();
 			void AddTileLayer(TileLayer layer);
-			
+
 			void AddCollisionLayer();
 			void AddCollisionLayer(CollisionLayer layer);
-			
+
 			void PrintLayers();
-			
+
 			void Debugging();
-		
+
 		protected:
 			list<TileLayer> layers;
 			list<CollisionLayer> collision;
-			Rectangle Size;
-			
+			GameFramework::Rectangle Size;
+
 			bool debugging;
 	};
 }

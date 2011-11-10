@@ -5,29 +5,28 @@
  * Author: Jordan Ell
  * Date: 01/10/11
  */
- 
+
  #ifndef SCENE_H
  #define SCENE_H
- 
+
  #include "GameFramework.h"
- #include "GameDefines.h"
- 
+
  using namespace GameFramework;
- 
+
  namespace ManhattanProject
  {
 	 class Scene: public DrawableGameComponent
 	 {
 		 public:
 			Scene(Game* game);
-			
+
 			GameComponentCollection* Components;
-			
+
 			virtual void Initialize();
-			virtual void Update();	
+			virtual void Update();
 			virtual void Draw();
 	 };
  }
- 
+
  #endif
 

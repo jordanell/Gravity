@@ -9,7 +9,6 @@
 #define CONTAINER_H
 
 #include "GameFramework.h"
-#include "GameDefines.h"
 #include "Camera.h"
 #include "Item.h"
 #include "MapObject.h"
@@ -27,22 +26,22 @@ namespace ManhattanProject
 			Container(Game* game, Texture2D* Tile, Vector2 Position);
 			Container(Game* game, Texture2D* Tile, Vector2 Position, list<Item> Items, string Name,
 				      string Description);
-		
+
 			// Tile for the container
 			Texture2D* Tile;
-		
+
 			string Name;
 			string Description;
-		
+
 			Game* game;
 			Vector2 Position;
-			
+
 			list<Item> Items;
-		
+
 			void Draw(Camera camera);
-		
+
 		private:
-		
+
 	};
 }
 

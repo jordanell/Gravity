@@ -10,7 +10,6 @@
 #define MANAGER_H
 
 #include "GameFramework.h"
-#include "GameDefines.h"
 #include "SceneManager.h"
 
 using namespace GameFramework;
@@ -21,14 +20,14 @@ namespace ManhattanProject
 	{
 		public:
 			SDL_Event event;
-			
+
 			Manager();
-		
+
 		protected:
 			SceneManager* sceneManager;
-			
+
 			void Initialize();
-		
+
 			void Draw();
 			void Update();
 	};
