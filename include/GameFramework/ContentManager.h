@@ -30,7 +30,7 @@
  
 #include "Exception.h"
 #include "Texture2D.h"
-#include <map> 
+#include <map>
 
 
 namespace GameFramework

@@ -13,6 +13,7 @@
 #include "CollisionLayer.h"
 #include "Camera.h"
 #include <list>
+#include <string>
 
 using namespace GameFramework;
 
@@ -34,9 +35,10 @@ namespace ManhattanProject
 
 			void AddTileLayer();
 			void AddTileLayer(TileLayer* layer);
+			
+			void SetSize(GameFramework::Rectangle Size);
 
 			void PrintLayers();
-
 			void Debugging();
 
 		protected:

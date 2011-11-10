@@ -49,24 +49,10 @@ namespace ManhattanProject
 	{
 		layers.push_back(layer);
 	}
-
-	void TileMap::PrintLayers()
+	
+	void TileMap::SetSize(GameFramework::Rectangle Size)
 	{
-		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)
-		{
-			TileLayer* ptr = *it;
-			ptr->Print();
-		}
-	}
-
-	void TileMap::Debugging()
-	{
-		debugging = !debugging;
-		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)
-		{
-			TileLayer* ptr = *it;
-			ptr->Debugging();
-		}
+		this->Size = Size;
 	}
 
 	void TileMap::Draw()
@@ -82,6 +68,25 @@ namespace ManhattanProject
 	void TileMap::Update()
 	{
 
+	}
+	
+	void TileMap::PrintLayers()
+	{
+		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)
+		{
+			TileLayer* ptr = *it;
+			ptr->Print();
+		}
+	}
+	
+	void TileMap::Debugging()
+	{
+		debugging = !debugging;
+		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)
+		{
+			TileLayer* ptr = *it;
+			ptr->Debugging();
+		}
 	}
 }
 
