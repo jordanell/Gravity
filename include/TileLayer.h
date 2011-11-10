@@ -26,6 +26,8 @@ namespace ManhattanProject
 	{
 		public:
 			TileLayer(Game* game, GameFramework::Rectangle rec);
+			
+			~TileLayer();
 
 			void Update();
 			void Draw(Camera camera);
@@ -43,7 +45,7 @@ namespace ManhattanProject
 			Game* game;
 
 			GameFramework::Rectangle Size;
-			QuadTree<MapObject> TileTree;
+			QuadTree<MapObject>* TileTree;
 			list<MapObject*> DrawingTiles;
 			bool debugging;
 	};

@@ -17,7 +17,12 @@ namespace ManhattanProject
 		this->Size = size;
 
 		//Instantiate the QuadTree
-		TileTree = QuadTree<MapObject>(Size.Height, Size.Width, Size.X, Size.Y, DEFAULT_QUADTREE_RECT);
+		TileTree = new QuadTree<MapObject>(Size.Height, Size.Width, Size.X, Size.Y, DEFAULT_QUADTREE_RECT);
+	}
+	
+	TileLayer::~TileLayer()
+	{
+		delete TileTree;
 	}
 
 	/* Add a tile to the layer */
@@ -25,7 +30,7 @@ namespace ManhattanProject
 	{
 		Tile newTile(game, tex, alpha, scale, rotation, position, color);
 
-		TileTree.InsertElement(newTile, position.X, position.Y);
+		//TileTree.InsertElement(newTile, position.X, position.Y);
 	}
 
 	/* Add a container to the layer */
@@ -33,7 +38,7 @@ namespace ManhattanProject
 	{
 		Container newCont(game, Tile, Position, Items, Name, Description);
 
-		TileTree.InsertElement(newCont, Position.X, Position.Y);
+		//TileTree.InsertElement(newCont, Position.X, Position.Y);
 	}
 
 	/* Add a item to the layer */
@@ -42,7 +47,7 @@ namespace ManhattanProject
 	{
 		Item newItem(game, Icon, Tile, Position, hp, ep, sp, ap, dp, Name, Description);
 
-		TileTree.InsertElement(newItem, Position.X, Position.Y);
+		//TileTree.InsertElement(newItem, Position.X, Position.Y);
 	}
 
 	/* Add a Collision Rectangle to the layer */
@@ -50,12 +55,12 @@ namespace ManhattanProject
 	{
 		CollisionRectangle newColl(X, Y, Height, Width, Rotation);
 
-		TileTree.InsertElement(newColl, X, Y);
+		//TileTree.InsertElement(newColl, X, Y);
 	}
 
 	void TileLayer::Print()
 	{
-		TileTree.PrintTree();
+		TileTree->PrintTree();
 	}
 
 	void TileLayer::Debugging()
@@ -66,7 +71,7 @@ namespace ManhattanProject
 	void TileLayer::Draw(Camera camera)
 	{
 		//Get List of tiles to draw
-		DrawingTiles = TileTree.GetElements(camera.GetRectangle());
+		DrawingTiles = TileTree->GetElements(camera.GetRectangle());
 
 		//Sort the list based on zindex
 		DrawingTiles.sort();

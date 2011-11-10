@@ -25,24 +25,22 @@ namespace ManhattanProject
 
 			TileMap(Game* game);
 			TileMap(Game* game, Camera camera, GameFramework::Rectangle Size);
+			
+			~TileMap();
 
 			void Initialize();
 			void Update();
 			void Draw();
 
 			void AddTileLayer();
-			void AddTileLayer(TileLayer layer);
-
-			void AddCollisionLayer();
-			void AddCollisionLayer(CollisionLayer layer);
+			void AddTileLayer(TileLayer* layer);
 
 			void PrintLayers();
 
 			void Debugging();
 
 		protected:
-			list<TileLayer> layers;
-			list<CollisionLayer> collision;
+			list<TileLayer*> layers;
 			GameFramework::Rectangle Size;
 
 			bool debugging;

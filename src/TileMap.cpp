@@ -23,6 +23,15 @@ namespace ManhattanProject
 		this->camera = camera;
 		this->Size = Size;
 	}
+	
+	TileMap::~TileMap()
+	{
+		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)
+		{
+			TileLayer* ptr = *it;
+			delete ptr;
+		}
+	}
 
 	void TileMap::Initialize()
 	{
@@ -32,45 +41,42 @@ namespace ManhattanProject
 	/* Tile Layer stuff */
 	void TileMap::AddTileLayer()
 	{
-		TileLayer newTileLayer(game, Size);
-		layers.push_back(newTileLayer);
+			TileLayer* newTileLayer = new TileLayer(game, Size);
+			layers.push_back(newTileLayer);
 	}
 
-	void TileMap::AddTileLayer(TileLayer layer)
+	void TileMap::AddTileLayer(TileLayer* layer)
 	{
 		layers.push_back(layer);
 	}
 
-	/* Collision Layer stuff */
-	void TileMap::AddCollisionLayer()
-	{
-		CollisionLayer newCollisionLayer(game, Size);
-		collision.push_back(newCollisionLayer);
-	}
-
-	void TileMap::AddCollisionLayer(CollisionLayer layer)
-	{
-		collision.push_back(layer);
-	}
-
 	void TileMap::PrintLayers()
 	{
-		for(list<TileLayer>::iterator it = layers.begin(); it != layers.end(); it++)
-			it->Print();
+		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)
+		{
+			TileLayer* ptr = *it;
+			ptr->Print();
+		}
 	}
 
 	void TileMap::Debugging()
 	{
 		debugging = !debugging;
-		for(list<TileLayer>::iterator it = layers.begin(); it != layers.end(); it++)
-			it->Debugging();
+		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)
+		{
+			TileLayer* ptr = *it;
+			ptr->Debugging();
+		}
 	}
 
 	void TileMap::Draw()
 	{
 		//Iterator over list of tiles and draw them
-		for(list<TileLayer>::iterator it = layers.begin(); it != layers.end(); it++)
-			it->Draw(camera);
+		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)
+		{
+			TileLayer* ptr = *it;
+			ptr->Draw(camera);
+		}
 	}
 
 	void TileMap::Update()

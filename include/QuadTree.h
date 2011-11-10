@@ -49,9 +49,11 @@ namespace ManhattanProject
 			list<T*> GetElements(GameFramework::Rectangle rec);
 
 			void PrintTree();
+			
+			~QuadTree();
 
 		protected:
-			QuadNode<T> Root;
+			QuadNode<T>* Root;
 
 			void BuildTree(QuadNode<T>* root);
 
@@ -71,10 +73,10 @@ namespace ManhattanProject
 
 	template <class T> QuadNode<T>::QuadNode()
 	{
-		TopLeft = 0;
-		TopRight = 0;
-		BottomRight = 0;
-		BottomLeft = 0;
+		TopLeft = NULL;
+		TopRight = NULL;
+		BottomRight = NULL;
+		BottomLeft = NULL;
 	}
 
 	template <class T> QuadNode<T>::QuadNode(GameFramework::Rectangle rec)
@@ -84,22 +86,18 @@ namespace ManhattanProject
 		this->Position.X = rec.X;
 		this->Position.Y = rec.Y;
 
-		TopLeft = 0;
-		TopRight = 0;
-		BottomRight = 0;
-		BottomLeft = 0;
+		TopLeft = NULL;
+		TopRight = NULL;
+		BottomRight = NULL;
+		BottomLeft = NULL;
 	}
 
 	template <class T> QuadNode<T>::~QuadNode()
 	{
-		if(TopLeft != 0)
-			delete TopLeft;
-		if(TopRight != 0)
-			delete TopRight;
-		if(BottomRight != 0)
-			delete BottomRight;
-		if(BottomLeft != 0)
-			delete BottomLeft;
+		delete TopLeft;
+		delete TopRight;
+		delete BottomRight;
+		delete BottomLeft;	
 	}
 
 	/*
@@ -108,7 +106,7 @@ namespace ManhattanProject
 
 	template <class T> QuadTree<T>::QuadTree()
 	{
-
+		Root = new QuadNode<T>(GameFramework::Rectangle(0,0,400,600));
 	}
 
 	template <class T> QuadTree<T>::QuadTree(int height, int width, int x, int y, int size)
@@ -120,8 +118,14 @@ namespace ManhattanProject
 		this->MinSize = size;
 
 		//Initialize the root node
-		this->Root = QuadNode<T>(GameFramework::Rectangle(this->X, this->Y, this->Height, this->Width));
-		BuildTree(&this->Root);
+		this->Root = new QuadNode<T>(GameFramework::Rectangle(this->X, this->Y, this->Height, this->Width));
+		BuildTree(this->Root);
+	}
+	
+	/* Destructor */
+	template <class T> QuadTree<T>::~QuadTree()
+	{
+		delete Root;
 	}
 
 	template <class T> void QuadTree<T>::BuildTree(QuadNode<T>* root)
@@ -150,14 +154,14 @@ namespace ManhattanProject
 
 	template <class T> void QuadTree<T>::InsertElement(T element, int x, int y)
 	{
-		QuadNode<T>* node = RecursiveInsert(&this->Root, x, y);
+		QuadNode<T>* node = RecursiveInsert(this->Root, x, y);
 
 		node->Collection.push_back(element);
 	}
 
 	template <class T> void QuadTree<T>::PrintTree()
 	{
-		RecursivePrint(&this->Root);
+		RecursivePrint(this->Root);
 	}
 
 	template <class T> void QuadTree<T>::RecursivePrint(QuadNode<T>* root)
@@ -216,7 +220,7 @@ namespace ManhattanProject
 
 	template <class T> list<T*> QuadTree<T>::GetElements(GameFramework::Rectangle rec)
 	{
-		list<T*> components = RecursiveGetElements(rec, &this->Root);
+		list<T*> components = RecursiveGetElements(rec, this->Root);
 
 		return components;
 	}

@@ -24,8 +24,11 @@ namespace ManhattanProject
 			void Initialize();
 			void Update();
 			void Draw();
+			
+			~GameScene();
 
 		protected:
+			TileMap* Map;
 	};
 }
 
