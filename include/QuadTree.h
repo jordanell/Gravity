@@ -46,7 +46,7 @@ namespace ManhattanProject
 			QuadTree(int height, int width, int x, int y, int size);
 
 			void InsertElement(T element, int x, int y);
-			list<T*> GetElements(GameFramework::Rectangle rec);
+			list<T> GetElements(GameFramework::Rectangle rec);
 
 			void PrintTree();
 			
@@ -59,10 +59,10 @@ namespace ManhattanProject
 
 			QuadNode<T>* RecursiveInsert(QuadNode<T>* root, int x, int y);
 
-			list<T*> RecursiveGetElements(GameFramework::Rectangle rec, QuadNode<T>* root);
-			list<T*> AddElements(QuadNode<T>* root);
+			list<T> RecursiveGetElements(GameFramework::Rectangle rec, QuadNode<T>* root);
+			list<T> AddElements(QuadNode<T>* root);
 
-			bool PointInNode(int x, int y, QuadNode<T> node);
+			bool PointInNode(int x, int y, QuadNode<T>* node);
 
 			void RecursivePrint(QuadNode<T>* root);
 	};
@@ -187,48 +187,48 @@ namespace ManhattanProject
 
 	template <class T> QuadNode<T>* QuadTree<T>::RecursiveInsert(QuadNode<T>* root, int x, int y)
 	{
-		if(PointInNode(x, y, *root))
+		if(PointInNode(x, y, root))
 		{
 			//Then it must have no children and it is a leaf
 			if(root->Position.Width * root->Position.Height <= this->MinSize)
 				return root;
 
-			else if(PointInNode(x, y, *(root->TopLeft)))
+			else if(PointInNode(x, y, root->TopLeft))
 			   return RecursiveInsert(root->TopLeft, x, y);
 
-			else if(PointInNode(x, y, *(root->TopRight)))
+			else if(PointInNode(x, y, root->TopRight))
 				return RecursiveInsert(root->TopRight, x, y);
 
-			else if(PointInNode(x, y, *(root->BottomRight)))
+			else if(PointInNode(x, y, root->BottomRight))
 				return RecursiveInsert(root->BottomRight, x, y);
 
-			else if(PointInNode(x, y, *(root->BottomLeft)))
+			else if(PointInNode(x, y, root->BottomLeft))
 				return RecursiveInsert(root->BottomLeft, x, y);
 		}
 
 		return NULL;
 	}
 
-	template <class T> bool QuadTree<T>::PointInNode(int x, int y, QuadNode<T> node)
+	template <class T> bool QuadTree<T>::PointInNode(int x, int y, QuadNode<T>* node)
 	{
-		if((x >= node.Position.X && x <= node.Position.X+node.Position.Width) &&
-		   (y >= node.Position.Y && y <= node.Position.Y+node.Position.Height))
+		if((x >= node->Position.X && x <= node->Position.X+node->Position.Width) &&
+		   (y >= node->Position.Y && y <= node->Position.Y+node->Position.Height))
 			return true;
 		else
 			return false;
 	}
 
-	template <class T> list<T*> QuadTree<T>::GetElements(GameFramework::Rectangle rec)
+	template <class T> list<T> QuadTree<T>::GetElements(GameFramework::Rectangle rec)
 	{
-		list<T*> components = RecursiveGetElements(rec, this->Root);
+		list<T> components = RecursiveGetElements(rec, this->Root);
 
 		return components;
 	}
 
-	template <class T> list<T*> QuadTree<T>::RecursiveGetElements(GameFramework::Rectangle rec, QuadNode<T>* root)
+	template <class T> list<T> QuadTree<T>::RecursiveGetElements(GameFramework::Rectangle rec, QuadNode<T>* root)
 	{
-		list<T*> components;
-		list<T*> recursiveComponents;
+		list<T> components;
+		list<T> recursiveComponents;
 
 		if(rec.Intersects(&root->Position))
 		{
@@ -266,14 +266,14 @@ namespace ManhattanProject
 		return components;
 	}
 
-	template <class T> list<T*> QuadTree<T>::AddElements(QuadNode<T>* root)
+	template <class T> list<T> QuadTree<T>::AddElements(QuadNode<T>* root)
 	{
-		list<T*> components;
+		list<T> components;
 
 		typename list<T>::iterator it;
 
 		for(it = root->Collection.begin(); it != root->Collection.end(); it++)
-			components.push_back(&(*it));
+			components.push_back(*it);
 
 		return components;
 	}

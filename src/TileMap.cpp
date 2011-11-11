@@ -50,6 +50,11 @@ namespace ManhattanProject
 		layers.push_back(layer);
 	}
 	
+	TileLayer* TileMap::LastAddedLayer()
+	{
+		return layers.back();
+	}
+	
 	void TileMap::SetSize(GameFramework::Rectangle Size)
 	{
 		this->Size = Size;
@@ -67,7 +72,7 @@ namespace ManhattanProject
 
 	void TileMap::Update()
 	{
-
+		
 	}
 	
 	void TileMap::PrintLayers()

@@ -17,7 +17,7 @@ namespace ManhattanProject
 		this->Size = size;
 
 		//Instantiate the QuadTree
-		TileTree = new QuadTree<MapObject>(Size.Height, Size.Width, Size.X, Size.Y, DEFAULT_QUADTREE_RECT);
+		TileTree = new QuadTree<MapObject*>(Size.Height, Size.Width, Size.X, Size.Y, DEFAULT_QUADTREE_RECT);
 	}
 	
 	TileLayer::~TileLayer()
@@ -26,36 +26,36 @@ namespace ManhattanProject
 	}
 
 	/* Add a tile to the layer */
-	void TileLayer::AddTile(Texture2D* tex, float alpha, float scale, float rotation, Vector2 position, Color color)
+	void TileLayer::AddTile(Texture2D* tex, float scale, float rotation, Vector2 position, Color color)
 	{
-		Tile newTile(game, tex, alpha, scale, rotation, position, color);
+		Tile* newTile = new Tile(game, tex, scale, rotation, position, color);
 
-		//TileTree.InsertElement(newTile, position.X, position.Y);
+		TileTree->InsertElement(newTile, position.X, position.Y);
 	}
 
 	/* Add a container to the layer */
 	void TileLayer::AddContainer(Game* game, Texture2D* Tile, Vector2 Position, list<Item> Items, string Name, string Description)
 	{
-		Container newCont(game, Tile, Position, Items, Name, Description);
+		Container* newCont = new Container(game, Tile, Position, Items, Name, Description);
 
-		//TileTree.InsertElement(newCont, Position.X, Position.Y);
+		TileTree->InsertElement(newCont, Position.X, Position.Y);
 	}
 
 	/* Add a item to the layer */
 	void TileLayer::AddItem(Game* game, Texture2D* Icon, Texture2D* Tile, Vector2 Position, float hp, float ep, float sp,
 							float ap, float dp, string Name, string Description)
 	{
-		Item newItem(game, Icon, Tile, Position, hp, ep, sp, ap, dp, Name, Description);
+		Item* newItem = new Item(game, Icon, Tile, Position, hp, ep, sp, ap, dp, Name, Description);
 
-		//TileTree.InsertElement(newItem, Position.X, Position.Y);
+		TileTree->InsertElement(newItem, Position.X, Position.Y);
 	}
 
 	/* Add a Collision Rectangle to the layer */
 	void TileLayer::AddCollisionRect(int X, int Y, int Height, int Width, float Rotation)
 	{
-		CollisionRectangle newColl(X, Y, Height, Width, Rotation);
+		CollisionRectangle* newColl = new CollisionRectangle(X, Y, Height, Width, Rotation);
 
-		//TileTree.InsertElement(newColl, X, Y);
+		TileTree->InsertElement(newColl, X, Y);
 	}
 
 	void TileLayer::Print()
@@ -75,15 +75,13 @@ namespace ManhattanProject
 
 		//Sort the list based on zindex
 		DrawingTiles.sort();
-
+		int i = 0;
 		//Iterate over list and draw tiles
 		for(list<MapObject*>::iterator it = DrawingTiles.begin(); it != DrawingTiles.end(); it++)
 		{
 			MapObject* ptr = *it;
-
 			if(!debugging)
 			{
-				//Draw every MapObject except for Collision objects.
 				MapObject* sClass = dynamic_cast<CollisionRectangle*>(ptr);
 				if(sClass == 0)
 					ptr->Draw(camera);
@@ -92,8 +90,9 @@ namespace ManhattanProject
 			{
 				ptr->Draw(camera);
 			}
-
+			i++;
 		}
+		cout << "Drawing " << i << " tiles\n";
 	}
 
 	void TileLayer::Update()

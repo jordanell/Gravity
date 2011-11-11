@@ -27,25 +27,110 @@ namespace ManhattanProject
 	}
 
 	void GameScene::Initialize()
-	{
-		// Create Tile Map
-		Map = new TileMap(game, Camera(Vector2(0, 0), Vector2(400, 600)), GameFramework::Rectangle(-1000,-1000,2000,2000));
-
-		Map->AddTileLayer();
-<<<<<<< HEAD
-
-		Map->PrintLayers();
-
-		delete Map;
-=======
+	{		
+		Map = LoadMap("Maps/TestMap.xml");
 		
-		Map = LoadMap("testing");
->>>>>>> Parser skeleton is in place
+		Map->PrintLayers();
 
 		Scene::Initialize();
 	}
 	
-	void GameScene::CreateMap(TiXmlNode* pParent, TileMap* Map)
+	int GameScene::StringToNumber(const string &Text)
+	{
+		stringstream ss(Text);
+		int result;
+		return ss >> result ? result : 0;
+	}
+	
+	void GameScene::ParseMapObject(TiXmlNode* pParent, TileMap* TileMap)
+	{
+		if(!pParent)
+			return;
+		
+		TiXmlAttribute* pAttrib=pParent->ToElement()->FirstAttribute();
+		TiXmlNode* pChild;
+		string temp;
+		string value = pAttrib->Value();
+		
+		if(!value.compare("TileObject"))
+		{
+			int PositionX = 0;
+			int PositionY = 0;
+			float Rotation = 0;
+			int Scale = 0;
+			int R = 0;
+			int G = 0;
+			int B = 0;
+			int A = 0;
+			string FileName;
+			
+			
+			for ( pChild = pParent->FirstChild(); pChild != 0; pChild = pChild->NextSibling())
+			{ 
+				string value = pChild->Value();
+				
+				//Handle the position
+				if(!value.compare("Position"))
+				{
+					TiXmlNode* pPosition = pChild->FirstChild();
+					temp = pPosition->ToElement()->GetText();
+					PositionX = StringToNumber(temp);
+					pPosition = pPosition->NextSibling();
+					temp = pPosition->ToElement()->GetText();
+					PositionY = StringToNumber(temp);
+				}
+				
+				else if(!value.compare("Rotation"))
+				{
+					temp = pChild->ToElement()->GetText();
+					Rotation = StringToNumber(temp);
+				}
+				
+				else if(!value.compare("Scale"))
+				{
+					temp = pChild->ToElement()->GetText();
+					Scale = StringToNumber(temp);
+				}
+				
+				else if(!value.compare("TintColor"))
+				{
+					TiXmlNode* pPosition = pChild->FirstChild();
+					temp = pPosition->ToElement()->GetText();
+					R = StringToNumber(temp);
+					pPosition = pPosition->NextSibling();
+					temp = pPosition->ToElement()->GetText();
+					G = StringToNumber(temp);
+					pPosition = pPosition->NextSibling();
+					temp = pPosition->ToElement()->GetText();
+					B = StringToNumber(temp);
+					pPosition = pPosition->NextSibling();
+					temp = pPosition->ToElement()->GetText();
+					A = StringToNumber(temp);
+				}
+				
+				else if(!value.compare("texture_filename"))
+				{
+					temp = pChild->ToElement()->GetText();
+					FileName = temp;
+				}
+			}
+			
+			//Load the texture
+			Texture2D* texture = game->Content->LoadTexture(FileName);
+			
+			TileLayer* LayerToAdd = TileMap->LastAddedLayer();
+			LayerToAdd->AddTile(texture, Scale, Rotation, Vector2(PositionX,PositionY), Color(R,G,B,A));
+			
+		}
+		else if(!value.compare("CollisionRectangle"))
+		{
+		
+		}
+		
+		return;
+	}
+	
+	void GameScene::CreateMap(TiXmlNode* pParent, TileMap* TileMap)
 	{
 		if (!pParent)
 			return;
@@ -53,6 +138,7 @@ namespace ManhattanProject
 		TiXmlNode* pChild;
 		TiXmlText* pText;
 		int t = pParent->Type();
+		string value = pParent->Value();
 		
 		switch ( t )
 		{
@@ -61,7 +147,10 @@ namespace ManhattanProject
 				break;
 				
 			case TiXmlNode::TINYXML_ELEMENT:
-				// Do something with attributes
+				if(!value.compare("Layer"))
+					TileMap->AddTileLayer();
+				else if(!value.compare("MapObject"))
+					ParseMapObject(pParent->ToElement(), TileMap);
 				break;
 				
 			case TiXmlNode::TINYXML_COMMENT:
@@ -86,36 +175,38 @@ namespace ManhattanProject
 		
 		// For each child in the current node recurse.
 		for ( pChild = pParent->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
-			CreateMap(pChild, Map);
+			CreateMap(pChild, TileMap);
 	}
 	
-	TileMap* GameScene::LoadMap(const string &fileName)
+	TileMap* GameScene::LoadMap(string fileName)
 	{
-		TileMap* Map;
+		TileMap* LoadedMap = new TileMap(game, Camera(Vector2(0, 0), Vector2(400, 600)), GameFramework::Rectangle(-1000,-1000,2000,2000));;
 		
 		string file = GetCurrentDir(RootDirectory, sizeof(RootDirectory));
 		file += "/../content/";
 		file += fileName;
+		const char* RealFileName = file.c_str();
 		
-		TiXmlDocument doc("../content/Maps/TestMap.xml");
+		TiXmlDocument doc(RealFileName);
 		bool loadOkay = doc.LoadFile();
 		if(loadOkay)
-			CreateMap(&doc, Map);
+			CreateMap(&doc, LoadedMap);
 		else
 			cout << "Failed to load file\n";
 			
-		return Map;
+		return LoadedMap;
 	}
 
 	void GameScene::Draw()
 	{
-
+		Map->Draw();
 
 		Scene::Draw();
 	}
 
 	void GameScene::Update()
 	{
+		Map->Update();
 
 		Scene::Update();
 	}

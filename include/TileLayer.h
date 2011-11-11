@@ -32,7 +32,7 @@ namespace ManhattanProject
 			void Update();
 			void Draw(Camera camera);
 
-			void AddTile(Texture2D* tex, float alpha, float scale, float rotation, Vector2 position, Color color);
+			void AddTile(Texture2D* tex, float scale, float rotation, Vector2 position, Color color);
 			void AddContainer(Game* game, Texture2D* Tile, Vector2 Position, list<Item> Items, string Name, string Description);
 			void AddItem(Game* game, Texture2D* Icon, Texture2D* Tile, Vector2 Position, float hp, float ep, float sp,
 						 float ap, float dp, string Name, string Description);
@@ -45,7 +45,7 @@ namespace ManhattanProject
 			Game* game;
 
 			GameFramework::Rectangle Size;
-			QuadTree<MapObject>* TileTree;
+			QuadTree<MapObject*>* TileTree;
 			list<MapObject*> DrawingTiles;
 			bool debugging;
 	};

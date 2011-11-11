@@ -23,6 +23,7 @@ namespace ManhattanProject
 	{
 		public:
 			Camera camera;
+			SDL_Event event;
 
 			TileMap(Game* game);
 			TileMap(Game* game, Camera camera, GameFramework::Rectangle Size);
@@ -35,6 +36,8 @@ namespace ManhattanProject
 
 			void AddTileLayer();
 			void AddTileLayer(TileLayer* layer);
+			
+			TileLayer* LastAddedLayer();
 			
 			void SetSize(GameFramework::Rectangle Size);
 

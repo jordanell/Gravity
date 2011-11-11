@@ -21,13 +21,12 @@ namespace ManhattanProject
 	{
 	public:
 		Tile(Game* game);
-		Tile(Game* game, Texture2D* tex, float a, float s, float rot, Vector2 pos, Color col);
+		Tile(Game* game, Texture2D* tex, float s, float rot, Vector2 pos, Color col);
 
 		void Update();
 		void Draw(Camera camera);
 
 		Texture2D* texture;
-		float alpha;
 		float scale;
 		float rotation;
 		Vector2 position;

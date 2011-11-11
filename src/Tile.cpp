@@ -16,12 +16,11 @@ namespace ManhattanProject
 		this->game = game;
 	}
 	
-	Tile::Tile(Game* game, Texture2D* tex, float a, float s, float rot, Vector2 pos, Color col):
+	Tile::Tile(Game* game, Texture2D* tex, float s, float rot, Vector2 pos, Color col):
 		MapObject(game)
 	{
 		this->game = game;
 		texture = tex;
-		alpha = a;
 		scale = s;
 		rotation = rot;
 		position = pos;
@@ -31,7 +30,8 @@ namespace ManhattanProject
 	void Tile::Draw(Camera camera)
 	{
 		//Draw this tile
-		game->Render->Draw(texture, Vector2(position.X+camera.Position.X, position.Y+camera.Position.Y), color);
+		cout << camera.Position.X << "\n";
+		game->Render->Draw(texture, Vector2(position.X-camera.Position.X, position.Y-camera.Position.Y), color);
 	}
 	
 	void Tile::Update()

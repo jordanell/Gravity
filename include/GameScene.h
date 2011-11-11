@@ -37,9 +37,12 @@ namespace ManhattanProject
 
 			void Initialize();
 			
-			void CreateMap(TiXmlNode* pParent, TileMap* Map);
+			int StringToNumber(const string &Text);
 			
-			TileMap* LoadMap(const string &fileName);
+			void CreateMap(TiXmlNode* pParent, TileMap* Map);
+			void ParseMapObject(TiXmlNode* pParent, TileMap* TileMap);
+			
+			TileMap* LoadMap(string fileName);
 			
 			void Update();
 			void Draw();

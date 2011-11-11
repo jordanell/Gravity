@@ -6,15 +6,12 @@
                 <MapObject xsi:type="TileObject" Name="Texture_1" Visible="true">
                     <Id>1320899162</Id>
                     <Position>
-                        <X>384</X>
-                        <Y>-64</Y>
+                        <X>0</X>
+                        <Y>0</Y>
                     </Position>
                     <CustomProperties />
-                    <Rotation>0</Rotation>
-                    <Scale>
-                        <X>1</X>
-                        <Y>1</Y>
-                    </Scale>
+                    <Rotation>10</Rotation>
+                    <Scale>1</Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -35,15 +32,12 @@
                 <MapObject xsi:type="TileObject" Name="Texture_2" Visible="true">
                     <Id>1320899165</Id>
                     <Position>
-                        <X>704</X>
+                        <X>200</X>
                         <Y>0</Y>
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>
-                        <X>1</X>
-                        <Y>1</Y>
-                    </Scale>
+                    <Scale>1</Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
