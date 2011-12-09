@@ -35,9 +35,9 @@ namespace ManhattanProject
 	{
 		//Check if the X has been pressed and if so then exit the game.
 		//This code may need to be moved to an I/O class.
-		SDL_PollEvent(&event);
-		if(event.type == SDL_QUIT)
-			this->Exit();
+		//SDL_PollEvent(&event);
+		//if(event.type == SDL_QUIT)
+			//this->Exit();
 
 		Game::Update();
 	}

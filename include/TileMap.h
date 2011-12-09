@@ -47,6 +47,11 @@ namespace ManhattanProject
 		protected:
 			list<TileLayer*> layers;
 			GameFramework::Rectangle Size;
+			
+			bool left;
+			bool right;
+			bool up;
+			bool down;
 
 			bool debugging;
 	};
