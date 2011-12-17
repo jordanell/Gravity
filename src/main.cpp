@@ -11,6 +11,5 @@ int main(int argc, char* args[])
 {
 	Manager* game = new Manager();
 	game->Run();
-
 	return 0;
 }
