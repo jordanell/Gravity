@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-c -Wall
+CFLAGS=-g -c -Wall
 LDFLAGS=-lSDLmain -lSDL -lGL -lSDL_image
 
 UNAME:= $(shell uname)

@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-c -Wall
+CFLAGS=-g -c -Wall
 
 UNAME:= $(shell uname)
 ifeq ($(UNAME), Linux)
