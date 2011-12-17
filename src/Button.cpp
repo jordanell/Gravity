@@ -12,7 +12,7 @@ using namespace GameFramework;
 
 namespace ManhattanProject 
 {
-    Button::Button(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col): Tile(game, background, s, rot, pos, col)
+    Button::Button(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col): GuiObject(game, background, s, rot, pos, col)
     {
         this->game = game;
 		this->background = background;
@@ -25,17 +25,18 @@ namespace ManhattanProject
     
     void Button::Initialize()
     {
-        DrawableGameComponent::Initialize();
     }
     
     void Button::Draw()
 	{
 		game->Render->Draw(background, Vector2(position.X, position.Y), color);
-		DrawableGameComponent::Draw();
 	}
     
 	void Button::Update()
 	{
-		DrawableGameComponent::Update();
+//        while(SDL_PollEvent(&event))
+//		{
+//			if(event.type == SDL_MOUSEMOVE)
+//			{
 	}
 }
