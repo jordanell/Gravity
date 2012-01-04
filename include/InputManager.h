@@ -1,14 +1,25 @@
 //
 //  InputManager.h
-//  Game_braden
-//
-//  Created by Braden Simpson on 12-01-04.
-//  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
-#ifndef Game_braden_InputManager_h
-#define Game_braden_InputManager_h
+#ifndef INPUTMANAGER_H
+#define INPUTMANAGER_H
 
+#include "GameFramework.h"
 
+using namespace GameFramework;
+
+namespace ManhattanProject
+{
+    class InputManager: public GameComponent
+    {
+        public:
+            InputManager(Game* game);
+            void Initialize();
+            void Update(); 
+        protected:
+            SDL_Event event;
+    };
+}
 
 #endif

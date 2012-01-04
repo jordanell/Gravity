@@ -18,6 +18,7 @@ namespace GameFramework
 			int Alpha;
 
 			Color();
+            static Color* White();
 			Color(int r, int g, int b, int a);
 	};
 }
