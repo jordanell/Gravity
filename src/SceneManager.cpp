@@ -20,9 +20,15 @@ namespace ManhattanProject
 
 	void SceneManager::Initialize()
 	{
+        //Initialize the InputManager
+        this->inputManager = new InputManager(game);
+        
 		//Always initialize to the launcher scene
-		testScene = new GameScene(game);
-		ActiveScene = testScene;
+        testScene = new LauncherScene(game);
+        ActiveScene = testScene;
+        
+//		testScene = new GameScene(game);
+//		ActiveScene = testScene;
 
 		DrawableGameComponent::Initialize();
 	}
@@ -37,6 +43,7 @@ namespace ManhattanProject
 
 	void SceneManager::Update()
 	{
+        inputManager->Update();
 		if(ActiveScene != NULL)
 			ActiveScene->Update();
 		DrawableGameComponent::Update();

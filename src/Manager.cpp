@@ -27,7 +27,6 @@ namespace ManhattanProject
 
 	void Manager::Draw()
 	{
-
 		Game::Draw();
 	}
 

@@ -96,9 +96,6 @@ namespace ManhattanProject
 				if(event.key.keysym.sym == SDLK_DOWN)
 					down = false;
 			}
-			
-			if(event.type == SDL_QUIT)
-				this->game->Exit();
 		}
 		if(left)
 			this->camera.Position.X -= 4;

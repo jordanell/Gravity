@@ -1,8 +1,5 @@
 //
 //  Button.cpp
-//  Game_braden
-//
-//  Created by Braden Simpson on 11-12-16.
 //
 
 #include <iostream>

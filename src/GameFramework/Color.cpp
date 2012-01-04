@@ -16,6 +16,11 @@ namespace GameFramework
 		Alpha = 255;
 	}
 
+    Color* Color::White()
+    {
+        return new Color(255,255,255,255);
+    }
+    
 	Color::Color(int r, int g, int b, int a)
 	{
 		Red = r;

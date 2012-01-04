@@ -21,7 +21,8 @@ namespace ManhattanProject
 
 	void LauncherScene::Initialize()
 	{
-		background = game->Content->LoadTexture("Launcher/Wall.jpg");
+		background = game->Content->LoadTexture("/../content/Launcher/Wall.jpg");
+        startBtn = new Button(game, game->Content->LoadTexture("/../content/Launcher/button.jpg"), float(1.0), float(0.0), Vector2(0,0), *(Color::White()));
 		Scene::Initialize();
 	}
 
@@ -29,13 +30,12 @@ namespace ManhattanProject
 	{
 		//Draw the background texture
 		game->Render->Draw(background, GameFramework::Rectangle(0,0,400,600), Color(255,255,255,255));
-
+        startBtn->Draw();
 		Scene::Draw();
 	}
 
 	void LauncherScene::Update()
 	{
-
 		Scene::Update();
 	}
 }
