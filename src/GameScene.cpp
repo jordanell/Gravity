@@ -28,7 +28,7 @@ namespace ManhattanProject
 
 	void GameScene::Initialize()
 	{		
-		Map = LoadMap("Maps/TestMap.xml");
+		Map = LoadMap("Maps/Sandbox.xml");
 		
 		Map->PrintLayers();
 
@@ -62,11 +62,10 @@ namespace ManhattanProject
 			int G = 0;
 			int B = 0;
 			int A = 0;
-			string FileName;
-			
+			string FileName;			
 			
 			for ( pChild = pParent->FirstChild(); pChild != 0; pChild = pChild->NextSibling())
-			{ 
+			{
 				string value = pChild->Value();
 				
 				//Handle the position
@@ -114,7 +113,6 @@ namespace ManhattanProject
 					FileName = temp;
 				}
 			}
-			
 			//Load the texture
 			Texture2D* texture = game->Content->LoadTexture(FileName);
 			
@@ -180,7 +178,7 @@ namespace ManhattanProject
 	
 	TileMap* GameScene::LoadMap(string fileName)
 	{
-		TileMap* LoadedMap = new TileMap(game, Camera(Vector2(0, 0), Vector2(400, 600)), GameFramework::Rectangle(-1000,-1000,2000,2000));;
+		TileMap* LoadedMap = new TileMap(game, Camera(Vector2(0, 0), Vector2(400, 600)), GameFramework::Rectangle(-2000,-2000,4000,4000));;
 		
 		string file = GetCurrentDir(RootDirectory, sizeof(RootDirectory));
 		file += "/../content/";

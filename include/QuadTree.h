@@ -155,7 +155,7 @@ namespace ManhattanProject
 	template <class T> void QuadTree<T>::InsertElement(T element, int x, int y)
 	{
 		QuadNode<T>* node = RecursiveInsert(this->Root, x, y);
-
+		
 		node->Collection.push_back(element);
 	}
 
@@ -220,7 +220,7 @@ namespace ManhattanProject
 
 	template <class T> list<T> QuadTree<T>::GetElements(GameFramework::Rectangle rec)
 	{
-		list<T> components = RecursiveGetElements(rec, this->Root);
+		list<T> components = RecursiveGetElements(GameFramework::Rectangle(rec.X-500, rec.Y-500, rec.Height+500, rec.Height+500), this->Root);
 
 		return components;
 	}
