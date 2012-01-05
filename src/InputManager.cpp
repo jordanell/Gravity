@@ -18,7 +18,7 @@ namespace ManhattanProject
     
     void InputManager::Initialize()
     {
-        
+            
     }
     
     void InputManager::Update()
@@ -29,4 +29,6 @@ namespace ManhattanProject
 				this->game->Exit();
 		}
     }
+
+    //void AddListener(GameComponent* component,
 }

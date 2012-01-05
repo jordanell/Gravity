@@ -6,6 +6,7 @@
 #define INPUTMANAGER_H
 
 #include "GameFramework.h"
+#include <list>
 
 using namespace GameFramework;
 
@@ -19,6 +20,7 @@ namespace ManhattanProject
             void Update(); 
         protected:
             SDL_Event event;
+            list<GameComponent> Components;
     };
 }
 

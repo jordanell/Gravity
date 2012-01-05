@@ -43,6 +43,5 @@ namespace ManhattanProject
 	
 	void GuiObject::Update()
 	{
-		
-	}
+    }
 }
