@@ -16,4 +16,8 @@ const int ITEM_DESCRIPTION = 100;
 const int CONTAINER_NAME = 30;
 const int CONTAINER_DESCRIPTION = 75;
 
+// Max tile sizes
+const int MAX_TILE_WIDTH = 500;
+const int MAX_TILE_HEIGHT = 500;
+
 #endif

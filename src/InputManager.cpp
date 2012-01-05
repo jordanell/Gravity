@@ -23,6 +23,7 @@ namespace ManhattanProject
     
     void InputManager::Update()
     {
+		// This is the main event poll!
         while(SDL_PollEvent(&event))
 		{
 			if(event.type == SDL_QUIT)

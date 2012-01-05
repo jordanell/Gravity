@@ -10,6 +10,7 @@
 
 #include "GameFramework.h"
 #include "Camera.h"
+#include "GameDefines.h"
 #include <list>
 #include <iostream>
 
@@ -220,7 +221,7 @@ namespace ManhattanProject
 
 	template <class T> list<T> QuadTree<T>::GetElements(GameFramework::Rectangle rec)
 	{
-		list<T> components = RecursiveGetElements(GameFramework::Rectangle(rec.X-500, rec.Y-500, rec.Height+500, rec.Height+500), this->Root);
+		list<T> components = RecursiveGetElements(GameFramework::Rectangle(rec.X-MAX_TILE_WIDTH, rec.Y-MAX_TILE_HEIGHT, rec.Height+MAX_TILE_HEIGHT, rec.Width+MAX_TILE_WIDTH), this->Root);
 
 		return components;
 	}
