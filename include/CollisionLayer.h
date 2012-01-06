@@ -11,6 +11,7 @@
 #include "GameFramework.h"
 #include "QuadTree.h"
 #include "CollisionRectangle.h"
+#include "Camera.h"
 #include <list>
 
 using namespace GameFramework;
@@ -24,14 +25,16 @@ namespace ManhattanProject
 
 			bool CheckCollision(GameFramework::Rectangle* rec);
 
-			void AddCollision(GameFramework::Rectangle position, float Rotation);
+			void AddCollision(int X, int Y, int Width, int Height, float Rotation);
+			
+			void Draw(Camera camera);
 
 		protected:
 			Game* game;
 			GameFramework::Rectangle Size;
 
-			QuadTree<CollisionRectangle> CollisionTree;
-			list<CollisionRectangle*> ActiveCollisions;
+			QuadTree<MapObject*>* CollisionTree;
+			list<MapObject*> ActiveCollisions;
 	};
 }
 

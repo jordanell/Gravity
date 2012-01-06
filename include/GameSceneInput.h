@@ -9,6 +9,7 @@
  #define GAMESCENEINPUT_H
  
  #include "GameFramework.h"
+ #include "GameScene.h"
  
  using namespace GameFramework;
  
@@ -21,6 +22,11 @@
 			
 			void Initialize();
 			void Update(SDL_Event* event);
+			
+			void SetScene(GameScene* gameScene);
+			
+		 private:
+			GameScene* gameScene;
 	 };
  }
  

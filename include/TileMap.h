@@ -38,6 +38,7 @@ namespace ManhattanProject
 			void AddTileLayer(TileLayer* layer);
 			
 			TileLayer* LastAddedLayer();
+			CollisionLayer* GetCollisionLayer();
 			
 			void SetSize(GameFramework::Rectangle Size);
 
@@ -46,6 +47,7 @@ namespace ManhattanProject
 
 		protected:
 			list<TileLayer*> layers;
+			CollisionLayer* collisionLayer;
 			GameFramework::Rectangle Size;
 			
 			bool left;

@@ -10,6 +10,8 @@
 #include "GameSceneInput.h"
 #include <list>
 
+class SceneManager;
+
 using namespace GameFramework;
 
 namespace ManhattanProject

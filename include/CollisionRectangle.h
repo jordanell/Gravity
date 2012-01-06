@@ -10,6 +10,7 @@
 
 #include "GameFramework.h"
 #include "MapObject.h"
+#include "Camera.h"
 
 using namespace GameFramework;
 
@@ -27,6 +28,8 @@ namespace ManhattanProject
 		int Y;
 		int Height;
 		int Width;
+		
+		void Draw(Camera camera);
 	};
 }
 

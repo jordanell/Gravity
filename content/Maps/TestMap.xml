@@ -11,7 +11,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>10</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -37,7 +40,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
