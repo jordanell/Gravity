@@ -18,7 +18,7 @@ namespace ManhattanProject
     
     void InputManager::Initialize()
     {
-            
+		ActiveInput = new GameSceneInput(this->game);
     }
     
     void InputManager::Update()
@@ -28,6 +28,9 @@ namespace ManhattanProject
 		{
 			if(event.type == SDL_QUIT)
 				this->game->Exit();
+				
+			//Pass the event to the active input class here
+			ActiveInput->Update(&event);
 		}
     }
 

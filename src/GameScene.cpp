@@ -87,8 +87,10 @@ namespace ManhattanProject
 				
 				else if(!value.compare("Scale"))
 				{
-					temp = pChild->ToElement()->GetText();
+					TiXmlNode* pPosition = pChild->FirstChild();
+					temp = pPosition->ToElement()->GetText();
 					Scale = StringToNumber(temp);
+					pPosition = pPosition->NextSibling();
 				}
 				
 				else if(!value.compare("TintColor"))

@@ -72,39 +72,7 @@ namespace ManhattanProject
 
 	void TileMap::Update()
 	{
-		while(SDL_PollEvent(&event))
-		{
-			if(event.type == SDL_KEYDOWN)
-			{
-				if(event.key.keysym.sym == SDLK_LEFT)
-					left = true;
-				if(event.key.keysym.sym == SDLK_RIGHT)
-					right = true;
-				if(event.key.keysym.sym == SDLK_UP)
-					up = true;
-				if(event.key.keysym.sym == SDLK_DOWN)
-					down = true;
-			}
-			if(event.type == SDL_KEYUP)
-			{
-				if(event.key.keysym.sym == SDLK_LEFT)
-					left = false;
-				if(event.key.keysym.sym == SDLK_RIGHT)
-					right = false;
-				if(event.key.keysym.sym == SDLK_UP)
-					up = false;
-				if(event.key.keysym.sym == SDLK_DOWN)
-					down = false;
-			}
-		}
-		if(left)
-			this->camera.Position.X -= 4;
-		if(right)
-			this->camera.Position.X += 4;
-		if(up)
-			this->camera.Position.Y -= 4;
-		if(down)
-			this->camera.Position.Y += 4;
+		
 	}
 	
 	void TileMap::PrintLayers()
