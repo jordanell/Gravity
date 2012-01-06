@@ -167,15 +167,10 @@ namespace ManhattanProject
 
 	template <class T> void QuadTree<T>::RecursivePrint(QuadNode<T>* root)
 	{
-		cout << "Node X: " << root->Position.X << " Y: " << root->Position.Y << " Height: " << root->Position.Height
-			<< " Width: " << root->Position.Width << endl;
 		typename list<T>::iterator it;
 		int x = 0;
 		for(it = root->Collection.begin(); it != root->Collection.end(); it++)
-		{
-			cout << "Item: " << x << endl;
 			x++;
-		}
 
 		if(root->Position.Width * root->Position.Height > this->MinSize)
 		{

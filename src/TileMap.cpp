@@ -14,6 +14,7 @@ namespace ManhattanProject
 		DrawableGameComponent(game)
 	{
 		this->game = game;
+		this->collisionLayer = new CollisionLayer(game, Size);
 	}
 
 	TileMap::TileMap(Game* game, Camera camera, GameFramework::Rectangle Size):
@@ -22,6 +23,7 @@ namespace ManhattanProject
 		this->game = game;
 		this->camera = camera;
 		this->Size = Size;
+		this->collisionLayer = new CollisionLayer(game, Size);
 	}
 	
 	TileMap::~TileMap()
@@ -31,6 +33,7 @@ namespace ManhattanProject
 			TileLayer* ptr = *it;
 			delete ptr;
 		}
+		delete collisionLayer;
 	}
 
 	void TileMap::Initialize()
@@ -55,6 +58,11 @@ namespace ManhattanProject
 		return layers.back();
 	}
 	
+	CollisionLayer* TileMap::GetCollisionLayer()
+	{
+		return collisionLayer;
+	}
+	
 	void TileMap::SetSize(GameFramework::Rectangle Size)
 	{
 		this->Size = Size;
@@ -68,43 +76,17 @@ namespace ManhattanProject
 			TileLayer* ptr = *it;
 			ptr->Draw(camera);
 		}
+		
+		//If debugging then draw collisions
+		if(debugging)
+		{
+			collisionLayer->Draw(camera);
+		}
 	}
 
 	void TileMap::Update()
 	{
-		while(SDL_PollEvent(&event))
-		{
-			if(event.type == SDL_KEYDOWN)
-			{
-				if(event.key.keysym.sym == SDLK_LEFT)
-					left = true;
-				if(event.key.keysym.sym == SDLK_RIGHT)
-					right = true;
-				if(event.key.keysym.sym == SDLK_UP)
-					up = true;
-				if(event.key.keysym.sym == SDLK_DOWN)
-					down = true;
-			}
-			if(event.type == SDL_KEYUP)
-			{
-				if(event.key.keysym.sym == SDLK_LEFT)
-					left = false;
-				if(event.key.keysym.sym == SDLK_RIGHT)
-					right = false;
-				if(event.key.keysym.sym == SDLK_UP)
-					up = false;
-				if(event.key.keysym.sym == SDLK_DOWN)
-					down = false;
-			}
-		}
-		if(left)
-			this->camera.Position.X -= 4;
-		if(right)
-			this->camera.Position.X += 4;
-		if(up)
-			this->camera.Position.Y -= 4;
-		if(down)
-			this->camera.Position.Y += 4;
+		
 	}
 	
 	void TileMap::PrintLayers()

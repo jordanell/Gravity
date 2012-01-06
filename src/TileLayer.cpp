@@ -92,7 +92,6 @@ namespace ManhattanProject
 			}
 			i++;
 		}
-		cout << "Drawing " << i << " tiles\n";
 	}
 
 	void TileLayer::Update()

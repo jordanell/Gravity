@@ -11,7 +11,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -36,7 +39,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -61,7 +67,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -86,7 +95,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -111,7 +123,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -136,7 +151,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -161,7 +179,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -186,7 +207,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -211,7 +235,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -236,7 +263,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -261,7 +291,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -286,7 +319,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -311,7 +347,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -336,7 +375,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -361,7 +403,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -386,7 +431,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -411,7 +459,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -436,7 +487,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -461,7 +515,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -486,7 +543,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -511,7 +571,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -536,7 +599,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -561,7 +627,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -586,7 +655,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -611,7 +683,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -636,7 +711,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -661,7 +739,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -686,7 +767,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -711,7 +795,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -736,7 +823,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -753,6 +843,15 @@
                         <Y>150</Y>
                     </Origin>
                 </MapObject>
+            </MapObjects>
+        <ScrollSpeed>
+                
+                
+        </ScrollSpeed>
+        <CustomProperties />
+    </Layer>
+        <Layer Name="Ground" Visible="true">
+            <MapObjects>
                 <MapObject xsi:type="TileObject" Name="Texture_33" Visible="true">
                     <Id>1325737603</Id>
                     <Position>
@@ -761,7 +860,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -786,7 +888,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -811,7 +916,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -836,7 +944,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -861,7 +972,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -886,7 +1000,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -911,7 +1028,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -936,7 +1056,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -961,7 +1084,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -986,7 +1112,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1011,7 +1140,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1036,7 +1168,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1061,7 +1196,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1086,7 +1224,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1111,7 +1252,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1136,7 +1280,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1161,7 +1308,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1186,7 +1336,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1211,7 +1364,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1236,7 +1392,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1261,7 +1420,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1286,7 +1448,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1311,7 +1476,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1336,7 +1504,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1361,7 +1532,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
@@ -1386,7 +1560,10 @@
                     </Position>
                     <CustomProperties />
                     <Rotation>0</Rotation>
-                    <Scale>1</Scale>
+                    <Scale>
+                        <X>1</X>
+                        <Y>1</Y>
+                    </Scale>
                     <TintColor>
                         <R>255</R>
                         <G>255</G>
