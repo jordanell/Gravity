@@ -30,6 +30,4 @@ namespace ManhattanProject
 				this->game->Exit();
 		}
     }
-
-    //void AddListener(GameComponent* component,
 }
