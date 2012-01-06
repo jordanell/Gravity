@@ -76,6 +76,12 @@ namespace ManhattanProject
 			TileLayer* ptr = *it;
 			ptr->Draw(camera);
 		}
+		
+		//If debugging then draw collisions
+		if(debugging)
+		{
+			collisionLayer->Draw(camera);
+		}
 	}
 
 	void TileMap::Update()

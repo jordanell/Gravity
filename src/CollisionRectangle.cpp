@@ -39,4 +39,10 @@ namespace ManhattanProject
 		this->Width = Width;
 		this->Rotation = Rotation;
 	}
+	
+	void CollisionRectangle::Draw(Camera camera)
+	{
+		// Draw this collision
+		game->Render->Draw(NULL, GameFramework::Rectangle(X, Y, Height, Width), Color(255,0,0,255));
+	}
 }

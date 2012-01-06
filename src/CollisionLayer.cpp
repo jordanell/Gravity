@@ -29,4 +29,21 @@ namespace ManhattanProject
 		CollisionRectangle* newRec = new CollisionRectangle(X, Y, Height, Width, Rotation);
 		CollisionTree->InsertElement(newRec, X, Y);
 	}
+	
+	void CollisionLayer::Draw(Camera camera)
+	{
+		//Get the list of collisions to draw
+		ActiveCollisions = CollisionTree->GetElements(camera.GetRectangle());
+		
+		// Sort the list based on z index
+		ActiveCollisions.sort();
+		int i = 0;
+		
+		//Iterate over list and draw the collisions
+		for(list<MapObject*>::iterator it = ActiveCollisions.begin(); it != ActiveCollisions.end(); i++)
+		{
+			MapObject *ptr = *it;
+			ptr->Draw(camera);
+		}
+	}
 }
