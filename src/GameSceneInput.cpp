@@ -19,6 +19,11 @@
 		 this->Initialize();
 	 }
 	 
+	 void GameSceneInput::SetScene(GameScene* gameScene)
+	 {
+		 this->gameScene = gameScene;
+	 }
+	 
 	 void GameSceneInput::Initialize()
 	 {
 	 

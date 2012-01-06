@@ -14,6 +14,9 @@ namespace ManhattanProject
 	{
 		this->game = game;
 		this->Size = Size;
+		
+		//Instantiate the QuadTree
+		CollisionTree = new QuadTree<MapObject*>(Size.Height, Size.Width, Size.X, Size.Y, DEFAULT_QUADTREE_RECT);
 	}
 
 	bool CollisionLayer::CheckCollision(GameFramework::Rectangle* rec)
@@ -21,9 +24,9 @@ namespace ManhattanProject
 		return false;
 	}
 
-	void CollisionLayer::AddCollision(GameFramework::Rectangle position, float Rotation)
+	void CollisionLayer::AddCollision(int X, int Y, int Width, int Height, float Rotation)
 	{
-		CollisionRectangle newRec(position.X, position.Y, position.Height, position.Width, Rotation);
-		CollisionTree.InsertElement(newRec, position.X, position.Y);
+		CollisionRectangle* newRec = new CollisionRectangle(X, Y, Height, Width, Rotation);
+		CollisionTree->InsertElement(newRec, X, Y);
 	}
 }

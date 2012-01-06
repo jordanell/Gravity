@@ -28,7 +28,7 @@ namespace ManhattanProject
 
 	void GameScene::Initialize()
 	{		
-		Map = LoadMap("Maps/Sandbox.xml");
+		Map = LoadMap("Maps/TestMap.xml");
 		
 		Map->PrintLayers();
 
@@ -124,7 +124,43 @@ namespace ManhattanProject
 		}
 		else if(!value.compare("CollisionRectangle"))
 		{
-		
+			int PositionX = 0;
+			int PositionY = 0;
+			int Height = 0;
+			int Width = 0;
+			float Rotation = 0;
+			
+			for ( pChild = pParent->FirstChild(); pChild != 0; pChild = pChild->NextSibling())
+			{
+				string value = pChild->Value();
+				
+				//Handle the position
+				if(!value.compare("Position"))
+				{
+					TiXmlNode* pPosition = pChild->FirstChild();
+					temp = pPosition->ToElement()->GetText();
+					PositionX = StringToNumber(temp);
+					pPosition = pPosition->NextSibling();
+					temp = pPosition->ToElement()->GetText();
+					PositionY = StringToNumber(temp);
+				}
+				
+				else if(!value.compare("Width"))
+				{
+					temp = pChild->ToElement()->GetText();
+					Width = StringToNumber(temp);
+				}
+				
+				else if(!value.compare("Height"))
+				{
+					temp = pChild->ToElement()->GetText();
+					Height = StringToNumber(temp);
+				}
+			}
+			
+			//Create the collision object
+			CollisionLayer* layer = TileMap->GetCollisionLayer();
+			layer->AddCollision(PositionX, PositionY, Width, Height, Rotation);
 		}
 		
 		return;

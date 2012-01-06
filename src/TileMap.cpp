@@ -14,6 +14,7 @@ namespace ManhattanProject
 		DrawableGameComponent(game)
 	{
 		this->game = game;
+		this->collisionLayer = new CollisionLayer(game, Size);
 	}
 
 	TileMap::TileMap(Game* game, Camera camera, GameFramework::Rectangle Size):
@@ -22,6 +23,7 @@ namespace ManhattanProject
 		this->game = game;
 		this->camera = camera;
 		this->Size = Size;
+		this->collisionLayer = new CollisionLayer(game, Size);
 	}
 	
 	TileMap::~TileMap()
@@ -31,6 +33,7 @@ namespace ManhattanProject
 			TileLayer* ptr = *it;
 			delete ptr;
 		}
+		delete collisionLayer;
 	}
 
 	void TileMap::Initialize()
@@ -53,6 +56,11 @@ namespace ManhattanProject
 	TileLayer* TileMap::LastAddedLayer()
 	{
 		return layers.back();
+	}
+	
+	CollisionLayer* TileMap::GetCollisionLayer()
+	{
+		return collisionLayer;
 	}
 	
 	void TileMap::SetSize(GameFramework::Rectangle Size)
