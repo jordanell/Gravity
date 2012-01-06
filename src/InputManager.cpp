@@ -33,6 +33,4 @@ namespace ManhattanProject
 			ActiveInput->Update(&event);
 		}
     }
-
-    //void AddListener(GameComponent* component,
 }
