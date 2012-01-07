@@ -5,3 +5,5 @@ Game
 *.exe
 *.dll
 *.swp
+*.project
+*.cproject

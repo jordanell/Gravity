@@ -20,6 +20,7 @@ namespace ManhattanProject
         public:
             Button(Game* game);
             Button(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col);
+            virtual void OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
             void Initialize();
             void Update();
             void Draw();

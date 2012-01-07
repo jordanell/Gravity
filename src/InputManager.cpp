@@ -26,9 +26,18 @@ namespace ManhattanProject
 		// This is the main event poll!
         while(SDL_PollEvent(&event))
 		{
-			if(event.type == SDL_QUIT)
-				this->game->Exit();
-				
+			switch (event.type)
+            {
+                case SDL_QUIT: {
+			    	this->game->Exit();
+                    break;
+                }
+			    case SDL_KEYDOWN: {
+                  cout << "onkeydown";
+                  //OnKeyDown(Event->key.keysym.sym,Event->key.keysym.mod,Event->key.keysym.unicode);
+                  break;
+                }
+            }
 			//Pass the event to the active input class here
 			ActiveInput->Update(&event);
 		}

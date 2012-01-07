@@ -36,4 +36,7 @@ namespace ManhattanProject
 //			if(event.type == SDL_MOUSEMOVE)
 //			{
 	}
+    void Button::OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode) {
+        cout << "Pressing key\n";
+    }
 }
