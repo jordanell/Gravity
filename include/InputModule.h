@@ -9,6 +9,7 @@
  #define INPUTMODULE_H
  
  #include "GameFramework.h"
+ #include "Scene.h"
  
  using namespace GameFramework;
  
@@ -21,6 +22,12 @@
 			
 			virtual void Initialize();
 			virtual void Update(SDL_Event* event);
+			
+			void SetScene(Scene* scene);
+			Scene* GetScene();
+			
+		 private:
+			Scene* ActiveScene;
 	 };
  }
  

@@ -10,6 +10,8 @@
  #define SCENE_H
 
  #include "GameFramework.h"
+ #include "Listener.h"
+ #include <list>
 
  using namespace GameFramework;
 
@@ -25,6 +27,11 @@
 			virtual void Initialize();
 			virtual void Update();
 			virtual void Draw();
+			
+			virtual void PollListeners(SDL_Event* event);
+			
+		 private:
+			list<Listener> Listeners;
 	 };
  }
 

@@ -28,7 +28,7 @@ namespace ManhattanProject
 
 	void GameScene::Initialize()
 	{		
-		Map = LoadMap("Maps/TestMap.xml");
+		Map = LoadMap("Maps/Sandbox.xml");
 		
 		Map->PrintLayers();
 

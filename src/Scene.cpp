@@ -21,6 +21,11 @@ namespace ManhattanProject
 		Components = new GameComponentCollection();
 	}
 	
+	void Scene::PollListeners(SDL_Event* event)
+	{
+		
+	}
+	
 	void Scene::Draw()
 	{
 		Components->Draw();

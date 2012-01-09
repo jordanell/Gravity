@@ -18,8 +18,13 @@ namespace ManhattanProject
     
     void InputManager::Initialize()
     {
-		ActiveInput = new GameSceneInput(this->game);
+		
     }
+	
+	void InputManager::SetScene(Scene* scene)
+	{
+		this->ActiveScene = scene;
+	}
     
     void InputManager::Update()
     {
@@ -32,14 +37,9 @@ namespace ManhattanProject
 			    	this->game->Exit();
                     break;
                 }
-			    case SDL_KEYDOWN: {
-                  cout << "onkeydown";
-                  //OnKeyDown(Event->key.keysym.sym,Event->key.keysym.mod,Event->key.keysym.unicode);
-                  break;
-                }
             }
-			//Pass the event to the active input class here
-			ActiveInput->Update(&event);
+			
+			
 		}
     }
 }

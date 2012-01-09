@@ -6,11 +6,8 @@
 #define INPUTMANAGER_H
 
 #include "GameFramework.h"
-#include "InputModule.h"
-#include "GameSceneInput.h"
+#include "Scene.h"
 #include <list>
-
-class SceneManager;
 
 using namespace GameFramework;
 
@@ -22,10 +19,11 @@ namespace ManhattanProject
             InputManager(Game* game);
             void Initialize();
             void Update(); 
+			
+			void SetScene(Scene* scene);
         protected:
             SDL_Event event;
-			InputModule* ActiveInput;
-            list<GameComponent> Components;
+			Scene* ActiveScene;
     };
 }
 
