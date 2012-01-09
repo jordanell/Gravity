@@ -27,7 +27,7 @@ namespace GameFramework
 			int Right();
 			int Top();
 			Point* Centre();
-
+			bool ContainsPoint(Point* p);
 			bool Intersects(Rectangle* rectangle);
 	};
 }

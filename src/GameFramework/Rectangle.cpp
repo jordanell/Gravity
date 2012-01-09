@@ -58,7 +58,16 @@ namespace GameFramework
 
 		return point;
 	}
-		
+
+	// returns true if p is inside the rectangle.
+	bool Rectangle::ContainsPoint(Point* p)
+	{
+		if((p->X >= this->X && p->X <= this->X+this->Width) &&
+		   (p->Y >= this->Y && p->Y <= this->Y+this->Height))
+			return true;
+		else
+			return false;
+	}
 
 	// This checks for a rectangle intersection with an axis aligned rectangle
 	bool Rectangle::Intersects(Rectangle* rectangle)

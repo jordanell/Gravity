@@ -27,6 +27,7 @@ namespace ManhattanProject
             void Draw(Camera camera);
             float scale;
             float rotation;
+            GameFramework::Rectangle size;
             Vector2 position;
             Color color;
 
