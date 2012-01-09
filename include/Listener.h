@@ -19,12 +19,12 @@ namespace ManhattanProject
     class Listener
     {
 		public:
-			Listener(Game* game, Event* component, list<Uint8>);
+			Listener(Game* game, InputEvent* component, list<Uint8>);
 			void Initialize();
 			
 		private:
 			Game* game;
-			Event* Component;
+			InputEvent* Component;
 			list<Uint8> EventTypes;
 			
     };

@@ -12,7 +12,7 @@ using namespace GameFramework;
 
 namespace ManhattanProject
 {
-    Listener::Listener(Game* game, Event* component, list<Uint8> events)
+    Listener::Listener(Game* game, InputEvent* component, list<Uint8> events)
 	{
 		this->game = game;
 		this->Component = component;

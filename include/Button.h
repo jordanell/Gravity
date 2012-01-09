@@ -10,13 +10,13 @@
 
 #include "GameFramework.h"
 #include "GuiObject.h"
-#include "Event.h"
+#include "InputEvent.h"
 
 using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	class Button : public GuiObject, public Event
+	class Button : public GuiObject, public InputEvent
 	{
         public:
             Button(Game* game);

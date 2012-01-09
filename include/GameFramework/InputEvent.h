@@ -8,10 +8,10 @@
 
 namespace GameFramework 
 { 
-    class Event 
+    class InputEvent 
     {
         public: 
-			Event();
+			InputEvent();
 			virtual void OnEvent(SDL_Event* Event); 
 			virtual void OnInputFocus();
 			virtual void OnInputBlur();

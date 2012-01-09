@@ -2,10 +2,10 @@
  
 namespace GameFramework 
 {
-    Event::Event() {
+    InputEvent::InputEvent() {
     }
      
-    void Event::OnEvent(SDL_Event* Event) {
+    void InputEvent::OnEvent(SDL_Event* Event) {
         switch(Event->type) {
             case SDL_ACTIVEEVENT: {
                 switch(Event->active.state) {
@@ -109,83 +109,83 @@ namespace GameFramework
         }
     }
      
-    void Event::OnInputFocus() {
+    void InputEvent::OnInputFocus() {
         //Pure virtual, do nothing
     }
      
-    void Event::OnInputBlur() {
+    void InputEvent::OnInputBlur() {
         //Pure virtual, do nothing
     }
      
-    void Event::OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode) {
+    void InputEvent::OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode) {
         //Pure virtual, do nothing
     }
      
-    void Event::OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode) {
+    void InputEvent::OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode) {
         //Pure virtual, do nothing
     }
      
-    void Event::OnMouseFocus() {
+    void InputEvent::OnMouseFocus() {
         //Pure virtual, do nothing
     }
      
-    void Event::OnMouseBlur() {
+    void InputEvent::OnMouseBlur() {
         //Pure virtual, do nothing
     }
      
-    void Event::OnMouseMove(int mX, int mY, int relX, int relY, bool Left,bool Right,bool Middle) {
+    void InputEvent::OnMouseMove(int mX, int mY, int relX, int relY, bool Left,bool Right,bool Middle) {
         //Pure virtual, do nothing
     }
      
-    void Event::OnMouseWheel(bool Up, bool Down) {
+    void InputEvent::OnMouseWheel(bool Up, bool Down) {
         //Pure virtual, do nothing
     }
      
-    void Event::OnLButtonDown(int mX, int mY) {
+    void InputEvent::OnLButtonDown(int mX, int mY) {
         //Pure virtual, do nothing
     }
      
-    void Event::OnLButtonUp(int mX, int mY) {
+    void InputEvent::OnLButtonUp(int mX, int mY) {
         //Pure virtual, do nothing
     }
      
-    void Event::OnRButtonDown(int mX, int mY) {
+    void InputEvent::OnRButtonDown(int mX, int mY) {
         //Pure virtual, do nothing
     }
      
-    void Event::OnRButtonUp(int mX, int mY) {
+    void InputEvent::OnRButtonUp(int mX, int mY) {
         //Pure virtual, do nothing
     }
      
-    void Event::OnMButtonDown(int mX, int mY) {
+    void InputEvent::OnMButtonDown(int mX, int mY) {
         //Pure virtual, do nothing
     }
      
-    void Event::OnMButtonUp(int mX, int mY) {
+    void InputEvent::OnMButtonUp(int mX, int mY) {
         //Pure virtual, do nothing
     }
     
-    void Event::OnMinimize() {
+    void InputEvent::OnMinimize() {
         //Pure virtual, do nothing
     }
      
-    void Event::OnRestore() {
+    void InputEvent::OnRestore() {
         //Pure virtual, do nothing
     }
      
-    void Event::OnResize(int w,int h) {
+    void InputEvent::OnResize(int w,int h) {
         //Pure virtual, do nothing
     }
      
-    void Event::OnExpose() {
+    void InputEvent::OnExpose() {
         //Pure virtual, do nothing
     }
      
-    void Event::OnExit() {
+    void InputEvent::OnExit() {
         //Pure virtual, do nothing
     }
      
-    void Event::OnUser(Uint8 type, int code, void* data1, void* data2) {
+    void InputEvent::OnUser(Uint8 type, int code, void* data1, void* data2) {
         //Pure virtual, do nothing
     }
 }

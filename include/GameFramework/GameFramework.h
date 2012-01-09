@@ -22,6 +22,6 @@
 #include "Texture2D.h"
 #include "Timer.h"
 #include "Exception.h"
-#include "Event.h"
+#include "InputEvent.h"
 
 #endif
