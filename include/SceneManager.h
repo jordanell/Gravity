@@ -12,7 +12,6 @@
 #include "Scene.h"
 #include "LauncherScene.h"
 #include "GameScene.h"
-#include "InputManager.h"
 
 using namespace GameFramework;
 
@@ -30,7 +29,6 @@ namespace ManhattanProject
 		protected:
 			Scene* ActiveScene;
 			Scene* testScene;
-            InputManager* inputManager;
 	};
 }
 

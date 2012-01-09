@@ -7,14 +7,12 @@
 #ifndef GAMECOMPONENT_H
 #define GAMECOMPONENT_H
 
-#include "Event.h"
-
 namespace GameFramework
 {
 	//Forward dependancy
 	class Game;
 
-	class GameComponent : public Event
+	class GameComponent
 	{
 		public:
 			bool Enabled;

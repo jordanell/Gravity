@@ -11,6 +11,7 @@
 
 #include "GameFramework.h"
 #include "SceneManager.h"
+#include "InputManager.h"
 
 using namespace GameFramework;
 
@@ -25,6 +26,7 @@ namespace ManhattanProject
 
 		protected:
 			SceneManager* sceneManager;
+			InputManager* inputManager;
 
 			void Initialize();
 

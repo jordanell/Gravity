@@ -12,7 +12,6 @@ namespace GameFramework
     {
         public: 
 			Event();
-			virtual ~Event();
 			virtual void OnEvent(SDL_Event* Event); 
 			virtual void OnInputFocus();
 			virtual void OnInputBlur();

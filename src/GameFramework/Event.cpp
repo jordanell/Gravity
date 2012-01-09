@@ -5,10 +5,6 @@ namespace GameFramework
     Event::Event() {
     }
      
-    Event::~Event() {
-        //Do nothing
-    }
-     
     void Event::OnEvent(SDL_Event* Event) {
         switch(Event->type) {
             case SDL_ACTIVEEVENT: {
