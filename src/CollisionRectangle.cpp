@@ -43,6 +43,6 @@ namespace ManhattanProject
 	void CollisionRectangle::Draw(Camera camera)
 	{
 		// Draw this collision
-		game->Render->Draw(NULL, GameFramework::Rectangle(X, Y, Height, Width), Color(255,0,0,255));
+		//game->Render->Draw(NULL, GameFramework::Rectangle(X, Y, Height, Width), Color(255,0,0,255));
 	}
 }

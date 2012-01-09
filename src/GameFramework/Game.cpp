@@ -56,17 +56,7 @@ namespace GameFramework
 
 	void Game::Draw()
 	{
-		Node* iterator;
-		GameComponent* component;
-		DrawableGameComponent* drawable;
-
-		for(iterator = Components->Head; iterator != NULL; iterator = iterator->Next)
-		{
-			component = iterator->Component;
-			drawable = dynamic_cast<DrawableGameComponent*>(component);
-			if(drawable)
-				drawable->Draw();
-		}
+		Components->Draw();
 	}
 
 	void Game::EndDraw()
@@ -76,10 +66,7 @@ namespace GameFramework
 
 	void Game::Update()
 	{
-		Node* iterator;
-
-		for(iterator = Components->Head; iterator != NULL; iterator = iterator->Next)
-			iterator->Component->Update();
+		Components->Update();
 	}
 }
 

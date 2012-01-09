@@ -23,27 +23,14 @@ namespace ManhattanProject
 	
 	void Scene::Draw()
 	{
-		Node* iterator;
-		GameComponent* component;
-		DrawableGameComponent* drawable;
-		
-		for(iterator = Components->Head; iterator != NULL; iterator = iterator->Next)
-		{
-			component = iterator->Component;
-			drawable = dynamic_cast<DrawableGameComponent*>(component);
-			if(drawable)
-				drawable->Draw();
-		}
+		Components->Draw();
 	
 		DrawableGameComponent::Draw();
 	}
 	
 	void Scene::Update()
 	{
-		Node* iterator;
-		
-		for(iterator = Components->Head; iterator != NULL; iterator = iterator->Next)
-			iterator->Component->Update();
+		Components->Update();
 	
 		DrawableGameComponent::Update();
 	}

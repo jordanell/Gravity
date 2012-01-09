@@ -8,33 +8,27 @@
 #define GAMECOMPONENTCOLLECTION_H
 
 #include "GameComponent.h"
+#include "DrawableGameComponent.h"
 #include "Exception.h"
 #include <cstddef>
+#include <list>
 
 namespace GameFramework
 {
-	class Node
-	{
-		public:
-			Node* Next;
-			GameComponent* Component;
-
-			Node(GameComponent* Component);
-	};
-
 	class GameComponentCollection
 	{
 		public:
-			int Count;
-			Node* Head;
-			Node* Tail;
 
 			GameComponentCollection();
 
 			void Add(GameComponent* Component);
-			bool Contains(GameComponent* Component);
 			void Remove(GameComponent* Component);
-			void Insert(GameComponent* Component, int Index);			
+			void Update();
+			void Draw();
+			
+		private:
+			list<GameComponent*> items;
+			int Count;
 	};
 }
 
