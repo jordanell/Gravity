@@ -21,9 +21,24 @@ namespace ManhattanProject
 		Components = new GameComponentCollection();
 	}
 	
+	void Scene::AddListener(InputEvent* Component, list<Uint8> EventTypes)
+	{
+		Listener* listener = new Listener(game, Component, EventTypes);
+		Listeners.push_back(listener);
+	}
+	
 	void Scene::PollListeners(SDL_Event* event)
 	{
+		list<Listener*>::iterator it;
 		
+		for(it=Listeners.begin(); it!=Listeners.end(); it++)
+		{
+			Listener* listen = *it;
+			if(listen->IsListeningOnEvent(event->type))
+			{
+				listen->Component->OnEvent(event);
+			}
+		}
 	}
 	
 	void Scene::Draw()

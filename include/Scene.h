@@ -28,10 +28,11 @@
 			virtual void Update();
 			virtual void Draw();
 			
+			virtual void AddListener(InputEvent* Component, list<Uint8> EventTypes);
 			virtual void PollListeners(SDL_Event* event);
 			
 		 private:
-			list<Listener> Listeners;
+			list<Listener*> Listeners;
 	 };
  }
 

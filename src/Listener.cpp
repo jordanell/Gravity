@@ -18,4 +18,18 @@ namespace ManhattanProject
 		this->Component = component;
 		this->EventTypes = events;
 	}
+	
+	bool Listener::IsListeningOnEvent(Uint8 EventType)
+	{
+		list<Uint8>::iterator it;
+		
+		for(it=EventTypes.begin(); it!=EventTypes.end(); it++)
+		{
+			Uint8 value = *it;
+			if(value == EventType)
+				return true;
+		}
+		
+		return false;
+	}
 }
