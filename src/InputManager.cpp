@@ -21,9 +21,9 @@ namespace ManhattanProject
 		
     }
 	
-	void InputManager::SetScene(Scene* scene)
+	void InputManager::SetScene(SceneManager* sceneManager)
 	{
-		this->ActiveScene = scene;
+		this->sceneManager = sceneManager;
 	}
     
     void InputManager::Update()

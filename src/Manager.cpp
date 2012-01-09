@@ -27,6 +27,7 @@ namespace ManhattanProject
 		
 		// Create the Input Manager
 		inputManager = new InputManager(this);
+		inputManager->SetScene(sceneManager);
 		this->Components->Add(inputManager);
 	}
 
