@@ -39,7 +39,7 @@ namespace ManhattanProject
                 }
             }
 			
-			
+			sceneManager->ActiveScene->PollListeners(&event);
 		}
     }
 }
