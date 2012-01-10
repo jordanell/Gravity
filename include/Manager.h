@@ -21,15 +21,12 @@ namespace ManhattanProject
 	{
 		public:
 			SDL_Event event;
-
+			SceneManager* sceneManager;
+			InputManager* inputManager;
 			Manager();
 
 		protected:
-			SceneManager* sceneManager;
-			InputManager* inputManager;
-
 			void Initialize();
-
 			void Draw();
 			void Update();
 	};

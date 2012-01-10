@@ -19,7 +19,7 @@ namespace ManhattanProject
 		this->game = game;
 	}
 	
-	GuiObject::GuiObject(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col):
+	GuiObject::GuiObject(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col, Scene* scene):
         DrawableGameComponent(game)
 	{
 		this->game = game;
@@ -28,6 +28,7 @@ namespace ManhattanProject
 		rotation = rot;
 		position = pos;
 		color = col;
+		this->scene = scene;
 	}
 	
     void GuiObject::Initialize()

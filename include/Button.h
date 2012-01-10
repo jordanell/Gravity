@@ -11,6 +11,8 @@
 #include "GameFramework.h"
 #include "GuiObject.h"
 #include "InputEvent.h"
+#include <list>
+
 
 using namespace GameFramework;
 
@@ -20,7 +22,8 @@ namespace ManhattanProject
 	{
         public:
             Button(Game* game);
-            Button(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col, Rectangle size);
+            Button(Game* game, Texture2D* background, float s, float rot,
+            		Vector2 pos, Color col, Rectangle size, Scene* scene);
             void Initialize();
             void Update();
             void Draw();
@@ -29,6 +32,7 @@ namespace ManhattanProject
             Texture2D* background;
             Texture2D* hover;
             Texture2D* active;
+            Scene* scene;
 	};
 }
 

@@ -9,7 +9,8 @@ using namespace GameFramework;
 
 namespace ManhattanProject 
 {
-    Button::Button(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col, GameFramework::Rectangle size): GuiObject(game, background, s, rot, pos, col)
+    Button::Button(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col,
+    		GameFramework::Rectangle size, Scene* scene):GuiObject(game, background, s, rot, pos, col, scene)
     {
         this->game = game;
 		if (background == NULL)
@@ -22,11 +23,14 @@ namespace ManhattanProject
 		this->position = pos;
 		this->color = col;
 		this->size = size;
+		this->scene = scene;
 		this->Initialize();
     }
     
     void Button::Initialize()
     {
+    	list<Uint8> events (SDL_MOUSEBUTTONDOWN);
+    	this->scene->AddListener(this, events);
     }
     
     void Button::Draw()
@@ -43,7 +47,7 @@ namespace ManhattanProject
 	{
 		if (this->size.ContainsPoint(new GameFramework::Point(mX, mY)))
 		{
-
+			cout << "PRESSED DOWN\n";
 		}
 	}
 

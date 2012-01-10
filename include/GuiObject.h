@@ -12,6 +12,7 @@
 #include "GameFramework.h"
 #include "Camera.h"
 #include "DrawableGameComponent.h"
+#include "Scene.h"
 
 using namespace GameFramework;
 
@@ -21,7 +22,7 @@ namespace ManhattanProject
     {
         public:
             GuiObject(Game* game);
-            GuiObject(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col);
+            GuiObject(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col, Scene* scene);
             void Initialize();
             void Update();
             void Draw(Camera camera);
@@ -36,6 +37,7 @@ namespace ManhattanProject
             Texture2D* hover;
             Texture2D* active;
             Game* game;
+            Scene* scene;
     };
 }
 #endif

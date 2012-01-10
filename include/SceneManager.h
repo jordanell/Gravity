@@ -21,13 +21,12 @@ namespace ManhattanProject
 	{
 		public:
 			SceneManager(Game* game);
-        
+			Scene* ActiveScene;
 			void Initialize();
 			void Draw();
 			void Update();
 
 		protected:
-			Scene* ActiveScene;
 			Scene* testScene;
 	};
 }
