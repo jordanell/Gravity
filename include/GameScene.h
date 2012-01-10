@@ -24,6 +24,9 @@
 #include "tinyxml.h"
 #include "tinystr.h"
 
+// Entities
+#include "Player.h"
+
 using namespace GameFramework;
 
 namespace ManhattanProject
@@ -51,6 +54,7 @@ namespace ManhattanProject
 
 		protected:
 			TileMap* Map;
+			Player* player;
 	};
 }
 
