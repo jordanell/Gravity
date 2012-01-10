@@ -27,10 +27,12 @@ namespace ManhattanProject
 	}
 
 	void GameScene::Initialize()
-	{		
+	{
 		Map = LoadMap("Maps/Sandbox.xml");
 		
 		Map->PrintLayers();
+		
+		player = new Player(game, this, &Map->camera);
 
 		Scene::Initialize();
 	}
