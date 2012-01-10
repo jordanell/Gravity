@@ -20,8 +20,6 @@ namespace ManhattanProject
 	class SceneManager: public DrawableGameComponent
 	{
 		public:
-			Scene* ActiveScene;
-			
 			SceneManager(Game* game);
 			Scene* ActiveScene;
 			void Initialize();
