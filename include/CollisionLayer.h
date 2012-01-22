@@ -27,6 +27,8 @@ namespace ManhattanProject
 
 			void AddCollision(int X, int Y, int Width, int Height, float Rotation);
 			
+			list<MapObject*> GetCollisions();
+			
 			void Draw(Camera camera);
 
 		protected:

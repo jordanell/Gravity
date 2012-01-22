@@ -30,6 +30,11 @@ namespace ManhattanProject
 		CollisionTree->InsertElement(newRec, X, Y);
 	}
 	
+	list<MapObject*> CollisionLayer::GetCollisions()
+	{
+		return ActiveCollisions;
+	}
+	
 	void CollisionLayer::Draw(Camera camera)
 	{
 		//Get the list of collisions to draw
