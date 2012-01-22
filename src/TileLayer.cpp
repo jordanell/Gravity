@@ -50,14 +50,6 @@ namespace ManhattanProject
 		TileTree->InsertElement(newItem, Position.X, Position.Y);
 	}
 
-	/* Add a Collision Rectangle to the layer */
-	void TileLayer::AddCollisionRect(int X, int Y, int Height, int Width, float Rotation)
-	{
-		CollisionRectangle* newColl = new CollisionRectangle(X, Y, Height, Width, Rotation);
-
-		TileTree->InsertElement(newColl, X, Y);
-	}
-
 	void TileLayer::Print()
 	{
 		TileTree->PrintTree();
@@ -80,16 +72,7 @@ namespace ManhattanProject
 		for(list<MapObject*>::iterator it = DrawingTiles.begin(); it != DrawingTiles.end(); it++)
 		{
 			MapObject* ptr = *it;
-			if(!debugging)
-			{
-				MapObject* sClass = dynamic_cast<CollisionRectangle*>(ptr);
-				if(sClass == 0)
-					ptr->Draw(camera);
-			}
-			else
-			{
-				ptr->Draw(camera);
-			}
+			ptr->Draw(camera);
 			i++;
 		}
 	}

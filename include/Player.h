@@ -29,7 +29,7 @@ namespace ManhattanProject
 			void Update();
 			void Draw();
 			
-			void OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
+			void OnLButtonDown(int mX, int mY);
 			
 		private:
 			Camera* camera;

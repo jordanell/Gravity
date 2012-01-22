@@ -28,11 +28,14 @@ namespace ManhattanProject
 
 	void GameScene::Initialize()
 	{
+		// Initialize the map here
 		Map = LoadMap("Maps/Sandbox.xml");
 		
-		Map->PrintLayers();
-		
+		// Initialize the player here
 		player = new Player(game, this, &Map->camera);
+		
+		// Initialize the UI Components here
+		
 
 		Scene::Initialize();
 	}
@@ -218,7 +221,7 @@ namespace ManhattanProject
 	
 	TileMap* GameScene::LoadMap(string fileName)
 	{
-		TileMap* LoadedMap = new TileMap(game, Camera(Vector2(0, 0), Vector2(400, 600)), GameFramework::Rectangle(-2000,-2000,4000,4000));;
+		TileMap* LoadedMap = new TileMap(game, this, Camera(Vector2(0, 0), Vector2(400, 600)), GameFramework::Rectangle(-2000,-2000,4000,4000));;
 		
 		string file = GetCurrentDir(RootDirectory, sizeof(RootDirectory));
 		file += "/../content/";
@@ -238,6 +241,8 @@ namespace ManhattanProject
 	void GameScene::Draw()
 	{
 		Map->Draw();
+		
+		player->Draw();
 
 		Scene::Draw();
 	}

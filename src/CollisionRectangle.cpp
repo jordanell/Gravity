@@ -13,6 +13,8 @@ namespace ManhattanProject
 	CollisionRectangle::CollisionRectangle(Game* game):
 		MapObject(game)
 	{
+		this->game = game;
+		
 		this->X = 0;
 		this->Y = 0;
 		this->Height = 0;
@@ -20,9 +22,11 @@ namespace ManhattanProject
 		this->Rotation = 0;
 	}
 	
-	CollisionRectangle::CollisionRectangle(int X, int Y, int Height, int Width):
+	CollisionRectangle::CollisionRectangle(Game* game, int X, int Y, int Height, int Width):
 		MapObject(game)
 	{
+		this->game = game;
+		
 		this->X = X;
 		this->Y = Y;
 		this->Height = Height;
@@ -30,9 +34,11 @@ namespace ManhattanProject
 		this->Rotation = 0;
 	}
 	
-	CollisionRectangle::CollisionRectangle(int X, int Y, int Height, int Width, float Rotation):
+	CollisionRectangle::CollisionRectangle(Game* game, int X, int Y, int Height, int Width, float Rotation):
 		MapObject(game)
 	{
+		this->game = game;
+		
 		this->X = X;
 		this->Y = Y;
 		this->Height = Height;
@@ -43,6 +49,6 @@ namespace ManhattanProject
 	void CollisionRectangle::Draw(Camera camera)
 	{
 		// Draw this collision
-		//game->Render->Draw(NULL, GameFramework::Rectangle(X, Y, Height, Width), Color(255,0,0,255));
+		game->Render->Draw(NULL, GameFramework::Rectangle(X-camera.Position.X, Y-camera.Position.Y, Height, Width), Color(255,0,0,125));
 	}
 }

@@ -26,7 +26,7 @@ namespace ManhattanProject
 
 	void CollisionLayer::AddCollision(int X, int Y, int Width, int Height, float Rotation)
 	{
-		CollisionRectangle* newRec = new CollisionRectangle(X, Y, Height, Width, Rotation);
+		CollisionRectangle* newRec = new CollisionRectangle(game, X, Y, Height, Width, Rotation);
 		CollisionTree->InsertElement(newRec, X, Y);
 	}
 	
@@ -37,12 +37,11 @@ namespace ManhattanProject
 		
 		// Sort the list based on z index
 		ActiveCollisions.sort();
-		int i = 0;
 		
 		//Iterate over list and draw the collisions
-		for(list<MapObject*>::iterator it = ActiveCollisions.begin(); it != ActiveCollisions.end(); i++)
+		for(list<MapObject*>::iterator it = ActiveCollisions.begin(); it != ActiveCollisions.end(); it++)
 		{
-			MapObject *ptr = *it;
+			MapObject* ptr = *it;
 			ptr->Draw(camera);
 		}
 	}

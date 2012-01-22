@@ -42,6 +42,8 @@ namespace GameFramework
 			void PostDraw();
 			
 			bool GetFullScreen();
+			int GetWidth();
+			int GetHeight();
 			
 			void SetCaption(const char* windowName);
 			void SetResolution(int width, int height);

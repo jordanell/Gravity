@@ -15,15 +15,22 @@ namespace ManhattanProject
 	{
 		this->game = game;
 		this->collisionLayer = new CollisionLayer(game, Size);
+		debugging = false;
 	}
 
-	TileMap::TileMap(Game* game, Camera camera, GameFramework::Rectangle Size):
+	TileMap::TileMap(Game* game, Scene* scene, Camera camera, GameFramework::Rectangle Size):
 		DrawableGameComponent(game)
 	{
 		this->game = game;
 		this->camera = camera;
 		this->Size = Size;
 		this->collisionLayer = new CollisionLayer(game, Size);
+		
+		list<Uint8> listeners;
+		listeners.push_back(SDL_KEYUP);
+		scene->AddListener(this, listeners);
+		
+		debugging = false;
 	}
 	
 	TileMap::~TileMap()
@@ -105,6 +112,15 @@ namespace ManhattanProject
 		{
 			TileLayer* ptr = *it;
 			ptr->Debugging();
+		}
+	}
+	
+	void TileMap::OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode)
+	{
+		if(sym == SDLK_F2)
+		{
+			
+			this->Debugging();
 		}
 	}
 }

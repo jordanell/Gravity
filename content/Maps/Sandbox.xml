@@ -843,14 +843,65 @@
                         <Y>150</Y>
                     </Origin>
                 </MapObject>
+                <MapObject xsi:type="CollisionRectangle" Name="Rectangle_59" Visible="true">
+                    <Id>1327198589</Id>
+                    <Position>
+                        <X>32</X>
+                        <Y>32</Y>
+                    </Position>
+                    <CustomProperties />
+                    <Width>307</Width>
+                    <Height>193</Height>
+                    <FillColor>
+                        <R>192</R>
+                        <G>0</G>
+                        <B>192</B>
+                        <A>145</A>
+                        <PackedValue>2445279424</PackedValue>
+                    </FillColor>
+                </MapObject>
+                <MapObject xsi:type="CollisionRectangle" Name="Rectangle_60" Visible="true">
+                    <Id>1327198655</Id>
+                    <Position>
+                        <X>-325</X>
+                        <Y>-202</Y>
+                    </Position>
+                    <CustomProperties />
+                    <Width>130</Width>
+                    <Height>301</Height>
+                    <FillColor>
+                        <R>192</R>
+                        <G>0</G>
+                        <B>192</B>
+                        <A>145</A>
+                        <PackedValue>2445279424</PackedValue>
+                    </FillColor>
+                </MapObject>
+                <MapObject xsi:type="CollisionRectangle" Name="Rectangle_61" Visible="true">
+                    <Id>1327198662</Id>
+                    <Position>
+                        <X>109</X>
+                        <Y>-250</Y>
+                    </Position>
+                    <CustomProperties />
+                    <Width>98</Width>
+                    <Height>106</Height>
+                    <FillColor>
+                        <R>192</R>
+                        <G>0</G>
+                        <B>192</B>
+                        <A>145</A>
+                        <PackedValue>2445279424</PackedValue>
+                    </FillColor>
+                </MapObject>
             </MapObjects>
-        <ScrollSpeed>
-                
-                
-        </ScrollSpeed>
-        <CustomProperties />
-    </Layer>
-        <Layer Name="Ground" Visible="true">
+            <ScrollSpeed>
+                <X>1</X>
+                <Y>1</Y>
+            </ScrollSpeed>
+            <CustomProperties />
+        </Layer>
+        <Layer Name="Brick" Visible="true">
             <MapObjects>
                 <MapObject xsi:type="TileObject" Name="Texture_33" Visible="true">
                     <Id>1325737603</Id>
@@ -1582,8 +1633,8 @@
                 </MapObject>
             </MapObjects>
             <ScrollSpeed>
-                
-                
+                <X>1</X>
+                <Y>1</Y>
             </ScrollSpeed>
             <CustomProperties />
         </Layer>
@@ -1600,11 +1651,11 @@
         </Location>
     </bounds>
     <EditorRelated>
-        <NextItemNumber>58</NextItemNumber>
+        <NextItemNumber>61</NextItemNumber>
         <ContentRootFolder>C:\Users\Jordan\Documents\GameTools\gleed2d\bin\x86\Debug</ContentRootFolder>
         <CameraPosition>
-            <X>0</X>
-            <Y>0</Y>
+            <X>141.666962</X>
+            <Y>-16.6666985</Y>
         </CameraPosition>
         <Version>1.3.0.1</Version>
     </EditorRelated>

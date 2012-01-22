@@ -36,7 +36,6 @@ namespace ManhattanProject
 			void AddContainer(Game* game, Texture2D* Tile, Vector2 Position, list<Item> Items, string Name, string Description);
 			void AddItem(Game* game, Texture2D* Icon, Texture2D* Tile, Vector2 Position, float hp, float ep, float sp,
 						 float ap, float dp, string Name, string Description);
-			void AddCollisionRect(int X, int Y, int Height, int Width, float Rotation);
 			void Print();
 
 			void Debugging();

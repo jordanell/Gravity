@@ -11,7 +11,9 @@
 #include "GameFramework.h"
 #include "TileLayer.h"
 #include "CollisionLayer.h"
+#include "InputEvent.h"
 #include "Camera.h"
+#include "Scene.h"
 #include <list>
 #include <string>
 
@@ -19,14 +21,14 @@ using namespace GameFramework;
 
 namespace ManhattanProject
 {
-	class TileMap: public DrawableGameComponent
+	class TileMap: public DrawableGameComponent, InputEvent
 	{
 		public:
 			Camera camera;
 			SDL_Event event;
 
 			TileMap(Game* game);
-			TileMap(Game* game, Camera camera, GameFramework::Rectangle Size);
+			TileMap(Game* game, Scene* scene, Camera camera, GameFramework::Rectangle Size);
 			
 			~TileMap();
 
@@ -44,16 +46,14 @@ namespace ManhattanProject
 
 			void PrintLayers();
 			void Debugging();
+			
+			// Input stuff
+			void OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode);
 
 		protected:
 			list<TileLayer*> layers;
 			CollisionLayer* collisionLayer;
 			GameFramework::Rectangle Size;
-			
-			bool left;
-			bool right;
-			bool up;
-			bool down;
 
 			bool debugging;
 	};

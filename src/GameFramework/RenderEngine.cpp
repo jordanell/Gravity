@@ -234,6 +234,16 @@ namespace GameFramework
 		return this->FullScreen;
 	}
 	
+	int RenderEngine::GetWidth()
+	{
+		return this->Width;
+	}
+	
+	int RenderEngine::GetHeight()
+	{
+		return this->Height;
+	}
+	
 	void RenderEngine::SetCaption(const char* windowName)
 	{
 		SDL_WM_SetCaption(windowName, NULL);

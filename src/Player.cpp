@@ -22,8 +22,7 @@ namespace ManhattanProject
 	{
 		this->game = game;
 		list<Uint8> listeners;
-		listeners.push_back(SDL_KEYDOWN);
-		listeners.push_back(SDL_KEYUP);
+		listeners.push_back(SDL_MOUSEBUTTONDOWN);
 		scene->AddListener(this, listeners);
 		this->camera = camera;
 	}
@@ -33,19 +32,21 @@ namespace ManhattanProject
 	
 	}
 	
-	void Player::OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode)
-	{
-		cout << "Testing key down in player\n";
-	}
 	
 	void Player::Update()
 	{
 	
 	}
 	
+	void Player::OnLButtonDown(int mX, int mY)
+	{
+		cout << "Testing left button down in player\n";
+	}
+	
 	void Player::Draw()
 	{
-	
+		// This is a temporary player for testing!
+		game->Render->Draw(NULL, GameFramework::Rectangle(game->Render->GetWidth()/2 - 30, game->Render->GetHeight()/2 - 30, 60, 60), Color(0,0,255,255));
 	}
 }
 
