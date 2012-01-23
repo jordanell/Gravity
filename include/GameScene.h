@@ -24,8 +24,14 @@
 #include "tinyxml.h"
 #include "tinystr.h"
 
+#include <list>
+
 // Entities
+#include "EntityManager.h"
 #include "Player.h"
+
+// Path finding 
+#include "PathfindingManager.h"
 
 using namespace GameFramework;
 
@@ -54,7 +60,9 @@ namespace ManhattanProject
 
 		protected:
 			TileMap* Map;
+			EntityManager* entityManager;
 			Player* player;
+			PathfindingManager* pathFinder;
 	};
 }
 

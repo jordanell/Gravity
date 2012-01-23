@@ -30,6 +30,11 @@ namespace ManhattanProject
 	{
 	
 	}
+	
+	GameFramework::Rectangle Entity::GetCollisionRectangle()
+	{
+		return GameFramework::Rectangle();
+	}
 }
 
 

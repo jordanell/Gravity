@@ -31,8 +31,12 @@ namespace ManhattanProject
 		// Initialize the map here
 		Map = LoadMap("Maps/Sandbox.xml");
 		
-		// Initialize the player here
+		// Initialize the entities here
 		player = new Player(game, this, &Map->camera);
+		entityManager = new EntityManager(game, Map);
+		
+		// Initialize the path finding system here
+		pathFinder = new PathfindingManager(game);
 		
 		// Initialize the UI Components here
 		
@@ -233,7 +237,7 @@ namespace ManhattanProject
 		if(loadOkay)
 			CreateMap(&doc, LoadedMap);
 		else
-			cout << "Failed to load file\n";
+			cout << "Failed to load map\n";
 			
 		return LoadedMap;
 	}
@@ -249,7 +253,13 @@ namespace ManhattanProject
 
 	void GameScene::Update()
 	{
+		// Call the update on the map
 		Map->Update();
+		
+		// Update the path finder information
+		pathFinder->SetCollisions(Map->GetCollisionLayer()->GetCollisions());
+		pathFinder->SetEntities(entityManager->GetActiveEntities());
+		pathFinder->Update();
 
 		Scene::Update();
 	}

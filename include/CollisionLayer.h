@@ -27,7 +27,7 @@ namespace ManhattanProject
 
 			void AddCollision(int X, int Y, int Width, int Height, float Rotation);
 			
-			list<MapObject*> GetCollisions();
+			list<CollisionRectangle*> GetCollisions();
 			
 			void Draw(Camera camera);
 
@@ -35,8 +35,8 @@ namespace ManhattanProject
 			Game* game;
 			GameFramework::Rectangle Size;
 
-			QuadTree<MapObject*>* CollisionTree;
-			list<MapObject*> ActiveCollisions;
+			QuadTree<CollisionRectangle*>* CollisionTree;
+			list<CollisionRectangle*> ActiveCollisions;
 	};
 }
 

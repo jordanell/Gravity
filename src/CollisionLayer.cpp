@@ -16,7 +16,7 @@ namespace ManhattanProject
 		this->Size = Size;
 		
 		//Instantiate the QuadTree
-		CollisionTree = new QuadTree<MapObject*>(Size.Height, Size.Width, Size.X, Size.Y, DEFAULT_QUADTREE_RECT);
+		CollisionTree = new QuadTree<CollisionRectangle*>(Size.Height, Size.Width, Size.X, Size.Y, DEFAULT_QUADTREE_RECT);
 	}
 
 	bool CollisionLayer::CheckCollision(GameFramework::Rectangle* rec)
@@ -30,7 +30,7 @@ namespace ManhattanProject
 		CollisionTree->InsertElement(newRec, X, Y);
 	}
 	
-	list<MapObject*> CollisionLayer::GetCollisions()
+	list<CollisionRectangle*> CollisionLayer::GetCollisions()
 	{
 		return ActiveCollisions;
 	}
@@ -44,9 +44,9 @@ namespace ManhattanProject
 		ActiveCollisions.sort();
 		
 		//Iterate over list and draw the collisions
-		for(list<MapObject*>::iterator it = ActiveCollisions.begin(); it != ActiveCollisions.end(); it++)
+		for(list<CollisionRectangle*>::iterator it = ActiveCollisions.begin(); it != ActiveCollisions.end(); it++)
 		{
-			MapObject* ptr = *it;
+			CollisionRectangle* ptr = *it;
 			ptr->Draw(camera);
 		}
 	}

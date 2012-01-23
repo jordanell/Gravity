@@ -9,6 +9,7 @@
 #define ENTITY_H
 
 #include "GameFramework.h"
+#include "CollisionRectangle.h"
 
 using namespace GameFramework;
 
@@ -22,6 +23,8 @@ namespace ManhattanProject
 			virtual void Initialize();
 			virtual void Update();
 			virtual void Draw();
+			
+			virtual GameFramework::Rectangle GetCollisionRectangle();
 				
 		private:
 		
