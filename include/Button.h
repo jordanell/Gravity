@@ -27,7 +27,6 @@ namespace ManhattanProject
             void Update();
             void Draw();
             void (*LButtonDownCallback)(Game* game, Scene* scene);
-            //void (Button::*LButtonDownCallback)();
             void OnLButtonDown(int mX, int mY);
         protected:
             Texture2D* background;

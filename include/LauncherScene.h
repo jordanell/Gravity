@@ -12,6 +12,8 @@
 #include "Scene.h"
 #include "Button.h"
 #include "SceneManager.h"
+#include "SDL_ttf.h"
+
 using namespace GameFramework;
 
 namespace ManhattanProject
@@ -31,6 +33,7 @@ namespace ManhattanProject
 			Texture2D* background;
             Button* startBtn;
             Button* quitBtn;
+            Button* eightBysixButton;
 	};
 }
 
