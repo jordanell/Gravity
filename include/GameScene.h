@@ -20,7 +20,7 @@
 #include "GameFramework.h"
 #include "Scene.h"
 #include "TileMap.h"
-
+#include "SceneManager.h"
 #include "tinyxml.h"
 #include "tinystr.h"
 

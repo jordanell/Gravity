@@ -11,7 +11,6 @@
 #include "GameFramework.h"
 #include "Scene.h"
 #include "Button.h"
-
 using namespace GameFramework;
 
 namespace ManhattanProject
@@ -20,7 +19,7 @@ namespace ManhattanProject
 	{
 		public:
 			LauncherScene(Game* game);
-            
+
 			void Initialize();
 			void Update();
 			void Draw();
@@ -28,6 +27,7 @@ namespace ManhattanProject
 		protected:
 			Texture2D* background;
             Button* startBtn;
+            Button* quitBtn;
 	};
 }
 

@@ -4,16 +4,19 @@
 
 #include <iostream>
 #include "Button.h"
-
 using namespace GameFramework;
 
 namespace ManhattanProject 
 {
+    void DefaultFunc(Game* game) {
+        cout << "Default button listener";
+    }
+    
     Button::Button(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col,
     		GameFramework::Rectangle size, Scene* scene):GuiObject(game, background, s, rot, pos, col, scene)
     {
         this->game = game;
-		if (background == NULL)
+			if (background == NULL)
 			// This is a standard button.
 			this->background = game->Content->LoadTexture("/../content/Form/StandardButton.jpg");
 		else
@@ -24,18 +27,20 @@ namespace ManhattanProject
 		this->color = col;
 		this->size = size;
 		this->scene = scene;
+        this->LButtonDownCallback = &DefaultFunc;
 		this->Initialize();
     }
     
     void Button::Initialize()
     {
-    	list<Uint8> events (SDL_MOUSEBUTTONDOWN);
-    	this->scene->AddListener(this, events);
+		list<Uint8> listeners;
+		listeners.push_back(SDL_MOUSEBUTTONDOWN);
+		scene->AddListener(this, listeners);
     }
-    
+
     void Button::Draw()
 	{
-		game->Render->Draw(background, Vector2(position.X, position.Y), color);
+		game->Render->Draw(background, this->position, color);
 	}
     
 	void Button::Update()
@@ -43,11 +48,13 @@ namespace ManhattanProject
 
 	}
 
-	void Button::onMButtonDown(int mX, int mY)
+	void Button::OnLButtonDown(int mX, int mY)
 	{
 		if (this->size.ContainsPoint(new GameFramework::Point(mX, mY)))
 		{
-			cout << "PRESSED DOWN\n";
+			if (this->LButtonDownCallback != NULL) 
+                this->LButtonDownCallback(game);
+			return;
 		}
 	}
 

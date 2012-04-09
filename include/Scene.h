@@ -10,7 +10,7 @@
  #define SCENE_H
 
  #include "GameFramework.h"
- #include "Listener.h"
+ #include "Listener.h"  
  #include <list>
 
  using namespace GameFramework;
@@ -21,8 +21,7 @@
 	 {
 		 public:
 			Scene(Game* game);
-
-			GameComponentCollection* Components;
+            GameComponentCollection* Components;
 
 			virtual void Initialize();
 			virtual void Update();

@@ -21,6 +21,7 @@ namespace ManhattanProject
 	{
 		public:
 			SceneManager(Game* game);
+            void toGameScene();
 			Scene* ActiveScene;
 			void Initialize();
 			void Draw();

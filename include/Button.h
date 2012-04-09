@@ -13,7 +13,6 @@
 #include "InputEvent.h"
 #include <list>
 
-
 using namespace GameFramework;
 
 namespace ManhattanProject
@@ -27,7 +26,9 @@ namespace ManhattanProject
             void Initialize();
             void Update();
             void Draw();
-            void onMButtonDown(int mX, int mY);
+            void (*LButtonDownCallback)(Game* game);
+            //void (Button::*LButtonDownCallback)();
+            void OnLButtonDown(int mX, int mY);
         protected:
             Texture2D* background;
             Texture2D* hover;

@@ -14,7 +14,6 @@ namespace ManhattanProject
 		Scene(game)
 	{
 		this->game = game;
-
 		this->Initialize();
 		
 		GetCurrentDir(RootDirectory, sizeof(RootDirectory));
@@ -126,7 +125,6 @@ namespace ManhattanProject
 			}
 			//Load the texture
 			Texture2D* texture = game->Content->LoadTexture(FileName);
-			
 			TileLayer* LayerToAdd = TileMap->LastAddedLayer();
 			LayerToAdd->AddTile(texture, Scale, Rotation, Vector2(PositionX,PositionY), Color(R,G,B,A));
 			
