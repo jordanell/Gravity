@@ -37,13 +37,15 @@ using namespace GameFramework;
 
 namespace ManhattanProject
 {
+    class SceneManager;
 	class GameScene: public Scene
 	{
 		public:
 			char RootDirectory[FILENAME_MAX];
 			
 			GameScene(Game* game);
-
+            GameScene(Game* game, SceneManager* sm);
+            SceneManager* sm;
 			void Initialize();
 			
 			int StringToNumber(const string &Text);

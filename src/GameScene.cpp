@@ -19,6 +19,17 @@ namespace ManhattanProject
 		GetCurrentDir(RootDirectory, sizeof(RootDirectory));
 		RootDirectory[sizeof(RootDirectory) -1] = '\0';
 	}
+    
+    GameScene::GameScene(Game* game, SceneManager* sm):
+        Scene(game)
+	{
+		this->game = game;
+        this->sm = sm;
+		this->Initialize();
+		
+		GetCurrentDir(RootDirectory, sizeof(RootDirectory));
+		RootDirectory[sizeof(RootDirectory) -1] = '\0';
+	}
 
 	GameScene::~GameScene()
 	{

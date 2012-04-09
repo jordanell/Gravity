@@ -22,7 +22,7 @@ namespace ManhattanProject
 	void SceneManager::Initialize()
 	{
 		//Always initialize to the launcher scene
-        testScene = new LauncherScene(game);
+        testScene = new LauncherScene(game, this);
         ActiveScene = testScene;
         
 //		testScene = new GameScene(game);
@@ -33,7 +33,7 @@ namespace ManhattanProject
 
     void SceneManager::toGameScene()
     {
-        testScene = new GameScene(game);
+        testScene = new GameScene(game, this);
         this->ActiveScene = testScene;
     }
     

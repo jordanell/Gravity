@@ -19,7 +19,7 @@
  {
 	 class Scene: public DrawableGameComponent
 	 {
-		 public:
+        public:
 			Scene(Game* game);
             GameComponentCollection* Components;
 

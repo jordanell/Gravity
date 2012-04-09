@@ -9,18 +9,22 @@
 
 using namespace GameFramework;
 
-void quitButtonDown(Game* game)
-{
-    game->Exit();
-}
-
-void startButtonDown(Game* game)
-{
-    cout << "TODO @braden go to start scene";
-}
-
 namespace ManhattanProject
 {
+    void quitButtonDown(Game* game, Scene* scene)
+    {
+        game->Exit();
+    }
+    
+    void startButtonDown(Game* game, Scene* scene)
+    {
+        LauncherScene *lscene = dynamic_cast<LauncherScene*>(scene);
+        
+        cout << "TODO @braden go to start scene";
+        if (lscene->sm != NULL)
+            lscene->sm->toGameScene();
+    }
+    
 	LauncherScene::LauncherScene(Game* game):
 		Scene(game)
 	{
@@ -29,6 +33,14 @@ namespace ManhattanProject
 		this->Initialize();
 	}
 
+    LauncherScene::LauncherScene(Game* game, SceneManager* sm):
+        Scene(game)
+	{
+		this->game = game;
+        this->sm = sm;
+		this->Initialize();
+	}
+    
    	void LauncherScene::Initialize()
 	{
 		background = game->Content->LoadTexture("Launcher/Wall.jpg");

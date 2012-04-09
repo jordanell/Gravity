@@ -1,9 +1,8 @@
 //
 //  Button.h
-//  Game_braden
 //
 //  Created by Braden Simpson on 11-12-16.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2011. All rights reserved.
 
 #ifndef BUTTON_H
 #define BUTTON_H
@@ -11,6 +10,7 @@
 #include "GameFramework.h"
 #include "GuiObject.h"
 #include "InputEvent.h"
+#include "Scene.h"
 #include <list>
 
 using namespace GameFramework;
@@ -26,7 +26,7 @@ namespace ManhattanProject
             void Initialize();
             void Update();
             void Draw();
-            void (*LButtonDownCallback)(Game* game);
+            void (*LButtonDownCallback)(Game* game, Scene* scene);
             //void (Button::*LButtonDownCallback)();
             void OnLButtonDown(int mX, int mY);
         protected:

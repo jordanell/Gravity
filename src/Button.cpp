@@ -8,7 +8,7 @@ using namespace GameFramework;
 
 namespace ManhattanProject 
 {
-    void DefaultFunc(Game* game) {
+    void DefaultFunc(Game* game, Scene* sm) {
         cout << "Default button listener";
     }
     
@@ -53,7 +53,7 @@ namespace ManhattanProject
 		if (this->size.ContainsPoint(new GameFramework::Point(mX, mY)))
 		{
 			if (this->LButtonDownCallback != NULL) 
-                this->LButtonDownCallback(game);
+                this->LButtonDownCallback(game, scene);
 			return;
 		}
 	}

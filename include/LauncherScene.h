@@ -11,15 +11,18 @@
 #include "GameFramework.h"
 #include "Scene.h"
 #include "Button.h"
+#include "SceneManager.h"
 using namespace GameFramework;
 
 namespace ManhattanProject
 {
+    class SceneManager;class Button;
 	class LauncherScene: public Scene
 	{
 		public:
 			LauncherScene(Game* game);
-
+            LauncherScene(Game* game, SceneManager* sm);
+            SceneManager* sm;
 			void Initialize();
 			void Update();
 			void Draw();
