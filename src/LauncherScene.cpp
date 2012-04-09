@@ -19,8 +19,6 @@ namespace ManhattanProject
     void startButtonDown(Game* game, Scene* scene)
     {
         LauncherScene *lscene = dynamic_cast<LauncherScene*>(scene);
-        
-        cout << "TODO @braden go to start scene";
         if (lscene->sm != NULL)
             lscene->sm->toGameScene();
     }
