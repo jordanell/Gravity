@@ -22,7 +22,7 @@ namespace ManhattanProject
         public:
             Button(Game* game);
             Button(Game* game, Texture2D* background, float s, float rot,
-            		Vector2 pos, Color col, Rectangle size, Scene* scene);
+            		Vector2 pos, Color col, GameFramework::Rectangle size, Scene* scene);
             void Initialize();
             void Update();
             void Draw();
