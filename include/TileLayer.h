@@ -26,13 +26,13 @@ namespace ManhattanProject
 	{
 		public:
 			TileLayer(Game* game, GameFramework::Rectangle rec);
-			
+
 			~TileLayer();
 
 			void Update();
 			void Draw(Camera camera);
 
-			void AddTile(Texture2D* tex, float scale, float rotation, Vector2 position, Color color);
+			void AddTile(Texture2D* tex, Vector2 scale, float rotation, Vector2 position, Color color);
 			void AddContainer(Game* game, Texture2D* Tile, Vector2 Position, list<Item> Items, string Name, string Description);
 			void AddItem(Game* game, Texture2D* Icon, Texture2D* Tile, Vector2 Position, float hp, float ep, float sp,
 						 float ap, float dp, string Name, string Description);

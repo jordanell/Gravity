@@ -25,10 +25,10 @@ namespace ManhattanProject
 
 			bool CheckCollision(GameFramework::Rectangle* rec);
 
-			void AddCollision(int X, int Y, int Width, int Height, float Rotation);
-			
+			void AddCollision(Vector2 pos, int Width, int Height, float Rotation);
+
 			list<CollisionRectangle*> GetCollisions();
-			
+
 			void Draw(Camera camera);
 
 		protected:

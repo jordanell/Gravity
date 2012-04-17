@@ -20,15 +20,13 @@ namespace ManhattanProject
 	{
 	public:
 		CollisionRectangle(Game* game);
-		CollisionRectangle(Game* game, int X, int Y, int Height, int Width);
-		CollisionRectangle(Game* game, int X, int Y, int Height, int Width, float Rotation);
+		CollisionRectangle(Game* game, Vector2 pos, int Height, int Width);
+		CollisionRectangle(Game* game, Vector2 pos, int Height, int Width, float Rotation);
 
-		float Rotation;
-		int X;
-		int Y;
 		int Height;
 		int Width;
-		
+		Color TintColor;
+
 		void Draw(Camera camera);
 	};
 }

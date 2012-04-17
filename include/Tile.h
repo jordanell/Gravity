@@ -12,6 +12,8 @@
 #include "GameFramework.h"
 #include "Camera.h"
 #include "MapObject.h"
+#include <string>
+#include <list>
 
 using namespace GameFramework;
 
@@ -21,16 +23,17 @@ namespace ManhattanProject
 	{
 	public:
 		Tile(Game* game);
-		Tile(Game* game, Texture2D* tex, float s, float rot, Vector2 pos, Color col);
+		Tile(Game* game, Texture2D* tex, Vector2 s, float rot, Vector2 pos, Color col);
 
 		void Update();
 		void Draw(Camera camera);
 
-		Texture2D* texture;
-		float scale;
-		float rotation;
-		Vector2 position;
-		Color color;
+        Texture2D* Texture;
+		Color TintColor;
+		bool FlipHorizontally;
+		bool FlipVertically;
+		list<string> ItemNames;
+
 
 	protected:
 		Game* game;

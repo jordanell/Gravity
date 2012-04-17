@@ -11,6 +11,7 @@
 
 #include "GameFramework.h"
 #include "Camera.h"
+#include <string>
 
 using namespace GameFramework;
 
@@ -26,6 +27,13 @@ namespace ManhattanProject
 			virtual void Draw(Camera camera);
 
 			inline bool operator<(const MapObject &) const;
+
+			string Name;
+			string Description;
+			Vector2 Position;
+			float Rotation;
+			Vector2 Scale;
+			bool Visible;
 
 		private:
 			int zindex;
