@@ -35,6 +35,7 @@
 
 namespace GameFramework
 {
+    class TileMap;
 	class ContentManager
 
 	{
@@ -45,6 +46,9 @@ namespace GameFramework
 
 			Texture2D* LoadTexture(const std::string &fileName);
 			void ClearTextureMap();	
+        
+            // serializer
+            TileMap* LoadMap(const std::string &fileName);
 			
 		protected:
 			map<const std::string, Texture2D> Textures;

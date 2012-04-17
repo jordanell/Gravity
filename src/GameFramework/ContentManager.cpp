@@ -88,4 +88,9 @@ namespace GameFramework
 	{
 		Textures.clear();
 	}
+    
+    // Deserializing methods
+    TileMap* ContentManager::LoadMap(const std::string &fileName) {
+        return NULL;
+    }
 }
