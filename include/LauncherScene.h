@@ -33,7 +33,6 @@ namespace ManhattanProject
 			Texture2D* background;
             Button* startBtn;
             Button* quitBtn;
-            Button* eightBysixButton;
 	};
 }
 

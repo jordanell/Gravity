@@ -45,9 +45,6 @@ namespace ManhattanProject
         startBtn = new Button(game, game->Content->LoadTexture("Launcher/startbutton.png"), float(1.0), float(0.0), Vector2(150,300), *(Color::White()), GameFramework::Rectangle(150, 300, 50, 100), this);
         quitBtn = new Button(game, game->Content->LoadTexture("Launcher/quitbutton.png"), float(1.0), float(0.0), Vector2(250,300), *(Color::White()), GameFramework::Rectangle(250, 300, 50, 100), this);
         
-        eightBysixButton = new Button(game, game->Content->LoadTexture("Launcher/800x600.png"), float(1.0), float(0.0), Vector2(350,300), *(Color::White()), GameFramework::Rectangle(350, 300, 50, 100), this);
-        
-        
         quitBtn->LButtonDownCallback = &quitButtonDown;
         startBtn->LButtonDownCallback = &startButtonDown;
         Scene::Initialize();
@@ -59,7 +56,6 @@ namespace ManhattanProject
 		game->Render->Draw(background, GameFramework::Rectangle(0,0,400,600), Color(255,255,255,150));
         startBtn->Draw();
         quitBtn->Draw();
-        eightBysixButton->Draw();
 		Scene::Draw();
 	}
 
