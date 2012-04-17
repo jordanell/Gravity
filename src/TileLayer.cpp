@@ -19,14 +19,14 @@ namespace ManhattanProject
 		//Instantiate the QuadTree
 		TileTree = new QuadTree<MapObject*>(Size.Height, Size.Width, Size.X, Size.Y, DEFAULT_QUADTREE_RECT);
 	}
-	
+
 	TileLayer::~TileLayer()
 	{
 		delete TileTree;
 	}
 
 	/* Add a tile to the layer */
-	void TileLayer::AddTile(Texture2D* tex, float scale, float rotation, Vector2 position, Color color)
+	void TileLayer::AddTile(Texture2D* tex, Vector2 scale, float rotation, Vector2 position, Color color)
 	{
 		Tile* newTile = new Tile(game, tex, scale, rotation, position, color);
 

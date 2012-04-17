@@ -14,7 +14,7 @@ namespace ManhattanProject
 	{
 		this->game = game;
 		this->Size = Size;
-		
+
 		//Instantiate the QuadTree
 		CollisionTree = new QuadTree<CollisionRectangle*>(Size.Height, Size.Width, Size.X, Size.Y, DEFAULT_QUADTREE_RECT);
 	}
@@ -24,25 +24,25 @@ namespace ManhattanProject
 		return false;
 	}
 
-	void CollisionLayer::AddCollision(int X, int Y, int Width, int Height, float Rotation)
+	void CollisionLayer::AddCollision(Vector2 pos, int Width, int Height, float Rotation)
 	{
-		CollisionRectangle* newRec = new CollisionRectangle(game, X, Y, Height, Width, Rotation);
-		CollisionTree->InsertElement(newRec, X, Y);
+		CollisionRectangle* newRec = new CollisionRectangle(game, pos, Height, Width, Rotation);
+		CollisionTree->InsertElement(newRec, pos.X, pos.Y);
 	}
-	
+
 	list<CollisionRectangle*> CollisionLayer::GetCollisions()
 	{
 		return ActiveCollisions;
 	}
-	
+
 	void CollisionLayer::Draw(Camera camera)
 	{
 		//Get the list of collisions to draw
 		ActiveCollisions = CollisionTree->GetElements(camera.GetRectangle());
-		
+
 		// Sort the list based on z index
 		ActiveCollisions.sort();
-		
+
 		//Iterate over list and draw the collisions
 		for(list<CollisionRectangle*>::iterator it = ActiveCollisions.begin(); it != ActiveCollisions.end(); it++)
 		{
