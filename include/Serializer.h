@@ -29,6 +29,11 @@ namespace ManhattanProject
             // serializer
             TileMap* LoadMap(Game* game, const std::string &fileName, Scene* scene);
             TileMap* ParseMap(Game* game, TiXmlNode* parent, Scene* scene);
+            TileMap* ParseLayers(TileMap* map, TiXmlNode* parent);
+            void ParseLayer(TileLayer* layer, TiXmlNode* parent);
+            void ParseMapObjects(TileLayer* layer, TiXmlNode* parent);
+            void ParseTile(TileLayer* layer, TiXmlNode* parent);
+            void ParseCollisionRectangle(TileLayer* layer, TiXmlNode* parent);
 
             Game* game;
 	};
