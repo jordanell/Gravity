@@ -27,17 +27,19 @@
     #include <unistd.h>
     #define GetCurrentDir getcwd
 #endif
- 
+
 #include "Exception.h"
 #include "Texture2D.h"
 #include <map>
 
+#include "tinyxml.h"
+#include "tinystr.h"
+
 
 namespace GameFramework
 {
-    class TileMap;
-	class ContentManager
 
+	class ContentManager
 	{
 		public:
 			char RootDirectory[FILENAME_MAX];
@@ -45,15 +47,12 @@ namespace GameFramework
 			ContentManager();
 
 			Texture2D* LoadTexture(const std::string &fileName);
-			void ClearTextureMap();	
-        
-            // serializer
-            TileMap* LoadMap(const std::string &fileName);
-			
+			void ClearTextureMap();
+
 		protected:
 			map<const std::string, Texture2D> Textures;
 			map<const std::string, Texture2D>::iterator iterator;
-			
+
 			Texture2D* InsertTexture(const std::string &fileName, Texture2D texture);
 			Texture2D* TextureMapContains(const std::string &fileName);
 	};

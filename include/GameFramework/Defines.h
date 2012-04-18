@@ -16,4 +16,8 @@ const int DEFAULT_HEIGHT = 400;
 //Gane Constants
 const int DEFAULT_QUADTREE_RECT = 200000;
 
+//Texture Constants
+const int MAX_TEXTURE_WIDTH = 1000;
+const int MAX_TEXTURE_HEIGHT = 1000;
+
 #endif

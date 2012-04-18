@@ -19,8 +19,8 @@
 #include "GameComponent.h"
 #include "GameComponentCollection.h"
 #include "DrawableGameComponent.h"
-#include "RenderEngine.h"
 #include "ContentManager.h"
+#include "RenderEngine.h"
 #include "Timer.h"
 #include "Defines.h"
 
@@ -38,9 +38,9 @@ namespace GameFramework
 			Game();
 
 			void Run();
-			
+
 			void Exit();
-		
+
 		protected:
 			virtual void Initialize();
 

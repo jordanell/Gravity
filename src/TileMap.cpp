@@ -25,14 +25,14 @@ namespace ManhattanProject
 		this->camera = camera;
 		this->Size = Size;
 		this->collisionLayer = new CollisionLayer(game, Size);
-		
+
 		list<Uint8> listeners;
 		listeners.push_back(SDL_KEYUP);
 		scene->AddListener(this, listeners);
-		
+
 		debugging = false;
 	}
-	
+
 	TileMap::~TileMap()
 	{
 		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)
@@ -59,17 +59,17 @@ namespace ManhattanProject
 	{
 		layers.push_back(layer);
 	}
-	
+
 	TileLayer* TileMap::LastAddedLayer()
 	{
 		return layers.back();
 	}
-	
+
 	CollisionLayer* TileMap::GetCollisionLayer()
 	{
 		return collisionLayer;
 	}
-	
+
 	void TileMap::SetSize(GameFramework::Rectangle Size)
 	{
 		this->Size = Size;
@@ -83,7 +83,7 @@ namespace ManhattanProject
 			TileLayer* ptr = *it;
 			ptr->Draw(camera);
 		}
-		
+
 		//If debugging then draw collisions
 		if(debugging)
 		{
@@ -93,9 +93,9 @@ namespace ManhattanProject
 
 	void TileMap::Update()
 	{
-		
+
 	}
-	
+
 	void TileMap::PrintLayers()
 	{
 		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)
@@ -104,7 +104,7 @@ namespace ManhattanProject
 			ptr->Print();
 		}
 	}
-	
+
 	void TileMap::Debugging()
 	{
 		debugging = !debugging;
@@ -114,12 +114,12 @@ namespace ManhattanProject
 			ptr->Debugging();
 		}
 	}
-	
+
 	void TileMap::OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode)
 	{
 		if(sym == SDLK_F2)
 		{
-			
+
 			this->Debugging();
 		}
 	}

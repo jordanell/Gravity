@@ -234,7 +234,7 @@ namespace ManhattanProject
 
 	TileMap* GameScene::LoadMap(string fileName)
 	{
-		TileMap* LoadedMap = new TileMap(game, this, Camera(Vector2(0, 0), Vector2(400, 600)), GameFramework::Rectangle(-2000,-2000,4000,4000));;
+		TileMap* LoadedMap = new TileMap(game, this, Camera(Vector2(0, 0), Vector2(400, 600)), GameFramework::Rectangle(-2000,-2000,4000,4000));
 
 		string file = GetCurrentDir(RootDirectory, sizeof(RootDirectory));
 		file += "/../content/";

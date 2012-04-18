@@ -29,7 +29,7 @@ namespace ManhattanProject
 
 			TileMap(Game* game);
 			TileMap(Game* game, Scene* scene, Camera camera, GameFramework::Rectangle Size);
-			
+
 			~TileMap();
 
 			void Initialize();
@@ -38,15 +38,15 @@ namespace ManhattanProject
 
 			void AddTileLayer();
 			void AddTileLayer(TileLayer* layer);
-			
+
 			TileLayer* LastAddedLayer();
 			CollisionLayer* GetCollisionLayer();
-			
+
 			void SetSize(GameFramework::Rectangle Size);
 
 			void PrintLayers();
 			void Debugging();
-			
+
 			// Input stuff
 			void OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode);
 
