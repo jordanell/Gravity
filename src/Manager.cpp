@@ -24,7 +24,7 @@ namespace ManhattanProject
 		// Create the Scene Manager
 		sceneManager = new SceneManager(this);
 		this->Components->Add(sceneManager);
-		
+
 		// Create the Input Manager
 		inputManager = new InputManager(this);
 		inputManager->SetScene(sceneManager);
@@ -33,7 +33,7 @@ namespace ManhattanProject
 
 	void Manager::Draw()
 	{
-		
+
 		Game::Draw();
 	}
 

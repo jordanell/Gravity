@@ -59,8 +59,11 @@ namespace ManhattanProject
         for ( childNode = parent->FirstChild(); childNode != 0; childNode = childNode->NextSibling())
         {
             string value = childNode->Value();
+            // Go into the map
+            if(!value.compare("TileMap"))
+                childNode = childNode->FirstChild();
             // Find the layers XML node
-            if(!value.compare("Layers"))
+            else if(!value.compare("Layers"))
                 layerNode = childNode;
             else if(!value.compare("Top"))
             {
@@ -113,14 +116,14 @@ namespace ManhattanProject
             {
                 map->AddTileLayer();
                 TileLayer* LayerToAdd = map->LastAddedLayer();
-                ParseLayer(LayerToAdd, childNode);
+                ParseLayer(map, LayerToAdd, childNode);
             }
         }
 
         return map;
     }
 
-    void Serializer::ParseLayer(TileLayer* layer, TiXmlNode* parent)
+    void Serializer::ParseLayer(TileMap* map, TileLayer* layer, TiXmlNode* parent)
     {
         TiXmlNode* childNode;
 
@@ -130,13 +133,13 @@ namespace ManhattanProject
             string value = childNode->Value();
             if(!value.compare("MapObjects"))
             {
-                ParseMapObjects(layer, childNode);
+                ParseMapObjects(map, layer, childNode);
             }
         }
 
     }
 
-    void Serializer::ParseMapObjects(TileLayer* layer, TiXmlNode* parent)
+    void Serializer::ParseMapObjects(TileMap* map, TileLayer* layer, TiXmlNode* parent)
     {
         TiXmlNode* childNode;
         TiXmlAttribute* typeAttribute;
@@ -144,12 +147,12 @@ namespace ManhattanProject
         // Get all of the map objects list elements.
         for ( childNode = parent->FirstChild(); childNode != 0; childNode = childNode->NextSibling())
         {
-            typeAttribute=parent->ToElement()->FirstAttribute();
+            typeAttribute=childNode->ToElement()->FirstAttribute();
             string value = typeAttribute->Value();
             if(!value.compare("Tile"))
                 ParseTile(layer, childNode);
             else if(!value.compare("CollisionRectangle"))
-                ParseCollisionRectangle(layer, childNode);
+                ParseCollisionRectangle(map, childNode);
         }
 
     }
@@ -158,21 +161,96 @@ namespace ManhattanProject
     {
         TiXmlNode* childNode;
 
+        // Create the new tile
+        Tile* tile = new Tile(this->game);
+
         // Get all of the tile's elements.
         for ( childNode = parent->FirstChild(); childNode != 0; childNode = childNode->NextSibling())
         {
             string value = childNode->Value();
+            if(!value.compare("Description"))
+                tile->Description = childNode->ToElement()->GetText();
+            else if(!value.compare("TopLeftPosition"))
+            {
+                TiXmlNode* position = childNode->FirstChild();
+                value = position->ToElement()->GetText();
+				tile->Position.X = StringToNumber(value);
+				position = position->NextSibling();
+				value = position->ToElement()->GetText();
+				tile->Position.Y = StringToNumber(value);
+            }
+            else if(!value.compare("Rotation"))
+                tile->Rotation = StringToNumber(childNode->ToElement()->GetText());
+            else if(!value.compare("Scale"))
+            {
+                TiXmlNode* scale = childNode->FirstChild();
+                value = scale->ToElement()->GetText();
+				tile->Scale.X = StringToNumber(value);
+				scale = scale->NextSibling();
+				value = scale->ToElement()->GetText();
+				tile->Scale.Y = StringToNumber(value);
+            }
+            else if(!value.compare("zindex"))
+                tile->zindex = StringToNumber(childNode->ToElement()->GetText());
+            else if(!value.compare("TintColor"))
+            {
+                TiXmlNode* color = childNode->FirstChild();
+                value = color->ToElement()->GetText();
+				tile->TintColor.Red = StringToNumber(value);
+				color = color->NextSibling();
+				value = color->ToElement()->GetText();
+				tile->TintColor.Green = StringToNumber(value);
+				color = color->NextSibling();
+				value = color->ToElement()->GetText();
+				tile->TintColor.Blue = StringToNumber(value);
+				color = color->NextSibling();
+				value = color->ToElement()->GetText();
+				tile->TintColor.Alpha = StringToNumber(value);
+            }
+            else if(!value.compare("texture_filename"))
+                tile->Texture = game->Content->LoadTexture(childNode->ToElement()->GetText());
         }
+
+        // Add the tile to the layer
+        layer->AddTile(tile);
     }
 
-    void Serializer::ParseCollisionRectangle(TileLayer* layer, TiXmlNode* parent)
+    void Serializer::ParseCollisionRectangle(TileMap* map, TiXmlNode* parent)
     {
         TiXmlNode* childNode;
+
+        CollisionRectangle* collision = new CollisionRectangle(this->game);
 
         // Get all of the collision rectangle's elements.
         for ( childNode = parent->FirstChild(); childNode != 0; childNode = childNode->NextSibling())
         {
             string value = childNode->Value();
+            if(!value.compare("TopLeftPosition"))
+            {
+                TiXmlNode* position = childNode->FirstChild();
+                value = position->ToElement()->GetText();
+				collision->Position.X = StringToNumber(value);
+				position = position->NextSibling();
+				value = position->ToElement()->GetText();
+				collision->Position.Y = StringToNumber(value);
+            }
+            else if(!value.compare("Rotation"))
+                collision->Rotation = StringToNumber(value);
+            else if(!value.compare("Scale"))
+            {
+                TiXmlNode* scale = childNode->FirstChild();
+                value = scale->ToElement()->GetText();
+				collision->Scale.X = StringToNumber(value);
+				scale = scale->NextSibling();
+				value = scale->ToElement()->GetText();
+				collision->Scale.Y = StringToNumber(value);
+            }
+            else if(!value.compare("Width"))
+                collision->Width = StringToNumber(childNode->ToElement()->GetText());
+            else if(!value.compare("Height"))
+                collision->Width = StringToNumber(childNode->ToElement()->GetText());
         }
+
+        map->GetCollisionLayer()->AddCollision(collision);
     }
 }

@@ -15,6 +15,7 @@ namespace ManhattanProject
 	{
 		this->game = game;
 
+        this->Position = Vector2();
 		this->Height = 0;
 		this->Width = 0;
 		this->Rotation = 0;

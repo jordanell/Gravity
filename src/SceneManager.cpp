@@ -24,7 +24,7 @@ namespace ManhattanProject
 		//Always initialize to the launcher scene
         testScene = new LauncherScene(game, this);
         ActiveScene = testScene;
-        
+
 //		testScene = new GameScene(game);
 //		ActiveScene = testScene;
 
@@ -36,7 +36,7 @@ namespace ManhattanProject
         testScene = new GameScene(game, this);
         this->ActiveScene = testScene;
     }
-    
+
 	void SceneManager::Draw()
 	{
 		if(ActiveScene != NULL)

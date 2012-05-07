@@ -26,6 +26,12 @@ namespace ManhattanProject
 	}
 
 	/* Add a tile to the layer */
+	void TileLayer::AddTile(Tile* tile)
+	{
+        TileTree->InsertElement(tile, tile->Position.X, tile->Position.Y);
+	}
+
+	/* Add a tile to the layer */
 	void TileLayer::AddTile(Texture2D* tex, Vector2 scale, float rotation, Vector2 position, Color color)
 	{
 		Tile* newTile = new Tile(game, tex, scale, rotation, position, color);

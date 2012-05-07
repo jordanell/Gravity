@@ -14,6 +14,9 @@ namespace ManhattanProject
 		MapObject(game)
 	{
 		this->game = game;
+		this->Position = Vector2();
+		this->Scale = Vector2();
+		this->TintColor = Color();
 	}
 
 	Tile::Tile(Game* game, Texture2D* tex, Vector2 s, float rot, Vector2 pos, Color col):
