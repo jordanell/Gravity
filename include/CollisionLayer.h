@@ -24,6 +24,8 @@ namespace ManhattanProject
 			CollisionLayer(Game* game, GameFramework::Rectangle Size);
 
 			bool CheckCollision(GameFramework::Rectangle* rec);
+	
+			void AddCollision(CollisionRectangle* collision);
 
 			void AddCollision(Vector2 pos, int Width, int Height, float Rotation);
 

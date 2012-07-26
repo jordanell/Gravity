@@ -12,7 +12,12 @@
 #include "Scene.h"
 #include "Button.h"
 #include "SceneManager.h"
-#include "SDL_ttf.h"
+
+#ifdef __linux__
+	#include "SDL/SDL_ttf.h"
+#else
+	#include "SDL_ttf.h"
+#endif
 
 using namespace GameFramework;
 

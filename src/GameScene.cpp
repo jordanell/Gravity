@@ -20,11 +20,11 @@ namespace ManhattanProject
 		RootDirectory[sizeof(RootDirectory) -1] = '\0';
 	}
 
-    GameScene::GameScene(Game* game, SceneManager* sm):
-        Scene(game)
+    	GameScene::GameScene(Game* game, SceneManager* sm):
+        	Scene(game)
 	{
 		this->game = game;
-        this->sm = sm;
+        	this->sm = sm;
 		this->Initialize();
 
 		GetCurrentDir(RootDirectory, sizeof(RootDirectory));
@@ -40,7 +40,7 @@ namespace ManhattanProject
 	{
 		// Create the serializer and load the map
 		Serializer* ser = new Serializer(this->game);
-		Map = ser->LoadMap(this->game, "Maps/TestLevel.xml", this);
+		Map = ser->LoadMap(this->game, "Maps/Sandbox.xml", this);
 
 		// Initialize the entities here
 		player = new Player(game, this, &Map->camera);

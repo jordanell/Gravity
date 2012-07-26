@@ -21,6 +21,7 @@
 #include "Scene.h"
 #include "TileMap.h"
 #include "SceneManager.h"
+#include "Serializer.h"
 #include "tinyxml.h"
 #include "tinystr.h"
 
@@ -44,8 +45,8 @@ namespace ManhattanProject
 			char RootDirectory[FILENAME_MAX];
 			
 			GameScene(Game* game);
-            GameScene(Game* game, SceneManager* sm);
-            SceneManager* sm;
+            		GameScene(Game* game, SceneManager* sm);
+            		SceneManager* sm;
 			void Initialize();
 			
 			int StringToNumber(const string &Text);

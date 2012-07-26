@@ -24,7 +24,7 @@ namespace ManhattanProject
 		return false;
 	}
 
-    void CollisionLayer::AddCollision(CollisionRectangle* collision)
+    	void CollisionLayer::AddCollision(CollisionRectangle* collision)
 	{
 		CollisionTree->InsertElement(collision, collision->Position.X, collision->Position.Y);
 	}

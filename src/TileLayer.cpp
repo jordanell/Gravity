@@ -28,7 +28,7 @@ namespace ManhattanProject
 	/* Add a tile to the layer */
 	void TileLayer::AddTile(Tile* tile)
 	{
-        TileTree->InsertElement(tile, tile->Position.X, tile->Position.Y);
+        	TileTree->InsertElement(tile, tile->Position.X, tile->Position.Y);
 	}
 
 	/* Add a tile to the layer */

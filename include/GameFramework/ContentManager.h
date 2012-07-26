@@ -32,8 +32,8 @@
 #include "Texture2D.h"
 #include <map>
 
-#include "tinyxml.h"
-#include "tinystr.h"
+#include "../tinyxml.h"
+#include "../tinystr.h"
 
 
 namespace GameFramework

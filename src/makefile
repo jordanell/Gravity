@@ -3,7 +3,7 @@ CFLAGS=-g -c -Wall
 
 UNAME:= $(shell uname)
 ifeq ($(UNAME), Linux)
-LDFLAGS=-lSDLmain -lSDL -lGL -lSDL_image -L./GameFramework -lGameFramework -lSDL_ttf
+LDFLAGS=-L./GameFramework -lGameFramework -lSDLmain -lSDL -lGL -lSDL_image -lSDL_ttf
 else ifeq ($(UNAME), Darwin)
 LDFLAGS=-framework OpenGL -framework SDL -framework SDL_image -framework cocoa -lSDLmain -L./GameFramework -lGameFramework -lSDL_ttf
 else
@@ -11,7 +11,7 @@ LDFLAGS=-LC:\Windows\SDL-1.2.14\lib -L.\GameFramework -lGameFramework -lmingw32 
 endif
 
 ifeq ($(UNAME), Linux)
-INCLUDES=-I../include/GameFramework/ -I../include
+INCLUDES=-I../include/GameFramework/ -I../include/
 else ifeq ($(UNAME), Darwin)
 INCLUDES=-I../include/GameFramework/ -I../include/ -F/Library/Frameworks/ -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/SDL_image.framework/Headers -I/Library/Frameworks/SDL_ttf.framework/Headers
 else

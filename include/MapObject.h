@@ -35,7 +35,6 @@ namespace ManhattanProject
 			Vector2 Scale;
 			bool Visible;
 
-		private:
 			int zindex;
 	};
 }
