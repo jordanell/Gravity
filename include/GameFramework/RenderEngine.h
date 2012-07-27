@@ -11,10 +11,12 @@
 	#include "SDL/SDL.h"
 	#include "SDL/SDL_opengl.h"
 	#include "SDL/SDL_image.h"
+	#include "SDL/SDL_ttf.h"
 #else
 	#include "SDL.h"
 	#include "SDL_opengl.h"
 	#include "SDL_image.h"
+	#include "SDL_ttf.h"
 #endif
 
 #include "Texture2D.h"
@@ -40,15 +42,17 @@ namespace GameFramework
 			void Draw(Texture2D* tex, Vector2 vec, Color color, float rotation, float scale);
 			void Draw(Texture2D* tex, Vector2 vec, Rectangle source, Color color, float rotation, float scale);
 			void PostDraw();
-			
+
+			void Write(TTF_Font* font, Rectangle rec, char text[], Color color);
+
 			bool GetFullScreen();
 			int GetWidth();
 			int GetHeight();
-			
+
 			void SetCaption(const char* windowName);
 			void SetResolution(int width, int height);
 			void SetFullScreen(bool fullScreen);
-			
+
 
 		protected:
 			int Width;
@@ -56,7 +60,7 @@ namespace GameFramework
 			bool FullScreen;
 
 			void Init(const char* windowName, bool fullScreen);
-			
+
 	};
 }
 

@@ -88,4 +88,18 @@ namespace GameFramework
 	{
 		Textures.clear();
 	}
+
+	TTF_Font* ContentManager::LoadFont(const std::string &fileName, int size)
+	{
+	    std::string file = GetCurrentDir(RootDirectory, sizeof(RootDirectory));
+		file += "/../content/";
+		file += fileName;
+
+        TTF_Font* tmpfont;
+        tmpfont = TTF_OpenFont(file.c_str(), size);
+        if(tmpfont == NULL)
+            return NULL;
+        else
+            return tmpfont;
+	}
 }

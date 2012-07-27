@@ -11,10 +11,12 @@
 	#include "SDL/SDL.h"
 	#include "SDL/SDL_opengl.h"
 	#include "SDL/SDL_image.h"
+	#include "SDL/SDL_ttf.h"
 #else
 	#include "SDL.h"
 	#include "SDL_opengl.h"
 	#include "SDL_image.h"
+	#include "SDL_ttf.h"
 #endif
 
 #include <string>
@@ -48,6 +50,8 @@ namespace GameFramework
 
 			Texture2D* LoadTexture(const std::string &fileName);
 			void ClearTextureMap();
+
+			TTF_Font* LoadFont(const std::string &fileName, int size);
 
 		protected:
 			map<const std::string, Texture2D> Textures;

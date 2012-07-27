@@ -11,6 +11,8 @@
 #include "GameFramework.h"
 #include "Scene.h"
 #include "Button.h"
+#include "CheckBox.h"
+#include "DropDown.h"
 #include "SceneManager.h"
 
 #ifdef __linux__
@@ -33,6 +35,11 @@ namespace ManhattanProject
 			void Initialize();
 			void Update();
 			void Draw();
+
+			CheckBox* fullScreen;
+			CheckBox* sound;
+
+			DropDown* resolution;
 
 		protected:
 			Texture2D* background;

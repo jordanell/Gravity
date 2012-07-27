@@ -11,18 +11,24 @@ using namespace GameFramework;
 
 namespace ManhattanProject
 {
+    /*
+     * This is the function for the quit button
+     */
     void quitButtonDown(Game* game, Scene* scene)
     {
         game->Exit();
     }
-    
+
+    /*
+     * This is the function for the start button
+     */
     void startButtonDown(Game* game, Scene* scene)
     {
         LauncherScene *lscene = dynamic_cast<LauncherScene*>(scene);
         if (lscene->sm != NULL)
             lscene->sm->toGameScene();
     }
-    
+
 	LauncherScene::LauncherScene(Game* game):
 		Scene(game)
 	{
@@ -38,13 +44,23 @@ namespace ManhattanProject
         this->sm = sm;
 		this->Initialize();
 	}
-    
+
    	void LauncherScene::Initialize()
 	{
+	    // Create background image
 		background = game->Content->LoadTexture("Launcher/Wall.jpg");
+
+		// Create start and quit buttons
         startBtn = new Button(game, game->Content->LoadTexture("Launcher/startbutton.png"), float(1.0), float(0.0), Vector2(150,300), *(Color::White()), GameFramework::Rectangle(150, 300, 50, 100), this);
         quitBtn = new Button(game, game->Content->LoadTexture("Launcher/quitbutton.png"), float(1.0), float(0.0), Vector2(250,300), *(Color::White()), GameFramework::Rectangle(250, 300, 50, 100), this);
-        
+
+        // Create sound and full screen check boxes
+        fullScreen = new CheckBox(game, game->Content->LoadTexture("Launcher/startbutton.png"), float(1.0), float(0.0), Vector2(150, 100), *(Color::White()), GameFramework::Rectangle(150, 100, 50, 100), this);
+
+        // Create resolution
+        //list<string> mylist;
+        //resolution = new DropDown(game, mylist, GameFramework::Rectangle(250, 300, 50, 100), this);
+
         quitBtn->LButtonDownCallback = &quitButtonDown;
         startBtn->LButtonDownCallback = &startButtonDown;
         Scene::Initialize();
@@ -56,6 +72,8 @@ namespace ManhattanProject
 		game->Render->Draw(background, GameFramework::Rectangle(0,0,400,600), Color(255,255,255,150));
         startBtn->Draw();
         quitBtn->Draw();
+        fullScreen->Draw();
+        //resolution->Draw();
 		Scene::Draw();
 	}
 

@@ -6,12 +6,12 @@
 #include "Button.h"
 using namespace GameFramework;
 
-namespace ManhattanProject 
+namespace ManhattanProject
 {
     void DefaultFunc(Game* game, Scene* sm) {
         cout << "Default button listener";
     }
-    
+
     Button::Button(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col,
     		GameFramework::Rectangle size, Scene* scene):GuiObject(game, background, s, rot, pos, col, scene)
     {
@@ -30,7 +30,7 @@ namespace ManhattanProject
         this->LButtonDownCallback = &DefaultFunc;
 		this->Initialize();
     }
-    
+
     void Button::Initialize()
     {
 		list<Uint8> listeners;
@@ -42,7 +42,7 @@ namespace ManhattanProject
 	{
 		game->Render->Draw(background, this->position, color);
 	}
-    
+
 	void Button::Update()
 	{
 
@@ -52,10 +52,20 @@ namespace ManhattanProject
 	{
 		if (this->size.ContainsPoint(new GameFramework::Point(mX, mY)))
 		{
-			if (this->LButtonDownCallback != NULL) 
+			if (this->LButtonDownCallback != NULL)
                 this->LButtonDownCallback(game, scene);
 			return;
 		}
+	}
+
+	void Button::SetText(string text)
+	{
+	    this->text = text;
+	}
+
+	string Button::GetText()
+	{
+	    return this->text;
 	}
 
 }
