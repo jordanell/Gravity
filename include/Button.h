@@ -21,22 +21,21 @@ namespace ManhattanProject
 	{
         public:
             Button(Game* game);
-            Button(Game* game, Texture2D* background, float s, float rot,
-            		Vector2 pos, Color col, framework::Rectangle size, Scene* scene);
+            Button(Game* game, Texture2D* background, framework::Rectangle size, Scene* scene);
+            
             void Initialize();
+            
             void Update();
             void Draw();
+            
             void (*LButtonDownCallback)(Game* game, Scene* scene);
             void OnLButtonDown(int mX, int mY);
+            void OnMouseMove(int mX, int mY, int relX, int relY, bool Left,bool Right,bool Middle);
 
             void SetText(string text);
             string GetText();
 
         protected:
-            Texture2D* background;
-            Texture2D* hover;
-            Texture2D* active;
-            Scene* scene;
             string text;
 	};
 }

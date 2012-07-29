@@ -22,21 +22,25 @@ namespace ManhattanProject
     {
         public:
             GuiObject(Game* game);
-            GuiObject(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col, Scene* scene);
+            GuiObject(Game* game, Texture2D* background, framework::Rectangle size, float rotation, Color color, Scene* scene);
+            
             void Initialize();
+            
             void Update();
             void Draw(Camera camera);
-            float scale;
+            
             float rotation;
             framework::Rectangle size;
-            Vector2 position;
             Color color;
 
         protected:
             Texture2D* background;
             Texture2D* hover;
             Texture2D* active;
-            Game* game;
+            
+            bool isActive;
+            bool isHover;
+            
             Scene* scene;
     };
 }

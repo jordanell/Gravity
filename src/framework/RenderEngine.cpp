@@ -36,7 +36,7 @@ namespace framework
 			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL | SDL_FULLSCREEN);
 
         // Initialize TTF
-        //TTF_Init();
+        TTF_Init();
 
 
 		glClearColor(0,0,0,1); 				//RGB Alpha
@@ -276,25 +276,60 @@ namespace framework
 		else
 			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL | SDL_FULLSCREEN);
 	}
+	
+	int RenderEngine::ConvertTextToTexture(SDL_Surface *surface)
+	{
+	    GLuint texture;
+	 
+	    if(surface)
+	    {
+	        glGenTextures(1, &texture);
+	        glBindTexture(GL_TEXTURE_2D, texture);
+	 
+	        glTexImage2D(GL_TEXTURE_2D, 0, 3, surface->w, surface->h,
+				0, GL_RGB, GL_UNSIGNED_BYTE, surface->pixels);
+	 
+	        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	        
+	        SDL_FreeSurface(surface);
+	    }
+	    else
+	    {
+	        SDL_Quit();
+	        exit(-1);
+	    }
+	 
+	    return texture;
+	}
 
     void RenderEngine::Write(TTF_Font* font, Rectangle rec, char text[], Color color)
     {
-        SDL_Color textColor = {color.Red, color.Green, color.Blue};
-        SDL_Surface* message = TTF_RenderText_Blended(font, text, textColor);
-        unsigned Texture = 0;
+		SDL_Color sColor = {color.Red, color.Green, color.Blue, color.Alpha};
+		SDL_Surface* message = TTF_RenderText_Blended(font, text, sColor);
+		message = SDL_DisplayFormatAlpha(message);
+		
+		unsigned object(0);
+		glGenTextures(1, &object);
+		glBindTexture(GL_TEXTURE_2D, object);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	  	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	  	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	  	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, message->w, message->h, 0, GL_BGRA, GL_UNSIGNED_BYTE, message->pixels);
+		
+		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, object);
 
-        glGenTextures(1, &Texture);
-        glBindTexture(GL_TEXTURE_2D, Texture);
-        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, message->w, message->h, 0, GL_BGRA, GL_UNSIGNED_BYTE, message->pixels);
-
-        /*Draw this texture on a quad with the given xyz coordinates.*/
-        glBegin(GL_QUADS);
-        glTexCoord2d(0, 0); glVertex3d(rec.X, rec.Y, 0);
-        glTexCoord2d(1, 0); glVertex3d(rec.X+message->w, rec.Y, 0);
-        glTexCoord2d(1, 1); glVertex3d(rec.X+message->w, rec.Y+message->h, 0);
-        glTexCoord2d(0, 1); glVertex3d(rec.X, rec.Y+message->h, 0);
-        glEnd();
+		glBegin(GL_QUADS);
+		glTexCoord2d(0,0);glVertex2f(rec.X, rec.Y);
+		glTexCoord2d(1,0);glVertex2f(rec.X+rec.Width, rec.Y);
+		glTexCoord2d(1,1);glVertex2f(rec.X+rec.Width, rec.Y+rec.Height);
+		glTexCoord2d(0,1);glVertex2f(rec.X, rec.Y+rec.Height);
+		glEnd();
+		glDisable(GL_TEXTURE_2D);
+		
+		SDL_FreeSurface(message);
     }
 }

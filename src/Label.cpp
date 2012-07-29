@@ -21,12 +21,12 @@ namespace ManhattanProject
 
     void Label::Initialize()
     {
-        font = game->Content->LoadFont("Fonts/CathedralNormal.ttf", 20);
+        font = game->Content->LoadFont("Fonts/TanglewoodTales.ttf", 24);
     }
 
     void Label::Draw()
 	{
-        game->Render->Write(font, size, "800 X 600", color);
+        game->Render->Write(font, size, "Testing Text", color);
 	}
 
 	void Label::Update()

@@ -12,6 +12,7 @@
 #include "Scene.h"
 #include "Button.h"
 #include "CheckBox.h"
+#include "Label.h"
 #include "DropDown.h"
 #include "SceneManager.h"
 
@@ -32,15 +33,21 @@ namespace ManhattanProject
 		public:
 			LauncherScene(Game* game);
             LauncherScene(Game* game, SceneManager* sm);
-            SceneManager* sm;
+             
 			void Initialize();
+			
 			void Update();
 			void Draw();
 
 			CheckBox* fullScreen;
+			Label* fullScreenLabel;
+			
 			CheckBox* sound;
+			//Label* soundLabel;
 
 			DropDown* resolution;
+			
+			SceneManager* sm;
 
 		protected:
 			Texture2D* background;

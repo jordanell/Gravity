@@ -42,6 +42,7 @@ namespace ManhattanProject
 	{
 		this->game = game;
         this->sm = sm;
+        
 		this->Initialize();
 	}
 
@@ -51,15 +52,14 @@ namespace ManhattanProject
 		background = game->Content->LoadTexture("Launcher/Wall.jpg");
 
 		// Create start and quit buttons
-        startBtn = new Button(game, game->Content->LoadTexture("Launcher/startbutton.png"), float(1.0), float(0.0), Vector2(150,300), *(Color::White()), framework::Rectangle(150, 300, 100, 50), this);
-        quitBtn = new Button(game, game->Content->LoadTexture("Launcher/quitbutton.png"), float(1.0), float(0.0), Vector2(250,300), *(Color::White()), framework::Rectangle(250, 300, 100, 50), this);
+        startBtn = new Button(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(450, 345, 100, 50), this);
+        quitBtn = new Button(game, game->Content->LoadTexture("Launcher/quitbutton.png"), framework::Rectangle(340, 345, 100, 50), this);
 
         // Create sound and full screen check boxes
-        fullScreen = new CheckBox(game, game->Content->LoadTexture("Launcher/startbutton.png"), float(1.0), float(0.0), Vector2(150, 100), *(Color::White()), framework::Rectangle(150, 100, 100, 50), this);
-
-        // Create resolution
-        //list<string> mylist;
-        //resolution = new DropDown(game, mylist, framework::Rectangle(250, 300, 100, 50), this);
+        fullScreen = new CheckBox(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(50, 260, 30, 30), this);
+        fullScreenLabel = new Label(game, "test", Color(255, 0, 0, 255), framework::Rectangle(50, 50, 400, 100), this);
+		sound = new CheckBox(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(50, 300, 30, 30), this);
+		
 
         quitBtn->LButtonDownCallback = &quitButtonDown;
         startBtn->LButtonDownCallback = &startButtonDown;
@@ -73,7 +73,9 @@ namespace ManhattanProject
         startBtn->Draw();
         quitBtn->Draw();
         fullScreen->Draw();
-        //resolution->Draw();
+        fullScreenLabel->Draw();
+        sound->Draw();
+        
 		Scene::Draw();
 	}
 

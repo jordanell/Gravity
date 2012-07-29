@@ -21,20 +21,19 @@ namespace ManhattanProject
 	{
         public:
             CheckBox(Game* game);
-            CheckBox(Game* game, Texture2D* box, float s, float rot,
-            		Vector2 pos, Color col, framework::Rectangle size, Scene* scene);
+            CheckBox(Game* game, Texture2D* background, framework::Rectangle size, Scene* scene);
+            
             void Initialize();
+            
             void Update();
             void Draw();
+            
             void OnLButtonDown(int mX, int mY);
             void OnMouseMove(int mX, int mY, int relX, int relY, bool Left,bool Right,bool Middle);
-
-            bool isChecked;
-            bool isActive;
+            
+            bool IsActive();
 
         protected:
-            Texture2D* box;
-            Texture2D* hover;
             Texture2D* check;
             Scene* scene;
 

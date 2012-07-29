@@ -12,19 +12,16 @@ namespace ManhattanProject
         cout << "Default button listener";
     }
 
-    Button::Button(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col,
-    		framework::Rectangle size, Scene* scene):GuiObject(game, background, s, rot, pos, col, scene)
+    Button::Button(Game* game, Texture2D* background, framework::Rectangle size, Scene* scene):
+		GuiObject(game)
     {
         this->game = game;
+        
 		if (background == NULL)
-			// This is a standard button.
 			this->background = game->Content->LoadTexture("/../content/Form/StandardButton.jpg");
 		else
 			this->background = background;
-		this->scale = s;
-		this->rotation = rot;
-		this->position = pos;
-		this->color = col;
+			
 		this->size = size;
 		this->scene = scene;
         this->LButtonDownCallback = &DefaultFunc;
@@ -35,12 +32,19 @@ namespace ManhattanProject
     {
 		list<Uint8> listeners;
 		listeners.push_back(SDL_MOUSEBUTTONDOWN);
+		listeners.push_back(SDL_MOUSEMOTION);
 		scene->AddListener(this, listeners);
+		
+		this->color = Color(255, 255, 255, 255);
+		
+		hover = game->Content->LoadTexture("Launcher/button2.png");
     }
 
     void Button::Draw()
 	{
-		game->Render->Draw(background, this->position, color);
+		game->Render->Draw(background, this->size, color);
+		if(isActive)
+            game->Render->Draw(hover, size, color);
 	}
 
 	void Button::Update()
@@ -66,6 +70,14 @@ namespace ManhattanProject
 	string Button::GetText()
 	{
 	    return this->text;
+	}
+	
+	void Button::OnMouseMove(int mX, int mY, int relX, int relY, bool Left,bool Right,bool Middle)
+	{
+        if (this->size.ContainsPoint(new framework::Point(mX, mY)))
+			isActive = true;
+		else
+            isActive = false;
 	}
 
 }

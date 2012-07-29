@@ -98,7 +98,9 @@ namespace framework
         TTF_Font* tmpfont;
         tmpfont = TTF_OpenFont(file.c_str(), size);
         if(tmpfont == NULL)
-            return NULL;
+        {
+			throw Exception("File does not exist", 200, __FILE__, __LINE__);
+		}
         else
             return tmpfont;
 	}

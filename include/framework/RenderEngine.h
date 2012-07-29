@@ -24,6 +24,8 @@
 #include "Color.h"
 #include "Vector2.h"
 
+#include <math.h>
+
 namespace framework
 {
 	class RenderEngine
@@ -59,6 +61,7 @@ namespace framework
 			bool FullScreen;
 
 			void Init(const char* windowName, bool fullScreen);
+			int ConvertTextToTexture(SDL_Surface *surface);
 
 	};
 }
