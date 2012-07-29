@@ -25,7 +25,7 @@ namespace ManhattanProject
 		this->Columns = Columns;
 		this->FramesPerSecond = FramesPerSecond;
 
-		this->Source = framework::Rectangle(0, 0, Texture->Height, Texture->Width);
+		this->Source = framework::Rectangle(0, 0, Texture->Width, Texture->Height);
 		CurrentRow = 0;
 		CurrentColumn = 0;
 	}

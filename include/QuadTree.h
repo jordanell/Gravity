@@ -107,7 +107,7 @@ namespace ManhattanProject
 
 	template <class T> QuadTree<T>::QuadTree()
 	{
-		Root = new QuadNode<T>(framework::Rectangle(0,0,400,600));
+		Root = new QuadNode<T>(framework::Rectangle(0,0,600,400));
 	}
 
 	template <class T> QuadTree<T>::QuadTree(int height, int width, int x, int y, int size)
@@ -119,7 +119,7 @@ namespace ManhattanProject
 		this->MinSize = size;
 
 		//Initialize the root node
-		this->Root = new QuadNode<T>(framework::Rectangle(this->X, this->Y, this->Height, this->Width));
+		this->Root = new QuadNode<T>(framework::Rectangle(this->X, this->Y, this->Width, this->Height));
 		BuildTree(this->Root);
 	}
 	
@@ -135,19 +135,19 @@ namespace ManhattanProject
 		if(root->Position.Width * root->Position.Height > this->MinSize)
 		{
 			//Top left recursion
-			root->TopLeft = new QuadNode<T>(framework::Rectangle(root->Position.X, root->Position.Y, root->Position.Height/2, root->Position.Width/2));
+			root->TopLeft = new QuadNode<T>(framework::Rectangle(root->Position.X, root->Position.Y, root->Position.Width/2, root->Position.Height/2));
 			BuildTree(root->TopLeft);
 
 			//Top right recursion
-			root->TopRight = new QuadNode<T>(framework::Rectangle(root->Position.X+root->Position.Width/2, root->Position.Y, root->Position.Height/2, root->Position.Width/2));
+			root->TopRight = new QuadNode<T>(framework::Rectangle(root->Position.X+root->Position.Width/2, root->Position.Y, root->Position.Width/2, root->Position.Height/2));
 			BuildTree(root->TopRight);
 
 			//Bottom right recursion
-			root->BottomRight = new QuadNode<T>(framework::Rectangle(root->Position.X+root->Position.Width/2, root->Position.Y+root->Position.Height/2, root->Position.Height/2, root->Position.Width/2));
+			root->BottomRight = new QuadNode<T>(framework::Rectangle(root->Position.X+root->Position.Width/2, root->Position.Y+root->Position.Height/2, root->Position.Width/2, root->Position.Height/2));
 			BuildTree(root->BottomRight);
 
 			//Bottom left recursion
-			root->BottomLeft = new QuadNode<T>(framework::Rectangle(root->Position.X, root->Position.Y+root->Position.Height/2, root->Position.Height/2, root->Position.Width/2));
+			root->BottomLeft = new QuadNode<T>(framework::Rectangle(root->Position.X, root->Position.Y+root->Position.Height/2, root->Position.Width/2, root->Position.Height/2));
 			BuildTree(root->BottomLeft);
 		}
 		return;
@@ -216,7 +216,7 @@ namespace ManhattanProject
 
 	template <class T> list<T> QuadTree<T>::GetElements(framework::Rectangle rec)
 	{
-		list<T> components = RecursiveGetElements(framework::Rectangle(rec.X-MAX_TILE_WIDTH, rec.Y-MAX_TILE_HEIGHT, rec.Height+MAX_TILE_HEIGHT, rec.Width+MAX_TILE_WIDTH), this->Root);
+		list<T> components = RecursiveGetElements(framework::Rectangle(rec.X-MAX_TILE_WIDTH, rec.Y-MAX_TILE_HEIGHT, rec.Width+MAX_TILE_WIDTH, rec.Height+MAX_TILE_HEIGHT), this->Root);
 
 		return components;
 	}

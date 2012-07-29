@@ -51,15 +51,15 @@ namespace ManhattanProject
 		background = game->Content->LoadTexture("Launcher/Wall.jpg");
 
 		// Create start and quit buttons
-        startBtn = new Button(game, game->Content->LoadTexture("Launcher/startbutton.png"), float(1.0), float(0.0), Vector2(150,300), *(Color::White()), framework::Rectangle(150, 300, 50, 100), this);
-        quitBtn = new Button(game, game->Content->LoadTexture("Launcher/quitbutton.png"), float(1.0), float(0.0), Vector2(250,300), *(Color::White()), framework::Rectangle(250, 300, 50, 100), this);
+        startBtn = new Button(game, game->Content->LoadTexture("Launcher/startbutton.png"), float(1.0), float(0.0), Vector2(150,300), *(Color::White()), framework::Rectangle(150, 300, 100, 50), this);
+        quitBtn = new Button(game, game->Content->LoadTexture("Launcher/quitbutton.png"), float(1.0), float(0.0), Vector2(250,300), *(Color::White()), framework::Rectangle(250, 300, 100, 50), this);
 
         // Create sound and full screen check boxes
-        fullScreen = new CheckBox(game, game->Content->LoadTexture("Launcher/startbutton.png"), float(1.0), float(0.0), Vector2(150, 100), *(Color::White()), framework::Rectangle(150, 100, 50, 100), this);
+        fullScreen = new CheckBox(game, game->Content->LoadTexture("Launcher/startbutton.png"), float(1.0), float(0.0), Vector2(150, 100), *(Color::White()), framework::Rectangle(150, 100, 100, 50), this);
 
         // Create resolution
         //list<string> mylist;
-        //resolution = new DropDown(game, mylist, framework::Rectangle(250, 300, 50, 100), this);
+        //resolution = new DropDown(game, mylist, framework::Rectangle(250, 300, 100, 50), this);
 
         quitBtn->LButtonDownCallback = &quitButtonDown;
         startBtn->LButtonDownCallback = &startButtonDown;
@@ -69,7 +69,7 @@ namespace ManhattanProject
 	void LauncherScene::Draw()
 	{
 		//Draw the background texture
-		game->Render->Draw(background, framework::Rectangle(0,0,400,600), Color(255,255,255,150));
+		game->Render->Draw(background, framework::Rectangle(0,0,600,400), Color(255,255,255,150));
         startBtn->Draw();
         quitBtn->Draw();
         fullScreen->Draw();

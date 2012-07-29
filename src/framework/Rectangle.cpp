@@ -16,12 +16,12 @@ namespace framework
 		Width = 0;
 	}
 
-	Rectangle::Rectangle(int X, int Y, int Height, int Width)
+	Rectangle::Rectangle(int X, int Y, int Width, int Height)
 	{
 		this->X = X;
 		this->Y = Y;
-		this->Height = Height;
 		this->Width = Width;
+		this->Height = Height;
 	}
 
 	//Returns the bottom location of a rectangle

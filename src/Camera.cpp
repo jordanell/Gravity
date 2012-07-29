@@ -27,7 +27,7 @@ namespace ManhattanProject
 
 	framework::Rectangle Camera::GetRectangle()
 	{
-		framework::Rectangle rectangle(Position.X, Position.Y, Size.Y, Size.X);
+		framework::Rectangle rectangle(Position.X, Position.Y, Size.X, Size.Y);
 		return rectangle;
 	}
 }

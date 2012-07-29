@@ -20,7 +20,7 @@ namespace framework
 			int Width;
 
 			Rectangle();
-			Rectangle(int X, int Y, int Height, int Width);
+			Rectangle(int X, int Y, int Width, int Height);
 		
 			int Bottom();
 			int Left();

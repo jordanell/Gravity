@@ -16,7 +16,7 @@ namespace ManhattanProject
     		framework::Rectangle size, Scene* scene):GuiObject(game, background, s, rot, pos, col, scene)
     {
         this->game = game;
-			if (background == NULL)
+		if (background == NULL)
 			// This is a standard button.
 			this->background = game->Content->LoadTexture("/../content/Form/StandardButton.jpg");
 		else
