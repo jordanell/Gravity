@@ -7,7 +7,7 @@
 #ifndef LABEL_H
 #define LABEL_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "GuiObject.h"
 #include "Scene.h"
 #include <list>
@@ -19,7 +19,7 @@
 	#include "SDL_ttf.h"
 #endif
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -27,7 +27,7 @@ namespace ManhattanProject
 	{
         public:
             Label(Game* game);
-            Label(Game* game, string text, Color color, GameFramework::Rectangle size, Scene* scene);
+            Label(Game* game, string text, Color color, framework::Rectangle size, Scene* scene);
             void Initialize();
 
             void Update();

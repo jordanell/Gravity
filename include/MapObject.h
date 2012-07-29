@@ -9,11 +9,11 @@
 #ifndef MAPOBJECT_H
 #define MAPOBJECT_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "Camera.h"
 #include <string>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

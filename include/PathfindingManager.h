@@ -8,13 +8,13 @@
 #ifndef PATHFINDINGMANAGER_H
 #define PATHFINDINGMANAGER_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "Entity.h"
 #include "PathfindingObject.h"
 #include "CollisionRectangle.h"
 #include <list>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

@@ -6,7 +6,7 @@
 
 #include "Entity.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -31,9 +31,9 @@ namespace ManhattanProject
 	
 	}
 	
-	GameFramework::Rectangle Entity::GetCollisionRectangle()
+	framework::Rectangle Entity::GetCollisionRectangle()
 	{
-		return GameFramework::Rectangle();
+		return framework::Rectangle();
 	}
 }
 

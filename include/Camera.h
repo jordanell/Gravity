@@ -8,9 +8,9 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "GameFramework.h"
+#include "framework.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -23,7 +23,7 @@ namespace ManhattanProject
 		Vector2 Position;
 		Vector2 Size;
 
-		GameFramework::Rectangle GetRectangle();
+		framework::Rectangle GetRectangle();
 	};
 }
 

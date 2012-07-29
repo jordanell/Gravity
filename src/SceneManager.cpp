@@ -8,7 +8,7 @@
 #include <iostream>
 
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

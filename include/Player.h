@@ -8,14 +8,14 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "Entity.h"
 #include "Camera.h"
 #include "InputEvent.h"
 #include "Scene.h"
 #include <list>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

@@ -9,11 +9,11 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "SceneManager.h"
 #include "InputManager.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

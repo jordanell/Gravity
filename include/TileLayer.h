@@ -8,7 +8,7 @@
 #ifndef TILELAYER_H
 #define TILELAYER_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "MapObject.h"
 #include "QuadTree.h"
 #include "Tile.h"
@@ -18,14 +18,14 @@
 #include "Camera.h"
 #include <list>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
 	class TileLayer
 	{
 		public:
-			TileLayer(Game* game, GameFramework::Rectangle rec);
+			TileLayer(Game* game, framework::Rectangle rec);
 
 			~TileLayer();
 
@@ -44,7 +44,7 @@ namespace ManhattanProject
 		protected:
 			Game* game;
 
-			GameFramework::Rectangle Size;
+			framework::Rectangle Size;
 			QuadTree<MapObject*>* TileTree;
 			list<MapObject*> DrawingTiles;
 			bool debugging;

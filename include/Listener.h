@@ -9,10 +9,10 @@
 #ifndef LISTENER_H
 #define LISTENER_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include <list>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

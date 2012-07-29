@@ -8,10 +8,10 @@
 #ifndef PATHFINDINGOBJECT_H
 #define PATHFINDINGOBJECT_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "Entity.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

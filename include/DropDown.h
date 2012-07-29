@@ -7,7 +7,7 @@
 #ifndef DROPDOWN_H
 #define DROPDOWN_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "GuiObject.h"
 #include "InputEvent.h"
 #include "Button.h"
@@ -16,7 +16,7 @@
 #include <list>
 #include <string>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -24,7 +24,7 @@ namespace ManhattanProject
 	{
         public:
             DropDown(Game* game);
-            DropDown(Game* game, list<string> items, GameFramework::Rectangle size, Scene* scene);
+            DropDown(Game* game, list<string> items, framework::Rectangle size, Scene* scene);
             void Initialize();
 
             void CreateList();

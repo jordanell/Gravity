@@ -9,7 +9,7 @@
 #include <iostream>
 #include "GuiObject.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

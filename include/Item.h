@@ -8,12 +8,12 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "Camera.h"
 #include "MapObject.h"
 #include <string>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

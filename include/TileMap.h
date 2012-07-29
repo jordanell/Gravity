@@ -8,7 +8,7 @@
 #ifndef TILEMAP_H
 #define TILEMAP_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "TileLayer.h"
 #include "CollisionLayer.h"
 #include "InputEvent.h"
@@ -17,7 +17,7 @@
 #include <list>
 #include <string>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -28,7 +28,7 @@ namespace ManhattanProject
 			SDL_Event event;
 
 			TileMap(Game* game);
-			TileMap(Game* game, Scene* scene, Camera camera, GameFramework::Rectangle Size);
+			TileMap(Game* game, Scene* scene, Camera camera, framework::Rectangle Size);
 
 			~TileMap();
 
@@ -42,7 +42,7 @@ namespace ManhattanProject
 			TileLayer* LastAddedLayer();
 			CollisionLayer* GetCollisionLayer();
 
-			void SetSize(GameFramework::Rectangle Size);
+			void SetSize(framework::Rectangle Size);
 
 			void PrintLayers();
 			void Debugging();
@@ -53,7 +53,7 @@ namespace ManhattanProject
 		protected:
 			list<TileLayer*> layers;
 			CollisionLayer* collisionLayer;
-			GameFramework::Rectangle Size;
+			framework::Rectangle Size;
 
 			bool debugging;
 	};

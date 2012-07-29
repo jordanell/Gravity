@@ -9,12 +9,12 @@
 #ifndef GUIOBJECT_H
 #define GUIOBJECT_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "Camera.h"
 #include "DrawableGameComponent.h"
 #include "Scene.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -28,7 +28,7 @@ namespace ManhattanProject
             void Draw(Camera camera);
             float scale;
             float rotation;
-            GameFramework::Rectangle size;
+            framework::Rectangle size;
             Vector2 position;
             Color color;
 

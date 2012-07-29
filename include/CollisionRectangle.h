@@ -8,11 +8,11 @@
 #ifndef COLLISIONRECTANGLE_H
 #define COLLISIONRECTANGLE_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "MapObject.h"
 #include "Camera.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

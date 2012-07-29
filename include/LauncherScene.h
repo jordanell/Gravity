@@ -8,7 +8,7 @@
 #ifndef LAUNCHERSCENE_H
 #define LAUNCHERSCENE_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "Scene.h"
 #include "Button.h"
 #include "CheckBox.h"
@@ -21,11 +21,12 @@
 	#include "SDL_ttf.h"
 #endif
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
     class SceneManager;class Button;
+    
 	class LauncherScene: public Scene
 	{
 		public:

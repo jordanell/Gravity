@@ -8,10 +8,10 @@
  #ifndef GAMESCENEINPUT_H
  #define GAMESCENEINPUT_H
  
- #include "GameFramework.h"
+ #include "framework.h"
  #include "GameScene.h"
  
- using namespace GameFramework;
+ using namespace framework;
  
  namespace ManhattanProject
  {

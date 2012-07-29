@@ -7,13 +7,13 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "GuiObject.h"
 #include "InputEvent.h"
 #include "Scene.h"
 #include <list>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -22,7 +22,7 @@ namespace ManhattanProject
         public:
             Button(Game* game);
             Button(Game* game, Texture2D* background, float s, float rot,
-            		Vector2 pos, Color col, GameFramework::Rectangle size, Scene* scene);
+            		Vector2 pos, Color col, framework::Rectangle size, Scene* scene);
             void Initialize();
             void Update();
             void Draw();

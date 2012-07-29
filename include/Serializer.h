@@ -8,13 +8,13 @@
 #ifndef SERIALIZER_H
 #define SERIALIZER_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "TileMap.h"
 #include "TileLayer.h"
 #include "Camera.h"
 #include "Scene.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

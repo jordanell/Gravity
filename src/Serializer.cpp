@@ -6,7 +6,7 @@
 
 #include "Serializer.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -89,7 +89,7 @@ namespace ManhattanProject
 
         // Now that the variables are set we can create the map
         TileMap* map = new TileMap(game, scene, Camera(Vector2(0, 0), Vector2(game->Render->GetWidth(), game->Render->GetHeight())),
-                                   GameFramework::Rectangle(Left-MAX_TEXTURE_WIDTH,Top-MAX_TEXTURE_HEIGHT,Bottom+MAX_TEXTURE_HEIGHT,Right+MAX_TEXTURE_WIDTH));
+                                   framework::Rectangle(Left-MAX_TEXTURE_WIDTH,Top-MAX_TEXTURE_HEIGHT,Bottom+MAX_TEXTURE_HEIGHT,Right+MAX_TEXTURE_WIDTH));
 
         // Now parse the layers in the layers node
         map = ParseLayers(map, layerNode);

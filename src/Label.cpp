@@ -4,11 +4,11 @@
 
 #include <iostream>
 #include "Label.h"
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
-    Label::Label(Game* game, string text, Color color, GameFramework::Rectangle size, Scene* scene):
+    Label::Label(Game* game, string text, Color color, framework::Rectangle size, Scene* scene):
         GuiObject(game)
     {
         this->game = game;

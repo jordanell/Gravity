@@ -7,7 +7,7 @@
 
 #include "Player.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -46,7 +46,7 @@ namespace ManhattanProject
 	void Player::Draw()
 	{
 		// This is a temporary player for testing!
-		game->Render->Draw(NULL, GameFramework::Rectangle(game->Render->GetWidth()/2 - 30, game->Render->GetHeight()/2 - 30, 60, 60), Color(0,0,255,255));
+		game->Render->Draw(NULL, framework::Rectangle(game->Render->GetWidth()/2 - 30, game->Render->GetHeight()/2 - 30, 60, 60), Color(0,0,255,255));
 	}
 }
 

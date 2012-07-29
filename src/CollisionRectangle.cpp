@@ -6,7 +6,7 @@
 
 #include "CollisionRectangle.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -46,6 +46,6 @@ namespace ManhattanProject
 	void CollisionRectangle::Draw(Camera camera)
 	{
 		// Draw this collision
-		game->Render->Draw(NULL, GameFramework::Rectangle(Position.X-camera.Position.X, Position.Y-camera.Position.Y, Height, Width), Color(255,0,0,125));
+		game->Render->Draw(NULL, framework::Rectangle(Position.X-camera.Position.X, Position.Y-camera.Position.Y, Height, Width), Color(255,0,0,125));
 	}
 }

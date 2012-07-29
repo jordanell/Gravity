@@ -8,14 +8,14 @@
 #ifndef CONTAINER_H
 #define CONTAINER_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "Camera.h"
 #include "Item.h"
 #include "MapObject.h"
 #include <list>
 #include <string>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

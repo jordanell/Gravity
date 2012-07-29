@@ -8,13 +8,13 @@
 #ifndef QUADTREE_H
 #define QUADTREE_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "Camera.h"
 #include "GameDefines.h"
 #include <list>
 #include <iostream>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -26,10 +26,10 @@ namespace ManhattanProject
 			QuadNode<T>* BottomRight;
 			QuadNode<T>* BottomLeft;
 			list<T> Collection;
-			GameFramework::Rectangle Position;
+			framework::Rectangle Position;
 
 			QuadNode();
-			QuadNode(GameFramework::Rectangle rec);
+			QuadNode(framework::Rectangle rec);
 
 			~QuadNode();
 	};
@@ -47,7 +47,7 @@ namespace ManhattanProject
 			QuadTree(int height, int width, int x, int y, int size);
 
 			void InsertElement(T element, int x, int y);
-			list<T> GetElements(GameFramework::Rectangle rec);
+			list<T> GetElements(framework::Rectangle rec);
 
 			void PrintTree();
 			
@@ -60,7 +60,7 @@ namespace ManhattanProject
 
 			QuadNode<T>* RecursiveInsert(QuadNode<T>* root, int x, int y);
 
-			list<T> RecursiveGetElements(GameFramework::Rectangle rec, QuadNode<T>* root);
+			list<T> RecursiveGetElements(framework::Rectangle rec, QuadNode<T>* root);
 			list<T> AddElements(QuadNode<T>* root);
 
 			bool PointInNode(int x, int y, QuadNode<T>* node);
@@ -80,7 +80,7 @@ namespace ManhattanProject
 		BottomLeft = NULL;
 	}
 
-	template <class T> QuadNode<T>::QuadNode(GameFramework::Rectangle rec)
+	template <class T> QuadNode<T>::QuadNode(framework::Rectangle rec)
 	{
 		this->Position.Height = rec.Height;
 		this->Position.Width = rec.Width;
@@ -107,7 +107,7 @@ namespace ManhattanProject
 
 	template <class T> QuadTree<T>::QuadTree()
 	{
-		Root = new QuadNode<T>(GameFramework::Rectangle(0,0,400,600));
+		Root = new QuadNode<T>(framework::Rectangle(0,0,400,600));
 	}
 
 	template <class T> QuadTree<T>::QuadTree(int height, int width, int x, int y, int size)
@@ -119,7 +119,7 @@ namespace ManhattanProject
 		this->MinSize = size;
 
 		//Initialize the root node
-		this->Root = new QuadNode<T>(GameFramework::Rectangle(this->X, this->Y, this->Height, this->Width));
+		this->Root = new QuadNode<T>(framework::Rectangle(this->X, this->Y, this->Height, this->Width));
 		BuildTree(this->Root);
 	}
 	
@@ -135,19 +135,19 @@ namespace ManhattanProject
 		if(root->Position.Width * root->Position.Height > this->MinSize)
 		{
 			//Top left recursion
-			root->TopLeft = new QuadNode<T>(GameFramework::Rectangle(root->Position.X, root->Position.Y, root->Position.Height/2, root->Position.Width/2));
+			root->TopLeft = new QuadNode<T>(framework::Rectangle(root->Position.X, root->Position.Y, root->Position.Height/2, root->Position.Width/2));
 			BuildTree(root->TopLeft);
 
 			//Top right recursion
-			root->TopRight = new QuadNode<T>(GameFramework::Rectangle(root->Position.X+root->Position.Width/2, root->Position.Y, root->Position.Height/2, root->Position.Width/2));
+			root->TopRight = new QuadNode<T>(framework::Rectangle(root->Position.X+root->Position.Width/2, root->Position.Y, root->Position.Height/2, root->Position.Width/2));
 			BuildTree(root->TopRight);
 
 			//Bottom right recursion
-			root->BottomRight = new QuadNode<T>(GameFramework::Rectangle(root->Position.X+root->Position.Width/2, root->Position.Y+root->Position.Height/2, root->Position.Height/2, root->Position.Width/2));
+			root->BottomRight = new QuadNode<T>(framework::Rectangle(root->Position.X+root->Position.Width/2, root->Position.Y+root->Position.Height/2, root->Position.Height/2, root->Position.Width/2));
 			BuildTree(root->BottomRight);
 
 			//Bottom left recursion
-			root->BottomLeft = new QuadNode<T>(GameFramework::Rectangle(root->Position.X, root->Position.Y+root->Position.Height/2, root->Position.Height/2, root->Position.Width/2));
+			root->BottomLeft = new QuadNode<T>(framework::Rectangle(root->Position.X, root->Position.Y+root->Position.Height/2, root->Position.Height/2, root->Position.Width/2));
 			BuildTree(root->BottomLeft);
 		}
 		return;
@@ -214,14 +214,14 @@ namespace ManhattanProject
 			return false;
 	}
 
-	template <class T> list<T> QuadTree<T>::GetElements(GameFramework::Rectangle rec)
+	template <class T> list<T> QuadTree<T>::GetElements(framework::Rectangle rec)
 	{
-		list<T> components = RecursiveGetElements(GameFramework::Rectangle(rec.X-MAX_TILE_WIDTH, rec.Y-MAX_TILE_HEIGHT, rec.Height+MAX_TILE_HEIGHT, rec.Width+MAX_TILE_WIDTH), this->Root);
+		list<T> components = RecursiveGetElements(framework::Rectangle(rec.X-MAX_TILE_WIDTH, rec.Y-MAX_TILE_HEIGHT, rec.Height+MAX_TILE_HEIGHT, rec.Width+MAX_TILE_WIDTH), this->Root);
 
 		return components;
 	}
 
-	template <class T> list<T> QuadTree<T>::RecursiveGetElements(GameFramework::Rectangle rec, QuadNode<T>* root)
+	template <class T> list<T> QuadTree<T>::RecursiveGetElements(framework::Rectangle rec, QuadNode<T>* root)
 	{
 		list<T> components;
 		list<T> recursiveComponents;

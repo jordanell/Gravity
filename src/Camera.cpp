@@ -6,7 +6,7 @@
 
 #include "Camera.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -25,9 +25,9 @@ namespace ManhattanProject
 		Size = size;
 	}
 
-	GameFramework::Rectangle Camera::GetRectangle()
+	framework::Rectangle Camera::GetRectangle()
 	{
-		GameFramework::Rectangle rectangle(Position.X, Position.Y, Size.Y, Size.X);
+		framework::Rectangle rectangle(Position.X, Position.Y, Size.Y, Size.X);
 		return rectangle;
 	}
 }

@@ -8,12 +8,12 @@
 #ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "Scene.h"
 #include "LauncherScene.h"
 #include "GameScene.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

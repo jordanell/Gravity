@@ -6,11 +6,11 @@
 
 #include "CollisionLayer.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
-	CollisionLayer::CollisionLayer(Game* game, GameFramework::Rectangle Size)
+	CollisionLayer::CollisionLayer(Game* game, framework::Rectangle Size)
 	{
 		this->game = game;
 		this->Size = Size;
@@ -19,7 +19,7 @@ namespace ManhattanProject
 		CollisionTree = new QuadTree<CollisionRectangle*>(Size.Height, Size.Width, Size.X, Size.Y, DEFAULT_QUADTREE_RECT);
 	}
 
-	bool CollisionLayer::CheckCollision(GameFramework::Rectangle* rec)
+	bool CollisionLayer::CheckCollision(framework::Rectangle* rec)
 	{
 		return false;
 	}

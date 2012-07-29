@@ -9,34 +9,34 @@
 #ifndef TILE_H
 #define TILE_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "Camera.h"
 #include "MapObject.h"
 #include <string>
 #include <list>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
 	class Tile: public MapObject
 	{
-	public:
-		Tile(Game* game);
-		Tile(Game* game, Texture2D* tex, Vector2 s, float rot, Vector2 pos, Color col);
+		public:
+			Tile(Game* game);
+			Tile(Game* game, Texture2D* tex, Vector2 s, float rot, Vector2 pos, Color col);
 
-		void Update();
-		void Draw(Camera camera);
+			void Update();
+			void Draw(Camera camera);
 
-        Texture2D* Texture;
-		Color TintColor;
-		bool FlipHorizontally;
-		bool FlipVertically;
-		list<string> ItemNames;
+			Texture2D* Texture;
+			Color TintColor;
+			bool FlipHorizontally;
+			bool FlipVertically;
+			list<string> ItemNames;
 
 
-	protected:
-		Game* game;
+		protected:
+			Game* game;
 	};
 }
 

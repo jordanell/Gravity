@@ -9,11 +9,11 @@
  #ifndef SCENE_H
  #define SCENE_H
 
- #include "GameFramework.h"
+ #include "framework.h"
  #include "Listener.h"  
  #include <list>
 
- using namespace GameFramework;
+ using namespace framework;
 
  namespace ManhattanProject
  {

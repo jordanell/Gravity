@@ -6,7 +6,7 @@
 
 #include "Animation.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -25,7 +25,7 @@ namespace ManhattanProject
 		this->Columns = Columns;
 		this->FramesPerSecond = FramesPerSecond;
 
-		this->Source = GameFramework::Rectangle(0, 0, Texture->Height, Texture->Width);
+		this->Source = framework::Rectangle(0, 0, Texture->Height, Texture->Width);
 		CurrentRow = 0;
 		CurrentColumn = 0;
 	}
@@ -41,7 +41,7 @@ namespace ManhattanProject
 				CurrentRow = 0;
 			}
 
-			this->Source = GameFramework::Rectangle((Texture->Width/Columns)*CurrentColumn,
+			this->Source = framework::Rectangle((Texture->Width/Columns)*CurrentColumn,
 							   (Texture->Height/Rows)*CurrentRow,
 							   (Texture->Width/Columns)*(CurrentColumn+1),
 							   (Texture->Height/Rows)*(CurrentRow+1));

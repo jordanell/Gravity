@@ -8,22 +8,22 @@
 #ifndef COLLISIONLAYER_H
 #define COLLISIONLAYER_H
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "QuadTree.h"
 #include "CollisionRectangle.h"
 #include "Camera.h"
 #include <list>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
 	class CollisionLayer
 	{
 		public:
-			CollisionLayer(Game* game, GameFramework::Rectangle Size);
+			CollisionLayer(Game* game, framework::Rectangle Size);
 
-			bool CheckCollision(GameFramework::Rectangle* rec);
+			bool CheckCollision(framework::Rectangle* rec);
 	
 			void AddCollision(CollisionRectangle* collision);
 
@@ -35,7 +35,7 @@ namespace ManhattanProject
 
 		protected:
 			Game* game;
-			GameFramework::Rectangle Size;
+			framework::Rectangle Size;
 
 			QuadTree<CollisionRectangle*>* CollisionTree;
 			list<CollisionRectangle*> ActiveCollisions;

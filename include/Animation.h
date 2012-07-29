@@ -8,9 +8,9 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
-#include "GameFramework.h"
+#include "framework.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -36,7 +36,7 @@ namespace ManhattanProject
 			int CurrentColumn;
 			int FramesPerSecond;
 			int OldTicks;
-			GameFramework::Rectangle Source;
+			framework::Rectangle Source;
 	};
 }
 

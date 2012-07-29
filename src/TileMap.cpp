@@ -6,7 +6,7 @@
 
 #include "TileMap.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -18,7 +18,7 @@ namespace ManhattanProject
 		debugging = false;
 	}
 
-	TileMap::TileMap(Game* game, Scene* scene, Camera camera, GameFramework::Rectangle Size):
+	TileMap::TileMap(Game* game, Scene* scene, Camera camera, framework::Rectangle Size):
 		DrawableGameComponent(game)
 	{
 		this->game = game;
@@ -70,7 +70,7 @@ namespace ManhattanProject
 		return collisionLayer;
 	}
 
-	void TileMap::SetSize(GameFramework::Rectangle Size)
+	void TileMap::SetSize(framework::Rectangle Size)
 	{
 		this->Size = Size;
 	}

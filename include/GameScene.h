@@ -17,7 +17,7 @@
 	#define GetCurrentDir getcwd
 #endif
 
-#include "GameFramework.h"
+#include "framework.h"
 #include "Scene.h"
 #include "TileMap.h"
 #include "SceneManager.h"
@@ -34,11 +34,12 @@
 // Path finding 
 #include "PathfindingManager.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
     class SceneManager;
+    
 	class GameScene: public Scene
 	{
 		public:

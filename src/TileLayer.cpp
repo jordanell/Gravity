@@ -7,11 +7,11 @@
 #include "TileLayer.h"
 #include <list>
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
-	TileLayer::TileLayer(Game* game, GameFramework::Rectangle size)
+	TileLayer::TileLayer(Game* game, framework::Rectangle size)
 	{
 		this->game = game;
 		this->Size = size;

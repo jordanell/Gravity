@@ -6,7 +6,7 @@
 
 #include "GameScene.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

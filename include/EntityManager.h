@@ -12,7 +12,7 @@
 #include "TileMap.h"
 #include "Entity.h"
 
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {

@@ -4,11 +4,11 @@
 
 #include <iostream>
 #include "DropDown.h"
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
-    DropDown::DropDown(Game* game, list<string> items, GameFramework::Rectangle size, Scene* scene):
+    DropDown::DropDown(Game* game, list<string> items, framework::Rectangle size, Scene* scene):
         GuiObject(game)
     {
         this->game = game;

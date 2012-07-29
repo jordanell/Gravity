@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "Button.h"
-using namespace GameFramework;
+using namespace framework;
 
 namespace ManhattanProject
 {
@@ -13,7 +13,7 @@ namespace ManhattanProject
     }
 
     Button::Button(Game* game, Texture2D* background, float s, float rot, Vector2 pos, Color col,
-    		GameFramework::Rectangle size, Scene* scene):GuiObject(game, background, s, rot, pos, col, scene)
+    		framework::Rectangle size, Scene* scene):GuiObject(game, background, s, rot, pos, col, scene)
     {
         this->game = game;
 			if (background == NULL)
@@ -50,7 +50,7 @@ namespace ManhattanProject
 
 	void Button::OnLButtonDown(int mX, int mY)
 	{
-		if (this->size.ContainsPoint(new GameFramework::Point(mX, mY)))
+		if (this->size.ContainsPoint(new framework::Point(mX, mY)))
 		{
 			if (this->LButtonDownCallback != NULL)
                 this->LButtonDownCallback(game, scene);
