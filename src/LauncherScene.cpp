@@ -57,8 +57,9 @@ namespace ManhattanProject
 
         // Create sound and full screen check boxes
         fullScreen = new CheckBox(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(50, 260, 30, 30), this);
-        fullScreenLabel = new Label(game, "test", Color(255, 0, 0, 255), framework::Rectangle(50, 50, 400, 100), this);
+        fullScreenLabel = new Label(game, "Full screen", 100, Color(255, 255, 255, 255), framework::Rectangle(85, 260, 100, 30), this);
 		sound = new CheckBox(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(50, 300, 30, 30), this);
+		//soundLabel = new Label(game, "Enable Sound", 100, Color(255, 255, 255, 255), framework::Rectangle(85, 300, 100, 30), this);
 		
 
         quitBtn->LButtonDownCallback = &quitButtonDown;
@@ -75,6 +76,7 @@ namespace ManhattanProject
         fullScreen->Draw();
         fullScreenLabel->Draw();
         sound->Draw();
+        //soundLabel->Draw();
         
 		Scene::Draw();
 	}

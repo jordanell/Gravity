@@ -20,6 +20,7 @@
 #endif
 
 #include "Texture2D.h"
+#include "Text.h"
 #include "Rectangle.h"
 #include "Color.h"
 #include "Vector2.h"
@@ -44,7 +45,7 @@ namespace framework
 			void Draw(Texture2D* tex, Vector2 vec, Rectangle source, Color color, float rotation, float scale);
 			void PostDraw();
 
-			void Write(TTF_Font* font, Rectangle rec, char text[], Color color);
+			void Write(Text* text, Rectangle rec, Color color);
 
 			bool GetFullScreen();
 			int GetWidth();
@@ -61,7 +62,6 @@ namespace framework
 			bool FullScreen;
 
 			void Init(const char* windowName, bool fullScreen);
-			int ConvertTextToTexture(SDL_Surface *surface);
 
 	};
 }

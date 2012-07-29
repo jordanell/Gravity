@@ -15,8 +15,12 @@
 
 #ifdef __linux__
 	#include "SDL/SDL_ttf.h"
+	#include "SDL/SDL.h"
+	#include "SDL/SDL_opengl.h"
 #else
 	#include "SDL_ttf.h"
+	#include "SDL.h"
+	#include "SDL_opengl.h"
 #endif
 
 using namespace framework;
@@ -27,17 +31,21 @@ namespace ManhattanProject
 	{
         public:
             Label(Game* game);
-            Label(Game* game, string text, Color color, framework::Rectangle size, Scene* scene);
+            Label(Game* game, string writing, int fontSize, Color color, framework::Rectangle size, Scene* scene);
+            Label(Game* game, Texture2D* background, string writing, int fontSize, Color color, framework::Rectangle size, Scene* scene);
+            
             void Initialize();
 
             void Update();
             void Draw();
-
-            string text;
-            Color color;
+            
+            Text* text;
+            Texture2D* background;
+            
+            string Writing;
+            int FontSize;
 
         protected:
-            TTF_Font* font;
             Scene* scene;
 	};
 }

@@ -20,12 +20,12 @@ namespace ManhattanProject
 
     void DropDown::Initialize()
     {
-        label = new Label(game, "Something", Color(255,0,0,1), size, scene);
+        //label = new Label(game, "Something", Color(255,0,0,1), size, scene);
     }
 
     void DropDown::Draw()
 	{
-        label->Draw();
+        //label->Draw();
 	}
 
 	void DropDown::Update()

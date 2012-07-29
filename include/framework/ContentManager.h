@@ -32,6 +32,7 @@
 
 #include "Exception.h"
 #include "Texture2D.h"
+#include "Text.h"
 #include <map>
 
 #include "../tinyxml.h"
@@ -49,6 +50,8 @@ namespace framework
 
 			Texture2D* LoadTexture(const std::string &fileName);
 			void ClearTextureMap();
+			
+			Text* CreateText(const std::string &fontFile, const std::string &text, Color color, int size);
 
 			TTF_Font* LoadFont(const std::string &fileName, int size);
 
