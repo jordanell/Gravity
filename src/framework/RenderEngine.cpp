@@ -276,19 +276,4 @@ namespace framework
 		else
 			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL | SDL_FULLSCREEN);
 	}
-	
-	void RenderEngine::Write(Text* text, Rectangle rec, Color color)
-	{
-		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
-		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, text->Texture);
-
-		glBegin(GL_QUADS);
-		glTexCoord2d(0,0);glVertex2f(rec.X, rec.Y);
-		glTexCoord2d(1,0);glVertex2f(rec.X+rec.Width, rec.Y);
-		glTexCoord2d(1,1);glVertex2f(rec.X+rec.Width, rec.Y+rec.Height);
-		glTexCoord2d(0,1);glVertex2f(rec.X, rec.Y+rec.Height);
-		glEnd();
-		glDisable(GL_TEXTURE_2D);
-	}
 }

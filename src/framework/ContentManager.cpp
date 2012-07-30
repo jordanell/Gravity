@@ -88,49 +88,4 @@ namespace framework
 	{
 		Textures.clear();
 	}
-
-	TTF_Font* ContentManager::LoadFont(const std::string &fileName, int size)
-	{
-	    std::string file = GetCurrentDir(RootDirectory, sizeof(RootDirectory));
-		file += "/../content/";
-		file += fileName;
-
-        TTF_Font* tmpfont;
-        tmpfont = TTF_OpenFont(file.c_str(), size);
-        if(tmpfont == NULL)
-        {
-			throw Exception("File does not exist", 200, __FILE__, __LINE__);
-		}
-        else
-            return tmpfont;
-	}
-	
-	Text* ContentManager::CreateText(const std::string &fontFile, const std::string &text, Color color, int size)
-	{
-		Text* val = new Text();
-		
-		// Load the font
-		val->Font = LoadFont("Fonts/TanglewoodTales.ttf", size);
-        
-        SDL_Color sColor = {color.Red, color.Green, color.Blue, color.Alpha};
-		SDL_Surface* message = TTF_RenderText_Blended(val->Font, text.c_str(), sColor);
-		message = SDL_DisplayFormatAlpha(message);
-		
-		val->Writing = text;
-		val->Size = size;
-		val->color = color;
-		
-		glGenTextures(1, &val->Texture);
-		glBindTexture(GL_TEXTURE_2D, val->Texture);
-		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	  	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	  	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	  	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, message->w, message->h, 0, GL_BGRA, GL_UNSIGNED_BYTE, message->pixels);
-		
-		val->Width = message->w;
-		val->Height = message->h;
-		
-		return val;
-	}
 }

@@ -12,8 +12,6 @@
 #include "Scene.h"
 #include "Button.h"
 #include "CheckBox.h"
-#include "Label.h"
-#include "DropDown.h"
 #include "SceneManager.h"
 
 #ifdef __linux__
@@ -40,12 +38,8 @@ namespace ManhattanProject
 			void Draw();
 
 			CheckBox* fullScreen;
-			Label* fullScreenLabel;
 			
 			CheckBox* sound;
-			//Label* soundLabel;
-
-			DropDown* resolution;
 			
 			SceneManager* sm;
 

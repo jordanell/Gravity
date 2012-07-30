@@ -20,7 +20,6 @@
 #endif
 
 #include "Texture2D.h"
-#include "Text.h"
 #include "Rectangle.h"
 #include "Color.h"
 #include "Vector2.h"
@@ -44,8 +43,6 @@ namespace framework
 			void Draw(Texture2D* tex, Vector2 vec, Color color, float rotation, float scale);
 			void Draw(Texture2D* tex, Vector2 vec, Rectangle source, Color color, float rotation, float scale);
 			void PostDraw();
-
-			void Write(Text* text, Rectangle rec, Color color);
 
 			bool GetFullScreen();
 			int GetWidth();
