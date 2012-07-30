@@ -74,9 +74,6 @@ namespace ManhattanProject
         int height = CharMap->GetCharacter("A")->Height*1.1
         Cursor.Y += height;
         Cursor.X = Position.X;
-        
-        if(Cursor.Y + height > Position.Y + Position.Height)
-            throw 
     }
     
     int TextBox::WordPixelSize(string word)
