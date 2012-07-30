@@ -9,271 +9,334 @@
 
 namespace framework
 {
-	RenderEngine::RenderEngine(const char* windowName, int width, int height, bool fullScreen)
-	{
-		this->Width = width;
-		this->Height = height;
-		this->FullScreen = fullScreen;
-		Init(windowName, fullScreen);
-	}
 
-	void RenderEngine::Init(const char* windowName, bool fullScreen)
-	{
-		SDL_Init(SDL_INIT_EVERYTHING);
+    RenderEngine::RenderEngine(const char* windowName, int width, int height, bool fullScreen)
+    {
+        this->Width = width;
+        this->Height = height;
+        this->FullScreen = fullScreen;
+        Init(windowName, fullScreen);
+    }
 
-		SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
-		SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
-		SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
-		SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
-		SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 8);
-		SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 8);
-		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 8);
+    void RenderEngine::Init(const char* windowName, bool fullScreen)
+    {
+        SDL_Init(SDL_INIT_EVERYTHING);
 
-		SDL_WM_SetCaption(windowName, NULL);
-		if(!fullScreen)
-			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL);
-		else
-			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL | SDL_FULLSCREEN);
+        SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
+        SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
+        SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
+        SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
+        SDL_GL_SetAttribute(SDL_GL_BUFFER_SIZE, 8);
+        SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 8);
+        SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 8);
+
+        SDL_WM_SetCaption(windowName, NULL);
+        if (!fullScreen)
+            SDL_SetVideoMode(Width, Height, 32, SDL_OPENGL);
+        else
+            SDL_SetVideoMode(Width, Height, 32, SDL_OPENGL | SDL_FULLSCREEN);
 
         // Initialize TTF
         TTF_Init();
 
+        glClearColor(0, 0, 0, 1); //RGB Alpha
 
-		glClearColor(0,0,0,1); 				//RGB Alpha
+        glViewport(0, 0, Width, Height); //Set the viewport for the screen size
 
-		glViewport(0,0,Width,Height);			//Set the viewport for the screen size
+        glShadeModel(GL_SMOOTH);
 
-		glShadeModel(GL_SMOOTH);
+        glMatrixMode(GL_PROJECTION); //Set openGl to 2D rendering
+        glLoadIdentity();
 
-		glMatrixMode(GL_PROJECTION);			//Set openGl to 2D rendering
-		glLoadIdentity();
+        glDisable(GL_DEPTH_TEST); //Disables objects that are drawn behind others.
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    }
 
-		glDisable(GL_DEPTH_TEST);			//Disables objects that are drawn behind others.
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	}
+    void RenderEngine::PreDraw()
+    {
+        glClear(GL_COLOR_BUFFER_BIT);
 
-	void RenderEngine::PreDraw()
-	{
-		glClear(GL_COLOR_BUFFER_BIT);
+        glPushMatrix(); //Start phase for rendering
 
-		glPushMatrix();	//Start phase for rendering
+        glOrtho(0, Width, Height, 0, -1, 1); //Reseting the coordinates to be top left
+    }
 
-		glOrtho(0,Width,Height,0,-1,1);	//Reseting the coordinates to be top left
-	}
+    //Destination rectangle
 
-	//Destination rectangle
-	void RenderEngine::Draw(Texture2D* tex, Rectangle rec, Color color)
-	{
-		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
-		if(tex != NULL)
-		{
-			glEnable(GL_TEXTURE_2D);
-			glBindTexture(GL_TEXTURE_2D, tex->Texture);
-			glBegin(GL_QUADS);
-			glTexCoord2d(0,0);glVertex2f(rec.X, rec.Y);
-			glTexCoord2d(1,0);glVertex2f(rec.X+rec.Width, rec.Y);
-			glTexCoord2d(1,1);glVertex2f(rec.X+rec.Width, rec.Y+rec.Height);
-			glTexCoord2d(0,1);glVertex2f(rec.X, rec.Y+rec.Height);
-			glEnd();
-			glDisable(GL_TEXTURE_2D);
-		}
-		else
-		{
-			glBegin(GL_QUADS);
-			glVertex2f(rec.X, rec.Y);
-			glVertex2f(rec.X+rec.Width, rec.Y);
-			glVertex2f(rec.X+rec.Width, rec.Y+rec.Height);
-			glVertex2f(rec.X, rec.Y+rec.Height);
-			glEnd();
-		}
-	}
+    void RenderEngine::Draw(Texture2D* tex, Rectangle rec, Color color)
+    {
+        glColor4ub(color.Red, color.Green, color.Blue, color.Alpha);
+        if (tex != NULL)
+        {
+            glEnable(GL_TEXTURE_2D);
+            glBindTexture(GL_TEXTURE_2D, tex->Texture);
+            glBegin(GL_QUADS);
+            glTexCoord2d(0, 0);
+            glVertex2f(rec.X, rec.Y);
+            glTexCoord2d(1, 0);
+            glVertex2f(rec.X + rec.Width, rec.Y);
+            glTexCoord2d(1, 1);
+            glVertex2f(rec.X + rec.Width, rec.Y + rec.Height);
+            glTexCoord2d(0, 1);
+            glVertex2f(rec.X, rec.Y + rec.Height);
+            glEnd();
+            glDisable(GL_TEXTURE_2D);
+        } else
+        {
+            glBegin(GL_QUADS);
+            glVertex2f(rec.X, rec.Y);
+            glVertex2f(rec.X + rec.Width, rec.Y);
+            glVertex2f(rec.X + rec.Width, rec.Y + rec.Height);
+            glVertex2f(rec.X, rec.Y + rec.Height);
+            glEnd();
+        }
+    }
 
-	void Draw(Texture2D* tex, Rectangle rec, Color color, float rotation, float scale)
-	{
-		Point topLeft;
-		Point topRight;
-		Point botLeft;
-		Point botRight;
+    void Draw(Texture2D* tex, Rectangle rec, Color color, float rotation, float scale)
+    {
+        Point topLeft;
+        Point topRight;
+        Point botLeft;
+        Point botRight;
 
-		topLeft.X=rec.X; topLeft.Y = rec.Y;
-		topRight.X=rec.X+rec.Width; topRight.Y=rec.Y;
-		botLeft.X=rec.X; botLeft.Y=rec.Y+rec.Height;
-		botRight.X=rec.X+rec.Width; botRight.Y=rec.Y+rec.Height;
+        topLeft.X = rec.X;
+        topLeft.Y = rec.Y;
+        topRight.X = rec.X + rec.Width;
+        topRight.Y = rec.Y;
+        botLeft.X = rec.X;
+        botLeft.Y = rec.Y + rec.Height;
+        botRight.X = rec.X + rec.Width;
+        botRight.Y = rec.Y + rec.Height;
 
-		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
-		glEnable(GL_TEXTURE_2D);
-		Point* point = rec.Centre();
-		glTranslatef(point->X, point->Y, 0.0);
-		glRotatef(45,0.0,0.0,-1.0);
-		glTranslatef(-point->X, -point->Y, 0.0);
-		glBindTexture(GL_TEXTURE_2D, tex->Texture);
+        glColor4ub(color.Red, color.Green, color.Blue, color.Alpha);
+        glEnable(GL_TEXTURE_2D);
+        Point* point = rec.Centre();
+        glTranslatef(point->X, point->Y, 0.0);
+        glRotatef(45, 0.0, 0.0, -1.0);
+        glTranslatef(-point->X, -point->Y, 0.0);
+        glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
-		glBegin(GL_QUADS);
-		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(rec.X, rec.Y);
-		glTexCoord2d(topRight.X,topRight.Y);glVertex2f((rec.X+rec.Width)*scale, rec.Y);
-		glTexCoord2d(botRight.X,botRight.Y);glVertex2f((rec.X+rec.Width)*scale, (rec.Y+rec.Height)*scale);
-		glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(rec.X, (rec.Y+rec.Height)*scale);
-		glEnd();
-		glDisable(GL_TEXTURE_2D);
-	}
+        glBegin(GL_QUADS);
+        glTexCoord2d(topLeft.X, topLeft.Y);
+        glVertex2f(rec.X, rec.Y);
+        glTexCoord2d(topRight.X, topRight.Y);
+        glVertex2f((rec.X + rec.Width) * scale, rec.Y);
+        glTexCoord2d(botRight.X, botRight.Y);
+        glVertex2f((rec.X + rec.Width) * scale, (rec.Y + rec.Height) * scale);
+        glTexCoord2d(botLeft.X, botRight.Y);
+        glVertex2f(rec.X, (rec.Y + rec.Height) * scale);
+        glEnd();
+        glDisable(GL_TEXTURE_2D);
+    }
 
-	void Draw(Texture2D* tex, Rectangle rec, Rectangle source, Color color, float rotation, float scale)
-	{
-		Point topLeft;
-		Point topRight;
-		Point botLeft;
-		Point botRight;
+    void Draw(Texture2D* tex, Rectangle rec, Rectangle source, Color color, float rotation, float scale)
+    {
+        Point topLeft;
+        Point topRight;
+        Point botLeft;
+        Point botRight;
 
-		topLeft.X=(float)source.X / (float)tex->Width; topLeft.Y=(float)source.Y / (float)tex->Height;
-		topRight.X=((float)source.X + (float)source.Width) / (float)tex->Width; topRight.Y=(float)source.Y / (float)tex->Height;
-		botLeft.X=(float)source.X / (float)tex->Width; botLeft.Y=((float)source.Y + (float)source.Height) / (float)tex->Height;
-		botRight.X=((float)source.X + (float)source.Width) / (float)tex->Width; botRight.Y=((float)source.Y + (float)source.Height) / (float)tex->Height;
+        topLeft.X = (float) source.X / (float) tex->Width;
+        topLeft.Y = (float) source.Y / (float) tex->Height;
+        topRight.X = ((float) source.X + (float) source.Width) / (float) tex->Width;
+        topRight.Y = (float) source.Y / (float) tex->Height;
+        botLeft.X = (float) source.X / (float) tex->Width;
+        botLeft.Y = ((float) source.Y + (float) source.Height) / (float) tex->Height;
+        botRight.X = ((float) source.X + (float) source.Width) / (float) tex->Width;
+        botRight.Y = ((float) source.Y + (float) source.Height) / (float) tex->Height;
 
-		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
-		glEnable(GL_TEXTURE_2D);
-		Point* point = rec.Centre();
-		glTranslatef(point->X, point->Y, 0.0);
-		glRotatef(45,0.0,0.0,-1.0);
-		glTranslatef(-point->X, -point->Y, 0.0);
-		glBindTexture(GL_TEXTURE_2D, tex->Texture);
+        glColor4ub(color.Red, color.Green, color.Blue, color.Alpha);
+        glEnable(GL_TEXTURE_2D);
+        Point* point = rec.Centre();
+        glTranslatef(point->X, point->Y, 0.0);
+        glRotatef(45, 0.0, 0.0, -1.0);
+        glTranslatef(-point->X, -point->Y, 0.0);
+        glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
-		glBegin(GL_QUADS);
-		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(rec.X, rec.Y);
-		glTexCoord2d(topRight.X,topRight.Y);glVertex2f((rec.X+rec.Width)*scale, rec.Y);
-		glTexCoord2d(botRight.X,botRight.Y);glVertex2f((rec.X+rec.Width)*scale, (rec.Y+rec.Height)*scale);
-		glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(rec.X, (rec.Y+rec.Height)*scale);
-		glEnd();
-		glDisable(GL_TEXTURE_2D);
-	}
+        glBegin(GL_QUADS);
+        glTexCoord2d(topLeft.X, topLeft.Y);
+        glVertex2f(rec.X, rec.Y);
+        glTexCoord2d(topRight.X, topRight.Y);
+        glVertex2f((rec.X + rec.Width) * scale, rec.Y);
+        glTexCoord2d(botRight.X, botRight.Y);
+        glVertex2f((rec.X + rec.Width) * scale, (rec.Y + rec.Height) * scale);
+        glTexCoord2d(botLeft.X, botRight.Y);
+        glVertex2f(rec.X, (rec.Y + rec.Height) * scale);
+        glEnd();
+        glDisable(GL_TEXTURE_2D);
+    }
 
-	//Destination vector
-	void RenderEngine::Draw(Texture2D* tex, Vector2 vec, Color color)
-	{
-		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
-		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, tex->Texture);
+    //Destination vector
 
-		glBegin(GL_QUADS);
-		glTexCoord2d(0,0);glVertex2f(vec.X, vec.Y);
-		glTexCoord2d(1,0);glVertex2f(vec.X+tex->Width, vec.Y);
-		glTexCoord2d(1,1);glVertex2f(vec.X+tex->Width, vec.Y+tex->Height);
-		glTexCoord2d(0,1);glVertex2f(vec.X, vec.Y+tex->Height);
-		glEnd();
-		glDisable(GL_TEXTURE_2D);
-	}
+    void RenderEngine::Draw(Texture2D* tex, Vector2 vec, Color color)
+    {          
+        glColor4ub(color.Red, color.Green, color.Blue, color.Alpha);
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
-	void RenderEngine::Draw(Texture2D* tex, Vector2 vec, Color color, float rotation, float scale)
-	{
-		Point topLeft;
-		Point topRight;
-		Point botLeft;
-		Point botRight;
+        glBegin(GL_QUADS);
+        glTexCoord2d(0, 0);
+        glVertex2f(vec.X, vec.Y);
+        glTexCoord2d(1, 0);
+        glVertex2f(vec.X + tex->Width, vec.Y);
+        glTexCoord2d(1, 1);
+        glVertex2f(vec.X + tex->Width, vec.Y + tex->Height);
+        glTexCoord2d(0, 1);
+        glVertex2f(vec.X, vec.Y + tex->Height);
+        glEnd();
+        glDisable(GL_TEXTURE_2D);
+    }
 
-		topLeft.X=vec.X; topLeft.Y = vec.Y;
-		topRight.X=vec.X+tex->Width; topRight.Y=vec.Y;
-		botLeft.X=vec.X; botLeft.Y=vec.Y+tex->Height;
-		botRight.X=vec.X+tex->Width; botRight.Y=vec.Y+tex->Height;
+    void RenderEngine::Draw(Texture2D* tex, Vector2 vec, Color color, float rotation, float scale)
+    {
+        Point topLeft;
+        Point topRight;
+        Point botLeft;
+        Point botRight;
 
-		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
-		glEnable(GL_TEXTURE_2D);
-		//This may cause problems in the future
-		Point* point = Rectangle(topLeft.X, topLeft.Y, tex->Height, tex->Width).Centre();
-		glTranslatef(point->X, point->Y, 0.0);
-		glRotatef(45,0.0,0.0,-1.0);
-		glTranslatef(-point->X, -point->Y, 0.0);
-		glBindTexture(GL_TEXTURE_2D, tex->Texture);
+        topLeft.X = vec.X;
+        topLeft.Y = vec.Y;
+        topRight.X = vec.X + tex->Width;
+        topRight.Y = vec.Y;
+        botLeft.X = vec.X;
+        botLeft.Y = vec.Y + tex->Height;
+        botRight.X = vec.X + tex->Width;
+        botRight.Y = vec.Y + tex->Height;
 
-		glBegin(GL_QUADS);
-		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(vec.X, vec.Y);
-		glTexCoord2d(topRight.X,topRight.Y);glVertex2f((vec.X+tex->Width)*scale, vec.Y);
-		glTexCoord2d(botRight.X,botRight.Y);glVertex2f((vec.X+tex->Width)*scale, (vec.Y+tex->Height)*scale);
-		glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(vec.X, (vec.Y+tex->Height)*scale);
-		glEnd();
-		glDisable(GL_TEXTURE_2D);
-	}
+        glColor4ub(color.Red, color.Green, color.Blue, color.Alpha);
+        glEnable(GL_TEXTURE_2D);
+        //This may cause problems in the future
+        Point* point = Rectangle(topLeft.X, topLeft.Y, tex->Height, tex->Width).Centre();
+        glTranslatef(point->X, point->Y, 0.0);
+        glRotatef(45, 0.0, 0.0, -1.0);
+        glTranslatef(-point->X, -point->Y, 0.0);
+        glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
-	void RenderEngine::Draw(Texture2D* tex, Vector2 vec, Rectangle source, Color color, float rotation, float scale)
-	{
-		Point topLeft;
-		Point topRight;
-		Point botLeft;
-		Point botRight;
+        glBegin(GL_QUADS);
+        glTexCoord2d(topLeft.X, topLeft.Y);
+        glVertex2f(vec.X, vec.Y);
+        glTexCoord2d(topRight.X, topRight.Y);
+        glVertex2f((vec.X + tex->Width) * scale, vec.Y);
+        glTexCoord2d(botRight.X, botRight.Y);
+        glVertex2f((vec.X + tex->Width) * scale, (vec.Y + tex->Height) * scale);
+        glTexCoord2d(botLeft.X, botRight.Y);
+        glVertex2f(vec.X, (vec.Y + tex->Height) * scale);
+        glEnd();
+        glDisable(GL_TEXTURE_2D);
+    }
 
-		topLeft.X=(float)source.X / (float)tex->Width; topLeft.Y=(float)source.Y / (float)tex->Height;
-		topRight.X=((float)source.X + (float)source.Width) / (float)tex->Width; topRight.Y=(float)source.Y / (float)tex->Height;
-		botLeft.X=(float)source.X / (float)tex->Width; botLeft.Y=((float)source.Y + (float)source.Height) / (float)tex->Height;
-		botRight.X=((float)source.X + (float)source.Width) / (float)tex->Width; botRight.Y=((float)source.Y + (float)source.Height) / (float)tex->Height;
+    void RenderEngine::Draw(Texture2D* tex, Vector2 vec, Rectangle source, Color color, float rotation, float scale)
+    {
+        Point topLeft;
+        Point topRight;
+        Point botLeft;
+        Point botRight;
 
-		glColor4ub(color.Red,color.Green,color.Blue,color.Alpha);
-		glEnable(GL_TEXTURE_2D);
-		//This may cause problems in the future
-		Point* point = source.Centre();
-		glTranslatef(point->X, point->Y, 0.0);
-		glRotatef(45,0.0,0.0,-1.0);
-		glTranslatef(-point->X, -point->Y, 0.0);
-		glBindTexture(GL_TEXTURE_2D, tex->Texture);
+        topLeft.X = (float) source.X / (float) tex->Width;
+        topLeft.Y = (float) source.Y / (float) tex->Height;
+        topRight.X = ((float) source.X + (float) source.Width) / (float) tex->Width;
+        topRight.Y = (float) source.Y / (float) tex->Height;
+        botLeft.X = (float) source.X / (float) tex->Width;
+        botLeft.Y = ((float) source.Y + (float) source.Height) / (float) tex->Height;
+        botRight.X = ((float) source.X + (float) source.Width) / (float) tex->Width;
+        botRight.Y = ((float) source.Y + (float) source.Height) / (float) tex->Height;
 
-		glBegin(GL_QUADS);
-		glTexCoord2d(topLeft.X,topLeft.Y);glVertex2f(vec.X, vec.Y);
-		glTexCoord2d(topRight.X,topRight.Y);glVertex2f((vec.X+tex->Width)*scale, vec.Y);
-		glTexCoord2d(botRight.X,botRight.Y);glVertex2f((vec.X+tex->Width)*scale, (vec.Y+tex->Height)*scale);
-		glTexCoord2d(botLeft.X,botRight.Y);glVertex2f(vec.X, (vec.Y+tex->Height)*scale);
-		glEnd();
-		glDisable(GL_TEXTURE_2D);
-	}
+        glColor4ub(color.Red, color.Green, color.Blue, color.Alpha);
+        glEnable(GL_TEXTURE_2D);
+        //This may cause problems in the future
+        Point* point = source.Centre();
+        glTranslatef(point->X, point->Y, 0.0);
+        glRotatef(45, 0.0, 0.0, -1.0);
+        glTranslatef(-point->X, -point->Y, 0.0);
+        glBindTexture(GL_TEXTURE_2D, tex->Texture);
 
-	void RenderEngine::PostDraw()
-	{
-		glPopMatrix();	//End phase for rendering
+        glBegin(GL_QUADS);
+        glTexCoord2d(topLeft.X, topLeft.Y);
+        glVertex2f(vec.X, vec.Y);
+        glTexCoord2d(topRight.X, topRight.Y);
+        glVertex2f((vec.X + tex->Width) * scale, vec.Y);
+        glTexCoord2d(botRight.X, botRight.Y);
+        glVertex2f((vec.X + tex->Width) * scale, (vec.Y + tex->Height) * scale);
+        glTexCoord2d(botLeft.X, botRight.Y);
+        glVertex2f(vec.X, (vec.Y + tex->Height) * scale);
+        glEnd();
+        glDisable(GL_TEXTURE_2D);
+    }
 
-		SDL_GL_SwapBuffers();
+    void RenderEngine::PostDraw()
+    {
+        glPopMatrix(); //End phase for rendering
 
-		SDL_Delay(1);
-	}
+        SDL_GL_SwapBuffers();
 
-	bool RenderEngine::GetFullScreen()
-	{
-		return this->FullScreen;
-	}
+        SDL_Delay(1);
+    }
 
-	int RenderEngine::GetWidth()
-	{
-		return this->Width;
-	}
+    bool RenderEngine::GetFullScreen()
+    {
+        return this->FullScreen;
+    }
 
-	int RenderEngine::GetHeight()
-	{
-		return this->Height;
-	}
+    int RenderEngine::GetWidth()
+    {
+        return this->Width;
+    }
 
-	void RenderEngine::SetCaption(const char* windowName)
-	{
-		SDL_WM_SetCaption(windowName, NULL);
-	}
+    int RenderEngine::GetHeight()
+    {
+        return this->Height;
+    }
 
-	void RenderEngine::SetResolution(int width, int height)
-	{
-		this->Width = width;
-		this->Height = height;
+    void RenderEngine::SetCaption(const char* windowName)
+    {
+        SDL_WM_SetCaption(windowName, NULL);
+    }
 
-		if(!FullScreen)
-			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL);
-		else
-			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL | SDL_FULLSCREEN);
+    void RenderEngine::SetResolution(int width, int height)
+    {
+        this->Width = width;
+        this->Height = height;
 
-		glClearColor(0,0,0,1);
+        if (!FullScreen)
+            SDL_SetVideoMode(Width, Height, 32, SDL_OPENGL);
+        else
+            SDL_SetVideoMode(Width, Height, 32, SDL_OPENGL | SDL_FULLSCREEN);
 
-		glViewport(0,0,Width,Height);
-	}
+        glClearColor(0, 0, 0, 1);
 
-	void RenderEngine::SetFullScreen(bool fullScreen)
-	{
-		this->FullScreen = fullScreen;
+        glViewport(0, 0, Width, Height);
+    }
 
-		if(!FullScreen)
-			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL);
-		else
-			SDL_SetVideoMode(Width,Height,32, SDL_OPENGL | SDL_FULLSCREEN);
-	}
+    void RenderEngine::SetFullScreen(bool fullScreen)
+    {
+        this->FullScreen = fullScreen;
+
+        if (!FullScreen)
+            SDL_SetVideoMode(Width, Height, 32, SDL_OPENGL);
+        else
+            SDL_SetVideoMode(Width, Height, 32, SDL_OPENGL | SDL_FULLSCREEN);
+    }
+
+    Texture2D* RenderEngine::RenderCharactersToTexture(TTF_Font* font, int size, Color color, string characters)
+    {
+        Texture2D* tex = new Texture2D();
+        
+        SDL_Color sColor = {color.Red, color.Green, color.Blue, color.Alpha};
+        SDL_Surface* message = TTF_RenderText_Blended(font, characters.c_str(), sColor);
+        message = SDL_DisplayFormatAlpha(message);
+        
+        glGenTextures(1, &tex->Texture);
+	glBindTexture(GL_TEXTURE_2D, tex->Texture);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, message->w, message->h, 0, GL_BGRA, GL_UNSIGNED_BYTE, message->pixels);
+        
+        tex->Height = message->h;
+        tex->Width = message->w;
+        
+        return tex;
+    }
 }

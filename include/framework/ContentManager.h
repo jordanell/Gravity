@@ -22,6 +22,7 @@
 #include <string>
 
 #include <stdio.h>  /* defines FILENAME_MAX */
+
 #ifdef WINDOWS
     #include <direct.h>
     #define GetCurrentDir _getcwd
@@ -49,6 +50,8 @@ namespace framework
 
 			Texture2D* LoadTexture(const std::string &fileName);
 			void ClearTextureMap();
+                        
+                        TTF_Font* LoadFont(string fileName, int size);
 
 		protected:
 			map<const std::string, Texture2D> Textures;

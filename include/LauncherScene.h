@@ -12,42 +12,47 @@
 #include "Scene.h"
 #include "Button.h"
 #include "CheckBox.h"
+#include "CharacterMap.h"
+#include "TextBox.h"
 #include "SceneManager.h"
 
 #ifdef __linux__
-	#include "SDL/SDL_ttf.h"
+#include "SDL/SDL_ttf.h"
 #else
-	#include "SDL_ttf.h"
+#include "SDL_ttf.h"
 #endif
 
 using namespace framework;
 
 namespace ManhattanProject
 {
-    class SceneManager;class Button;
-    
-	class LauncherScene: public Scene
-	{
-		public:
-			LauncherScene(Game* game);
-            LauncherScene(Game* game, SceneManager* sm);
-             
-			void Initialize();
-			
-			void Update();
-			void Draw();
+    class SceneManager;
+    class Button;
+    class LauncherScene : public Scene
+    {
+      public:
+        LauncherScene(Game* game);
+        LauncherScene(Game* game, SceneManager* sm);
 
-			CheckBox* fullScreen;
-			
-			CheckBox* sound;
-			
-			SceneManager* sm;
+        void Initialize();
 
-		protected:
-			Texture2D* background;
-            Button* startBtn;
-            Button* quitBtn;
-	};
+        void Update();
+        void Draw();
+
+        CheckBox* fullScreen;
+
+        CheckBox* sound;
+
+        SceneManager* sm;
+
+      protected:
+        Texture2D* background;
+        Button* startBtn;
+        Button* quitBtn;
+        
+        CharacterMap* charMap;
+        TextBox* textBox;
+    };
 }
 
 #endif

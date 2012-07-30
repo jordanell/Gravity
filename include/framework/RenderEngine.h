@@ -7,6 +7,7 @@
 #ifndef RENDERENGINE_H
 #define RENDERENGINE_H
 
+
 #ifdef __linux__
 	#include "SDL/SDL.h"
 	#include "SDL/SDL_opengl.h"
@@ -25,6 +26,9 @@
 #include "Vector2.h"
 
 #include <math.h>
+#include <string>
+
+using namespace std;
 
 namespace framework
 {
@@ -51,6 +55,8 @@ namespace framework
 			void SetCaption(const char* windowName);
 			void SetResolution(int width, int height);
 			void SetFullScreen(bool fullScreen);
+                        
+                        Texture2D* RenderCharactersToTexture(TTF_Font* font, int size, Color color, string characters);
 
 
 		protected:

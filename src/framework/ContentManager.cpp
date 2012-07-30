@@ -88,4 +88,18 @@ namespace framework
 	{
 		Textures.clear();
 	}
+        
+        TTF_Font* ContentManager::LoadFont(string fileName, int size)
+        {
+            string file = GetCurrentDir(RootDirectory, sizeof(RootDirectory));
+            file += "/../content/";
+            file += fileName;
+            
+            TTF_Font* font;
+            font = TTF_OpenFont(file.c_str(), size);
+            
+            if(font == NULL)
+                throw Exception("File does not exist", 200, __FILE__, __LINE__);
+            return font;
+        }
 }
