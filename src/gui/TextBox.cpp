@@ -27,6 +27,8 @@ namespace ManhattanProject
         this->color = color;
         
         this->Cursor = Vector2(Position.X, Position.Y);
+        
+        this->PreProcessPosition();
     }
     
     void TextBox::UpdateText(string text)
@@ -71,7 +73,7 @@ namespace ManhattanProject
     
     void TextBox::MoveCursorNextLine()
     {
-        int height = CharMap->GetCharacter("A")->Height*1.1;
+        int height = CharMap->GetCharacter("A")->Height;
         Cursor.Y += height;
         Cursor.X = Position.X;
     }
@@ -84,6 +86,53 @@ namespace ManhattanProject
             pixelSize += CharMap->GetCharacter(word.substr(x,1))->Width;
         
         return pixelSize;
+    }
+    
+    void TextBox::PreProcessPosition()
+    {
+        int maxX = 0;
+        int maxY = 0;
+        
+        int tempX = 0;
+        
+        char cText[Text.size()];
+        int size = Text.size();
+        for(int x = 0; x <= size; x++)
+            cText[x]=Text[x];
+        
+        char* pch = strtok(cText, " ");
+        while(pch != NULL)
+        {
+            // Word
+            string word = pch;
+            if(Cursor.X + WordPixelSize(word) > Position.X + Position.Width)
+            {
+                if(tempX > maxX)
+                {
+                    maxX = tempX;
+                    tempX = 0;
+                }
+                MoveCursorNextLine();
+                maxY += CharMap->GetCharacter("A")->Height;
+            }
+            int size = word.size();
+            for(int x = 0; x < size; x++)
+                tempX += CharMap->GetCharacter(word.substr(x,1))->Width;
+            Cursor.X += CharMap->SpaceSize;
+            tempX += CharMap->SpaceSize;
+            
+            
+            pch = strtok(NULL, " ");
+        }
+        if(maxX == 0)
+            maxX = tempX;
+        maxY += CharMap->GetCharacter("a")->Height;
+        
+        Cursor.X = Position.X;
+        Cursor.Y = Position.Y;
+        
+        this->Position.Width = maxX - CharMap->SpaceSize;
+        this->Position.Height = 31;
     }
 }
 

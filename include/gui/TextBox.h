@@ -27,9 +27,9 @@ namespace ManhattanProject
         void Draw();
         void UpdateText(string text);
         
+        framework::Rectangle Position;
         
       private:
-        framework::Rectangle Position;
         string Text;
         Color color;
         CharacterMap* CharMap;
@@ -42,6 +42,8 @@ namespace ManhattanProject
         void MoveCursorNextLine();
         
         int WordPixelSize(string word);
+        
+        void PreProcessPosition();
         
 
     };
