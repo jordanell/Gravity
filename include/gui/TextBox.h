@@ -28,6 +28,7 @@ namespace ManhattanProject
         void UpdateText(string text);
         
         framework::Rectangle Position;
+        framework::Rectangle Bounding;
         
       private:
         string Text;

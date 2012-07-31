@@ -34,6 +34,7 @@ namespace ManhattanProject
     void TextBox::UpdateText(string text)
     {
         this->Text = text;
+        PreProcessPosition();
     }
 
     void TextBox::Draw()
@@ -131,8 +132,7 @@ namespace ManhattanProject
         Cursor.X = Position.X;
         Cursor.Y = Position.Y;
         
-        this->Position.Width = maxX - CharMap->SpaceSize;
-        this->Position.Height = 31;
+        this->Bounding = Rectangle(Position.X, Position.Y, maxX - CharMap->SpaceSize, maxY);
     }
 }
 
