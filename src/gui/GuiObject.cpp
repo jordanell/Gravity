@@ -17,6 +17,7 @@ namespace ManhattanProject
         DrawableGameComponent(game)
 	{
 		this->game = game;
+                this->isHover = false;
 	}
 	
 	GuiObject::GuiObject(Game* game, Texture2D* background, framework::Rectangle size, float rotation, Color color, Scene* scene):
@@ -28,6 +29,7 @@ namespace ManhattanProject
 		this->size = size;
 		this->color = color;
 		this->scene = scene;
+                this->isHover = false;
 		
 		Initialize();
 	}

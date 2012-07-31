@@ -61,9 +61,13 @@ namespace ManhattanProject
         fullScreen = new CheckBox(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(50, 260, 30, 30), this);
         sound = new CheckBox(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(50, 300, 30, 30), this);
         
-        charMap = new CharacterMap(game, "Fonts/TanglewoodTales.ttf", 12);
+        charMap = new CharacterMap(game, "Fonts/TanglewoodTales.ttf", 34);
         
-        textBox = new TextBox(game, framework::Rectangle(50, 300, 100, 300), "Adrian smells funny!", Color(255,255,0,255), charMap);
+        // Create Labels
+        fullScreenLabel = new Label(game, NULL, framework::Rectangle(90, 260, 200, 30), Color(0,0,0,255),
+                Color(150,150,150,250), "Full Screen", charMap);
+        soundLabel = new Label(game, NULL, framework::Rectangle(90, 300, 205, 30), Color(0,0,0,255), 
+                Color(150,150,150,255), "Enable Sound", charMap);
 
 
         quitBtn->LButtonDownCallback = &quitButtonDown;
@@ -80,7 +84,8 @@ namespace ManhattanProject
         fullScreen->Draw();
         sound->Draw();
         
-        textBox->Draw();
+        fullScreenLabel->Draw();
+        soundLabel->Draw();
 
         Scene::Draw();
     }

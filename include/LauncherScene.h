@@ -14,6 +14,7 @@
 #include "CheckBox.h"
 #include "CharacterMap.h"
 #include "TextBox.h"
+#include "Label.h"
 #include "SceneManager.h"
 
 #ifdef __linux__
@@ -51,7 +52,8 @@ namespace ManhattanProject
         Button* quitBtn;
         
         CharacterMap* charMap;
-        TextBox* textBox;
+        Label* fullScreenLabel;
+        Label* soundLabel;
     };
 }
 

@@ -37,10 +37,13 @@
           <in>CharacterMap.h</in>
           <in>CheckBox.h</in>
           <in>GuiObject.h</in>
+          <in>Label.h</in>
           <in>TextBox.h</in>
         </df>
         <in>Animation.h</in>
+        <in>Button.h</in>
         <in>Camera.h</in>
+        <in>CheckBox.h</in>
         <in>CollisionLayer.h</in>
         <in>CollisionRectangle.h</in>
         <in>Container.h</in>
@@ -49,6 +52,7 @@
         <in>GameDefines.h</in>
         <in>GameScene.h</in>
         <in>GameSceneInput.h</in>
+        <in>GuiObject.h</in>
         <in>InputManager.h</in>
         <in>Item.h</in>
         <in>LauncherScene.h</in>
@@ -92,6 +96,7 @@
           <in>CharacterMap.cpp</in>
           <in>CheckBox.cpp</in>
           <in>GuiObject.cpp</in>
+          <in>Label.cpp</in>
           <in>TextBox.cpp</in>
         </df>
         <in>Animation.cpp</in>
@@ -151,21 +156,18 @@
           <buildCommand>${MAKE} -f makefile</buildCommand>
           <cleanCommand>${MAKE} -f makefile clean</cleanCommand>
           <executablePath>bin/Game</executablePath>
+          <ccTool>
+            <incDir>
+              <pElem>include/framework</pElem>
+              <pElem>include</pElem>
+            </incDir>
+          </ccTool>
         </makeTool>
       </makefileType>
-      <folder path="Game-Framework/src/framework">
-        <ccTool>
-          <incDir>
-            <pElem>include/framework</pElem>
-          </incDir>
-        </ccTool>
-      </folder>
       <folder path="Game-Framework/src/gui">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
             <pElem>include/gui</pElem>
-            <pElem>include</pElem>
           </incDir>
         </ccTool>
       </folder>
@@ -174,238 +176,177 @@
       <item path="src/Animation.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/Camera.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/CollisionLayer.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/CollisionRectangle.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/Container.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/Entity.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/EntityManager.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/GameScene.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>/usr/include/SDL</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/InputManager.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>/usr/include/SDL</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/Item.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/LauncherScene.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
             <pElem>include/gui</pElem>
-            <pElem>include</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/Listener.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>/usr/include/SDL</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/Manager.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>/usr/include/SDL</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/MapObject.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/PathfindingManger.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>/usr/include/SDL</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/PathfindingObject.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/Player.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/Scene.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>/usr/include/SDL</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/SceneManager.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/Serializer.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/Tile.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/TileItem.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/TileLayer.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/TileMap.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>/usr/include/SDL</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/framework/Color.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>src/framework</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/ContentManager.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>include</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/DrawableGameComponent.cpp"
@@ -413,31 +354,18 @@
             tool="1"
             flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>src/framework</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/Exception.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>src/framework</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/Game.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>src/framework</pElem>
-            <pElem>include</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/GameComponent.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>src/framework</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/GameComponentCollection.cpp"
@@ -445,66 +373,38 @@
             tool="1"
             flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>src/framework</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/InputEvent.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>/usr/include/SDL</pElem>
-            <pElem>src/framework</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/Line2.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>src/framework</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/Point.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>src/framework</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/Rectangle.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>src/framework</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/RenderEngine.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>include</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/Texture2D.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>src/framework</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/Timer.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>src/framework</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/framework/Vector2.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
-          <incDir>
-            <pElem>src/framework</pElem>
-          </incDir>
         </ccTool>
       </item>
       <item path="src/gui/Button.cpp" ex="false" tool="1" flavor2="4">
@@ -526,41 +426,35 @@
       <item path="src/main.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/framework</pElem>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/tinystr.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/tinyxml.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/tinyxmlerror.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
       <item path="src/tinyxmlparser.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>src</pElem>
-            <pElem>include</pElem>
+            <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
