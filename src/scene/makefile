@@ -7,13 +7,13 @@ endif
 
 SOURCES	= $(wildcard *.cpp)
 OBJECTS	= $(SOURCES:.cpp=.o)
-OBJLIBS	= ../libgui.a
+OBJLIBS	= ../libscene.a
 
 all : $(OBJLIBS)
 
-../libgui.a : $(OBJECTS)
-	$(AR) $(ARFLAGS) ../libgui.a $?
-	ranlib ../libgui.a
+../libscene.a : $(OBJECTS)
+	$(AR) $(ARFLAGS) ../libscene.a $?
+	ranlib ../libscene.a
 
 .cpp.o:
 	$(CC) $(INCLUDES) $(CFLAGS) $< -o $@
