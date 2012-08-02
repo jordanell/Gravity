@@ -48,7 +48,9 @@
           <in>SceneManager.h</in>
         </df>
         <in>Animation.h</in>
+        <in>Button.h</in>
         <in>Camera.h</in>
+        <in>CheckBox.h</in>
         <in>CollisionLayer.h</in>
         <in>CollisionRectangle.h</in>
         <in>Container.h</in>
@@ -56,6 +58,7 @@
         <in>EntityManager.h</in>
         <in>GameDefines.h</in>
         <in>GameSceneInput.h</in>
+        <in>GuiObject.h</in>
         <in>InputManager.h</in>
         <in>Item.h</in>
         <in>Listener.h</in>
@@ -106,6 +109,7 @@
           <in>MenuScene.cpp</in>
           <in>Scene.cpp</in>
           <in>SceneManager.cpp</in>
+          <in>makefile</in>
         </df>
         <in>Animation.cpp</in>
         <in>Camera.cpp</in>
@@ -172,7 +176,6 @@
       <folder path="Game-Framework/src/gui">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -190,7 +193,6 @@
       <item path="src/Animation.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -198,7 +200,6 @@
       <item path="src/Camera.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -206,7 +207,6 @@
       <item path="src/CollisionLayer.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -214,7 +214,6 @@
       <item path="src/CollisionRectangle.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -222,7 +221,6 @@
       <item path="src/Container.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -230,7 +228,6 @@
       <item path="src/Entity.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -238,7 +235,6 @@
       <item path="src/EntityManager.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -246,7 +242,6 @@
       <item path="src/InputManager.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -254,7 +249,6 @@
       <item path="src/Item.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -262,7 +256,6 @@
       <item path="src/Listener.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -270,7 +263,6 @@
       <item path="src/Manager.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -278,7 +270,6 @@
       <item path="src/MapObject.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -294,7 +285,6 @@
       <item path="src/PathfindingManger.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -302,7 +292,6 @@
       <item path="src/PathfindingObject.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -310,7 +299,6 @@
       <item path="src/Player.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -318,7 +306,6 @@
       <item path="src/Serializer.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -326,7 +313,6 @@
       <item path="src/Tile.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -334,7 +320,6 @@
       <item path="src/TileItem.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -342,7 +327,6 @@
       <item path="src/TileLayer.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -350,7 +334,6 @@
       <item path="src/TileMap.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -423,6 +406,9 @@
       </item>
       <item path="src/gui/Button.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
+          <incDir>
+            <pElem>include/scene</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/gui/CharacterMap.cpp" ex="false" tool="1" flavor2="4">
@@ -431,6 +417,9 @@
       </item>
       <item path="src/gui/CheckBox.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
+          <incDir>
+            <pElem>include/scene</pElem>
+          </incDir>
         </ccTool>
       </item>
       <item path="src/gui/GuiObject.cpp" ex="false" tool="1" flavor2="4">
@@ -448,15 +437,35 @@
       <item path="src/main.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </item>
+      <item path="src/scene/GameScene.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/scene/LauncherScene.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/scene/MenuScene.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/scene/Scene.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/scene/SceneManager.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/scene/makefile" ex="true" tool="3" flavor2="0">
+      </item>
       <item path="src/tinystr.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -464,7 +473,6 @@
       <item path="src/tinyxml.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -472,7 +480,6 @@
       <item path="src/tinyxmlerror.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -480,7 +487,6 @@
       <item path="src/tinyxmlparser.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>

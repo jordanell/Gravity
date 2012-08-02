@@ -42,7 +42,6 @@ namespace ManhattanProject
         void Draw();
 
         CheckBox* fullScreen;
-
         CheckBox* sound;
 
         SceneManager* sm;
@@ -53,8 +52,8 @@ namespace ManhattanProject
         Button* quitBtn;
         
         CharacterMap* charMap;
-        Label* fullScreenLabel;
-        Label* soundLabel;
+        TextBox* fsText;
+        TextBox* esText;
     };
 }
 

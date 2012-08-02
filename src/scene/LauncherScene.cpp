@@ -51,23 +51,21 @@ namespace ManhattanProject
     void LauncherScene::Initialize()
     {
         // Create background image
-        background = game->Content->LoadTexture("Launcher/Wall.jpg");
+        background = game->Content->LoadTexture("Launcher/Background.png");
 
         // Create start and quit buttons
-        startBtn = new Button(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(450, 345, 100, 50), this);
-        quitBtn = new Button(game, game->Content->LoadTexture("Launcher/quitbutton.png"), framework::Rectangle(340, 345, 100, 50), this);
+        startBtn = new Button(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(345, 332, 100, 50), this);
+        quitBtn = new Button(game, game->Content->LoadTexture("Launcher/quitbutton.png"), framework::Rectangle(455, 332, 100, 50), this);
 
         // Create sound and full screen check boxes
-        fullScreen = new CheckBox(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(50, 260, 30, 30), this);
-        sound = new CheckBox(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(50, 300, 30, 30), this);
+        fullScreen = new CheckBox(game, game->Content->LoadTexture("Launcher/CheckBox.png"), framework::Rectangle(40, 260, 24, 24), this);
+        sound = new CheckBox(game, game->Content->LoadTexture("Launcher/CheckBox.png"), framework::Rectangle(40, 290, 24, 24), this);
         
-        charMap = new CharacterMap(game, "Fonts/TanglewoodTales.ttf", 34);
+        charMap = new CharacterMap(game, "Fonts/TanglewoodTales.ttf", 24);
+        fsText = new TextBox(game, framework::Rectangle(70, 260, 200, 25), "Full screen", Color(200,200,200,255), charMap);
+        esText = new TextBox(game, framework::Rectangle(70, 290, 200, 25), "Enable sound", Color(200,200,200,255), charMap);
         
-        // Create Labels
-        fullScreenLabel = new Label(game, NULL, framework::Rectangle(90, 260, 200, 30), Color(0,0,0,255),
-                Color(150,150,150,250), "Full Screen", charMap);
-        soundLabel = new Label(game, NULL, framework::Rectangle(90, 300, 205, 30), Color(0,0,0,255), 
-                Color(150,150,150,255), "Enable Sound", charMap);
+        
 
 
         quitBtn->LButtonDownCallback = &quitButtonDown;
@@ -78,14 +76,14 @@ namespace ManhattanProject
     void LauncherScene::Draw()
     {
         //Draw the background texture
-        game->Render->Draw(background, framework::Rectangle(0, 0, 600, 400), Color(255, 255, 255, 150));
+        game->Render->Draw(background, framework::Rectangle(0, 0, 600, 400), Color(255, 255, 255, 255));
         startBtn->Draw();
         quitBtn->Draw();
         fullScreen->Draw();
         sound->Draw();
         
-        fullScreenLabel->Draw();
-        soundLabel->Draw();
+        fsText->Draw();
+        esText->Draw();
 
         Scene::Draw();
     }

@@ -8,76 +8,77 @@ using namespace framework;
 
 namespace ManhattanProject
 {
-    void DefaultFunc(Game* game, Scene* sm) {
+
+    void DefaultFunc(Game* game, Scene* sm)
+    {
         cout << "Default button listener";
     }
 
-    Button::Button(Game* game, Texture2D* background, framework::Rectangle size, Scene* scene):
-		GuiObject(game)
+    Button::Button(Game* game, Texture2D* background, framework::Rectangle size, Scene* scene) :
+    GuiObject(game)
     {
         this->game = game;
-        
-		if (background == NULL)
-			this->background = game->Content->LoadTexture("/../content/Form/StandardButton.jpg");
-		else
-			this->background = background;
-			
-		this->size = size;
-		this->scene = scene;
+
+        if (background == NULL)
+            this->background = game->Content->LoadTexture("/../content/Form/StandardButton.jpg");
+        else
+            this->background = background;
+
+        this->size = size;
+        this->scene = scene;
         this->LButtonDownCallback = &DefaultFunc;
-		this->Initialize();
+        this->Initialize();
     }
 
     void Button::Initialize()
     {
-		list<Uint8> listeners;
-		listeners.push_back(SDL_MOUSEBUTTONDOWN);
-		listeners.push_back(SDL_MOUSEMOTION);
-		scene->AddListener(this, listeners);
-		
-		this->color = Color(255, 255, 255, 255);
-		
-		hover = game->Content->LoadTexture("Launcher/button2.png");
+        list<Uint8> listeners;
+        listeners.push_back(SDL_MOUSEBUTTONDOWN);
+        listeners.push_back(SDL_MOUSEMOTION);
+        scene->AddListener(this, listeners);
+        isActive = false;
+
+        this->color = Color(255, 255, 255, 255);
+
+        hover = game->Content->LoadTexture("Launcher/button2.png");
     }
 
     void Button::Draw()
-	{
-		game->Render->Draw(background, this->size, color);
-		if(isActive)
-            game->Render->Draw(hover, size, color);
-	}
+    {
+        game->Render->Draw(background, this->size, color);
+    }
 
-	void Button::Update()
-	{
+    void Button::Update()
+    {
 
-	}
+    }
 
-	void Button::OnLButtonDown(int mX, int mY)
-	{
-		if (this->size.ContainsPoint(new framework::Point(mX, mY)))
-		{
-			if (this->LButtonDownCallback != NULL)
-                this->LButtonDownCallback(game, scene);
-			return;
-		}
-	}
-
-	void Button::SetText(string text)
-	{
-	    this->text = text;
-	}
-
-	string Button::GetText()
-	{
-	    return this->text;
-	}
-	
-	void Button::OnMouseMove(int mX, int mY, int relX, int relY, bool Left,bool Right,bool Middle)
-	{
+    void Button::OnLButtonDown(int mX, int mY)
+    {
         if (this->size.ContainsPoint(new framework::Point(mX, mY)))
-			isActive = true;
-		else
-            isActive = false;
-	}
+        {
+            if (this->LButtonDownCallback != NULL)
+                this->LButtonDownCallback(game, scene);
+            return;
+        }
+    }
+
+    void Button::SetText(string text)
+    {
+        this->text = text;
+    }
+
+    string Button::GetText()
+    {
+        return this->text;
+    }
+
+    void Button::OnMouseMove(int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle)
+    {
+        if (this->size.ContainsPoint(new framework::Point(mX, mY)))
+            isHover = true;
+        else
+            isHover = false;
+    }
 
 }
