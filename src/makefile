@@ -10,7 +10,7 @@ LDFLAGS=-LC:\Windows\SDL-1.2.14\lib -lmingw32 -lSDLmain -lSDL -lopengl32 -lglu32
 endif
 
 ifeq ($(UNAME), Linux)
-INCLUDES=-I../include/framework/ -I../include/ -I../include/gui/
+INCLUDES=-I../include/framework/ -I../include/ -I../include/scene/ -I../include/gui/
 else ifeq ($(UNAME), Darwin)
 INCLUDES=-I../include/framework/ -I../include/ -F/Library/Frameworks/ -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/SDL_image.framework/Headers -I/Library/Frameworks/SDL_ttf.framework/Headers
 else
@@ -19,8 +19,8 @@ endif
 
 SOURCES	= $(wildcard *.cpp)
 OBJECTS	= $(SOURCES:.cpp=.o)
-OBJLIBS = libframework.a libgui.a
-LIBS	= -L. -lframework -lgui
+OBJLIBS = libframework.a libgui.a libscene.a
+LIBS	= -L. -lframework -lscene -lgui
 DIRS	= framework
 
 EXECUTABLE=Game
@@ -35,6 +35,9 @@ libframework.a : force_look
 
 libgui.a : force_look
 	cd gui; $(MAKE)
+	
+libscene.a : force_look
+	cd scene; $(MAKE)
 
 .cpp.o:
 	$(CC) $(INCLUDES) $(CFLAGS) $< -o $@

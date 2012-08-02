@@ -15,6 +15,7 @@
 #include "CharacterMap.h"
 #include "TextBox.h"
 #include "Label.h"
+#include "Parallax.h"
 #include "SceneManager.h"
 
 #ifdef __linux__
