@@ -48,9 +48,7 @@
           <in>SceneManager.h</in>
         </df>
         <in>Animation.h</in>
-        <in>Button.h</in>
         <in>Camera.h</in>
-        <in>CheckBox.h</in>
         <in>CollisionLayer.h</in>
         <in>CollisionRectangle.h</in>
         <in>Container.h</in>
@@ -58,7 +56,6 @@
         <in>EntityManager.h</in>
         <in>GameDefines.h</in>
         <in>GameSceneInput.h</in>
-        <in>GuiObject.h</in>
         <in>InputManager.h</in>
         <in>Item.h</in>
         <in>Listener.h</in>
@@ -103,13 +100,14 @@
           <in>Label.cpp</in>
           <in>TextBox.cpp</in>
         </df>
+        <df name="map">
+        </df>
         <df name="scene">
           <in>GameScene.cpp</in>
           <in>LauncherScene.cpp</in>
           <in>MenuScene.cpp</in>
           <in>Scene.cpp</in>
           <in>SceneManager.cpp</in>
-          <in>makefile</in>
         </df>
         <in>Animation.cpp</in>
         <in>Camera.cpp</in>
@@ -460,8 +458,6 @@
       <item path="src/scene/SceneManager.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
         </ccTool>
-      </item>
-      <item path="src/scene/makefile" ex="true" tool="3" flavor2="0">
       </item>
       <item path="src/tinystr.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>

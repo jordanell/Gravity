@@ -54,16 +54,16 @@ namespace ManhattanProject
         background = game->Content->LoadTexture("Launcher/Background.png");
 
         // Create start and quit buttons
-        startBtn = new Button(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(345, 332, 100, 50), this);
-        quitBtn = new Button(game, game->Content->LoadTexture("Launcher/quitbutton.png"), framework::Rectangle(455, 332, 100, 50), this);
+        startBtn = new Button(game, game->Content->LoadTexture("Launcher/startbutton.png"), framework::Rectangle(350, 325, 100, 50), this);
+        quitBtn = new Button(game, game->Content->LoadTexture("Launcher/quitbutton.png"), framework::Rectangle(460, 325, 100, 50), this);
 
         // Create sound and full screen check boxes
-        fullScreen = new CheckBox(game, game->Content->LoadTexture("Launcher/CheckBox.png"), framework::Rectangle(40, 260, 24, 24), this);
-        sound = new CheckBox(game, game->Content->LoadTexture("Launcher/CheckBox.png"), framework::Rectangle(40, 290, 24, 24), this);
+        fullScreen = new CheckBox(game, game->Content->LoadTexture("Launcher/CheckBox.png"), framework::Rectangle(40, 260, 16, 16), this);
+        sound = new CheckBox(game, game->Content->LoadTexture("Launcher/CheckBox.png"), framework::Rectangle(40, 280, 16, 16), this);
         
-        charMap = new CharacterMap(game, "Fonts/TanglewoodTales.ttf", 24);
-        fsText = new TextBox(game, framework::Rectangle(70, 260, 200, 25), "Full screen", Color(200,200,200,255), charMap);
-        esText = new TextBox(game, framework::Rectangle(70, 290, 200, 25), "Enable sound", Color(200,200,200,255), charMap);
+        charMap = new CharacterMap(game, "Fonts/illuminate.ttf", 16);
+        fsText = new TextBox(game, framework::Rectangle(65, 258, 200, 17), "full screen", Color(200,37,54,255), charMap);
+        esText = new TextBox(game, framework::Rectangle(65, 278, 200, 17), "enable sound", Color(5,118,255,255), charMap);
         
         
 
