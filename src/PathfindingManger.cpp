@@ -8,7 +8,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	PathfindingManager::PathfindingManager(Game* game):
 		GameComponent(game)

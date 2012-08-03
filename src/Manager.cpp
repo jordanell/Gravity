@@ -9,7 +9,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	Manager::Manager():
 		Game()

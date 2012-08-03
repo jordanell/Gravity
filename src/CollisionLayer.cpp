@@ -8,7 +8,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	CollisionLayer::CollisionLayer(Game* game, framework::Rectangle Size)
 	{

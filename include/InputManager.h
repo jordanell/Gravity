@@ -11,7 +11,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
     class InputManager: public GameComponent
     {

@@ -17,7 +17,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	class Container: public MapObject
 	{

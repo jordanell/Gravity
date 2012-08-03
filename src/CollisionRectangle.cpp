@@ -8,7 +8,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	CollisionRectangle::CollisionRectangle(Game* game):
 		MapObject(game)

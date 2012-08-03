@@ -6,7 +6,7 @@
 #include "CheckBox.h"
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 
     CheckBox::CheckBox(Game* game, Texture2D* background, framework::Rectangle size, Scene* scene) :

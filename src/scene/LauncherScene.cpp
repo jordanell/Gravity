@@ -10,7 +10,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 
     /*
@@ -63,10 +63,7 @@ namespace ManhattanProject
         
         charMap = new CharacterMap(game, "Fonts/illuminate.ttf", 16);
         fsText = new TextBox(game, framework::Rectangle(65, 258, 200, 17), "full screen", Color(200,37,54,255), charMap);
-        esText = new TextBox(game, framework::Rectangle(65, 278, 200, 17), "enable sound", Color(5,118,255,255), charMap);
-        
-        
-
+        esText = new TextBox(game, framework::Rectangle(65, 278, 200, 17), "enable sound", Color(5,118,255,255), charMap);   
 
         quitBtn->LButtonDownCallback = &quitButtonDown;
         startBtn->LButtonDownCallback = &startButtonDown;

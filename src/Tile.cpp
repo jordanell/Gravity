@@ -8,7 +8,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	Tile::Tile(Game* game):
 		MapObject(game)

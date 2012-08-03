@@ -26,7 +26,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
     class CharacterMap: public GuiObject
     {

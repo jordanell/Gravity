@@ -8,7 +8,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	MapObject::MapObject(Game* game):
 		DrawableGameComponent(game)

@@ -16,7 +16,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	template <class T> class QuadNode
 	{

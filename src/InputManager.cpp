@@ -7,7 +7,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject 
+namespace gravity 
 {
     InputManager::InputManager(Game* game): 
         GameComponent(game)

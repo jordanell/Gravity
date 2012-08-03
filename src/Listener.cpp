@@ -10,7 +10,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
     Listener::Listener(Game* game, InputEvent* component, list<Uint8> events)
 	{

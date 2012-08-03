@@ -7,7 +7,7 @@
 
 #include "Label.h"
 
-namespace ManhattanProject
+namespace gravity
 {
 
     Label::Label(Game* game):

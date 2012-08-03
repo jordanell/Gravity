@@ -15,7 +15,7 @@
 
 #include <string>
 
-namespace ManhattanProject
+namespace gravity
 {
 
     class Label: public GuiObject

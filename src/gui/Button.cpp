@@ -6,7 +6,7 @@
 #include "Button.h"
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 
     void DefaultFunc(Game* game, Scene* sm)

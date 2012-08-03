@@ -15,7 +15,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	class Manager: public Game
 	{

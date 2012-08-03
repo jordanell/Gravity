@@ -10,7 +10,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 
     Parallax::Parallax(Game* game):

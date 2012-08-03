@@ -16,7 +16,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	class PathfindingManager: public GameComponent
 	{

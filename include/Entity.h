@@ -13,7 +13,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	class Entity: public DrawableGameComponent
 	{

@@ -5,7 +5,7 @@
 
 #include "Manager.h"
 
-using namespace ManhattanProject;
+using namespace gravity;
 
 int main(int argc, char* args[])
 {

@@ -8,7 +8,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	GameScene::GameScene(Game* game):
 		Scene(game)

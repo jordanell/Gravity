@@ -10,7 +10,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	SceneManager::SceneManager(Game* game):
 		DrawableGameComponent(game)

@@ -9,7 +9,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	TileLayer::TileLayer(Game* game, framework::Rectangle size)
 	{

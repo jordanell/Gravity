@@ -19,7 +19,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	class TileMap: public DrawableGameComponent, InputEvent
 	{

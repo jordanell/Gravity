@@ -8,7 +8,7 @@
 
 using namespace framework;
 
-namespace ManhattanProject
+namespace gravity
 {
 	TileMap::TileMap(Game* game):
 		DrawableGameComponent(game)
