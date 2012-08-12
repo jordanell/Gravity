@@ -16,10 +16,10 @@ namespace gravity
         this->game = game;
     }
 
-    int MapLoader::StringToNumber(const string &Text)
+    float MapLoader::StringToNumber(const string &Text)
     {
         stringstream ss(Text);
-        int result;
+        float result;
         return ss >> result ? result : 0;
     }
 

@@ -10,55 +10,61 @@ using namespace framework;
 
 namespace gravity
 {
-	GameScene::GameScene(Game* game):
-		Scene(game)
-	{
-		this->game = game;
-		this->Initialize();
 
-		GetCurrentDir(RootDirectory, sizeof(RootDirectory));
-		RootDirectory[sizeof(RootDirectory) -1] = '\0';
-	}
+    GameScene::GameScene(Game* game) :
+    Scene(game)
+    {
+        this->game = game;
+        this->Initialize();
 
-    	GameScene::GameScene(Game* game, SceneManager* sm):
-        	Scene(game)
-	{
-		this->game = game;
-        	this->sm = sm;
-		this->Initialize();
+        GetCurrentDir(RootDirectory, sizeof (RootDirectory));
+        RootDirectory[sizeof (RootDirectory) - 1] = '\0';
+    }
 
-		GetCurrentDir(RootDirectory, sizeof(RootDirectory));
-		RootDirectory[sizeof(RootDirectory) -1] = '\0';
-	}
+    GameScene::GameScene(Game* game, SceneManager* sm) :
+    Scene(game)
+    {
+        this->game = game;
+        this->sm = sm;
+        this->Initialize();
 
-	GameScene::~GameScene()
-	{
-		delete Map;
-	}
+        GetCurrentDir(RootDirectory, sizeof (RootDirectory));
+        RootDirectory[sizeof (RootDirectory) - 1] = '\0';
+    }
 
-	void GameScene::Initialize()
-	{
-		// Create the map loader and load the map
-		MapLoader* ml = new MapLoader(this->game);
-		Map = ml->LoadMap("maps/testlevel.xml", this);
+    GameScene::~GameScene()
+    {
+        delete Map;
+    }
 
-		// Initialize the entities here
-		entityManager = new EntityManager(game, Map);
+    void GameScene::Initialize()
+    {
+        // Load the camera at 0,0
+        camera = new Camera(Vector2(-200,-100), Vector2(600,400));
+
+        // Create the map loader and load the map
+        MapLoader* ml = new MapLoader(this->game);
+        Map = ml->LoadMap("maps/testlevel.xml", this);
+
+        // Initialize the entities here
+        entityManager = new EntityManager(game, Map);
 
 
-		Scene::Initialize();
-	}
+        Scene::Initialize();
+    }
 
-	void GameScene::Draw()
-	{
+    void GameScene::Draw()
+    {
+        if(Map != NULL)
+            Map->Draw(camera);
 
-		Scene::Draw();
-	}
+        Scene::Draw();
+    }
 
-	void GameScene::Update()
-	{
+    void GameScene::Update()
+    {
 
-		Scene::Update();
-	}
+        Scene::Update();
+    }
 }
 

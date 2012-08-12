@@ -35,7 +35,7 @@ namespace gravity
 
         void ParseTile(TileLayer* layer, TiXmlNode* parent);
         
-        int StringToNumber(const string &Text);
+        float StringToNumber(const string &Text);
 
         Game* game;
     };

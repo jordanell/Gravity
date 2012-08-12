@@ -61,6 +61,7 @@ namespace gravity
 
 		protected:
 			TileMap* Map;
+                        Camera* camera;
                         
 			EntityManager* entityManager;
 			Player* player;

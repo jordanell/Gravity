@@ -38,7 +38,9 @@ namespace gravity
 
     void Tile::Draw(Camera* camera)
     {
-        game->Render->Draw(Texture, Position, TintColor);
+        Vector2 camPos = Vector2(Position.X - camera->Position.X, 
+                Position.Y - camera->Position.Y);
+        game->Render->Draw(Texture, camPos, TintColor);
     }
 
     void Tile::Update()

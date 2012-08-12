@@ -41,7 +41,10 @@ namespace gravity
         for (list<Tile*>::iterator it = Tiles.begin(); it != Tiles.end(); it++)
         {
             Tile* ptr = *it;
-            ptr->Draw(camera);
+            Camera* camPos = new Camera(Vector2(camera->Position.X * ScrollSpeed.X, camera->Position.Y * ScrollSpeed.Y),
+                    camera->Size);
+            ptr->Draw(camPos);
+            delete camPos;
         }
     }
 
