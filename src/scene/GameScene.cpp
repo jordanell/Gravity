@@ -40,7 +40,7 @@ namespace gravity
     void GameScene::Initialize()
     {
         // Load the camera at 0,0
-        camera = new Camera(Vector2(-200,-100), Vector2(600,400));
+        camera = new Camera(Vector2(-200, -100), Vector2(600, 400));
 
         // Create the map loader and load the map
         MapLoader* ml = new MapLoader(this->game);
@@ -49,13 +49,19 @@ namespace gravity
         // Initialize the entities here
         entityManager = new EntityManager(game, Map);
 
+        // Set up to listen for camera movements
+        list<Uint8> listeners;
+        listeners.push_back(SDL_KEYDOWN);
+        this->AddListener(this, listeners);
+        SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY,SDL_DEFAULT_REPEAT_INTERVAL);
+
 
         Scene::Initialize();
     }
 
     void GameScene::Draw()
     {
-        if(Map != NULL)
+        if (Map != NULL)
             Map->Draw(camera);
 
         Scene::Draw();
@@ -65,6 +71,18 @@ namespace gravity
     {
 
         Scene::Update();
+    }
+
+    void GameScene::OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode)
+    {
+        if (sym == SDLK_w)
+            camera->Position.Y -= 4;
+        else if (sym == SDLK_s)
+            camera->Position.Y += 4;
+        else if (sym == SDLK_a)
+            camera->Position.X += 4;
+        else if (sym == SDLK_d)
+            camera->Position.X -= 4;
     }
 }
 

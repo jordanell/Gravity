@@ -11,10 +11,10 @@
 #include <stdio.h>  /* defines FILENAME_MAX */
 #ifdef WINDOWS
 #include <direct.h>
-	#define GetCurrentDir _getcwd
+#define GetCurrentDir _getcwd
 #else
 #include <unistd.h>
-	#define GetCurrentDir getcwd
+#define GetCurrentDir getcwd
 #endif
 
 #include "framework.h"
@@ -36,36 +36,38 @@ using namespace framework;
 namespace gravity
 {
     class SceneManager;
-    
-	class GameScene: public Scene
-	{
-		public:
-			char RootDirectory[FILENAME_MAX];
-			
-			GameScene(Game* game);
-            		GameScene(Game* game, SceneManager* sm);
-            		SceneManager* sm;
-			void Initialize();
-			
-			int StringToNumber(const string &Text);
-			
-			void CreateMap(TiXmlNode* pParent, TileMap* Map);
-			void ParseMapObject(TiXmlNode* pParent, TileMap* TileMap);
-			
-			TileMap* LoadMap(string fileName);
-			
-			void Update();
-			void Draw();
-			
-			~GameScene();
 
-		protected:
-			TileMap* Map;
-                        Camera* camera;
-                        
-			EntityManager* entityManager;
-			Player* player;
-	};
+    class GameScene : public Scene, public InputEvent
+    {
+      public:
+        char RootDirectory[FILENAME_MAX];
+
+        GameScene(Game* game);
+        GameScene(Game* game, SceneManager* sm);
+        SceneManager* sm;
+        void Initialize();
+
+        int StringToNumber(const string &Text);
+
+        void CreateMap(TiXmlNode* pParent, TileMap* Map);
+        void ParseMapObject(TiXmlNode* pParent, TileMap* TileMap);
+
+        TileMap* LoadMap(string fileName);
+
+        void Update();
+        void Draw();
+
+        ~GameScene();
+
+        void OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
+
+      protected:
+        TileMap* Map;
+        Camera* camera;
+
+        EntityManager* entityManager;
+        Player* player;
+    };
 }
 
 #endif
