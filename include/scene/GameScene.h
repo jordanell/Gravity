@@ -21,7 +21,7 @@
 #include "Scene.h"
 #include "TileMap.h"
 #include "SceneManager.h"
-#include "Serializer.h"
+#include "MapLoader.h"
 #include "tinyxml.h"
 #include "tinystr.h"
 
@@ -30,9 +30,6 @@
 // Entities
 #include "EntityManager.h"
 #include "Player.h"
-
-// Path finding 
-#include "PathfindingManager.h"
 
 using namespace framework;
 
@@ -64,9 +61,9 @@ namespace gravity
 
 		protected:
 			TileMap* Map;
+                        
 			EntityManager* entityManager;
 			Player* player;
-			PathfindingManager* pathFinder;
 	};
 }
 

@@ -18,11 +18,7 @@ namespace gravity
     GuiObject(game)
     {
         this->game = game;
-
-        if (background == NULL)
-            this->background = game->Content->LoadTexture("/../content/Form/StandardButton.jpg");
-        else
-            this->background = background;
+        this->background = background;
 
         this->size = size;
         this->scene = scene;
@@ -39,8 +35,6 @@ namespace gravity
         isActive = false;
 
         this->color = Color(255, 255, 255, 255);
-
-        hover = game->Content->LoadTexture("Launcher/button2.png");
     }
 
     void Button::Draw()

@@ -10,7 +10,6 @@
 
 #include "framework.h"
 #include "Scene.h"
-#include "Parallax.h"
 
 using namespace framework;
 
@@ -27,7 +26,6 @@ namespace gravity
 	void Draw();
         
       private:
-        Parallax* parallax;
 
     };
 }

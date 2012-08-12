@@ -10,7 +10,6 @@
 
 #include "framework.h"
 #include "TileLayer.h"
-#include "CollisionLayer.h"
 #include "InputEvent.h"
 #include "Camera.h"
 #include "Scene.h"
@@ -40,22 +39,12 @@ namespace gravity
 			void AddTileLayer(TileLayer* layer);
 
 			TileLayer* LastAddedLayer();
-			CollisionLayer* GetCollisionLayer();
 
 			void SetSize(framework::Rectangle Size);
 
-			void PrintLayers();
-			void Debugging();
-
-			// Input stuff
-			void OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode);
-
 		protected:
 			list<TileLayer*> layers;
-			CollisionLayer* collisionLayer;
 			framework::Rectangle Size;
-
-			bool debugging;
 	};
 }
 

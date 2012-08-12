@@ -38,18 +38,13 @@ namespace gravity
 
 	void GameScene::Initialize()
 	{
-		// Create the serializer and load the map
-		Serializer* ser = new Serializer(this->game);
-		Map = ser->LoadMap(this->game, "Maps/Sandbox.xml", this);
+		// Create the map loader and load the map
+		MapLoader* ml = new MapLoader(this->game);
+		Map = ml->LoadMap(this->game, "maps/testlevel.xml", this);
 
 		// Initialize the entities here
 		player = new Player(game, this, &Map->camera);
 		entityManager = new EntityManager(game, Map);
-
-		// Initialize the path finding system here
-		pathFinder = new PathfindingManager(game);
-
-		// Initialize the UI Components here
 
 
 		Scene::Initialize();
@@ -68,11 +63,6 @@ namespace gravity
 	{
 		// Call the update on the map
 		Map->Update();
-
-		// Update the path finder information
-		pathFinder->SetCollisions(Map->GetCollisionLayer()->GetCollisions());
-		pathFinder->SetEntities(entityManager->GetActiveEntities());
-		pathFinder->Update();
 
 		Scene::Update();
 	}

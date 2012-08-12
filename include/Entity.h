@@ -9,7 +9,6 @@
 #define ENTITY_H
 
 #include "framework.h"
-#include "CollisionRectangle.h"
 
 using namespace framework;
 
@@ -23,8 +22,6 @@ namespace gravity
 			virtual void Initialize();
 			virtual void Update();
 			virtual void Draw();
-			
-			virtual framework::Rectangle GetCollisionRectangle();
 				
 		private:
 		

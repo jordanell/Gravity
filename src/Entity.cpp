@@ -30,11 +30,6 @@ namespace gravity
 	{
 	
 	}
-	
-	framework::Rectangle Entity::GetCollisionRectangle()
-	{
-		return framework::Rectangle();
-	}
 }
 
 

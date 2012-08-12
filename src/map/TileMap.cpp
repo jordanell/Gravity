@@ -14,8 +14,6 @@ namespace gravity
 		DrawableGameComponent(game)
 	{
 		this->game = game;
-		this->collisionLayer = new CollisionLayer(game, Size);
-		debugging = false;
 	}
 
 	TileMap::TileMap(Game* game, Scene* scene, Camera camera, framework::Rectangle Size):
@@ -24,13 +22,6 @@ namespace gravity
 		this->game = game;
 		this->camera = camera;
 		this->Size = Size;
-		this->collisionLayer = new CollisionLayer(game, Size);
-
-		list<Uint8> listeners;
-		listeners.push_back(SDL_KEYUP);
-		scene->AddListener(this, listeners);
-
-		debugging = false;
 	}
 
 	TileMap::~TileMap()
@@ -40,7 +31,6 @@ namespace gravity
 			TileLayer* ptr = *it;
 			delete ptr;
 		}
-		delete collisionLayer;
 	}
 
 	void TileMap::Initialize()
@@ -65,11 +55,6 @@ namespace gravity
 		return layers.back();
 	}
 
-	CollisionLayer* TileMap::GetCollisionLayer()
-	{
-		return collisionLayer;
-	}
-
 	void TileMap::SetSize(framework::Rectangle Size)
 	{
 		this->Size = Size;
@@ -83,45 +68,11 @@ namespace gravity
 			TileLayer* ptr = *it;
 			ptr->Draw(camera);
 		}
-
-		//If debugging then draw collisions
-		if(debugging)
-		{
-			collisionLayer->Draw(camera);
-		}
 	}
 
 	void TileMap::Update()
 	{
 
-	}
-
-	void TileMap::PrintLayers()
-	{
-		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)
-		{
-			TileLayer* ptr = *it;
-			ptr->Print();
-		}
-	}
-
-	void TileMap::Debugging()
-	{
-		debugging = !debugging;
-		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)
-		{
-			TileLayer* ptr = *it;
-			ptr->Debugging();
-		}
-	}
-
-	void TileMap::OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode)
-	{
-		if(sym == SDLK_F2)
-		{
-
-			this->Debugging();
-		}
 	}
 }
 

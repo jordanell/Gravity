@@ -11,7 +11,6 @@
 
 #include "framework.h"
 #include "Camera.h"
-#include "MapObject.h"
 #include <string>
 #include <list>
 
@@ -19,7 +18,7 @@ using namespace framework;
 
 namespace gravity
 {
-	class Tile: public MapObject
+	class Tile
 	{
 		public:
 			Tile(Game* game);
@@ -30,9 +29,6 @@ namespace gravity
 
 			Texture2D* Texture;
 			Color TintColor;
-			bool FlipHorizontally;
-			bool FlipVertically;
-			list<string> ItemNames;
 
 
 		protected:

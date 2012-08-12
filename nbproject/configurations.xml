@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="84">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <df name="Game-Framework" root=".">
+    <df name="Gravity" root=".">
       <df name="bin">
       </df>
       <df name="content">
-        <df name="Fonts">
+        <df name="fonts">
         </df>
-        <df name="Launcher">
+        <df name="maps">
         </df>
-        <df name="Maps">
+        <df name="scene">
+          <df name="launcher">
+          </df>
+        </df>
+        <df name="tiles">
+          <df name="planets">
+          </df>
+          <df name="stars">
+          </df>
         </df>
       </df>
       <df name="include">
@@ -40,6 +48,12 @@
           <in>Label.h</in>
           <in>TextBox.h</in>
         </df>
+        <df name="map">
+          <in>MapLoader.h</in>
+          <in>Tile.h</in>
+          <in>TileLayer.h</in>
+          <in>TileMap.h</in>
+        </df>
         <df name="scene">
           <in>GameScene.h</in>
           <in>LauncherScene.h</in>
@@ -49,28 +63,15 @@
         </df>
         <in>Animation.h</in>
         <in>Camera.h</in>
-        <in>CollisionLayer.h</in>
-        <in>CollisionRectangle.h</in>
-        <in>Container.h</in>
         <in>Entity.h</in>
         <in>EntityManager.h</in>
         <in>GameDefines.h</in>
         <in>GameSceneInput.h</in>
         <in>InputManager.h</in>
-        <in>Item.h</in>
         <in>Listener.h</in>
         <in>Manager.h</in>
-        <in>MapObject.h</in>
-        <in>Parallax.h</in>
-        <in>PathfindingManager.h</in>
-        <in>PathfindingObject.h</in>
         <in>Player.h</in>
         <in>QuadTree.h</in>
-        <in>Serializer.h</in>
-        <in>Tile.h</in>
-        <in>TileItem.h</in>
-        <in>TileLayer.h</in>
-        <in>TileMap.h</in>
         <in>tinystr.h</in>
         <in>tinyxml.h</in>
       </df>
@@ -101,6 +102,10 @@
           <in>TextBox.cpp</in>
         </df>
         <df name="map">
+          <in>MapLoader.cpp</in>
+          <in>Tile.cpp</in>
+          <in>TileLayer.cpp</in>
+          <in>TileMap.cpp</in>
         </df>
         <df name="scene">
           <in>GameScene.cpp</in>
@@ -111,25 +116,12 @@
         </df>
         <in>Animation.cpp</in>
         <in>Camera.cpp</in>
-        <in>CollisionLayer.cpp</in>
-        <in>CollisionRectangle.cpp</in>
-        <in>Container.cpp</in>
         <in>Entity.cpp</in>
         <in>EntityManager.cpp</in>
         <in>InputManager.cpp</in>
-        <in>Item.cpp</in>
         <in>Listener.cpp</in>
         <in>Manager.cpp</in>
-        <in>MapObject.cpp</in>
-        <in>Parallax.cpp</in>
-        <in>PathfindingManger.cpp</in>
-        <in>PathfindingObject.cpp</in>
         <in>Player.cpp</in>
-        <in>Serializer.cpp</in>
-        <in>Tile.cpp</in>
-        <in>TileItem.cpp</in>
-        <in>TileLayer.cpp</in>
-        <in>TileMap.cpp</in>
         <in>main.cpp</in>
         <in>tinystr.cpp</in>
         <in>tinyxml.cpp</in>
@@ -171,7 +163,7 @@
           </ccTool>
         </makeTool>
       </makefileType>
-      <folder path="Game-Framework/src/gui">
+      <folder path="Gravity/src/gui">
         <ccTool>
           <incDir>
             <pElem>include/scene</pElem>
@@ -179,19 +171,34 @@
           </incDir>
         </ccTool>
       </folder>
-      <folder path="Game-Framework/src/scene">
+      <folder path="Gravity/src/map">
         <ccTool>
           <incDir>
+            <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
       </folder>
+      <folder path="Gravity/src/scene">
+        <ccTool>
+          <incDir>
+            <pElem>include/map</pElem>
+            <pElem>include/scene</pElem>
+            <pElem>include/gui</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
+      <item path="include/GameDefines.h" ex="true" tool="3" flavor2="0">
+      </item>
       <item path="include/GameSceneInput.h" ex="true" tool="3" flavor2="0">
+      </item>
+      <item path="include/QuadTree.h" ex="true" tool="3" flavor2="0">
       </item>
       <item path="src/Animation.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
+            <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
@@ -200,30 +207,7 @@
       <item path="src/Camera.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/CollisionLayer.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/CollisionRectangle.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/Container.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
+            <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
@@ -232,6 +216,7 @@
       <item path="src/Entity.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
+            <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
@@ -240,6 +225,7 @@
       <item path="src/EntityManager.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
+            <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
@@ -248,14 +234,7 @@
       <item path="src/InputManager.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/Item.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
+            <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
@@ -264,6 +243,7 @@
       <item path="src/Listener.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
+            <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
@@ -272,38 +252,7 @@
       <item path="src/Manager.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/MapObject.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/Parallax.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/PathfindingManger.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/PathfindingObject.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
+            <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
@@ -312,46 +261,7 @@
       <item path="src/Player.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/Serializer.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/Tile.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/TileItem.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/TileLayer.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/TileMap.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
+            <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
@@ -450,9 +360,26 @@
       <item path="src/main.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
+            <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
+        </ccTool>
+      </item>
+      <item path="src/map/MapLoader.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/map/Tile.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/map/TileLayer.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/map/TileMap.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
         </ccTool>
       </item>
       <item path="src/scene/GameScene.cpp" ex="false" tool="1" flavor2="4">
@@ -478,6 +405,8 @@
       <item path="src/tinystr.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
+            <pElem>include/map</pElem>
+            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -485,6 +414,8 @@
       <item path="src/tinyxml.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
+            <pElem>include/map</pElem>
+            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -492,6 +423,8 @@
       <item path="src/tinyxmlerror.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
+            <pElem>include/map</pElem>
+            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>
@@ -499,6 +432,8 @@
       <item path="src/tinyxmlparser.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
+            <pElem>include/map</pElem>
+            <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
           </incDir>
         </ccTool>

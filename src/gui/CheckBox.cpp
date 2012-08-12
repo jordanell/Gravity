@@ -14,10 +14,7 @@ namespace gravity
     {
         this->game = game;
 
-        if (background == NULL)
-            this->background = game->Content->LoadTexture("/../content/Form/StandardButton.jpg");
-        else
-            this->background = background;
+        this->background = background;
 
         this->size = size;
         this->scene = scene;
@@ -35,8 +32,8 @@ namespace gravity
         this->color = Color(255, 255, 255, 255);
         isActive = false;
 
-        check = game->Content->LoadTexture("Launcher/CheckDot.png");
-        hover = game->Content->LoadTexture("Launcher/CheckHover.png");
+        check = game->Content->LoadTexture("scene/launcher/CheckDot.png");
+        hover = game->Content->LoadTexture("scene/launcher/CheckHover.png");
     }
 
     void CheckBox::Draw()

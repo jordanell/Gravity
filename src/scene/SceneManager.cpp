@@ -12,24 +12,22 @@ using namespace framework;
 
 namespace gravity
 {
-	SceneManager::SceneManager(Game* game):
-		DrawableGameComponent(game)
-	{
-		this->game = game;
-		this->Initialize();
-	}
 
-	void SceneManager::Initialize()
-	{
-		//Always initialize to the launcher scene
+    SceneManager::SceneManager(Game* game) :
+    DrawableGameComponent(game)
+    {
+        this->game = game;
+        this->Initialize();
+    }
+
+    void SceneManager::Initialize()
+    {
+        //Always initialize to the launcher scene
         testScene = new LauncherScene(game, this);
         ActiveScene = testScene;
 
-//		testScene = new GameScene(game);
-//		ActiveScene = testScene;
-
-		DrawableGameComponent::Initialize();
-	}
+        DrawableGameComponent::Initialize();
+    }
 
     void SceneManager::toGameScene()
     {
@@ -37,17 +35,17 @@ namespace gravity
         this->ActiveScene = testScene;
     }
 
-	void SceneManager::Draw()
-	{
-		if(ActiveScene != NULL)
-			ActiveScene->Draw();
-		DrawableGameComponent::Draw();
-	}
+    void SceneManager::Draw()
+    {
+        if (ActiveScene != NULL)
+            ActiveScene->Draw();
+        DrawableGameComponent::Draw();
+    }
 
-	void SceneManager::Update()
-	{
-		if(ActiveScene != NULL)
-			ActiveScene->Update();
-		DrawableGameComponent::Update();
-	}
+    void SceneManager::Update()
+    {
+        if (ActiveScene != NULL)
+            ActiveScene->Update();
+        DrawableGameComponent::Update();
+    }
 }
