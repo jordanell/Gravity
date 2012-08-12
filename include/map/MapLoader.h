@@ -24,10 +24,11 @@ namespace gravity
         MapLoader(Game* game);
 
         // Helper function
-        TileMap* LoadMap(Game* game, const std::string &fileName, Scene* scene);
+        TileMap* LoadMap(const std::string &fileName, Scene* scene);
+        string replaceAll(string str, string from, string to);
         
       private:
-        TileMap* ParseMap(Game* game, TiXmlNode* parent, Scene* scene);
+        TileMap* ParseMap(TiXmlNode* parent, Scene* scene);
 
         TileMap* ParseLayers(TileMap* map, TiXmlNode* parent);
         void ParseLayer(TileMap* map, TileLayer* layer, TiXmlNode* parent);

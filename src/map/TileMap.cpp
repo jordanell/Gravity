@@ -16,12 +16,11 @@ namespace gravity
 		this->game = game;
 	}
 
-	TileMap::TileMap(Game* game, Scene* scene, Camera camera, framework::Rectangle Size):
+	TileMap::TileMap(Game* game, Scene* scene):
 		DrawableGameComponent(game)
 	{
 		this->game = game;
-		this->camera = camera;
-		this->Size = Size;
+                this->scene = scene;
 	}
 
 	TileMap::~TileMap()
@@ -41,7 +40,7 @@ namespace gravity
 	/* Tile Layer stuff */
 	void TileMap::AddTileLayer()
 	{
-			TileLayer* newTileLayer = new TileLayer(game, Size);
+			TileLayer* newTileLayer = new TileLayer(game);
 			layers.push_back(newTileLayer);
 	}
 
@@ -55,12 +54,7 @@ namespace gravity
 		return layers.back();
 	}
 
-	void TileMap::SetSize(framework::Rectangle Size)
-	{
-		this->Size = Size;
-	}
-
-	void TileMap::Draw()
+	void TileMap::Draw(Camera* camera)
 	{
 		//Iterator over list of tiles and draw them
 		for(list<TileLayer*>::iterator it = layers.begin(); it != layers.end(); it++)

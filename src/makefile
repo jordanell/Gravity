@@ -20,7 +20,7 @@ endif
 SOURCES	= $(wildcard *.cpp)
 OBJECTS	= $(SOURCES:.cpp=.o)
 OBJLIBS = libframework.a libmap.a libgui.a libscene.a
-LIBS	= -L. -lframework -lscene -lmap -lgui
+LIBS	= -lscene -lmap -lgui -lframework -L.
 DIRS	= framework gui scene
 
 EXECUTABLE=Game

@@ -11,43 +11,43 @@ using namespace framework;
 
 namespace gravity
 {
-	TileLayer::TileLayer(Game* game, framework::Rectangle size)
-	{
-		this->game = game;
-		this->Size = size;
-	}
 
-	TileLayer::~TileLayer()
-	{
-		
-	}
+    TileLayer::TileLayer(Game* game) :
+    DrawableGameComponent(game)
+    {
+        this->ScrollSpeed = Vector2(1,1);
+    }
+    
+    TileLayer::TileLayer(Game* game, Vector2 scrollspeed) :
+    DrawableGameComponent(game)
+    {
+        this->ScrollSpeed = scrollspeed;
+    }
 
-	/* Add a tile to the layer */
-	void TileLayer::AddTile(Tile* tile)
-	{
-            
-	}
+    TileLayer::~TileLayer()
+    {
 
-	/* Add a tile to the layer */
-	void TileLayer::AddTile(Texture2D* tex, Vector2 scale, float rotation, Vector2 position, Color color)
-	{
-		Tile* newTile = new Tile(game, tex, scale, rotation, position, color);
-                this->Tiles.push_back(newTile);
-	}
+    }
 
-	void TileLayer::Draw(Camera camera)
-	{
-		//Iterate over list and draw tiles
-		for(list<Tile*>::iterator it = Tiles.begin(); it != Tiles.end(); it++)
-		{
-			Tile* ptr = *it;
-			ptr->Draw(camera);
-		}
-	}
+    /* Add a tile to the layer */
+    void TileLayer::AddTile(Tile* tile)
+    {
+        this->Tiles.push_back(tile);
+    }
 
-	void TileLayer::Update()
-	{
+    void TileLayer::Draw(Camera* camera)
+    {
+        //Iterate over list and draw tiles
+        for (list<Tile*>::iterator it = Tiles.begin(); it != Tiles.end(); it++)
+        {
+            Tile* ptr = *it;
+            ptr->Draw(camera);
+        }
+    }
 
-	}
+    void TileLayer::Update()
+    {
+
+    }
 }
 

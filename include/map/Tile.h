@@ -18,22 +18,31 @@ using namespace framework;
 
 namespace gravity
 {
-	class Tile
-	{
-		public:
-			Tile(Game* game);
-			Tile(Game* game, Texture2D* tex, Vector2 s, float rot, Vector2 pos, Color col);
 
-			void Update();
-			void Draw(Camera camera);
+    class Tile : public DrawableGameComponent
+    {
+      public:
+        Tile(Game* game);
+        Tile(Game* game, Texture2D* texture, Vector2 position, Vector2 scale, float rotation,
+                Color color, bool physics);
+        
+        ~Tile();
 
-			Texture2D* Texture;
-			Color TintColor;
+        void Initialize();
 
+        void Update();
+        void Draw(Camera* camera);
 
-		protected:
-			Game* game;
-	};
+        Vector2 Position;
+        Vector2 Scale;
+        float Rotation;
+        Color TintColor;
+        bool Physics;
+
+        Texture2D* Texture;
+
+      protected:
+    };
 }
 
 #endif

@@ -17,25 +17,25 @@ using namespace framework;
 
 namespace gravity
 {
-	class TileLayer
-	{
-		public:
-			TileLayer(Game* game, framework::Rectangle rec);
 
-			~TileLayer();
+    class TileLayer : public DrawableGameComponent
+    {
+      public:
+        TileLayer(Game* game);
+        TileLayer(Game* game, Vector2 scrollspeed);
 
-			void Update();
-			void Draw(Camera camera);
+        ~TileLayer();
 
-			void AddTile(Tile* tile);
-			void AddTile(Texture2D* tex, Vector2 scale, float rotation, Vector2 position, Color color);
+        void Update();
+        void Draw(Camera* camera);
 
-		protected:
-			Game* game;
+        void AddTile(Tile* tile);
+        
+        Vector2 ScrollSpeed;
 
-			framework::Rectangle Size;
-			list<Tile*> Tiles;
-	};
+      protected:
+        list<Tile*> Tiles;
+    };
 }
 
 #endif

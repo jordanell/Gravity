@@ -20,32 +20,30 @@ using namespace framework;
 
 namespace gravity
 {
-	class TileMap: public DrawableGameComponent, InputEvent
-	{
-		public:
-			Camera camera;
-			SDL_Event event;
 
-			TileMap(Game* game);
-			TileMap(Game* game, Scene* scene, Camera camera, framework::Rectangle Size);
+    class TileMap : public DrawableGameComponent, InputEvent
+    {
+      public:
+        SDL_Event event;
 
-			~TileMap();
+        TileMap(Game* game);
+        TileMap(Game* game, Scene* scene);
 
-			void Initialize();
-			void Update();
-			void Draw();
+        ~TileMap();
 
-			void AddTileLayer();
-			void AddTileLayer(TileLayer* layer);
+        void Initialize();
+        void Update();
+        void Draw(Camera* camera);
 
-			TileLayer* LastAddedLayer();
+        void AddTileLayer();
+        void AddTileLayer(TileLayer* layer);
 
-			void SetSize(framework::Rectangle Size);
+        TileLayer* LastAddedLayer();
 
-		protected:
-			list<TileLayer*> layers;
-			framework::Rectangle Size;
-	};
+      protected:
+        Scene* scene;
+        list<TileLayer*> layers;
+    };
 }
 
 #endif

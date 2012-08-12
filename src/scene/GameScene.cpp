@@ -40,10 +40,9 @@ namespace gravity
 	{
 		// Create the map loader and load the map
 		MapLoader* ml = new MapLoader(this->game);
-		Map = ml->LoadMap(this->game, "maps/testlevel.xml", this);
+		Map = ml->LoadMap("maps/testlevel.xml", this);
 
 		// Initialize the entities here
-		player = new Player(game, this, &Map->camera);
 		entityManager = new EntityManager(game, Map);
 
 
@@ -52,17 +51,12 @@ namespace gravity
 
 	void GameScene::Draw()
 	{
-		Map->Draw();
-
-		player->Draw();
 
 		Scene::Draw();
 	}
 
 	void GameScene::Update()
 	{
-		// Call the update on the map
-		Map->Update();
 
 		Scene::Update();
 	}

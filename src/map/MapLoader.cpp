@@ -24,7 +24,8 @@ namespace gravity
     }
 
     // Loading methods
-    TileMap* MapLoader::LoadMap(Game* game, const std::string &fileName, Scene* scene)
+
+    TileMap* MapLoader::LoadMap(const std::string &fileName, Scene* scene)
     {
         // Get the path to the map to load
         string file = GetCurrentDir(game->Content->RootDirectory, sizeof (game->Content->RootDirectory));
@@ -36,7 +37,7 @@ namespace gravity
         TiXmlDocument doc(RealFileName);
         bool loadOkay = doc.LoadFile();
         if (loadOkay)
-            return ParseMap(game, &doc, scene);
+            return ParseMap(&doc, scene);
         else
         {
             cout << "Failed to load map\n";
@@ -44,17 +45,13 @@ namespace gravity
         }
     }
 
-    TileMap* MapLoader::ParseMap(Game* game, TiXmlNode* parent, Scene* scene)
+    TileMap* MapLoader::ParseMap(TiXmlNode* parent, Scene* scene)
     {
         if (!parent)
             return NULL;
 
         TiXmlNode* childNode;
         TiXmlNode* layerNode;
-
-        /* Temporary variables for the map*/
-        int Top, Bottom, Right, Left = 0;
-        string temp;
 
         // Get all of the map elements.
         for (childNode = parent->FirstChild(); childNode != 0; childNode = childNode->NextSibling())
@@ -65,29 +62,13 @@ namespace gravity
                 childNode = childNode->FirstChild();
                 // Find the layers XML node
             else if (!value.compare("Layers"))
+            {
                 layerNode = childNode;
-            else if (!value.compare("Top"))
-            {
-                temp = childNode->ToElement()->GetText();
-                Top = StringToNumber(temp);
-            } else if (!value.compare("Bottom"))
-            {
-                temp = childNode->ToElement()->GetText();
-                Bottom = StringToNumber(temp);
-            } else if (!value.compare("Right"))
-            {
-                temp = childNode->ToElement()->GetText();
-                Right = StringToNumber(temp);
-            } else if (!value.compare("Left"))
-            {
-                temp = childNode->ToElement()->GetText();
-                Left = StringToNumber(temp);
+                break;
             }
         }
 
-        // Now that the variables are set we can create the map
-        TileMap* map = new TileMap(game, scene, Camera(Vector2(0, 0), Vector2(game->Render->GetWidth(), game->Render->GetHeight())),
-                framework::Rectangle(Left - MAX_TEXTURE_WIDTH, Top - MAX_TEXTURE_HEIGHT, Right + MAX_TEXTURE_WIDTH, Bottom + MAX_TEXTURE_HEIGHT));
+        TileMap* map = new TileMap(game, scene);
 
         // Now parse the layers in the layers node
         map = ParseLayers(map, layerNode);
@@ -113,8 +94,8 @@ namespace gravity
             if (!value.compare("TileLayer"))
             {
                 map->AddTileLayer();
-                TileLayer* LayerToAdd = map->LastAddedLayer();
-                ParseLayer(map, LayerToAdd, childNode);
+                TileLayer* LayerAdded = map->LastAddedLayer();
+                ParseLayer(map, LayerAdded, childNode);
             }
         }
 
@@ -129,6 +110,26 @@ namespace gravity
         for (childNode = parent->FirstChild(); childNode != 0; childNode = childNode->NextSibling())
         {
             string value = childNode->Value();
+            if (!value.compare("Tiles"))
+            {
+                TiXmlNode* tile = childNode->FirstChild();
+                for (tile; tile != 0; tile = tile->NextSibling())
+                {
+                    ParseTile(layer, tile);
+                }
+            } else if (!value.compare("ScrollSpeed"))
+            {
+                TiXmlNode* scrollspeed = childNode->FirstChild();
+                // Get the X
+                value = scrollspeed->ToElement()->GetText();
+                float x = StringToNumber(value);
+                // Get the Y
+                scrollspeed = scrollspeed->NextSibling();
+                value = scrollspeed->ToElement()->GetText();
+                float y = StringToNumber(value);
+
+                layer->ScrollSpeed = Vector2(x, y);
+            }
         }
 
     }
@@ -136,35 +137,101 @@ namespace gravity
     void MapLoader::ParseTile(TileLayer* layer, TiXmlNode* parent)
     {
         TiXmlNode* childNode;
-
-        // Create the new tile
-        Tile* tile = new Tile(this->game);
+        
+        // Temp variables for tile creation
+        Vector2 Position;
+        Vector2 Scale;
+        float Rotation;
+        Color TintColor = Color();
+        bool Physics;
+        Texture2D* Texture;
 
         // Get all of the tile's elements.
         for (childNode = parent->FirstChild(); childNode != 0; childNode = childNode->NextSibling())
         {
             string value = childNode->Value();
-            if (!value.compare("TintColor"))
+            if(!value.compare("Position"))
+            {
+                TiXmlNode* position = childNode->FirstChild();
+                // Get the X
+                value = position->ToElement()->GetText();
+                int x = StringToNumber(value);
+                // Get the Y
+                position = position->NextSibling();
+                value = position->ToElement()->GetText();
+                int y = StringToNumber(value);
+                
+                Position = Vector2(x,y);
+            }
+            else if(!value.compare("Scale"))
+            {
+                TiXmlNode* scale = childNode->FirstChild();
+                // Get the X
+                value = scale->ToElement()->GetText();
+                float x = StringToNumber(value);
+                // Get the Y
+                scale = scale->NextSibling();
+                value = scale->ToElement()->GetText();
+                float y = StringToNumber(value);
+                
+                Scale = Vector2(x,y);
+            }
+            else if(!value.compare("Rotation"))
+            {
+                value = childNode->ToElement()->GetText();
+                Rotation = StringToNumber(value);
+            }
+            else if(!value.compare("Physics"))
+            {
+                value = childNode->ToElement()->GetText();
+                if(!value.compare("false"))
+                    Physics = false;
+                else
+                    Physics = true;
+            }
+            else if (!value.compare("TintColor"))
             {
                 TiXmlNode* color = childNode->FirstChild();
                 value = color->ToElement()->GetText();
-                tile->TintColor.Red = StringToNumber(value);
+                TintColor.Red = StringToNumber(value);
                 color = color->NextSibling();
                 value = color->ToElement()->GetText();
-                tile->TintColor.Green = StringToNumber(value);
+                TintColor.Green = StringToNumber(value);
                 color = color->NextSibling();
                 value = color->ToElement()->GetText();
-                tile->TintColor.Blue = StringToNumber(value);
+                TintColor.Blue = StringToNumber(value);
                 color = color->NextSibling();
                 value = color->ToElement()->GetText();
-                tile->TintColor.Alpha = StringToNumber(value);
-            } else if (!value.compare("texture_filename"))
-                tile->Texture = game->Content->LoadTexture(childNode->ToElement()->GetText());
+                TintColor.Alpha = StringToNumber(value);
+            } 
+            else if (!value.compare("texture_filename"))
+            {
+                string name = childNode->ToElement()->GetText();
+                name = replaceAll(name, "\\", "/");
+                Texture = game->Content->LoadTexture(name);
+            }
         }
+        
+        // Create the new tile
+        Tile* tile = new Tile(this->game, Texture, Position, Scale, Rotation, TintColor, Physics);
 
         // Add the tile to the layer
         layer->AddTile(tile);
     }
 
-    
+    string MapLoader::replaceAll(string str, string from, string to)
+    {
+        if (from.empty())
+            return str;
+        size_t start_pos = 0;
+        while ((start_pos = str.find(from, start_pos)) != std::string::npos)
+        {
+            str.replace(start_pos, from.length(), to);
+            start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
+        }
+        
+        return str;
+    }
+
+
 }
