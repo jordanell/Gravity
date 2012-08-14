@@ -9,14 +9,12 @@ using namespace framework;
 namespace gravity
 {
 
-    CheckBox::CheckBox(Game* game, Texture2D* background, framework::Rectangle size, Scene* scene) :
+    CheckBox::CheckBox(Game* game, Texture2D* box, framework::Rectangle position, Scene* scene) :
     GuiObject(game)
     {
-        this->game = game;
+        this->box = box;
 
-        this->background = background;
-
-        this->size = size;
+        this->Position = position;
         this->scene = scene;
 
         this->Initialize();
@@ -30,7 +28,7 @@ namespace gravity
         scene->AddListener(this, listeners);
 
         this->color = Color(255, 255, 255, 255);
-        isActive = false;
+        IsActive = false;
 
         check = game->Content->LoadTexture("scene/launcher/CheckDot.png");
         hover = game->Content->LoadTexture("scene/launcher/CheckHover.png");
@@ -38,11 +36,11 @@ namespace gravity
 
     void CheckBox::Draw()
     {
-        game->Render->Draw(background, size, color);
-        if (isActive)
-            game->Render->Draw(check, size, color);
-        if (isHover)
-            game->Render->Draw(hover, size, color);
+        game->Render->Draw(box, Position, color);
+        if (IsActive)
+            game->Render->Draw(check, Position, color);
+        if (IsHover)
+            game->Render->Draw(hover, Position, color);
     }
 
     void CheckBox::Update()
@@ -52,22 +50,17 @@ namespace gravity
 
     void CheckBox::OnLButtonDown(int mX, int mY)
     {
-        if (this->size.ContainsPoint(new framework::Point(mX, mY)))
+        if (this->Position.ContainsPoint(new framework::Point(mX, mY)))
         {
-            isActive = !isActive;
+            IsActive = !IsActive;
         }
     }
 
     void CheckBox::OnMouseMove(int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle)
     {
-        if (this->size.ContainsPoint(new framework::Point(mX, mY)))
-            isHover = true;
+        if (this->Position.ContainsPoint(new framework::Point(mX, mY)))
+            IsHover = true;
         else
-            isHover = false;
-    }
-
-    bool CheckBox::IsActive()
-    {
-        return isActive;
+            IsHover = false;
     }
 }

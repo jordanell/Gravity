@@ -15,12 +15,13 @@
 
 using namespace framework;
 
-namespace gravity {
-
-    class Button : public GuiObject, public InputEvent {
-    public:
+namespace gravity
+{
+    class Button : public GuiObject, public InputEvent
+    {
+      public:
         Button(Game* game);
-        Button(Game* game, Texture2D* background, framework::Rectangle size, Scene* scene);
+        Button(Game* game, Texture2D* background, framework::Rectangle position, Scene* scene);
 
         void Initialize();
 
@@ -28,13 +29,15 @@ namespace gravity {
         void Draw();
 
         void (*LButtonDownCallback)(Game* game, Scene* scene);
+
         void OnLButtonDown(int mX, int mY);
         void OnMouseMove(int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle);
 
         void SetText(string text);
         string GetText();
 
-    protected:
+      protected:
+        Texture2D* button;
         string text;
     };
 }

@@ -14,15 +14,15 @@ namespace gravity
         cout << "Default button listener";
     }
 
-    Button::Button(Game* game, Texture2D* background, framework::Rectangle size, Scene* scene) :
+    Button::Button(Game* game, Texture2D* button, framework::Rectangle position, Scene* scene) :
     GuiObject(game)
     {
-        this->game = game;
-        this->background = background;
+        this->button = button;
 
-        this->size = size;
+        this->Position = position;
         this->scene = scene;
         this->LButtonDownCallback = &DefaultFunc;
+        
         this->Initialize();
     }
 
@@ -32,26 +32,27 @@ namespace gravity
         listeners.push_back(SDL_MOUSEBUTTONDOWN);
         listeners.push_back(SDL_MOUSEMOTION);
         scene->AddListener(this, listeners);
-        isActive = false;
+        IsActive = false;
 
         this->color = Color(255, 255, 255, 255);
-        
-        GuiObject::Initialize();
     }
 
     void Button::Draw()
     {
-        game->Render->Draw(background, this->size, color);
+        game->Render->Draw(button, this->Position, color);
+        
+        GuiObject::Draw();
     }
 
     void Button::Update()
     {
-
+        
+        GuiObject::Update();
     }
 
     void Button::OnLButtonDown(int mX, int mY)
     {
-        if (this->size.ContainsPoint(new framework::Point(mX, mY)))
+        if (this->Position.ContainsPoint(new framework::Point(mX, mY)))
         {
             if (this->LButtonDownCallback != NULL)
                 this->LButtonDownCallback(game, scene);
@@ -71,10 +72,10 @@ namespace gravity
 
     void Button::OnMouseMove(int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle)
     {
-        if (this->size.ContainsPoint(new framework::Point(mX, mY)))
-            isHover = true;
+        if (this->Position.ContainsPoint(new framework::Point(mX, mY)))
+            IsHover = true;
         else
-            isHover = false;
+            IsHover = false;
     }
 
 }

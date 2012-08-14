@@ -60,13 +60,14 @@ namespace gravity
         // Create sound and full screen check boxes
         fullScreen = new CheckBox(game, game->Content->LoadTexture("scene/launcher/CheckBox.png"), framework::Rectangle(40, 260, 16, 16), this);
         sound = new CheckBox(game, game->Content->LoadTexture("scene/launcher/CheckBox.png"), framework::Rectangle(40, 280, 16, 16), this);
-        
+
         charMap = new CharacterMap(game, "fonts/illuminate.ttf", 16);
-        fsText = new TextBox(game, framework::Rectangle(65, 258, 200, 17), "full screen", Color(200,37,54,255), charMap);
-        esText = new TextBox(game, framework::Rectangle(65, 278, 200, 17), "enable sound", Color(5,118,255,255), charMap);   
+        fsText = new TextBox(game, framework::Rectangle(65, 258, 200, 17), "full screen", Color(200, 37, 54, 255), charMap);
+        esText = new TextBox(game, framework::Rectangle(65, 278, 200, 17), "enable sound", Color(5, 118, 255, 255), charMap);
 
         quitBtn->LButtonDownCallback = &quitButtonDown;
         startBtn->LButtonDownCallback = &startButtonDown;
+
         Scene::Initialize();
     }
 
@@ -78,7 +79,7 @@ namespace gravity
         quitBtn->Draw();
         fullScreen->Draw();
         sound->Draw();
-        
+
         fsText->Draw();
         esText->Draw();
 
@@ -87,6 +88,7 @@ namespace gravity
 
     void LauncherScene::Update()
     {
+
         Scene::Update();
     }
 }

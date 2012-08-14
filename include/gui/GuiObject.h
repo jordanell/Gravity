@@ -18,30 +18,22 @@ using namespace framework;
 
 namespace gravity
 {
-    class GuiObject: public DrawableGameComponent
+    class GuiObject : public DrawableGameComponent
     {
-        public:
-            GuiObject(Game* game);
-            GuiObject(Game* game, Texture2D* background, framework::Rectangle size, float rotation, Color color, Scene* scene);
-            
-            void Initialize();
-            
-            void Update();
-            void Draw(Camera camera);
-            
-            float rotation;
-            framework::Rectangle size;
-            Color color;
+      public:
+        GuiObject(Game* game);
 
-        protected:
-            Texture2D* background;
-            Texture2D* hover;
-            Texture2D* active;
-            
-            bool isActive;
-            bool isHover;
-            
-            Scene* scene;
+        void Initialize();
+
+        void Update();
+        void Draw();
+        
+        Scene* scene;
+        bool IsActive;
+        bool IsHover;
+
+        framework::Rectangle Position;
+        Color color;
     };
 }
 #endif

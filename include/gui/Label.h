@@ -32,7 +32,6 @@ namespace gravity
         
       private:
         Texture2D* Background;
-        framework::Rectangle Position;
         TextBox* Text;
 
     };

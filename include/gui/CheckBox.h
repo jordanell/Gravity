@@ -17,27 +17,26 @@ using namespace framework;
 
 namespace gravity
 {
-	class CheckBox : public GuiObject, public InputEvent
-	{
-        public:
-            CheckBox(Game* game);
-            CheckBox(Game* game, Texture2D* background, framework::Rectangle size, Scene* scene);
-            
-            void Initialize();
-            
-            void Update();
-            void Draw();
-            
-            void OnLButtonDown(int mX, int mY);
-            void OnMouseMove(int mX, int mY, int relX, int relY, bool Left,bool Right,bool Middle);
-            
-            bool IsActive();
+    class CheckBox : public GuiObject, public InputEvent
+    {
+      public:
+        CheckBox(Game* game);
+        CheckBox(Game* game, Texture2D* box, framework::Rectangle position, Scene* scene);
 
-        protected:
-            Texture2D* check;
-            Scene* scene;
+        void Initialize();
 
-	};
+        void Update();
+        void Draw();
+
+        void OnLButtonDown(int mX, int mY);
+        void OnMouseMove(int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle);
+
+      protected:
+        Texture2D* box;
+        Texture2D* check;
+        Texture2D* hover;
+
+    };
 }
 
 #endif

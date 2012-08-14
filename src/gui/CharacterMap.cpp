@@ -13,18 +13,18 @@ namespace gravity
 {
 
     CharacterMap::CharacterMap(Game* game) :
-        GuiObject(game)
+    GuiObject(game)
     {
 
     }
 
     CharacterMap::CharacterMap(Game* game, string font, int fontsize) :
-        GuiObject(game)
+    GuiObject(game)
     {
         this->FontName = font;
         this->FontSize = fontsize;
         this->SpaceSize = -1;
-        
+
         LoadFont(font);
     }
 
@@ -38,14 +38,14 @@ namespace gravity
     {
         ifstream infile("../include/gui/CharacterRange.txt");
         string line;
-        while(getline(infile, line))
+        while (getline(infile, line))
         {
             this->CharMap[line] = game->Render->RenderCharactersToTexture(Font, FontSize, Color(255, 255, 255, 255), line);
-            if(!line.compare("i"))
+            if (!line.compare("i"))
                 SpaceSize = CharMap[line]->Width;
         }
     }
-    
+
     Texture2D* CharacterMap::GetCharacter(string character)
     {
         return CharMap[character];

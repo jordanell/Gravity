@@ -15,39 +15,39 @@
 #include <fstream>
 
 #ifdef __linux__	
-  #include "SDL/SDL_ttf.h"
-  #include "SDL/SDL.h"
-  #include "SDL/SDL_opengl.h"
+#include "SDL/SDL_ttf.h"
+#include "SDL/SDL.h"
+#include "SDL/SDL_opengl.h"
 #else
-  #include "SDL_ttf.h"
-  #include "SDL.h"
-  #include "SDL_opengl.h"
+#include "SDL_ttf.h"
+#include "SDL.h"
+#include "SDL_opengl.h"
 #endif
 
 using namespace framework;
 
 namespace gravity
 {
-    class CharacterMap: public GuiObject
+    class CharacterMap : public GuiObject
     {
       public:
         CharacterMap(Game* game);
         CharacterMap(Game* game, string font, int fontsize);
-        
+
         Texture2D* GetCharacter(string character);
-        
+
         int SpaceSize;
-        
+
       private:
         int FontSize;
         string FontName;
         TTF_Font* Font;
-        
-        map<string,Texture2D*> CharMap;
-        
+
+        map<string, Texture2D*> CharMap;
+
         void LoadFont(string font);
         void RenderFont();
-        
+
     };
 }
 

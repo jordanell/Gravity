@@ -27,12 +27,10 @@ namespace gravity
         void Draw();
         void UpdateText(string text);
         
-        framework::Rectangle Position;
         framework::Rectangle Bounding;
         
       private:
         string Text;
-        Color color;
         CharacterMap* CharMap;
         
         Vector2 Cursor;
