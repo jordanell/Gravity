@@ -34,8 +34,10 @@ namespace gravity
         delete ml;
         
         // Setup buttons
-        singleButton = new Button(game, game->Content->LoadTexture("scene/mainmenu/BlueButton.png"), framework::Rectangle(100, 200, 250, 45), this);
-        //multiButton = new Button(game, game->Content->LoadTexture("scene/mainmenu/BlueButton.png"), framework::Rectangle(460, 325, 100, 50), this);
+        singleButton = new Button(game, game->Content->LoadTexture("scene/mainmenu/BlueButton.png"), framework::Rectangle(100, 200, 200, 40), this);
+        multiButton = new Button(game, game->Content->LoadTexture("scene/mainmenu/BlueButton.png"), framework::Rectangle(100, 245, 200, 40), this);
+        settingsButton = new Button(game, game->Content->LoadTexture("scene/mainmenu/BlueButton.png"), framework::Rectangle(100, 290, 200, 40), this);
+        exitButton = new Button(game, game->Content->LoadTexture("scene/mainmenu/BlueButton.png"), framework::Rectangle(100, 335, 200, 40), this);
         
         Scene::Initialize();
     }
@@ -60,7 +62,9 @@ namespace gravity
         
         // Draw buttons
         singleButton->Draw();
-        //multiButton->Draw();
+        multiButton->Draw();
+        settingsButton->Draw();
+        exitButton->Draw();
 
         Scene::Draw();
     }

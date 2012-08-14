@@ -40,6 +40,8 @@ namespace gravity
         
         Button* singleButton;
         Button* multiButton;
+        Button* settingsButton;
+        Button* exitButton;
 
     };
 }
