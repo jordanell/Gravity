@@ -12,6 +12,8 @@
         <df name="scene">
           <df name="launcher">
           </df>
+          <df name="mainmenu">
+          </df>
         </df>
         <df name="tiles">
           <df name="planets">

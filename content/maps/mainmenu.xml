@@ -31,12 +31,12 @@
                         <Y>0</Y>
                     </Origin>
                     <Physics>false</Physics>
-                    <texture_filename>scene\mainmenu\Stars2000.png</texture_filename>
+                    <texture_filename>tiles\stars\StarFieldBlue1600.png</texture_filename>
                 </Tile>
             </Tiles>
             <ScrollSpeed>
-                <X>0.1</X>
-                <Y>0.1</Y>
+                <X>0.2</X>
+                <Y>0.2</Y>
             </ScrollSpeed>
         </TileLayer>
         <TileLayer>
@@ -71,8 +71,8 @@
                 </Tile>
             </Tiles>
             <ScrollSpeed>
-                <X>0.5</X>
-                <Y>0.5</Y>
+                <X>0.8</X>
+                <Y>0.8</Y>
             </ScrollSpeed>
         </TileLayer>
         <TileLayer>

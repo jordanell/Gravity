@@ -79,7 +79,7 @@ namespace framework
 		iterator = Textures.find(fileName.c_str());
 
 		if(iterator != Textures.end())
-			return &iterator->second;
+			return &(iterator->second);
 		else
 			return NULL;
 	}

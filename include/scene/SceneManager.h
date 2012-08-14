@@ -12,6 +12,7 @@
 #include "Scene.h"
 #include "LauncherScene.h"
 #include "GameScene.h"
+#include "MenuScene.h"
 
 using namespace framework;
 

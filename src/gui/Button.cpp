@@ -35,6 +35,8 @@ namespace gravity
         isActive = false;
 
         this->color = Color(255, 255, 255, 255);
+        
+        GuiObject::Initialize();
     }
 
     void Button::Draw()

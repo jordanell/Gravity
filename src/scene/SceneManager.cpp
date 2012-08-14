@@ -31,7 +31,7 @@ namespace gravity
 
     void SceneManager::toGameScene()
     {
-        testScene = new GameScene(game, this);
+        testScene = new MenuScene(game);
         this->ActiveScene = testScene;
     }
 

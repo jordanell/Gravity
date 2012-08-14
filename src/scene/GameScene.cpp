@@ -35,6 +35,7 @@ namespace gravity
     GameScene::~GameScene()
     {
         delete Map;
+        delete camera;
     }
 
     void GameScene::Initialize()
@@ -45,6 +46,7 @@ namespace gravity
         // Create the map loader and load the map
         MapLoader* ml = new MapLoader(this->game);
         Map = ml->LoadMap("maps/testlevel.xml", this);
+        delete ml;
 
         // Initialize the entities here
         entityManager = new EntityManager(game, Map);
@@ -76,13 +78,13 @@ namespace gravity
     void GameScene::OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode)
     {
         if (sym == SDLK_w)
-            camera->Position.Y -= 4;
+            camera->Position.Y -= 8;
         else if (sym == SDLK_s)
-            camera->Position.Y += 4;
+            camera->Position.Y += 8;
         else if (sym == SDLK_a)
-            camera->Position.X += 4;
+            camera->Position.X -= 8;
         else if (sym == SDLK_d)
-            camera->Position.X -= 4;
+            camera->Position.X += 8;
     }
 }
 

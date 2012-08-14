@@ -10,22 +10,36 @@
 
 #include "framework.h"
 #include "Scene.h"
+#include "MapLoader.h"
+#include "TileMap.h"
+
+#include "Button.h"
+#include "Label.h"
 
 using namespace framework;
 
 namespace gravity
 {
-    class MenuScene: public Scene
+
+    class MenuScene : public Scene
     {
       public:
         MenuScene(Game* game);
         
+        ~MenuScene();
+
         void Initialize();
-        
+
         void Update();
-	void Draw();
-        
+        void Draw();
+
       private:
+        TileMap* Map;
+        Camera* camera;
+        Vector2 camVelocity;
+        
+        Button* singleButton;
+        Button* multiButton;
 
     };
 }
