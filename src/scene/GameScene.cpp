@@ -53,7 +53,7 @@ namespace gravity
         list<Uint8> listeners;
         listeners.push_back(SDL_KEYDOWN);
         this->AddListener(this, listeners);
-        SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY,SDL_DEFAULT_REPEAT_INTERVAL);
+        SDL_EnableKeyRepeat(1,SDL_DEFAULT_REPEAT_INTERVAL);
 
 
         Scene::Initialize();
