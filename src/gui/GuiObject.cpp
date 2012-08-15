@@ -18,7 +18,6 @@ namespace gravity
     DrawableGameComponent(game)
     {
         
-        Initialize();
     }
 
     void GuiObject::Initialize()

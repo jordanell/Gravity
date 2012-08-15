@@ -22,6 +22,8 @@ namespace gravity
       public:
         CheckBox(Game* game);
         CheckBox(Game* game, Texture2D* box, framework::Rectangle position, Scene* scene);
+        CheckBox(Game* game, Texture2D* box, Texture2D* hover, framework::Rectangle position, Scene* scene);
+        CheckBox(Game* game, Texture2D* box, Texture2D* hover, Texture2D* check, framework::Rectangle position, Scene* scene);
 
         void Initialize();
 
@@ -30,11 +32,20 @@ namespace gravity
 
         void OnLButtonDown(int mX, int mY);
         void OnMouseMove(int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle);
+        
+        bool GetStatus();
 
       protected:
         Texture2D* box;
         Texture2D* check;
         Texture2D* hover;
+        
+        Scene* scene;
+        bool IsActive;
+        bool IsHover;
+
+        framework::Rectangle Position;
+        Color color;
 
     };
 }

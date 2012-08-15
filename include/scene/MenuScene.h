@@ -12,6 +12,7 @@
 #include "Scene.h"
 #include "MapLoader.h"
 #include "TileMap.h"
+#include "SceneManager.h"
 
 #include "Button.h"
 #include "Label.h"
@@ -25,7 +26,8 @@ namespace gravity
     {
       public:
         MenuScene(Game* game);
-        
+        MenuScene(Game* game, SceneManager* sm);
+
         ~MenuScene();
 
         void Initialize();
@@ -33,11 +35,13 @@ namespace gravity
         void Update();
         void Draw();
 
+        SceneManager* sm;
+
       private:
         TileMap* Map;
         Camera* camera;
         Vector2 camVelocity;
-        
+
         Button* singleButton;
         Button* multiButton;
         Button* settingsButton;

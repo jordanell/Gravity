@@ -28,7 +28,7 @@ namespace gravity
     {
         LauncherScene *lscene = dynamic_cast<LauncherScene*> (scene);
         if (lscene->sm != NULL)
-            lscene->sm->toGameScene();
+            lscene->sm->changeRequest = CR_MenuScene;
     }
 
     LauncherScene::LauncherScene(Game* game) :
@@ -54,16 +54,24 @@ namespace gravity
         background = game->Content->LoadTexture("scene/launcher/Background.png");
 
         // Create start and quit buttons
-        startBtn = new Button(game, game->Content->LoadTexture("scene/launcher/startbutton.png"), framework::Rectangle(350, 325, 100, 50), this);
-        quitBtn = new Button(game, game->Content->LoadTexture("scene/launcher/quitbutton.png"), framework::Rectangle(460, 325, 100, 50), this);
+        startBtn = new Button(game, game->Content->LoadTexture("gui/buttons/GreenButton.png"),
+                game->Content->LoadTexture("gui/buttons/BlueButtonHover.png"), framework::Rectangle(90, 325, 200, 40), this);
+        
+        quitBtn = new Button(game, game->Content->LoadTexture("gui/buttons/RedButton.png"),
+                game->Content->LoadTexture("gui/buttons/BlueButtonHover.png"),framework::Rectangle(300, 325, 200, 40), this);
 
         // Create sound and full screen check boxes
-        fullScreen = new CheckBox(game, game->Content->LoadTexture("scene/launcher/CheckBox.png"), framework::Rectangle(40, 260, 16, 16), this);
-        sound = new CheckBox(game, game->Content->LoadTexture("scene/launcher/CheckBox.png"), framework::Rectangle(40, 280, 16, 16), this);
+        fullScreen = new CheckBox(game, game->Content->LoadTexture("gui/checkbox/YellowCheckBox16.png"), 
+                game->Content->LoadTexture("gui/checkbox/CheckBoxHover16.png"),
+                game->Content->LoadTexture("gui/checkbox/YellowChecked16.png"), framework::Rectangle(40, 260, 16, 16), this);
+        
+        sound = new CheckBox(game, game->Content->LoadTexture("gui/checkbox/YellowCheckBox16.png"), 
+                game->Content->LoadTexture("gui/checkbox/CheckBoxHover16.png"),
+                game->Content->LoadTexture("gui/checkbox/YellowChecked16.png"),framework::Rectangle(40, 280, 16, 16), this);
 
         charMap = new CharacterMap(game, "fonts/illuminate.ttf", 16);
-        fsText = new TextBox(game, framework::Rectangle(65, 258, 200, 17), "full screen", Color(200, 37, 54, 255), charMap);
-        esText = new TextBox(game, framework::Rectangle(65, 278, 200, 17), "enable sound", Color(5, 118, 255, 255), charMap);
+        fsText = new TextBox(game, framework::Rectangle(65, 258, 200, 17), "full screen", Color(230, 230, 230, 255), charMap);
+        esText = new TextBox(game, framework::Rectangle(65, 278, 200, 17), "enable sound", Color(230, 230, 230, 255), charMap);
 
         quitBtn->LButtonDownCallback = &quitButtonDown;
         startBtn->LButtonDownCallback = &startButtonDown;

@@ -18,11 +18,28 @@ namespace gravity
     GuiObject(game)
     {
         this->button = button;
+        this->hover = NULL;
 
         this->Position = position;
         this->scene = scene;
+
         this->LButtonDownCallback = &DefaultFunc;
-        
+
+        this->Initialize();
+    }
+
+    Button::Button(Game* game, Texture2D* button, Texture2D* hover, framework::Rectangle position, Scene* scene) :
+    GuiObject(game)
+    {
+        this->button = button;
+        this->hover = hover;
+
+        this->Position = position;
+        this->scene = scene;
+
+        this->LButtonDownCallback = &DefaultFunc;
+        this->IsHover = false;
+
         this->Initialize();
     }
 
@@ -32,7 +49,6 @@ namespace gravity
         listeners.push_back(SDL_MOUSEBUTTONDOWN);
         listeners.push_back(SDL_MOUSEMOTION);
         scene->AddListener(this, listeners);
-        IsActive = false;
 
         this->color = Color(255, 255, 255, 255);
     }
@@ -40,13 +56,15 @@ namespace gravity
     void Button::Draw()
     {
         game->Render->Draw(button, this->Position, color);
-        
+        if(IsHover && hover != NULL)
+            game->Render->Draw(hover, this->Position, color);
+
         GuiObject::Draw();
     }
 
     void Button::Update()
     {
-        
+
         GuiObject::Update();
     }
 
@@ -60,6 +78,14 @@ namespace gravity
         }
     }
 
+    void Button::OnMouseMove(int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle)
+    {
+        if (this->Position.ContainsPoint(new framework::Point(mX, mY)))
+            IsHover = true;
+        else
+            IsHover = false;
+    }
+
     void Button::SetText(string text)
     {
         this->text = text;
@@ -68,14 +94,6 @@ namespace gravity
     string Button::GetText()
     {
         return this->text;
-    }
-
-    void Button::OnMouseMove(int mX, int mY, int relX, int relY, bool Left, bool Right, bool Middle)
-    {
-        if (this->Position.ContainsPoint(new framework::Point(mX, mY)))
-            IsHover = true;
-        else
-            IsHover = false;
     }
 
 }

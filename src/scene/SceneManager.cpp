@@ -23,16 +23,9 @@ namespace gravity
     void SceneManager::Initialize()
     {
         //Always initialize to the launcher scene
-        testScene = new LauncherScene(game, this);
-        ActiveScene = testScene;
+        ActiveScene = new LauncherScene(game, this);
 
         DrawableGameComponent::Initialize();
-    }
-
-    void SceneManager::toGameScene()
-    {
-        testScene = new MenuScene(game);
-        this->ActiveScene = testScene;
     }
 
     void SceneManager::Draw()
@@ -44,8 +37,41 @@ namespace gravity
 
     void SceneManager::Update()
     {
+        switch(changeRequest)
+        {
+            case CR_None:
+                break;
+            case CR_MenuScene:
+                toMenuScene();
+                break;
+            case CR_GameScene:
+                toGameScene();
+                break;
+        }
+        
         if (ActiveScene != NULL)
             ActiveScene->Update();
+        
         DrawableGameComponent::Update();
+    }
+    
+    void SceneManager::preSceneChange()
+    {
+        delete ActiveScene;
+        changeRequest = CR_None;
+    }
+    
+    void SceneManager::toGameScene()
+    {
+        preSceneChange();
+        ActiveScene = new GameScene(game);
+    }
+    
+    void SceneManager::toMenuScene()
+    {
+        preSceneChange();
+        game->Content->ClearTextureMap();
+        game->Render->SetResolution(1080, 720);
+        ActiveScene = new MenuScene(game, this);
     }
 }

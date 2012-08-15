@@ -21,7 +21,8 @@ namespace gravity
     {
       public:
         Button(Game* game);
-        Button(Game* game, Texture2D* background, framework::Rectangle position, Scene* scene);
+        Button(Game* game, Texture2D* button, framework::Rectangle position, Scene* scene);
+        Button(Game* game, Texture2D* button, Texture2D* hover, framework::Rectangle position, Scene* scene);
 
         void Initialize();
 
@@ -37,7 +38,15 @@ namespace gravity
         string GetText();
 
       protected:
+        Scene* scene;
+        
         Texture2D* button;
+        Texture2D* hover;
+        
+        framework::Rectangle Position;
+        bool IsHover;
+        Color color;
+        
         string text;
     };
 }

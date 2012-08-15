@@ -1,5 +1,7 @@
 include makefile.inc
 
+DIRS = src
+
 all : 
 	cd src; $(MAKE)
 

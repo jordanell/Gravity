@@ -33,6 +33,11 @@ namespace gravity
       private:
         Texture2D* Background;
         TextBox* Text;
+        
+        Scene* scene;
+
+        framework::Rectangle Position;
+        Color color;
 
     };
 }

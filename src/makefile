@@ -21,7 +21,7 @@ SOURCES	= $(wildcard *.cpp)
 OBJECTS	= $(SOURCES:.cpp=.o)
 OBJLIBS = libframework.a libmap.a libgui.a libscene.a
 LIBS	= -lscene -lmap -lgui -lframework -L.
-DIRS	= framework gui scene
+DIRS	= framework gui scene map
 
 EXECUTABLE=Game
 

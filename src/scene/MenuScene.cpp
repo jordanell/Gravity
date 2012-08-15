@@ -12,9 +12,28 @@ using namespace framework;
 namespace gravity
 {
 
+    void exitButtonDown(Game* game, Scene* scene)
+    {
+        game->Exit();
+    }
+    
+    void singlePlayerButtonDown(Game* game, Scene* scene)
+    {
+        MenuScene *mscene = dynamic_cast<MenuScene*> (scene);
+        if (mscene->sm != NULL)
+            mscene->sm->changeRequest = CR_GameScene;
+    }
+    
     MenuScene::MenuScene(Game* game):
     Scene(game)
     {
+        Initialize();
+    }
+    
+    MenuScene::MenuScene(Game* game, SceneManager* sm):
+    Scene(game)
+    {
+        this->sm = sm;
         Initialize();
     }
     
@@ -26,7 +45,7 @@ namespace gravity
 
     void MenuScene::Initialize()
     {
-        camera = new Camera(Vector2(0,0), Vector2(600,400));
+        camera = new Camera(Vector2(0,0), Vector2(game->Render->GetWidth(),game->Render->GetHeight()));
         camVelocity = Vector2(0.4,0.7);
         
         MapLoader* ml = new MapLoader(this->game);
@@ -34,10 +53,23 @@ namespace gravity
         delete ml;
         
         // Setup buttons
-        singleButton = new Button(game, game->Content->LoadTexture("scene/mainmenu/BlueButton.png"), framework::Rectangle(100, 200, 200, 40), this);
-        multiButton = new Button(game, game->Content->LoadTexture("scene/mainmenu/BlueButton.png"), framework::Rectangle(100, 245, 200, 40), this);
-        settingsButton = new Button(game, game->Content->LoadTexture("scene/mainmenu/BlueButton.png"), framework::Rectangle(100, 290, 200, 40), this);
-        exitButton = new Button(game, game->Content->LoadTexture("scene/mainmenu/BlueButton.png"), framework::Rectangle(100, 335, 200, 40), this);
+        singleButton = new Button(game, game->Content->LoadTexture("gui/buttons/BlueButton.png"),
+                game->Content->LoadTexture("gui/buttons/BlueButtonHover.png"), 
+                framework::Rectangle(game->Render->GetWidth()/2 - 100, game->Render->GetHeight()/2 - 100, 200, 40), this);
+        singleButton->LButtonDownCallback = &singlePlayerButtonDown;
+        
+        multiButton = new Button(game, game->Content->LoadTexture("gui/buttons/BlueButton.png"),
+                game->Content->LoadTexture("gui/buttons/BlueButtonHover.png"), 
+                framework::Rectangle(game->Render->GetWidth()/2 - 100, game->Render->GetHeight()/2 - 50, 200, 40), this);
+        
+        settingsButton = new Button(game, game->Content->LoadTexture("gui/buttons/BlueButton.png"),
+                game->Content->LoadTexture("gui/buttons/BlueButtonHover.png"), 
+                framework::Rectangle(game->Render->GetWidth()/2 - 100, game->Render->GetHeight()/2, 200, 40), this);
+        
+        exitButton = new Button(game, game->Content->LoadTexture("gui/buttons/RedButton.png"),
+                game->Content->LoadTexture("gui/buttons/BlueButtonHover.png"),
+                framework::Rectangle(game->Render->GetWidth()/2 - 100, game->Render->GetHeight()/2 + 50, 200, 40), this);
+        exitButton->LButtonDownCallback = &exitButtonDown;
         
         Scene::Initialize();
     }

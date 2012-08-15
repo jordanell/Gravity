@@ -10,6 +10,7 @@
 
 #include "framework.h"
 #include "Scene.h"
+
 #include "LauncherScene.h"
 #include "GameScene.h"
 #include "MenuScene.h"
@@ -18,19 +19,32 @@ using namespace framework;
 
 namespace gravity
 {
-	class SceneManager: public DrawableGameComponent
-	{
-		public:
-			SceneManager(Game* game);
-            void toGameScene();
-			Scene* ActiveScene;
-			void Initialize();
-			void Draw();
-			void Update();
 
-		protected:
-			Scene* testScene;
-	};
+    enum ChangeRequest
+    {
+        CR_None,
+        CR_MenuScene,
+        CR_GameScene
+    };
+
+    class SceneManager : public DrawableGameComponent
+    {
+      public:
+        Scene* ActiveScene;
+
+        SceneManager(Game* game);
+
+        void Initialize();
+
+        void Draw();
+        void Update();
+
+        void preSceneChange();
+        void toGameScene();
+        void toMenuScene();
+
+        ChangeRequest changeRequest;
+    };
 }
 
 #endif

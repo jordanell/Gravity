@@ -13,6 +13,34 @@ namespace gravity
     GuiObject(game)
     {
         this->box = box;
+        this->hover = NULL;
+        this->check = NULL;
+
+        this->Position = position;
+        this->scene = scene;
+
+        this->Initialize();
+    }
+    
+    CheckBox::CheckBox(Game* game, Texture2D* box, Texture2D* hover, framework::Rectangle position, Scene* scene) :
+    GuiObject(game)
+    {
+        this->box = box;
+        this->hover = hover;
+        this->check = NULL;
+
+        this->Position = position;
+        this->scene = scene;
+
+        this->Initialize();
+    }
+    
+    CheckBox::CheckBox(Game* game, Texture2D* box, Texture2D* hover, Texture2D* check, framework::Rectangle position, Scene* scene) :
+    GuiObject(game)
+    {
+        this->box = box;
+        this->hover = hover;
+        this->check = check;
 
         this->Position = position;
         this->scene = scene;
@@ -29,18 +57,16 @@ namespace gravity
 
         this->color = Color(255, 255, 255, 255);
         IsActive = false;
-
-        check = game->Content->LoadTexture("scene/launcher/CheckDot.png");
-        hover = game->Content->LoadTexture("scene/launcher/CheckHover.png");
+        IsHover = false;
     }
 
     void CheckBox::Draw()
     {
         game->Render->Draw(box, Position, color);
-        if (IsActive)
-            game->Render->Draw(check, Position, color);
-        if (IsHover)
+        if (IsHover && hover != NULL)
             game->Render->Draw(hover, Position, color);
+        if (IsActive && check != NULL)
+            game->Render->Draw(check, Position, color);
     }
 
     void CheckBox::Update()
@@ -62,5 +88,10 @@ namespace gravity
             IsHover = true;
         else
             IsHover = false;
+    }
+    
+    bool CheckBox::GetStatus()
+    {
+        return IsActive;
     }
 }

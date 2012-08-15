@@ -27,13 +27,6 @@ namespace gravity
 
         void Update();
         void Draw();
-        
-        Scene* scene;
-        bool IsActive;
-        bool IsHover;
-
-        framework::Rectangle Position;
-        Color color;
     };
 }
 #endif

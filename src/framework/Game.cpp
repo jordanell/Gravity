@@ -8,65 +8,66 @@
 
 namespace framework
 {
-	Game::Game()
-	{
-	}
 
-	void Game::Initialize()
-	{
-		//Create RenderEngine
-		Render = new RenderEngine("Game", DEFAULT_WIDTH, DEFAULT_HEIGHT, false);
-		//Create ContentManager
-		Content = new ContentManager();
-		//Create Component Collection
-		Components = new GameComponentCollection();
-	}
+    Game::Game()
+    {
+    }
 
-	void Game::Run()
-	{
-		//Before game runs call the initializer
-		Initialize();
+    void Game::Initialize()
+    {
+        //Create RenderEngine
+        Render = new RenderEngine("Game", DEFAULT_WIDTH, DEFAULT_HEIGHT, false);
+        //Create ContentManager
+        Content = new ContentManager();
+        //Create Component Collection
+        Components = new GameComponentCollection();
+    }
 
-		Timer FPS;
+    void Game::Run()
+    {
+        //Before game runs call the initializer
+        Initialize();
 
-		for(;;)
-		{
-			FPS.Start();
+        Timer FPS;
 
-			Update();
-		
-			BeginDraw();
-			Draw();
-			EndDraw();
+        for (;;)
+        {
+            FPS.Start();
 
-			if(FPS.GetTicks() < (MILLISECONDS / FRAMES_PER_SECOND))
-				SDL_Delay((MILLISECONDS / FRAMES_PER_SECOND) - FPS.GetTicks());
-		}
-	}
+            Update();
 
-	void Game::Exit()
-	{
-		exit(0);
-	}
+            BeginDraw();
+            Draw();
+            EndDraw();
 
-	void Game::BeginDraw()
-	{
-		Render->PreDraw();
-	}
+            if (FPS.GetTicks() < (MILLISECONDS / FRAMES_PER_SECOND))
+                SDL_Delay((MILLISECONDS / FRAMES_PER_SECOND) - FPS.GetTicks());
+        }
+    }
 
-	void Game::Draw()
-	{
-		Components->Draw();
-	}
+    void Game::Exit()
+    {
+        exit(0);
+    }
 
-	void Game::EndDraw()
-	{
-		Render->PostDraw();
-	}
+    void Game::BeginDraw()
+    {
+        Render->PreDraw();
+    }
 
-	void Game::Update()
-	{
-		Components->Update();
-	}
+    void Game::Draw()
+    {
+        Components->Draw();
+    }
+
+    void Game::EndDraw()
+    {
+        Render->PostDraw();
+    }
+
+    void Game::Update()
+    {
+        Components->Update();
+    }
 }
 
