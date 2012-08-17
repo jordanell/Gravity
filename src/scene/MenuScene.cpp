@@ -53,21 +53,21 @@ namespace gravity
         delete ml;
         
         // Setup buttons
-        singleButton = new Button(game, game->Content->LoadTexture("gui/buttons/BlueButton.png"),
-                game->Content->LoadTexture("gui/buttons/BlueButtonHover.png"), 
+        singleButton = new Button(game, game->Content->LoadTexture("gui/buttons/Green250.png"),
+                game->Content->LoadTexture("gui/buttons/Hover250.png"), 
                 framework::Rectangle(game->Render->GetWidth()/2 - 100, game->Render->GetHeight()/2 - 100, 200, 40), this);
         singleButton->LButtonDownCallback = &singlePlayerButtonDown;
         
-        multiButton = new Button(game, game->Content->LoadTexture("gui/buttons/BlueButton.png"),
-                game->Content->LoadTexture("gui/buttons/BlueButtonHover.png"), 
+        multiButton = new Button(game, game->Content->LoadTexture("gui/buttons/Green250.png"),
+                game->Content->LoadTexture("gui/buttons/Hover250.png"), 
                 framework::Rectangle(game->Render->GetWidth()/2 - 100, game->Render->GetHeight()/2 - 50, 200, 40), this);
         
-        settingsButton = new Button(game, game->Content->LoadTexture("gui/buttons/BlueButton.png"),
-                game->Content->LoadTexture("gui/buttons/BlueButtonHover.png"), 
+        settingsButton = new Button(game, game->Content->LoadTexture("gui/buttons/Blue250.png"),
+                game->Content->LoadTexture("gui/buttons/Hover250.png"), 
                 framework::Rectangle(game->Render->GetWidth()/2 - 100, game->Render->GetHeight()/2, 200, 40), this);
         
-        exitButton = new Button(game, game->Content->LoadTexture("gui/buttons/RedButton.png"),
-                game->Content->LoadTexture("gui/buttons/BlueButtonHover.png"),
+        exitButton = new Button(game, game->Content->LoadTexture("gui/buttons/Red250.png"),
+                game->Content->LoadTexture("gui/buttons/Hover250.png"),
                 framework::Rectangle(game->Render->GetWidth()/2 - 100, game->Render->GetHeight()/2 + 50, 200, 40), this);
         exitButton->LButtonDownCallback = &exitButtonDown;
         

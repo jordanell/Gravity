@@ -54,19 +54,19 @@ namespace gravity
         background = game->Content->LoadTexture("scene/launcher/Background.png");
 
         // Create start and quit buttons
-        startBtn = new Button(game, game->Content->LoadTexture("gui/buttons/GreenButton.png"),
-                game->Content->LoadTexture("gui/buttons/BlueButtonHover.png"), framework::Rectangle(90, 325, 200, 40), this);
+        startBtn = new Button(game, game->Content->LoadTexture("gui/buttons/Green250.png"),
+                game->Content->LoadTexture("gui/buttons/Hover250.png"), framework::Rectangle(90, 325, 200, 40), this);
         
-        quitBtn = new Button(game, game->Content->LoadTexture("gui/buttons/RedButton.png"),
-                game->Content->LoadTexture("gui/buttons/BlueButtonHover.png"),framework::Rectangle(300, 325, 200, 40), this);
+        quitBtn = new Button(game, game->Content->LoadTexture("gui/buttons/Red250.png"),
+                game->Content->LoadTexture("gui/buttons/Hover250.png"),framework::Rectangle(300, 325, 200, 40), this);
 
         // Create sound and full screen check boxes
-        fullScreen = new CheckBox(game, game->Content->LoadTexture("gui/checkbox/YellowCheckBox16.png"), 
-                game->Content->LoadTexture("gui/checkbox/CheckBoxHover16.png"),
+        fullScreen = new CheckBox(game, game->Content->LoadTexture("gui/checkbox/Yellow16.png"), 
+                game->Content->LoadTexture("gui/checkbox/Hover16.png"),
                 game->Content->LoadTexture("gui/checkbox/YellowChecked16.png"), framework::Rectangle(40, 260, 16, 16), this);
         
-        sound = new CheckBox(game, game->Content->LoadTexture("gui/checkbox/YellowCheckBox16.png"), 
-                game->Content->LoadTexture("gui/checkbox/CheckBoxHover16.png"),
+        sound = new CheckBox(game, game->Content->LoadTexture("gui/checkbox/Yellow16.png"), 
+                game->Content->LoadTexture("gui/checkbox/Hover16.png"),
                 game->Content->LoadTexture("gui/checkbox/YellowChecked16.png"),framework::Rectangle(40, 280, 16, 16), this);
 
         charMap = new CharacterMap(game, "fonts/illuminate.ttf", 16);

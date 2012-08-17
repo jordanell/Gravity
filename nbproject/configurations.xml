@@ -9,13 +9,8 @@
         </df>
         <df name="gui">
           <df name="buttons">
-            <in>BlueButton.png</in>
-            <in>GreenButton.png</in>
-            <in>RedButton.png</in>
-            <in>YellowButton.png</in>
           </df>
           <df name="checkbox">
-            <in>YellowCheckBox16.png</in>
           </df>
         </df>
         <df name="maps">

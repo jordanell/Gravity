@@ -71,7 +71,7 @@ namespace gravity
     {
         preSceneChange();
         game->Content->ClearTextureMap();
-        game->Render->SetResolution(1080, 720);
+        //game->Render->SetResolution(1080, 720);
         ActiveScene = new MenuScene(game, this);
     }
 }
