@@ -2,7 +2,7 @@ include ../../makefile.inc
 
 UNAME:= $(shell uname)
 ifeq ($(UNAME), Linux)
-INCLUDES=-I../../include/framework/ -I../../include/gui/ -I../../include/scene/ -I../../include/ -I../../include/map
+INCLUDES=-I../../include/framework/ -I../../include/gui/ -I../../include/scene/ -I../../include/ -I../../include/map/
 endif
 
 SOURCES	= $(wildcard *.cpp)

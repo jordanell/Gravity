@@ -9,6 +9,8 @@
 #ifndef TILE_H
 #define TILE_H
 
+#include "Box2D.h"
+
 #include "framework.h"
 #include "Camera.h"
 #include <string>

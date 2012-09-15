@@ -33,7 +33,10 @@ namespace gravity
     
     void Tile::Initialize()
     {
-        
+        if(Physics)
+        {
+            
+        }
     }
 
     void Tile::Draw(Camera* camera)

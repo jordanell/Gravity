@@ -303,6 +303,7 @@ namespace framework
         else
             SDL_SetVideoMode(Width, Height, 32, SDL_OPENGL | SDL_FULLSCREEN);
         
+        
         glClearColor(0, 0, 0, 1);
 
         glViewport(0, 0, Width, Height);

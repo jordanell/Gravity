@@ -2,7 +2,7 @@ include ../makefile.inc
 
 UNAME:= $(shell uname)
 ifeq ($(UNAME), Linux)
-LDFLAGS=-lSDLmain -lSDL -lGL -lSDL_image -lSDL_ttf
+LDFLAGS=-lSDLmain -lSDL -lGL -lSDL_image -lSDL_ttf -lBox2D
 else ifeq ($(UNAME), Darwin)
 LDFLAGS=-framework OpenGL -framework SDL -framework SDL_image -framework cocoa -lSDLmain -lSDL_ttf
 else

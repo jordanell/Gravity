@@ -42,6 +42,10 @@ namespace gravity
     {
         // Load the camera at 0,0
         camera = new Camera(Vector2(-200, -100), Vector2(600, 400));
+        
+        // Set up box2d
+        b2Vec2 gravity(0,0);
+        world = new b2World(gravity);
 
         // Create the map loader and load the map
         MapLoader* ml = new MapLoader(this->game);
