@@ -17,6 +17,7 @@ using namespace framework;
 
 namespace gravity
 {
+    class TileMap;
 
     class TileLayer : public DrawableGameComponent
     {
@@ -31,7 +32,11 @@ namespace gravity
 
         void AddTile(Tile* tile);
         
+        void SetMap(TileMap* Map);
+        
         Vector2 ScrollSpeed;
+        
+        TileMap* Map;
 
       protected:
         list<Tile*> Tiles;

@@ -213,7 +213,7 @@ namespace gravity
         }
         
         // Create the new tile
-        Tile* tile = new Tile(this->game, Texture, Position, Scale, Rotation, TintColor, Physics);
+        Tile* tile = new Tile(this->game, layer, Texture, Position, Scale, Rotation, TintColor, Physics);
 
         // Add the tile to the layer
         layer->AddTile(tile);

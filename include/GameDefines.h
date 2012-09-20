@@ -20,4 +20,10 @@ const int CONTAINER_DESCRIPTION = 75;
 const int MAX_TILE_WIDTH = 500;
 const int MAX_TILE_HEIGHT = 500;
 
+// Box2D Conversions
+const float PIXELS_TO_METERS = 0.0625;
+const int METERS_TO_PIXELS = 16;
+const float HALF_BLOCK_METERS = 0.5;
+const int HALF_BLOCK_PIXELS = 8;
+
 #endif

@@ -17,8 +17,6 @@
 #define GetCurrentDir getcwd
 #endif
 
-#include "Box2D/Box2D.h"
-
 #include "framework.h"
 #include "Scene.h"
 #include "TileMap.h"
@@ -64,7 +62,6 @@ namespace gravity
         void OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
 
       protected:
-        b2World* world;
         TileMap* Map;
         Camera* camera;
 

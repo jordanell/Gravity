@@ -34,6 +34,11 @@ namespace gravity
     {
         this->Tiles.push_back(tile);
     }
+    
+    void TileLayer::SetMap(TileMap* Map)
+    {
+        this->Map = Map;
+    }
 
     void TileLayer::Draw(Camera* camera)
     {
@@ -50,7 +55,12 @@ namespace gravity
 
     void TileLayer::Update()
     {
-
+        //Iterate over list and update tiles
+        for (list<Tile*>::iterator it = Tiles.begin(); it != Tiles.end(); it++)
+        {
+            Tile* ptr = *it;
+            ptr->Update();
+        }
     }
 }
 

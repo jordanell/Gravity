@@ -13,6 +13,7 @@
 
 #include "framework.h"
 #include "Camera.h"
+#include "GameDefines.h"
 #include <string>
 #include <list>
 
@@ -20,17 +21,20 @@ using namespace framework;
 
 namespace gravity
 {
+    class TileLayer;
 
     class Tile : public DrawableGameComponent
     {
       public:
         Tile(Game* game);
-        Tile(Game* game, Texture2D* texture, Vector2 position, Vector2 scale, float rotation,
+        Tile(Game* game, TileLayer* Layer, Texture2D* texture, Vector2 position, Vector2 scale, float rotation,
                 Color color, bool physics);
         
         ~Tile();
 
         void Initialize();
+        
+        void SetLayer(TileLayer* Layer);
 
         void Update();
         void Draw(Camera* camera);
@@ -42,8 +46,10 @@ namespace gravity
         bool Physics;
 
         Texture2D* Texture;
-
-      protected:
+        
+        TileLayer* Layer;
+        
+        b2Body* Body;
     };
 }
 
