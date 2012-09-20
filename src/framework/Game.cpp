@@ -16,7 +16,7 @@ namespace framework
     void Game::Initialize()
     {
         //Create RenderEngine
-        Render = new RenderEngine("Game", DEFAULT_WIDTH, DEFAULT_HEIGHT, false);
+        Render = new RenderEngine("Gravity", DEFAULT_WIDTH, DEFAULT_HEIGHT, false);
         //Create ContentManager
         Content = new ContentManager();
         //Create Component Collection

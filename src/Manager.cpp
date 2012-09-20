@@ -11,36 +11,37 @@ using namespace framework;
 
 namespace gravity
 {
-	Manager::Manager():
-		Game()
-	{
 
-	}
+    Manager::Manager() :
+    Game()
+    {
 
-	void Manager::Initialize()
-	{
-		Game::Initialize();
+    }
 
-		// Create the Scene Manager
-		sceneManager = new SceneManager(this);
-		this->Components->Add(sceneManager);
+    void Manager::Initialize()
+    {
+        Game::Initialize();
 
-		// Create the Input Manager
-		inputManager = new InputManager(this);
-		inputManager->SetScene(sceneManager);
-		this->Components->Add(inputManager);
-	}
+        // Create the Scene Manager
+        sceneManager = new SceneManager(this);
+        this->Components->Add(sceneManager);
 
-	void Manager::Draw()
-	{
+        // Create the Input Manager
+        inputManager = new InputManager(this);
+        inputManager->SetScene(sceneManager);
+        this->Components->Add(inputManager);
+    }
 
-		Game::Draw();
-	}
+    void Manager::Draw()
+    {
 
-	void Manager::Update()
-	{
+        Game::Draw();
+    }
 
-		Game::Update();
-	}
+    void Manager::Update()
+    {
+
+        Game::Update();
+    }
 }
 

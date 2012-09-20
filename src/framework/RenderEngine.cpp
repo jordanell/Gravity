@@ -297,16 +297,10 @@ namespace framework
     {
         this->Width = width;
         this->Height = height;
-
-        if (!FullScreen)
-            SDL_SetVideoMode(Width, Height, 32, SDL_OPENGL);
-        else
-            SDL_SetVideoMode(Width, Height, 32, SDL_OPENGL | SDL_FULLSCREEN);
         
+        SDL_Quit();
         
-        glClearColor(0, 0, 0, 1);
-
-        glViewport(0, 0, Width, Height);
+        Init("Gravity", this->FullScreen);
     }
 
     void RenderEngine::SetFullScreen(bool fullScreen)
