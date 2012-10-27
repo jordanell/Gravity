@@ -5,6 +5,10 @@
       <df name="bin">
       </df>
       <df name="content">
+        <df name="entities">
+          <df name="hero">
+          </df>
+        </df>
         <df name="fonts">
         </df>
         <df name="gui">
@@ -29,6 +33,11 @@
         </df>
       </df>
       <df name="include">
+        <df name="entities">
+          <in>Entity.h</in>
+          <in>EntityManager.h</in>
+          <in>Hero.h</in>
+        </df>
         <df name="framework">
           <in>Color.h</in>
           <in>ContentManager.h</in>
@@ -71,8 +80,6 @@
         </df>
         <in>Animation.h</in>
         <in>Camera.h</in>
-        <in>Entity.h</in>
-        <in>EntityManager.h</in>
         <in>GameDefines.h</in>
         <in>GameSceneInput.h</in>
         <in>InputManager.h</in>
@@ -84,6 +91,11 @@
         <in>tinyxml.h</in>
       </df>
       <df name="src">
+        <df name="entities">
+          <in>Entity.cpp</in>
+          <in>EntityManager.cpp</in>
+          <in>Hero.cpp</in>
+        </df>
         <df name="framework">
           <in>Color.cpp</in>
           <in>ContentManager.cpp</in>
@@ -124,8 +136,6 @@
         </df>
         <in>Animation.cpp</in>
         <in>Camera.cpp</in>
-        <in>Entity.cpp</in>
-        <in>EntityManager.cpp</in>
         <in>InputManager.cpp</in>
         <in>Listener.cpp</in>
         <in>Manager.cpp</in>
@@ -171,6 +181,16 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <folder path="Gravity/src/entities">
+        <ccTool>
+          <incDir>
+            <pElem>include/map</pElem>
+            <pElem>include/scene</pElem>
+            <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
       <folder path="Gravity/src/gui">
         <ccTool>
           <incDir>
@@ -194,11 +214,10 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </folder>
-      <item path="include/GameDefines.h" ex="true" tool="3" flavor2="0">
-      </item>
       <item path="include/GameSceneInput.h" ex="true" tool="3" flavor2="0">
       </item>
       <item path="include/QuadTree.h" ex="true" tool="3" flavor2="0">
@@ -209,6 +228,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -218,24 +238,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/Entity.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/map</pElem>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/EntityManager.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/map</pElem>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -245,6 +248,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -254,6 +258,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -263,6 +268,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -272,7 +278,20 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
+        </ccTool>
+      </item>
+      <item path="src/entities/Entity.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/entities/EntityManager.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/entities/Hero.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
         </ccTool>
       </item>
       <item path="src/framework/Color.cpp" ex="false" tool="1" flavor2="4">
@@ -371,6 +390,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -416,6 +436,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -425,6 +446,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -434,6 +456,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -443,6 +466,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>

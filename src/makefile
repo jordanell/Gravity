@@ -10,7 +10,7 @@ LDFLAGS=-LC:\Windows\SDL-1.2.14\lib -lmingw32 -lSDLmain -lSDL -lopengl32 -lglu32
 endif
 
 ifeq ($(UNAME), Linux)
-INCLUDES=-I../include/framework/ -I../include/ -I../include/scene/ -I../include/gui/ -I../include/map/
+INCLUDES=-I../include/framework/ -I../include/ -I../include/scene/ -I../include/gui/ -I../include/map/ -I../include/entities/
 else ifeq ($(UNAME), Darwin)
 INCLUDES=-I../include/framework/ -I../include/ -F/Library/Frameworks/ -I/Library/Frameworks/SDL.framework/Headers -I/Library/Frameworks/SDL_image.framework/Headers -I/Library/Frameworks/SDL_ttf.framework/Headers
 else
@@ -19,9 +19,9 @@ endif
 
 SOURCES	= $(wildcard *.cpp)
 OBJECTS	= $(SOURCES:.cpp=.o)
-OBJLIBS = libframework.a libmap.a libgui.a libscene.a
-LIBS	= -lscene -lmap -lgui -lframework -L.
-DIRS	= framework gui scene map
+OBJLIBS = libframework.a libmap.a libgui.a libscene.a libentities.a
+LIBS	= -lscene -lmap -lgui -lentities -lframework -L.
+DIRS	= framework gui scene map entities
 
 EXECUTABLE=Game
 
@@ -38,6 +38,9 @@ libgui.a : force_look
 	
 libscene.a : force_look
 	cd scene; $(MAKE)
+
+libentities.a : force_look
+	cd entities; $(MAKE)
 	
 libmap.a : force_look
 	cd map; $(MAKE)

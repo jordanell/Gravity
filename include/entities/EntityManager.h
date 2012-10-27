@@ -11,6 +11,7 @@
 #include <list>
 #include "TileMap.h"
 #include "Entity.h"
+#include "Hero.h"
 
 using namespace framework;
 
@@ -28,6 +29,8 @@ namespace gravity
 			
 			void Update();
 			void Draw();
+                        
+                        Hero* hero;
 		
 		protected:
 			list<Entity*> Entities;
