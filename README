@@ -1,6 +1,7 @@
 # Gravity
 
 Gravity is a 2D puzzle platform game developed using SDL and OpenGL. This game is cross platform and currently supports Windows, OSX, and Linux.
+This game makes use of a custom built 2D game framework which can be found inside of the framework directories.
 
 # Dependencies
 
