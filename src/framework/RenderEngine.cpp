@@ -265,8 +265,11 @@ namespace framework
     }
 
     void RenderEngine::PostDraw()
-    {
+    {   
         glPopMatrix(); //End phase for rendering
+        
+        glFlush();
+        glFinish();
 
         SDL_GL_SwapBuffers();
 

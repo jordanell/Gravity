@@ -80,13 +80,13 @@ namespace gravity
     void GameScene::OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode)
     {
         if (sym == SDLK_w)
-            camera->Position.Y -= 8;
+            camera->Position.Y -= 4;
         else if (sym == SDLK_s)
-            camera->Position.Y += 8;
+            camera->Position.Y += 4;
         else if (sym == SDLK_a)
-            camera->Position.X -= 8;
+            camera->Position.X -= 4;
         else if (sym == SDLK_d)
-            camera->Position.X += 8;
+            camera->Position.X += 4;
     }
 }
 
