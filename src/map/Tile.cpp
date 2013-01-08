@@ -39,7 +39,6 @@ namespace gravity
         // Create the body
         b2BodyDef myBodyDef;
         if (Physics)
-            myBodyDef.
             myBodyDef.type = b2_dynamicBody;
         else
             myBodyDef.type = b2_staticBody;
