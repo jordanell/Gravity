@@ -113,7 +113,7 @@ namespace gravity
             if (!value.compare("Tiles"))
             {
                 TiXmlNode* tile = childNode->FirstChild();
-                for (tile; tile != 0; tile = tile->NextSibling())
+                for (; tile != 0; tile = tile->NextSibling())
                 {
                     ParseTile(layer, tile);
                 }

@@ -51,7 +51,6 @@ namespace gravity
         // Create the shape
         b2PolygonShape boxShape;
         boxShape.SetAsBox(HALF_BLOCK_METERS, HALF_BLOCK_METERS);
-        boxShape.
 
         // Create the fixture
         b2FixtureDef boxFixtureDef;
