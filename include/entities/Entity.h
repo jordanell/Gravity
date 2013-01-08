@@ -14,18 +14,19 @@ using namespace framework;
 
 namespace gravity
 {
-	class Entity: public DrawableGameComponent
-	{
-		public:
-			Entity(Game* game);
-			
-			virtual void Initialize();
-			virtual void Update();
-			virtual void Draw();
-				
-		private:
-		
-	};
+
+    class Entity : public DrawableGameComponent
+    {
+      public:
+        Entity(Game* game);
+
+        virtual void Initialize();
+        virtual void Update();
+        virtual void Draw();
+
+      private:
+
+    };
 }
 
 #endif

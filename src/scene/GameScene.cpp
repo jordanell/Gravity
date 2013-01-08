@@ -41,7 +41,7 @@ namespace gravity
     void GameScene::Initialize()
     {
         // Load the camera at 0,0
-        camera = new Camera(Vector2(-200, -100), Vector2(600, 400));
+        camera = new Camera(Vector2(-400, -400), Vector2(600, 400));
 
         // Create the map loader and load the map
         MapLoader* ml = new MapLoader(this->game);
@@ -50,6 +50,8 @@ namespace gravity
 
         // Initialize the entities here
         entityManager = new EntityManager(game, Map);
+        Hero* h = new Hero(game, Map);
+        entityManager->hero = h;
 
         // Set up to listen for camera movements
         list<Uint8> listeners;

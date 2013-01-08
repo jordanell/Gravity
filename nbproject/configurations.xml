@@ -1,34 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="84">
+<configurationDescriptor version="88">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <df name="Gravity" root=".">
-      <df name="bin">
-      </df>
-      <df name="content">
-        <df name="fonts">
-        </df>
-        <df name="gui">
-          <df name="buttons">
-          </df>
-          <df name="checkbox">
-          </df>
-        </df>
-        <df name="maps">
-        </df>
-        <df name="scene">
-          <df name="launcher">
-          </df>
-          <df name="mainmenu">
-          </df>
-        </df>
-        <df name="tiles">
-          <df name="planets">
-          </df>
-          <df name="stars">
-          </df>
-        </df>
-      </df>
+    <df root="." name="Gravity">
       <df name="include">
+        <df name="entities">
+          <in>Entity.h</in>
+          <in>EntityManager.h</in>
+          <in>Hero.h</in>
+        </df>
         <df name="framework">
           <in>Color.h</in>
           <in>ContentManager.h</in>
@@ -71,19 +50,20 @@
         </df>
         <in>Animation.h</in>
         <in>Camera.h</in>
-        <in>Entity.h</in>
-        <in>EntityManager.h</in>
         <in>GameDefines.h</in>
-        <in>GameSceneInput.h</in>
         <in>InputManager.h</in>
         <in>Listener.h</in>
         <in>Manager.h</in>
         <in>Player.h</in>
-        <in>QuadTree.h</in>
         <in>tinystr.h</in>
         <in>tinyxml.h</in>
       </df>
       <df name="src">
+        <df name="entities">
+          <in>Entity.cpp</in>
+          <in>EntityManager.cpp</in>
+          <in>Hero.cpp</in>
+        </df>
         <df name="framework">
           <in>Color.cpp</in>
           <in>ContentManager.cpp</in>
@@ -124,8 +104,6 @@
         </df>
         <in>Animation.cpp</in>
         <in>Camera.cpp</in>
-        <in>Entity.cpp</in>
-        <in>EntityManager.cpp</in>
         <in>InputManager.cpp</in>
         <in>Listener.cpp</in>
         <in>Manager.cpp</in>
@@ -171,6 +149,16 @@
           </ccTool>
         </makeTool>
       </makefileType>
+      <folder path="Gravity/src/entities">
+        <ccTool>
+          <incDir>
+            <pElem>include/map</pElem>
+            <pElem>include/scene</pElem>
+            <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
+          </incDir>
+        </ccTool>
+      </folder>
       <folder path="Gravity/src/gui">
         <ccTool>
           <incDir>
@@ -194,14 +182,103 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </folder>
-      <item path="include/GameDefines.h" ex="true" tool="3" flavor2="0">
+      <item path="include/Animation.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/GameSceneInput.h" ex="true" tool="3" flavor2="0">
+      <item path="include/Camera.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/QuadTree.h" ex="true" tool="3" flavor2="0">
+      <item path="include/GameDefines.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/InputManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/Listener.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/Manager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/entities/Entity.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/entities/EntityManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/entities/Hero.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/Color.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/ContentManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/Defines.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/DrawableGameComponent.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="include/framework/Exception.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/GameComponent.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/GameComponentCollection.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="include/framework/InputEvent.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/Line2.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/Point.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/Rectangle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/RenderEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/Texture2D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/Timer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/Vector2.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/framework/framework.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/gui/Button.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/gui/CharacterMap.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/gui/CheckBox.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/gui/GuiObject.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/gui/Label.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/gui/TextBox.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/map/MapLoader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/map/Tile.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/map/TileLayer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/map/TileMap.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/scene/GameScene.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/scene/LauncherScene.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/scene/MenuScene.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/scene/Scene.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/scene/SceneManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/tinystr.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/tinyxml.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/Animation.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
@@ -209,6 +286,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -218,24 +296,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/Entity.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/map</pElem>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
-          </incDir>
-        </ccTool>
-      </item>
-      <item path="src/EntityManager.cpp" ex="false" tool="1" flavor2="4">
-        <ccTool>
-          <incDir>
-            <pElem>include/map</pElem>
-            <pElem>include/scene</pElem>
-            <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -245,6 +306,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -254,6 +316,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -263,6 +326,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -272,7 +336,20 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
+        </ccTool>
+      </item>
+      <item path="src/entities/Entity.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/entities/EntityManager.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/entities/Hero.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
         </ccTool>
       </item>
       <item path="src/framework/Color.cpp" ex="false" tool="1" flavor2="4">
@@ -371,6 +448,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -416,6 +494,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -425,6 +504,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -434,6 +514,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
@@ -443,6 +524,7 @@
             <pElem>include/map</pElem>
             <pElem>include/scene</pElem>
             <pElem>include/gui</pElem>
+            <pElem>include/entities</pElem>
           </incDir>
         </ccTool>
       </item>
